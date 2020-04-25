@@ -26,6 +26,20 @@ public class ControladorLogin implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 	
 		
+		if(e.getActionCommand().equals("LogIn")) {
+			login();
+
+		}else {
+			frame.getPanelBienvenida().setVisible(true);
+			this.panel.setVisible(false);
+		}
+		
+	}
+	
+	
+	
+	private void login() {
+		
 		// validar valores en la vista
 		String nombreUsuario = panel.getNombreUsuario();
 		String password = panel.getPassword();
@@ -51,10 +65,7 @@ public class ControladorLogin implements ActionListener {
 		UsuarioPanel pUsuario = frame.getPanelUsuario();
 		pUsuario.setVisible(true);
 		this.panel.setVisible(false);
-		
-		
 	}
-	
 	
 	
 }

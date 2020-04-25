@@ -36,11 +36,11 @@ public class BienvenidaPanel extends JPanel{
 	
 	
 	//Metodos para el controlador
-	public void setControladorBotonLogin(ActionListener c) {
+	public void setControlador(ActionListener c) {
 		botonLogin.addActionListener(c);
 	}
 	
-	public void setControladorBotonREgistro(ActionListener c) {
+	public void setControladorBotonRegistro(ActionListener c) {
 		botonRegistro.addActionListener(c);
 	}
 	

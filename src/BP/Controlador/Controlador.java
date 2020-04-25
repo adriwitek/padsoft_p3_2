@@ -2,6 +2,7 @@ package BP.Controlador;
 
 import BP.Modelo.*;
 import BP.Vista.*;
+import java.awt.event.*;
 
 public class Controlador {
 
@@ -13,7 +14,7 @@ public class Controlador {
 	//Controladores
 	private ControladorLogin controladorLogin;
 	private ControladorRegistro controladorRegistro;
-	
+	private ControladorBienvenida controladorBienvenida;
 
 	public Controlador(VentanaPrincipal frame, Aplicacion modelo) {
 		this.frame = frame;
@@ -23,14 +24,19 @@ public class Controlador {
 		//Creacion de los controladores de los paneles
 		this.controladorLogin = new ControladorLogin(frame,modelo);
 		this.controladorRegistro = new ControladorRegistro(frame, modelo);
-		
+		this.controladorBienvenida = new ControladorBienvenida(frame, modelo);
 		
 		
 	}
 
 	
 	
-	//GETTER DE LOS CONTROLADORES
+
+	
+	
+	
+	
+	// ****** GETTERS DE LOS CONTROLADORES COMPLEJOS***
 
 	
 	/**
@@ -47,6 +53,16 @@ public class Controlador {
 	 */
 	public ControladorRegistro getControladorRegistro() {
 		return controladorRegistro;
+	}
+
+
+
+
+	/**
+	 * @return the controladorBienvenida
+	 */
+	public ControladorBienvenida getControladorBienvenida() {
+		return controladorBienvenida;
 	}
 
 

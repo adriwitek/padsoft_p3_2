@@ -77,13 +77,12 @@ public class RegistroPanel extends JPanel {
 	//Metodos para el controlador
 
 	
-	public void setControladorBotonRegistro(ActionListener c) {
+	public void setControlador(ActionListener c) {
 		botonRegistro.addActionListener(c);
-	}
-	
-	public void setControladorBotonBack(ActionListener c) {
 		botonBack.addActionListener(c);
 	}
+	
+	
 	
 	
 	

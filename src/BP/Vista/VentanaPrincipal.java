@@ -15,6 +15,7 @@ public class VentanaPrincipal extends JFrame{
 	//Paneles
 	private LoginPanel loginPanel;
 	private RegistroPanel registroPanel;
+	private BienvenidaPanel bienvenidaPanel;
 	
 	public VentanaPrincipal(String titulo) {
 		
@@ -63,8 +64,10 @@ public class VentanaPrincipal extends JFrame{
 	public void setControlador(Controlador controlador) {
 		this.controlador = controlador;
 		
-		
-		
+		this.loginPanel.setControlador(controlador.getControladorLogin() );
+		this.registroPanel.setControlador(controlador.getControladorRegistro());
+		this.bienvenidaPanel.setControlador(controlador.getControladorBienvenida());
+	
 	}
 	
 	
@@ -102,8 +105,7 @@ public class VentanaPrincipal extends JFrame{
 
 
 	public BienvenidaPanel getPanelBienvenida() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.bienvenidaPanel;
 	}
 	
 }
