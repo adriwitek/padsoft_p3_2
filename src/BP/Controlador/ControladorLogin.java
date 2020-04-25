@@ -39,7 +39,6 @@ public class ControladorLogin implements ActionListener {
 		
 		
 		// modificar modelo
-
 		if( !modelo.loginAdmin(nombreUsuario, password) && !!modelo.loginUser(nombreUsuario, password) ) {
 			JOptionPane.showMessageDialog(panel,
 					"Las credenciales son incorrectas.Intentalo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
@@ -47,7 +46,7 @@ public class ControladorLogin implements ActionListener {
 		}
 		
 		
-		
+	
 		// mostrar nueva vista
 		UsuarioPanel pUsuario = frame.getPanelUsuario();
 		pUsuario.setVisible(true);
