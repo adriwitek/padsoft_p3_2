@@ -14,7 +14,7 @@ public class VentanaPrincipal extends JFrame{
 	
 	//Paneles
 	private LoginPanel loginPanel;
-	
+	private RegistroPanel registroPanel;
 	
 	public VentanaPrincipal(String titulo) {
 		
@@ -30,21 +30,22 @@ public class VentanaPrincipal extends JFrame{
 	
 		//Creamos los paneles
 		this.loginPanel = new LoginPanel();
-	
+		this.registroPanel = new RegistroPanel();
 		
 		
 		
 	
 		//Anniadimos panelens al contenedor
 		contenedor.add(this.loginPanel);
-
+		contenedor.add(this.registroPanel);
 
 		
 		
 		
 		//Establecemos la visibilidad inicial de los paneles
 		this.loginPanel.setVisible(false);
-	
+		this.registroPanel.setVisible(false);
+
 		
 		
 		
@@ -84,6 +85,21 @@ public class VentanaPrincipal extends JFrame{
 
 
 	public UsuarioPanel getPanelUsuario() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+
+	public RegistroPanel getPanelRegistro() {
+		return this.registroPanel;
+	}
+
+
+
+
+	public BienvenidaPanel getPanelBienvenida() {
 		// TODO Auto-generated method stub
 		return null;
 	}
