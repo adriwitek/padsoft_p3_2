@@ -54,7 +54,6 @@ public class LoginPanel extends JPanel {
 	
 	
 	//Metodos para el controlador
-	
 	public void setControladorBotonLogin(ActionListener c) {
 		botonLogin.addActionListener(c);
 	}

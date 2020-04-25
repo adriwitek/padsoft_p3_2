@@ -59,10 +59,12 @@ public class VentanaPrincipal extends JFrame{
 	
 	
 	
-	
+	//METODO EN EL QUE SE ASIGNAN TODOS LOS CONTROLADORES DE LOS PANELES
 	public void setControlador(Controlador controlador) {
 		this.controlador = controlador;
-		//hacer set en los paneles
+		
+		
+		
 	}
 	
 	
