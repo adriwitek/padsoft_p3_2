@@ -49,7 +49,10 @@ public class ControladorLogin implements ActionListener {
 		
 		
 		// mostrar nueva vista
-
+		UsuarioPanel pUsuario = frame.getPanelUsuario();
+		pUsuario.setVisible(true);
+		this.panel.setVisible(false);
+		
 		
 	}
 	

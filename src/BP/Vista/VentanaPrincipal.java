@@ -79,5 +79,13 @@ public class VentanaPrincipal extends JFrame{
 	public LoginPanel getPanelLogin() {
 		return this.loginPanel;
 	}
+
+
+
+
+	public UsuarioPanel getPanelUsuario() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
