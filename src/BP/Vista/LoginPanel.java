@@ -54,6 +54,7 @@ public class LoginPanel extends JPanel {
 	
 	
 	//Metodos para el controlador
+	
 	public void setControladorBotonLogin(ActionListener c) {
 		botonLogin.addActionListener(c);
 	}
@@ -64,7 +65,10 @@ public class LoginPanel extends JPanel {
 	
 	
 	
+	
+	
 	//Metodos de devolucion de datos
+	
 	public String getNombreUsuario() {
 		return this.campoUsuario.getText();
 	}
