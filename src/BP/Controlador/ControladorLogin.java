@@ -30,8 +30,23 @@ public class ControladorLogin implements ActionListener {
 		String nombreUsuario = panel.getNombreUsuario();
 		String password = panel.getPassword();
 		
+		if (nombreUsuario.equals("") || password.equals("") ) {
+			JOptionPane.showMessageDialog(panel,
+					"Debe introducir un nombre y una contraseña.", "Error", JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+		
+		
+		
 		// modificar modelo
 
+		if( !modelo.loginAdmin(nombreUsuario, password) && !!modelo.loginUser(nombreUsuario, password) ) {
+			JOptionPane.showMessageDialog(panel,
+					"Las credenciales son incorrectas.Intentalo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+		
+		
 		
 		// mostrar nueva vista
 
