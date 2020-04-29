@@ -47,7 +47,7 @@ public class VentanaPrincipal extends JFrame{
 		this.loginPanel.setVisible(false);
 		this.registroPanel.setVisible(false);
 
-		
+		/*aa*/
 		
 		
 		//Visibilidad de la ventana
