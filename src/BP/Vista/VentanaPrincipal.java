@@ -50,6 +50,8 @@ public class VentanaPrincipal extends JFrame{
 		/*aa*/
 		
 		
+		
+		
 		//Visibilidad de la ventana
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
