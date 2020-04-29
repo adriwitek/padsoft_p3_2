@@ -17,6 +17,7 @@ public class UsuarioPanel extends JPanel {
 	private JList listaProyectos;
 	private JList listaColectivos;
 	
+	
 	public UsuarioPanel() {
 		this.setLayout(new BorderLayout());
 		//SubPanel Usuario
