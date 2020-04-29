@@ -16,7 +16,7 @@ public class VentanaPrincipal extends JFrame{
 	private LoginPanel loginPanel;
 	private RegistroPanel registroPanel;
 	private BienvenidaPanel bienvenidaPanel;
-	
+	private UsuarioPanel usuarioPanel;
 	public VentanaPrincipal(String titulo) {
 		
 		super(titulo); //Lo mismo que  JFrame ventanaPrincipal = new JFrame("Titulo");
@@ -32,21 +32,24 @@ public class VentanaPrincipal extends JFrame{
 		//Creamos los paneles
 		this.loginPanel = new LoginPanel();
 		this.registroPanel = new RegistroPanel();
-		
+		this.bienvenidaPanel = new BienvenidaPanel();
+		this.usuarioPanel = new UsuarioPanel();
 		
 		
 	
 		//Anniadimos panelens al contenedor
 		contenedor.add(this.loginPanel);
 		contenedor.add(this.registroPanel);
-
+		contenedor.add(this.bienvenidaPanel);
+		contenedor.add(this.usuarioPanel);
 		
 		
 		
 		//Establecemos la visibilidad inicial de los paneles
 		this.loginPanel.setVisible(false);
 		this.registroPanel.setVisible(false);
-
+		this.bienvenidaPanel.setVisible(true);
+		this.usuarioPanel.setVisible(false);
 		
 		
 		
@@ -67,11 +70,11 @@ public class VentanaPrincipal extends JFrame{
 		this.loginPanel.setControlador(controlador.getControladorLogin() );
 		this.registroPanel.setControlador(controlador.getControladorRegistro());
 		this.bienvenidaPanel.setControlador(controlador.getControladorBienvenida());
-	
+		this.usuarioPanel.setControlador(controlador.getControladorUsuario());
 	}
 	
 	
-	public Controlador getContorlador() {
+	public Controlador getControlador() {
 		return this.controlador;
 	}
 	
@@ -91,7 +94,7 @@ public class VentanaPrincipal extends JFrame{
 
 	public UsuarioPanel getPanelUsuario() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.usuarioPanel;
 	}
 
 

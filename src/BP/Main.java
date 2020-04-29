@@ -1,7 +1,8 @@
 package BP;
 
-
+import java.io.IOException;
 import java.awt.EventQueue;
+
 import BP.Modelo.*;
 import BP.Vista.*;
 import BP.Controlador.*;
@@ -9,7 +10,7 @@ import BP.Controlador.*;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException, IOException  {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {						
