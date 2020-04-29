@@ -17,6 +17,9 @@ public class VentanaPrincipal extends JFrame{
 	private RegistroPanel registroPanel;
 	private BienvenidaPanel bienvenidaPanel;
 	private UsuarioPanel usuarioPanel;
+	private ProyectosPanel proyectosPanel;
+	private ColectivosPanel colectivosPanel;
+	
 	public VentanaPrincipal(String titulo) {
 		
 		super(titulo); //Lo mismo que  JFrame ventanaPrincipal = new JFrame("Titulo");
@@ -34,7 +37,8 @@ public class VentanaPrincipal extends JFrame{
 		this.registroPanel = new RegistroPanel();
 		this.bienvenidaPanel = new BienvenidaPanel();
 		this.usuarioPanel = new UsuarioPanel();
-		
+		this.proyectosPanel = new ProyectosPanel();
+		this.colectivosPanel = new ColectivosPanel();
 		
 	
 		//Anniadimos panelens al contenedor
@@ -42,7 +46,8 @@ public class VentanaPrincipal extends JFrame{
 		contenedor.add(this.registroPanel);
 		contenedor.add(this.bienvenidaPanel);
 		contenedor.add(this.usuarioPanel);
-		
+		contenedor.add(this.proyectosPanel);
+		contenedor.add(this.colectivosPanel);
 		
 		
 		//Establecemos la visibilidad inicial de los paneles
@@ -50,6 +55,8 @@ public class VentanaPrincipal extends JFrame{
 		this.registroPanel.setVisible(false);
 		this.bienvenidaPanel.setVisible(true);
 		this.usuarioPanel.setVisible(false);
+		this.colectivosPanel.setVisible(false);
+		this.proyectosPanel.setVisible(false);
 		
 		
 		
@@ -71,6 +78,9 @@ public class VentanaPrincipal extends JFrame{
 		this.registroPanel.setControlador(controlador.getControladorRegistro());
 		this.bienvenidaPanel.setControlador(controlador.getControladorBienvenida());
 		this.usuarioPanel.setControlador(controlador.getControladorUsuario());
+		this.proyectosPanel.setControlador(controlador.getControladorBienvenida());
+		this.colectivosPanel.setControlador(controlador.getControladorBienvenida());
+		
 	}
 	
 	
@@ -110,5 +120,16 @@ public class VentanaPrincipal extends JFrame{
 	public BienvenidaPanel getPanelBienvenida() {
 		return this.bienvenidaPanel;
 	}
+	
+	
+	
+	public ProyectosPanel getPanelProyectos() {
+		return this.proyectosPanel;
+	}
+	
+	public ColectivosPanel getPanelColectivos() {
+		return this.colectivosPanel;
+	}
+	
 	
 }

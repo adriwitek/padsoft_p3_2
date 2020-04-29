@@ -34,7 +34,7 @@ public class ControladorProyectos implements ActionListener {
 		}
 		
 	}
-	
+
 	private void GoToColectivo() {
 		ColectivosPanel pColectivos = frame.getPanelColectivos();
 		pColectivos.setVisible(true);

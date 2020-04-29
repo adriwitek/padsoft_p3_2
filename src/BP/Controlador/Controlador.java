@@ -15,7 +15,9 @@ public class Controlador {
 	private ControladorLogin controladorLogin;
 	private ControladorRegistro controladorRegistro;
 	private ControladorBienvenida controladorBienvenida;
-	private ControladorBienvenida controladorUsuario;
+	private ControladorUsuario controladorUsuario;
+	private ControladorProyectos controladorProyectos;
+	private ControladorColectivos controladorColectivos;
 	
 	public Controlador(VentanaPrincipal frame, Aplicacion modelo) {
 		this.frame = frame;
@@ -27,6 +29,8 @@ public class Controlador {
 		this.controladorRegistro = new ControladorRegistro(frame, modelo);
 		this.controladorBienvenida = new ControladorBienvenida(frame, modelo);
 		this.controladorUsuario = new ControladorUsuario(frame, modelo);
+		this.controladorProyectos = new ControladorProyectos(frame, modelo);
+		this.controladorColectivos = new ControladorColectivos(frame, modelo);
 		
 	}
 
@@ -72,10 +76,27 @@ public class Controlador {
 
 
 
-
+	/**
+	 * @return the controladorUsuario
+	 */
 	public ControladorUsuario getControladorUsuario() {
 		// TODO Auto-generated method stub
 		return controladorUsuario;
+	}
+	
+	
+	/**
+	 * @return the controladorProyectos
+	 */
+	public ControladorProyectos getControladorProyectos() {
+		return controladorProyectos;
+	}
+	
+	/**
+	 * @return the controladorColectivos
+	 */
+	public ControladorProyectos getControladorColectivos() {
+		return controladorProyectos;
 	}
 
 

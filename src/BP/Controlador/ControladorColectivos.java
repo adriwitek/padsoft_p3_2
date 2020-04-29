@@ -6,37 +6,41 @@ import javax.swing.*;
 import BP.Modelo.*;
 import BP.Vista.*;
 
-public class ControladorUsuario implements ActionListener{
-	private UsuarioPanel panel;
+public class ControladorColectivos implements ActionListener {
+
+	private ColectivosPanel panel;
 	private VentanaPrincipal frame;
 	private Aplicacion modelo;
-	public ControladorUsuario(VentanaPrincipal frame, Aplicacion modelo) {
-		this.panel = frame.getPanelUsuario();
-		this.frame = frame;
-		this.modelo = modelo;
+	
+	public ControladorColectivos(VentanaPrincipal frame ,Aplicacion modelo) {
+		this.panel= frame.getPanelColectivos();
+		this.frame= frame;
+		this.modelo=modelo;
 	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-			
-		if(e.getActionCommand().equals("goColectivos")){
-			GoToColectivo();
-			
-		}else if(e.getActionCommand().equals("goColectivos")){
+	
+		
+		if(e.getActionCommand().equals("goColectivos")) {
+			GoToProyectos();
+		
+		}else if(e.getActionCommand().equals("goUsuario")) {
 			GoToUsuario();
-			
+
 		}else {
 			frame.getPanelBienvenida().setVisible(true);
 			this.panel.setVisible(false);
 		}
 		
-		
 	}
 	
-	private void GoToColectivo() {
-		ColectivosPanel pColectivos = frame.getPanelColectivos();
-		pColectivos.setVisible(true);
+	private void GoToProyectos(){
+		ProyectosPanel pProyectos = frame.getPanelProyectos();
+		pProyectos.setVisible(true);
 		this.panel.setVisible(false);
 	}
+	
 	
 	private void GoToUsuario() {
 		UsuarioPanel pUsuario = frame.getPanelUsuario();
@@ -44,5 +48,3 @@ public class ControladorUsuario implements ActionListener{
 		this.panel.setVisible(false);
 	}
 }
-
-
