@@ -95,6 +95,8 @@ public class CrearProyectoPanel extends JPanel{
 		finalizar.addActionListener(c);
 		
 	}
+	
+
 
 	
 }

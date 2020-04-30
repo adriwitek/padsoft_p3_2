@@ -20,7 +20,36 @@ public class ControladorCrearProyecto implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if(e.getActionCommand().equals("Cancelar")) {
+			cancelar();
+
+		}else if(e.getActionCommand().equals("ProyectoSocial")){
+			proyectoSocial();
+			
+		}else if(e.getActionCommand().equals("ProyectoInfraestructuras")){
+			proyectoInfra();
+			
+		}else {
+			frame.getPanelBienvenida().setVisible(true);
+			this.panel.setVisible(false);
+		}
 		
+		
+	}
+	
+	
+	
+	public void cancelar() {
+		ProyectosPanel pProyecto = frame.getPanelProyectos();
+		pProyecto.setVisible(true);
+		this.panel.setVisible(false);
+	}
+	
+	public void proyectoSocial() {
+		
+	}
+	
+	public void proyectoInfra() {
 		
 	}
 }
