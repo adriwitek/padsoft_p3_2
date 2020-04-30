@@ -13,6 +13,7 @@ public class AdminPanel extends JPanel {
 	private JButton rechazarRegistro;
 	public AdminPanel() {
 		
+		
 		//Layout de todo el panel
 		this.setLayout(new BorderLayout());
 				
