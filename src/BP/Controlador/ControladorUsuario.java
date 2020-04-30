@@ -30,6 +30,7 @@ public class ControladorUsuario implements ActionListener{
 		}
 		
 		
+		
 	}
 	
 	private void GoToColectivo() {
