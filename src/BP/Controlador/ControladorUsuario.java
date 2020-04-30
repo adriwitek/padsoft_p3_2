@@ -10,6 +10,7 @@ public class ControladorUsuario implements ActionListener{
 	private UsuarioPanel panel;
 	private VentanaPrincipal frame;
 	private Aplicacion modelo;
+	private Usuario user;
 	public ControladorUsuario(VentanaPrincipal frame, Aplicacion modelo) {
 		this.panel = frame.getPanelUsuario();
 		this.frame = frame;
@@ -17,7 +18,6 @@ public class ControladorUsuario implements ActionListener{
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-			
 		if(e.getActionCommand().equals("goColectivos")){
 			GoToColectivo();
 			
@@ -43,6 +43,10 @@ public class ControladorUsuario implements ActionListener{
 		pUsuario.setVisible(true);
 		this.panel.setVisible(false);
 	}
+
+		
+		
+
 }
 
 

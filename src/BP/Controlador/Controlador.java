@@ -99,7 +99,9 @@ public class Controlador {
 		return controladorProyectos;
 	}
 
-
+	public Aplicacion getModelo() {
+		return this.modelo;
+	}
 	
 	
 	

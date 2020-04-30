@@ -18,7 +18,6 @@ public class Main {
 					Aplicacion modeloApp = Aplicacion.getInstancia("admin", "1234",1); //login del admin
 					modeloApp.loadAplicacion();
 
-
 					Controlador controlador = new Controlador(frame, modeloApp);
 					frame.setControlador(controlador);
 					frame.setVisible(true);
