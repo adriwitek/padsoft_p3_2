@@ -4,6 +4,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="lib" path="C:/Users/Hidra/Documents/Cloud/Sync/UAM/ANTERIORES/2/2º_Semestre/PADSOFT/P3_parte2/CODIGO/padsoft/lib/grantsGateway-1.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/galle/git/padsoft_p3_2/lib/grantsGateway-1.0-SNAPSHOT.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
