@@ -19,6 +19,7 @@ public class RegistroPanel extends JPanel {
 	private JLabel etiquetaUsuario;
 	private JTextField campoUsuario;
 	private JLabel etiquetaContrasena;
+	private JLabel etiquetaRepiteContrasena;
 	private JTextField campoContrasena;
 	private JTextField campoContrasena2;
 	
@@ -34,7 +35,7 @@ public class RegistroPanel extends JPanel {
 		
 		
 		//Subpanel 1
-		JPanel subP1 = new JPanel(new GridLayout(2,2));
+		JPanel subP1 = new JPanel(new GridLayout(5,5));
 		
 		this.etiquetaNIF = new JLabel("NIF:");
 		this.campoNIF  = new JTextField(9);
@@ -42,7 +43,7 @@ public class RegistroPanel extends JPanel {
 		this.campoUsuario = new JTextField(20);
 		this.etiquetaContrasena = new JLabel("Clave");
 		this.campoContrasena = new JPasswordField(20);
-		this.etiquetaContrasena = new JLabel("Repite la clave");
+		this.etiquetaRepiteContrasena = new JLabel("Repite la clave");
 		this.campoContrasena2 = new JPasswordField(20);
 		subP1.add(etiquetaNIF);
 		subP1.add(campoNIF);
@@ -50,23 +51,13 @@ public class RegistroPanel extends JPanel {
 		subP1.add(campoUsuario);
 		subP1.add(etiquetaContrasena);
 		subP1.add(campoContrasena);
-		subP1.add(etiquetaContrasena);
+		subP1.add(etiquetaRepiteContrasena);
 		subP1.add(campoContrasena2);
-		this.add(subP1);
-		
-		
-		//Subpanel2
-		JPanel subP2 = new JPanel();
 		this.botonRegistro = new JButton("Solicitar Registro");
-		subP2.add(botonRegistro);
-		this.add(subP2);
-		
-		
-		//Subpanel3
-		JPanel subP3 = new JPanel();
+		subP1.add(botonRegistro);
 		this.botonBack = new JButton("Volver");
-		subP3.add(botonBack);
-		this.add(subP3);
+		subP1.add(botonBack);
+		this.add(subP1);
 		
 		
 	}
