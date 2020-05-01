@@ -176,6 +176,8 @@ public class main {
         
         
 		//REPETICION SAVE Y LOAD
+		app.logOut();
+
 		app.saveAplicacion();
 		app.exit();
 		if(!app.loadAplicacion()) System.out.println("No se ha podido cargar el backup");

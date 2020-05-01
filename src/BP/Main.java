@@ -15,11 +15,10 @@ public class Main {
 			public void run() {
 				try {						
 					VentanaPrincipal frame = new VentanaPrincipal("BP:Becoming a Project");
-					Aplicacion modeloApp = Aplicacion.getInstancia("admin", "1234",1); //login del admin
-					modeloApp.loadAplicacion();
+					Aplicacion modelo = Aplicacion.getInstancia("admin", "1234",1); //login del admin
+					//modelo.loadAplicacion(); 
 
-
-					Controlador controlador = new Controlador(frame, modeloApp);
+					Controlador controlador = new Controlador(frame, modelo);
 					frame.setControlador(controlador);
 					frame.setVisible(true);
 				} catch (Exception e) {

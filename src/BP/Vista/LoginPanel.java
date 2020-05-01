@@ -20,7 +20,6 @@ public class LoginPanel extends JPanel {
 		
 		//Layout de todo el panel
 		this.setLayout(new BorderLayout());
-		//sda
 		
 		
 		//Subpanel 1
