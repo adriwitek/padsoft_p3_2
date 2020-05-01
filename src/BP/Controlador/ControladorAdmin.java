@@ -4,11 +4,12 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import BP.Modelo.*;
 import BP.Vista.*;
 
-public class ControladorAdmin    implements ListSelectionEvent, ActionListener{ 
+public class ControladorAdmin     implements ListSelectionListener , ActionListener{ 
 
 	private AdminPanel panel;
 	private VentanaPrincipal frame;

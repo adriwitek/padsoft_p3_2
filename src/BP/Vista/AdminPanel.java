@@ -6,6 +6,8 @@ import java.util.HashSet;
 
 import javax.swing.*;
 import  javax.swing.event.ListSelectionListener;
+
+import BP.Controlador.ControladorAdmin;
 import BP.Modelo.Usuario;
 
 
@@ -77,8 +79,8 @@ public class AdminPanel extends JPanel {
 	
 	
 	
-	public void setControlador(ActionListener c,ListSelectionListener l) {
-		this.listaSolicitudesReg.addListSelectionListener(l);
+	public void setControlador(ControladorAdmin c) {
+		this.listaSolicitudesReg.addListSelectionListener(c);
 	
 	}
 	
