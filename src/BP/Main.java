@@ -17,7 +17,7 @@ public class Main {
 					Aplicacion modelo = Aplicacion.getInstancia("admin", "1234",1); //login del admin
 					modelo.loadAplicacion(); 
 					modelo = Aplicacion.getInstancia();
-					
+					 
 					VentanaPrincipal frame = new VentanaPrincipal( modelo,"BP:Becoming a Project");
 
 					Controlador controlador = new Controlador(frame, modelo);
