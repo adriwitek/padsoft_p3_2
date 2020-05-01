@@ -26,6 +26,7 @@ public class CrearProyectoPanel extends JPanel{
 	private JButton atras;
 	private JButton finalizar;
 	
+	
 	//Panel subPSocial
 	private JLabel grupoSocial;
 	private JTextField textGrupoSocial;
