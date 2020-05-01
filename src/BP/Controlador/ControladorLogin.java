@@ -60,11 +60,19 @@ public class ControladorLogin implements ActionListener {
 		}
 		
 		
-	
-		// mostrar nueva vista
-		UsuarioPanel pUsuario = frame.getPanelUsuario();
-		pUsuario.setVisible(true);
-		this.panel.setVisible(false);
+
+		if(modelo.isModoAdmin()){
+			AdminPanel pAdmin = frame.getPanelAdmin();
+			pAdmin.setVisible(true);
+			this.panel.setVisible(false);
+			
+		}else {
+			// mostrar nueva vista
+			UsuarioPanel pUsuario = frame.getPanelUsuario();
+			pUsuario.setVisible(true);
+			this.panel.setVisible(false);
+		}
+		
 	}
 	
 	

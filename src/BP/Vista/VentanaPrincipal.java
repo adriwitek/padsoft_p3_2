@@ -4,12 +4,13 @@ import javax.swing.*;
 import java.awt.*;
 
 import BP.Controlador.Controlador;
+import BP.Modelo.Aplicacion;
 
 public class VentanaPrincipal extends JFrame{
 
 	
 	private Controlador controlador;
-	
+	private Aplicacion modelo;
 	
 	
 	//Paneles
@@ -19,12 +20,13 @@ public class VentanaPrincipal extends JFrame{
 	private UsuarioPanel usuarioPanel;
 	private ProyectosPanel proyectosPanel;
 	private ColectivosPanel colectivosPanel;
+	private AdminPanel adminPanel;
 	
-	public VentanaPrincipal(String titulo) {
+	public VentanaPrincipal(Aplicacion modelo,String titulo) {
 		
 		super(titulo); //Lo mismo que  JFrame ventanaPrincipal = new JFrame("Titulo");
-	
-	
+		this.modelo = modelo;
+		
 	
 		//Container y Layout
 		Container contenedor = this.getContentPane();	
@@ -39,8 +41,9 @@ public class VentanaPrincipal extends JFrame{
 		this.usuarioPanel = new UsuarioPanel();
 		this.proyectosPanel = new ProyectosPanel();
 		this.colectivosPanel = new ColectivosPanel();
-		
+		this.adminPanel = new AdminPanel(modelo.getRegistrosPendientesDeAprobacion());
 	
+		
 		//Anniadimos panelens al contenedor
 		contenedor.add(this.loginPanel);
 		contenedor.add(this.registroPanel);
@@ -48,6 +51,8 @@ public class VentanaPrincipal extends JFrame{
 		contenedor.add(this.usuarioPanel);
 		contenedor.add(this.proyectosPanel);
 		contenedor.add(this.colectivosPanel);
+		contenedor.add(this.adminPanel );
+		
 		
 		
 		//Establecemos la visibilidad inicial de los paneles
@@ -57,7 +62,7 @@ public class VentanaPrincipal extends JFrame{
 		this.usuarioPanel.setVisible(false);
 		this.colectivosPanel.setVisible(false);
 		this.proyectosPanel.setVisible(false);
-		
+		this.adminPanel.setVisible(false); 
 		
 		
 		//Visibilidad de la ventana
@@ -80,8 +85,13 @@ public class VentanaPrincipal extends JFrame{
 		this.usuarioPanel.setControlador(controlador.getControladorUsuario());
 		this.proyectosPanel.setControlador(controlador.getControladorBienvenida());
 		this.colectivosPanel.setControlador(controlador.getControladorBienvenida());
+		this.adminPanel.setControlador(controlador.getControladorAdmin());
+		
+		
+		
 		
 	}
+	
 	
 	
 	public Controlador getControlador() {
@@ -93,7 +103,10 @@ public class VentanaPrincipal extends JFrame{
 	
 	
 	
-	//Getters de Paneles
+	
+	
+	
+	//  *** GETTERS DE PANELES ***
 	
 	public LoginPanel getPanelLogin() {
 		return this.loginPanel;
@@ -130,6 +143,11 @@ public class VentanaPrincipal extends JFrame{
 	public ColectivosPanel getPanelColectivos() {
 		return this.colectivosPanel;
 	}
+	
+	public AdminPanel getPanelAdmin() {
+		return this.adminPanel;
+	}
+	
 	
 	
 }
