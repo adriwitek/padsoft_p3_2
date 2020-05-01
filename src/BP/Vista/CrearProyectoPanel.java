@@ -2,7 +2,11 @@ package BP.Vista;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.HashSet;
+
 import javax.swing.*;
+
+import BP.Modelo.Aplicacion;
 
 
 public class CrearProyectoPanel extends JPanel{
@@ -25,11 +29,19 @@ public class CrearProyectoPanel extends JPanel{
 	//Panel subPSocial
 	private JLabel grupoSocial;
 	private JTextField textGrupoSocial;
+	public HashSet<String> distritos;
+	
+	
+	private JPanel subP1;
 	
 	//Panel subPInfra
 	/*----->INCLUIR LISTA DISTRITOS<----*/
+	private JList lista; 
 	/*----->INCLUIR IMAGEN<----*/
 	
+	
+	private JPanel subPSocial; 
+	private JPanel subPInfra;
 	
 	public CrearProyectoPanel() {
 		this.setLayout(new BorderLayout());
@@ -40,7 +52,7 @@ public class CrearProyectoPanel extends JPanel{
 		this.PSocial = new JButton("ProyectoSocial");
 		this.PInfraestructuras = new JButton("ProyectoInfraestructuras");
 		
-		JPanel subP1 = new JPanel(new GridLayout(2,2));
+		subP1 = new JPanel(new GridLayout(2,2));
 		subP1.add(cancelar);
 		subP1.add(textNombreProyecto);
 		subP1.add(PSocial);
@@ -55,7 +67,7 @@ public class CrearProyectoPanel extends JPanel{
 		this.atras = new JButton("Atras");
 		this.finalizar = new JButton("Finalizar");
 		
-		JPanel subPSocial = new JPanel(new GridLayout(2,2));
+		subPSocial = new JPanel(new GridLayout(2,2));
 		subPSocial.add(descripcion);
 		subPSocial.add(textDescripcion);
 		subPSocial.add(financiacion);
@@ -64,7 +76,7 @@ public class CrearProyectoPanel extends JPanel{
 		subPSocial.add(finalizar);
 		
 		
-		JPanel subPInfra = new JPanel(new GridLayout(2,2));
+		subPInfra = new JPanel(new GridLayout(2,2));
 		subPInfra.add(descripcion);
 		subPInfra.add(textDescripcion);
 		subPInfra.add(financiacion);
@@ -79,6 +91,10 @@ public class CrearProyectoPanel extends JPanel{
 		this.add(subPSocial);
 		
 		//subPInfra
+		
+		distritos = Aplicacion.getInstancia(null, null, null).getDistritos();
+		this.lista = new JList((ListModel) distritos);
+		
 		this.add(subPInfra);
 		
 		//subP1 
@@ -96,6 +112,19 @@ public class CrearProyectoPanel extends JPanel{
 		
 	}
 	
+	
+	public void setSubPSocialVisible(boolean b) {
+		subP1.setVisible(!b);
+		
+		subPSocial.setVisible(b);
+		
+	}
+	
+	public void setSubPInfraVisible(boolean b) {
+		subP1.setVisible(!b);
+		
+		subPInfra.setVisible(b);
+	}
 
 
 	

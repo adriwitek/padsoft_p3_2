@@ -84,7 +84,7 @@ public class VentanaPrincipal extends JFrame{
 		this.usuarioPanel.setControlador(controlador.getControladorUsuario());
 		this.proyectosPanel.setControlador(controlador.getControladorProyectos());
 		this.colectivosPanel.setControlador(controlador.getControladorColectivos());
-		this.crearColectivoPanel.setControlador(controlador.getControladorCrearColectivo());
+		/*this.crearColectivoPanel.setControlador(controlador.getControladorCrearColectivo());*/
 		this.crearProyectoPanel.setControlador(controlador.getControladorCrearProyecto());
 
 	}

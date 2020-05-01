@@ -46,10 +46,10 @@ public class ControladorCrearProyecto implements ActionListener{
 	}
 	
 	public void proyectoSocial() {
-		
+		this.panel.setSubPSocialVisible(true);
 	}
 	
 	public void proyectoInfra() {
-		
+		this.panel.setSubPInfraVisible(true);
 	}
 }

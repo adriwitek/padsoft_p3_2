@@ -63,9 +63,9 @@ public class ControladorLogin implements ActionListener {
 	
 		// mostrar nueva vista
 		if(modelo.isModoAdmin()) {
-			AdminPanel pAdmin = frame.getPanelAdmin();
+			/*AdminPanel pAdmin = frame.getPanelAdmin();
 			pAdmin.setVisible(true);
-			this.panel.setVisible(false);
+			this.panel.setVisible(false);*/
 		}
 		else {
 			UsuarioPanel pUsuario = frame.getPanelUsuario();
