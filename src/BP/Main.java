@@ -18,6 +18,7 @@ public class Main {
 					modelo.loadAplicacion(); 
 					modelo = Aplicacion.getInstancia();
 					   
+					
 					VentanaPrincipal frame = new VentanaPrincipal( modelo,"BP:Becoming a Project");
 
 					Controlador controlador = new Controlador(frame, modelo);
