@@ -14,11 +14,13 @@ public class ControladorAdmin     implements ListSelectionListener , ActionListe
 	private AdminPanel panel;
 	private VentanaPrincipal frame;
 	private Aplicacion modelo;
+	private Usuario  ultimoUsuarioSeleccionado;
 	
 	public ControladorAdmin(VentanaPrincipal frame ,Aplicacion modelo) {
 		this.panel= frame.getPanelAdmin();
 		this.frame= frame;
 		this.modelo=modelo;
+		this.ultimoUsuarioSeleccionado = null;
 	}
 
 	
@@ -26,8 +28,25 @@ public class ControladorAdmin     implements ListSelectionListener , ActionListe
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
+		// mostrar nueva vista
+		if(e.getActionCommand().equals("Validar Registro")) {
+
+			if(null == ultimoUsuarioSeleccionado) {
+				
+				
+				
+			}else {
+				modelo.validarRegistro(ultimoUsuarioSeleccionado);
+				ultimoUsuarioSeleccionado= null;
+				JOptionPane.showMessageDialog(frame, "Se ha validado el usuario: " + ultimoUsuarioSeleccionado.getNombre());
+			
+						//ACTUALIZAR LISTA
+			}
+			
+
+		}else {//REchazar registro
+			
+		}
 	}
 	
 	
