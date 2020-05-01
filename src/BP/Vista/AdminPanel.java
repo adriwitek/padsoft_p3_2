@@ -27,6 +27,7 @@ public class AdminPanel extends JPanel {
 		
 		
 		
+		
 		//Layout de todo el panel
 		this.setLayout(new FlowLayout());
 				

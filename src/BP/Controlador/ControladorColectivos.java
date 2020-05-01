@@ -21,8 +21,10 @@ public class ControladorColectivos implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 	
-		
-		if(e.getActionCommand().equals("goColectivos")) {
+		if(e.getActionCommand().equals("CrearColectivo")){
+			CColectivo();
+			
+		}else if(e.getActionCommand().equals("goColectivos")) {
 			GoToProyectos();
 		
 		}else if(e.getActionCommand().equals("goUsuario")) {
@@ -45,6 +47,12 @@ public class ControladorColectivos implements ActionListener {
 	private void GoToUsuario() {
 		UsuarioPanel pUsuario = frame.getPanelUsuario();
 		pUsuario.setVisible(true);
+		this.panel.setVisible(false);
+	}
+	
+	private void CColectivo() {
+		CrearColectivoPanel cColectivo = frame.getPanelCrearColectivo();
+		cColectivo.setVisible(true);
 		this.panel.setVisible(false);
 	}
 }

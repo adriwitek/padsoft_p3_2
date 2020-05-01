@@ -10,6 +10,11 @@ public class UsuarioPanel extends JPanel {
 	private JButton goColectivos;
 	private JButton goProyectos;
 	
+	private JLabel etiquetaUsuario;
+	private JLabel nombreUsuario;
+	private JLabel etiquetaNIF;
+	private JLabel numeroNIF;
+	
 	private JList listaProyectos;
 	private JList listaColectivos;
 	
@@ -19,7 +24,10 @@ public class UsuarioPanel extends JPanel {
 		//SubPanel Usuario
 		JPanel subP1 = new JPanel(new GridLayout(3,3));
 
-
+		this.etiquetaNIF = new JLabel("NIF");
+		this.nombreUsuario = new JLabel("");
+		this.etiquetaUsuario = new JLabel("Usuario");
+		this.numeroNIF = new JLabel("");
 		this.goUsuario = new JButton("Usuario");
 		this.goColectivos = new JButton("Colectivos");
 		this.goProyectos = new JButton("Proyectos");
@@ -39,6 +47,11 @@ public class UsuarioPanel extends JPanel {
 		goColectivos.addActionListener(c);
 		goProyectos.addActionListener(c);
 	}
-	
+	public void setNumeroNIF(String texto) {
+		this.numeroNIF.setText(texto);
+	}
+	public void setNombreUsuario(String texto) {
+		this.nombreUsuario.setText(texto);
+	}
 
 }

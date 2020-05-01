@@ -132,6 +132,7 @@ public class Aplicacion implements java.io.Serializable {
 	 */
 	public boolean saveAplicacion() {
 		try {
+			this.logOut();
 			ObjectOutputStream objectFile = new ObjectOutputStream(new FileOutputStream(ficheroCarga));
 			objectFile.writeObject(getInstancia());
 		}catch(Exception e) {

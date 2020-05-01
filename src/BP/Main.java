@@ -22,6 +22,7 @@ public class Main {
 					VentanaPrincipal frame = new VentanaPrincipal( modelo,"BP:Becoming a Project");
 
 					Controlador controlador = new Controlador(frame, modelo);
+
 					frame.setControlador(controlador);
 					frame.setVisible(true);
 				} catch (Exception e) {

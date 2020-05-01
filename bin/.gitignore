@@ -2,6 +2,5 @@
 .classpath
 .project
 .class
-/BP/
-/applicationBackup
-/img/
+/bin
+applicationBackup

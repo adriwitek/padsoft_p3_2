@@ -69,10 +69,13 @@ public class ControladorLogin implements ActionListener {
 		}else {
 			// mostrar nueva vista
 			UsuarioPanel pUsuario = frame.getPanelUsuario();
+			pUsuario.setNumeroNIF(modelo.getUsuarioConectado().getNIF());
+			pUsuario.setNombreUsuario(modelo.getUsuarioConectado().getNombre());
 			pUsuario.setVisible(true);
 			this.panel.setVisible(false);
 		}
 		
+
 	}
 	
 	
