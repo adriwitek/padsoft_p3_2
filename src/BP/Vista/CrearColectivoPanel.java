@@ -6,6 +6,8 @@ import javax.swing.*;
 
 public class CrearColectivoPanel extends JPanel {
 
+	private JLabel nombreColectivo;
+	private JTextField textNombreColectivo;
 	
 	public CrearColectivoPanel() {
 		this.setLayout(new BorderLayout());

@@ -37,7 +37,7 @@ public class CrearProyectoPanel extends JPanel{
 	
 	//Panel subPInfra
 	/*----->INCLUIR LISTA DISTRITOS<----*/
-	private JList lista; 
+	//private JList lista; 
 	/*----->INCLUIR IMAGEN<----*/
 	
 	
@@ -93,8 +93,8 @@ public class CrearProyectoPanel extends JPanel{
 		
 		//subPInfra
 		
-		distritos = Aplicacion.getInstancia(null, null, null).getDistritos();
-		this.lista = new JList((ListModel) distritos);
+		/*distritos = Aplicacion.getInstancia(null, null, null).getDistritos();
+		this.lista = new JList((ListModel) distritos);*/
 		
 		this.add(subPInfra);
 		
