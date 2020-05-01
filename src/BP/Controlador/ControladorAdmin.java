@@ -28,24 +28,46 @@ public class ControladorAdmin     implements ListSelectionListener , ActionListe
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// mostrar nueva vista
+		
 		if(e.getActionCommand().equals("Validar Registro")) {
 
 			if(null == ultimoUsuarioSeleccionado) {
-				
-				
-				
+				JOptionPane.showMessageDialog(panel,
+						"Debe seleccionar un usuario de la lista", "Error", JOptionPane.ERROR_MESSAGE);
+				return;
 			}else {
 				modelo.validarRegistro(ultimoUsuarioSeleccionado);
-				ultimoUsuarioSeleccionado= null;
 				JOptionPane.showMessageDialog(frame, "Se ha validado el usuario: " + ultimoUsuarioSeleccionado.getNombre());
-			
-						//ACTUALIZAR LISTA
+				this.panel.borraDeListaUsuarios(ultimoUsuarioSeleccionado);
+				ultimoUsuarioSeleccionado= null;
+
 			}
 			
 
 		}else {//REchazar registro
+			if(null == ultimoUsuarioSeleccionado) {
+				JOptionPane.showMessageDialog(panel,
+						"Debe seleccionar un usuario de la lista", "Error", JOptionPane.ERROR_MESSAGE);
+				return;
+			}else if( panel.getMotivoRechazo().equals("")) {
+				JOptionPane.showMessageDialog(panel,
+						"Debe indicar un motivo de rechazo", "Error", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
 			
+	
+			if(!modelo.rechazarRegistro(ultimoUsuarioSeleccionado, panel.getMotivoRechazo())) {
+				JOptionPane.showMessageDialog(panel,
+						"Ha ocurrido un error interno al rechazar la solititud de registro indicada", "Error", JOptionPane.ERROR_MESSAGE);
+				return;
+			}else {
+				JOptionPane.showMessageDialog(frame, "Se ha rechazado la solicitud de registro del usuario: " + ultimoUsuarioSeleccionado.getNombre());
+			}
+			
+			this.panel.borraDeListaUsuarios(ultimoUsuarioSeleccionado);
+			ultimoUsuarioSeleccionado= null;
+
+
 		}
 	}
 	
@@ -54,8 +76,9 @@ public class ControladorAdmin     implements ListSelectionListener , ActionListe
 	public void valueChanged(ListSelectionEvent ev) {
 	    	JList lista = (JList) ev.getSource();
 	    	if (! ev.getValueIsAdjusting() ) {
-	    	  Usuario valorSeleccionado = (Usuario) lista.getSelectedValue();
-	          this.panel.updateSolicitudRegitroSeleccionada(valorSeleccionado.getNombre(), valorSeleccionado.getNIF());
+	    	   this.ultimoUsuarioSeleccionado = (Usuario) lista.getSelectedValue();
+	    	   if(null != ultimoUsuarioSeleccionado)  this.panel.updateSolicitudRegitroSeleccionada(ultimoUsuarioSeleccionado.getNombre(), ultimoUsuarioSeleccionado.getNIF()); 
+	    	   else  this.panel.updateSolicitudRegitroSeleccionada("", ""); 
 	    	}
 	}
 	

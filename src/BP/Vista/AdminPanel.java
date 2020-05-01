@@ -25,7 +25,7 @@ public class AdminPanel extends JPanel {
 	private JButton botonRechazarRegistro;
 	private JLabel etiquetaRechazoRegistro;
 	private JTextField campoMotivoRechazo;
-
+	private DefaultListModel solicitudesReg ;
 
 	private JScrollPane scroll;
 	
@@ -45,7 +45,7 @@ public class AdminPanel extends JPanel {
 
 		JPanel subP1 = new JPanel(new FlowLayout());
 		JLabel label1 = new JLabel("Solicitudes de registro en el sistema pendientes de aprobacion:");
-		DefaultListModel solicitudesReg = new DefaultListModel(); 
+		this.solicitudesReg = new DefaultListModel(); 
 		for(Usuario u: this.registrosPendientesAprobacion) {
 			solicitudesReg.addElement(u);
 			
@@ -69,7 +69,7 @@ public class AdminPanel extends JPanel {
 		subP1.add(this.campoNIF);
 		
 		botonValidarRegistro = new JButton("Validar Registro");
-		botonRechazarRegistro = new JButton("Validar Registro");
+		botonRechazarRegistro = new JButton("Rechazar Registro");
 		etiquetaRechazoRegistro = new JLabel("Motivo del rechazo");
 		campoMotivoRechazo = new JTextField(20);
 		subP1.add(this.botonValidarRegistro);
@@ -100,7 +100,8 @@ public class AdminPanel extends JPanel {
 	
 	public void setControlador(ControladorAdmin c) {
 		this.listaSolicitudesReg.addListSelectionListener(c);
-	
+		this.botonValidarRegistro.addActionListener(c);
+		this.botonRechazarRegistro.addActionListener(c); 
 	}
 	
 	
@@ -115,21 +116,14 @@ public class AdminPanel extends JPanel {
 	
 	
 	
+	//metodo para el controlador
+	public void borraDeListaUsuarios(Usuario u) {
+		this.solicitudesReg.removeElement(u);
+	}
 	
-	public void updateListaUsuarios() {
-		DefaultListModel solicitudesReg = new DefaultListModel(); 
-		for(Usuario u: this.registrosPendientesAprobacion) {
-			solicitudesReg.addElement(u);
-			
-		}
 	
-		this.listaSolicitudesReg = new JList(solicitudesReg);
-		this.listaSolicitudesReg.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		this.scroll.
-		
-		
-		JScrollPane scroll = new JScrollPane(this.listaSolicitudesReg);
-		subP1.add(scroll);
+	public String getMotivoRechazo() {
+		return this.campoMotivoRechazo.getText();
 	}
 	
 }
