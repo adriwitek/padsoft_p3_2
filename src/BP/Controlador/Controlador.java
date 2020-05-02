@@ -20,6 +20,7 @@ public class Controlador {
 	private ControladorColectivos controladorColectivos;
 	private ControladorAdmin controladorAdmin;
 	private ControladorCrearProyecto controladorCrearProyecto;
+	private ControladorCrearColectivo controladorCrearColectivo;
 	
 	public Controlador(VentanaPrincipal frame, Aplicacion modelo) {
 		this.frame = frame;
@@ -35,7 +36,7 @@ public class Controlador {
 		this.controladorColectivos = new ControladorColectivos(frame, modelo);
 		this.controladorAdmin = new ControladorAdmin(frame,modelo);
 		this.controladorCrearProyecto = new ControladorCrearProyecto(frame, modelo);
-		
+		this.controladorCrearColectivo = new ControladorCrearColectivo(frame,modelo);
 	}
 
 	
@@ -122,6 +123,8 @@ public class Controlador {
 		return this.modelo;
 	}
 	
-	
+	public ControladorCrearColectivo getControladorCrearColectivo() {
+		return this.controladorCrearColectivo;
+	}
 	
 }

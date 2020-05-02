@@ -23,11 +23,11 @@ public class ControladorCrearProyecto implements ActionListener{
 		if(e.getActionCommand().equals("Cancelar")) {
 			cancelar();
 
-		}else if(e.getActionCommand().equals("ProyectoSocial")){
+		/*}else if(e.getActionCommand().equals("ProyectoSocial")){
 			proyectoSocial();
 			
 		}else if(e.getActionCommand().equals("ProyectoInfraestructuras")){
-			proyectoInfra();
+			proyectoInfra();*/
 			
 		}else {
 			frame.getPanelBienvenida().setVisible(true);

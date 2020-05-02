@@ -53,7 +53,7 @@ public class CrearProyectoPanel extends JPanel{
 		this.PSocial = new JButton("ProyectoSocial");
 		this.PInfraestructuras = new JButton("ProyectoInfraestructuras");
 		
-		subP1 = new JPanel(new GridLayout(2,2));
+		subP1 = new JPanel(new GridLayout(10,10));
 		subP1.add(cancelar);
 		subP1.add(textNombreProyecto);
 		subP1.add(PSocial);
@@ -62,7 +62,7 @@ public class CrearProyectoPanel extends JPanel{
 		
 		//subPSocial y subPInfra
 		this.descripcion = new JLabel("Descripcion: ");
-		this.textDescripcion = new JTextField(50);
+		this.textDescripcion = new JTextField(10);
 		this.financiacion = new JLabel("Financiacion necesaria: ");
 		this.textFinanciacion = new JTextField(10);
 		this.atras = new JButton("Atras");
@@ -89,14 +89,14 @@ public class CrearProyectoPanel extends JPanel{
 		//subPSocial
 		this.grupoSocial = new JLabel("Grupo Social: ");
 		this.textGrupoSocial = new JTextField(10);
-		this.add(subPSocial);
+		//this.add(subPSocial);
 		
 		//subPInfra
 		
 		/*distritos = Aplicacion.getInstancia(null, null, null).getDistritos();
 		this.lista = new JList((ListModel) distritos);*/
 		
-		this.add(subPInfra);
+		//this.add(subPInfra);
 		
 		//subP1 
 		this.add(subP1);
