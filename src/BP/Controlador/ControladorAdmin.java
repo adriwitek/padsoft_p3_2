@@ -49,6 +49,7 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 			}else {
 				modelo.validarRegistro(ultimoUsuarioSeleccionado);
 				JOptionPane.showMessageDialog(frame, "Se ha validado el usuario: " + ultimoUsuarioSeleccionado.getNombre());
+				this.panel.addListaUsuariosActivos(ultimoUsuarioSeleccionado);
 				this.panel.borraDeListaUsuarios(ultimoUsuarioSeleccionado);
 				ultimoUsuarioSeleccionado= null;
 

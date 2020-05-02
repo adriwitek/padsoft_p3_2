@@ -83,7 +83,7 @@ public class main {
 		System.out.println("Usuario logueado: " + app.getUsuarioConectado());
 
 		
-		/*
+		
 		
 		
 		//CREACION PROYECTOS
@@ -180,7 +180,7 @@ public class main {
 		*/
 		
 		
-		/*
+		
         app.actualizarProyectosFinanciados();
 		
    
@@ -204,7 +204,7 @@ public class main {
 		app.exit();
 		if(!app.loadAplicacion()) System.out.println("No se ha podido cargar el backup");
 		
-		*/
+		
 		
 		
 		
