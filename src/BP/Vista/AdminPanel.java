@@ -46,7 +46,7 @@ public class AdminPanel extends JPanel {
 	private JTextField campoMotivoBloqueo;
 
 	
-	
+	 
 	
 	public AdminPanel(HashSet<Usuario> registrosPendientesAprobacion,HashSet<Usuario> usuariosActivos,HashSet<Usuario> usuariosBloqueados) {
 		

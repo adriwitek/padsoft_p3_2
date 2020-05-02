@@ -44,6 +44,10 @@ public class CrearProyectoPanel extends JPanel{
 	private JPanel subPSocial; 
 	private JPanel subPInfra;
 	
+	
+	
+	
+	
 	public CrearProyectoPanel() {
 		this.setLayout(new BorderLayout());
 		//subP1
@@ -92,9 +96,15 @@ public class CrearProyectoPanel extends JPanel{
 		this.add(subPSocial);
 		
 		//subPInfra
-		
-		distritos = Aplicacion.getInstancia(null, null, null).getDistritos();
-		this.lista = new JList((ListModel) distritos);
+		 
+		//lista inmutable
+		distritos = Aplicacion.getInstancia().getDistritos();
+		DefaultListModel distritosModelo = new DefaultListModel(); 
+		for(String d : distritos) {
+			distritosModelo.addElement(d);
+		}
+		this.lista = new JList(distritosModelo);
+	
 		
 		this.add(subPInfra);
 		
@@ -128,5 +138,5 @@ public class CrearProyectoPanel extends JPanel{
 	}
 
 
-	
+	 
 }

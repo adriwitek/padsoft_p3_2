@@ -53,3 +53,4 @@ public class ControladorCrearProyecto implements ActionListener{
 		this.panel.setSubPInfraVisible(true);
 	}
 }
+ 
