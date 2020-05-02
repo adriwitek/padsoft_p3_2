@@ -44,6 +44,7 @@ public class Usuario extends Proponente {
 	
 	
 	
+	
 	//Setters de estado del Usuario
 	
 	/**

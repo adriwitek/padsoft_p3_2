@@ -36,7 +36,7 @@ public class ControladorRegistro implements ActionListener {
 			
 	}
 	
-	
+	 
 	
 	//Funcion auxiliar
 	private void registro() {
@@ -61,13 +61,14 @@ public class ControladorRegistro implements ActionListener {
 				
 				
 				// modificar modelo
-				if( null == modelo.solicitarRegistro(NIF, nombreUsuario, password1)) {
+				Usuario u = modelo.solicitarRegistro(NIF, nombreUsuario, password1);
+				if( null == u) {
 					JOptionPane.showMessageDialog(panel,
 							"El NIF o nombre de Usuario ya estan registrados.", "Error", JOptionPane.ERROR_MESSAGE);
 					return;
 				}
 				
-				
+				frame.getPanelAdmin().addSolicitudRegistro(u);
 				JOptionPane.showMessageDialog(panel,
 						"La solicitud de registro se ha enviado.", "OK", JOptionPane.INFORMATION_MESSAGE);
 			

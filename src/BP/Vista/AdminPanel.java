@@ -257,21 +257,26 @@ public class AdminPanel extends JPanel {
 
 
 
-	public void updateListaUsuariosActivos(HashSet<Usuario> usuariosActivos) {
-		this.usuariosActivosModelo = new DefaultListModel(); 
-		for(Usuario u: this.usuariosActivos) {
-			usuariosActivosModelo.addElement(u);
-		}
+	
+	public void addListaUsuariosActivos(Usuario u) {
+		this.usuariosActivosModelo.addElement(u);
+	}
+	
+	public void addListaUsuariosBloqueados(Usuario u) {
+		usuariosBloqueadosModelo.addElement(u);
 	}
 	
 	
-	public void updateListaUsuariosBloqueados(HashSet<Usuario> usuariosBloqueados) {
-		this.usuariosBloqueadosModelo = new DefaultListModel(); 
-		for(Usuario u: this.usuariosBloqueados) {
-			usuariosBloqueadosModelo.addElement(u);
-		}
+	public void borrarListaUsuariosActivos(Usuario u) {
+		this.usuariosActivosModelo.removeElement(u);
 	}
 	
+	public void borrarListaUsuariosBloqueados(Usuario u) {
+		this.usuariosBloqueadosModelo.removeElement(u);
+	}
 	
+	public void addSolicitudRegistro(Usuario u) {
+		this.solicitudesReg.addElement(u);
+	}
 	
 }

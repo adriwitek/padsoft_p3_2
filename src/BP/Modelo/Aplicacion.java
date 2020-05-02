@@ -318,7 +318,7 @@ public class Aplicacion implements java.io.Serializable {
 		}
 		return usuarios;
 	}
-	
+	 
 	
 	
 	
