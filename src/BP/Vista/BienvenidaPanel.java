@@ -14,11 +14,11 @@ public class BienvenidaPanel extends JPanel{
 	
 	public BienvenidaPanel() {
 		
-		this.setLayout(new BorderLayout());
+		this.setLayout(new FlowLayout());
 
 		
 		//Subpanel 1
-		JPanel subP1 = new JPanel(new GridLayout(2,2));
+		JPanel subP1 = new JPanel(new FlowLayout());
 		this.labelBienvenida = new JLabel("¡Bienvenido a BP: Becoming a Project!");
 		subP1.add(labelBienvenida);
 		this.add(subP1);

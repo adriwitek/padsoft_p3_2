@@ -43,9 +43,9 @@ public class VentanaPrincipal extends JFrame{
 		this.usuarioPanel = new UsuarioPanel();
 		this.proyectosPanel = new ProyectosPanel();
 		this.colectivosPanel = new ColectivosPanel();
-		this.adminPanel = new AdminPanel(modelo.getRegistrosPendientesDeAprobacion());
+		this.adminPanel = new AdminPanel(modelo.getRegistrosPendientesDeAprobacion(),modelo.getUsuariosActivos(),modelo.getUsuariosBloqueados());
 		this.crearColectivoPanel = new CrearColectivoPanel();
-		this.crearProyectoPanel = new CrearProyectoPanel();
+		//this.crearProyectoPanel = new CrearProyectoPanel();
 	
 		
 		//Anniadimos panelens al contenedor
@@ -59,7 +59,7 @@ public class VentanaPrincipal extends JFrame{
 		
 		
 		contenedor.add(this.crearColectivoPanel);
-		contenedor.add(this.crearProyectoPanel);
+		//contenedor.add(this.crearProyectoPanel);
 		
 		//Establecemos la visibilidad inicial de los paneles
 		this.loginPanel.setVisible(false);
@@ -71,7 +71,7 @@ public class VentanaPrincipal extends JFrame{
 		this.adminPanel.setVisible(false); 
 		
 		this.crearColectivoPanel.setVisible(false);
-		this.crearProyectoPanel.setVisible(false);
+		//this.crearProyectoPanel.setVisible(false);
 		
 		//Visibilidad de la ventana
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -91,12 +91,12 @@ public class VentanaPrincipal extends JFrame{
 		this.registroPanel.setControlador(controlador.getControladorRegistro());
 		this.bienvenidaPanel.setControlador(controlador.getControladorBienvenida());
 		this.usuarioPanel.setControlador(controlador.getControladorUsuario());
-
+		this.adminPanel.setControlador(controlador.getControladorAdmin());
 		this.proyectosPanel.setControlador(controlador.getControladorProyectos());
 		this.colectivosPanel.setControlador(controlador.getControladorColectivos());
-		/*this.crearColectivoPanel.setControlador(controlador.getControladorCrearColectivo());*/
-		this.crearProyectoPanel.setControlador(controlador.getControladorCrearProyecto());
-
+		//(no va) this.crearProyectoPanel.setControlador(controlador.getControladorCrearProyecto());
+		
+		//(En proceso) this.crearColectivoPanel.setContolador(controlador.getControladorCrearColectivo())
 	}
 	
 	
@@ -157,5 +157,9 @@ public class VentanaPrincipal extends JFrame{
 
 	public CrearProyectoPanel getPanelCrearProyecto() {
 		return this.crearProyectoPanel;
+	}
+	
+	public CrearColectivoPanel getPanelCrearColectivo() {
+		return this.crearColectivoPanel;
 	}
 }

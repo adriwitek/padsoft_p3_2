@@ -47,8 +47,8 @@ public class main {
 		app.validarRegistro(u1);
 		app.validarRegistro(u2);
 		app.validarRegistro(u3);
-		app.validarRegistro(u4);
-		app.validarRegistro(u5);
+		//app.validarRegistro(u4);
+		//app.validarRegistro(u5);
 		app.logOut();
 		app.loginUser("Guillermo", "1234");
 		System.out.println("Usuario logueado: " + app.getUsuarioConectado());

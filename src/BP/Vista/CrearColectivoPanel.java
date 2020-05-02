@@ -19,17 +19,18 @@ public class CrearColectivoPanel extends JPanel {
 	
 	public CrearColectivoPanel() {
 		this.setLayout(new BorderLayout());
+		subP1 = new JPanel(new GridLayout(10,10));
 		
 		this.nombreColectivo = new JLabel("Nombre colectivo: ");
-		this.textNombreColectivo = new JTextField(30);
+		this.textNombreColectivo = new JTextField(15);
 		
 		this.nombreDescripcion = new JLabel("Descripcion: ");
-		this.textNombreDescripcion = new JTextField(500);
+		this.textNombreDescripcion = new JTextField(15);
 		
 		this.cancelar = new JButton("Cancelar");
 		this.finalizar = new JButton("Finalizar");
 		
-		subP1 = new JPanel(new GridLayout(2,2));
+		
 		
 		subP1.add(nombreColectivo);
 		subP1.add(textNombreColectivo);

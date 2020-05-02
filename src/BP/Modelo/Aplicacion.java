@@ -293,6 +293,68 @@ public class Aplicacion implements java.io.Serializable {
 	}
 	
 	
+	
+	
+	
+	/**
+	 * Esta funcion devuelve un lista con los usuarios activos,necesaria para la gui
+	 * 
+	 * @return  HashSet<Usuario>
+	 */
+	public HashSet<Usuario> getUsuariosActivos(){
+		
+		//if(!this.modoAdmin) return null;
+		
+		Usuario u;
+		HashSet<Usuario> usuarios = new HashSet<Usuario>();
+		for(Proponente p: this.proponentes) {
+			if( p.getClass().getSimpleName().equals("Usuario")) {
+				u = (Usuario)p;
+				if(u.getEstado()== EstadoUsuario.OPERATIVO) {
+					usuarios.add(u);
+				}
+				
+			}
+		}
+		return usuarios;
+	}
+	
+	
+	
+	
+	
+	
+	
+	/**
+	 * Esta funcion devuelve un lista con los usuarios activos,necesaria para la gui
+	 * 
+	 * @return  HashSet<Usuario>
+	 */
+	public HashSet<Usuario> getUsuariosBloqueados(){
+		
+		//if(!this.modoAdmin) return null;
+		
+		Usuario u;
+		HashSet<Usuario> usuarios = new HashSet<Usuario>();
+		for(Proponente p: this.proponentes) {
+			if( p.getClass().getSimpleName().equals("Usuario")) {
+				u = (Usuario)p;
+				if(u.getEstado()== EstadoUsuario.BLOQUEADO) {
+					usuarios.add(u);
+				}
+				
+			}
+		}
+		return usuarios;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * Esta funcion se encarga de validar un registro
 	 * 

@@ -22,8 +22,8 @@ public class ProyectosPanel extends JPanel {
 		
 		JPanel subP1 = new JPanel(new GridLayout(2,2));
 		
-		   this.goUsuario = new JButton("Usuario");
-		   this.goColectivos = new JButton("Colectivos");
+		   this.goUsuario = new JButton("goUsuario");
+		   this.goColectivos = new JButton("goColectivos");
 		   this.crearProyecto = new JButton("crearProyecto");
 		   
 		   subP1.add(crearProyecto);

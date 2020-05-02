@@ -22,6 +22,7 @@ public class ControladorProyectos implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 	
 		if(e.getActionCommand().equals("crearProyecto")) {
+			cProyecto();
 			
 		}else if(e.getActionCommand().equals("goColectivos")) {
 			GoToColectivo();
@@ -50,7 +51,11 @@ public class ControladorProyectos implements ActionListener {
 		this.panel.setVisible(false);
 	}
 	
-	
+	private void cProyecto() {
+		CrearProyectoPanel ccProyecto = frame.getPanelCrearProyecto();
+		ccProyecto.setVisible(true);
+		this.panel.setVisible(false);
+	}
 
 }
 
