@@ -44,7 +44,7 @@ public class CrearProyectoPanel extends JPanel{
 	private JPanel subPSocial; 
 	private JPanel subPInfra;
 	
-	
+	 
 	
 	
 	
