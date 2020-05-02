@@ -43,7 +43,7 @@ public class VentanaPrincipal extends JFrame{
 		this.usuarioPanel = new UsuarioPanel();
 		this.proyectosPanel = new ProyectosPanel();
 		this.colectivosPanel = new ColectivosPanel();
-		this.adminPanel = new AdminPanel(modelo.getRegistrosPendientesDeAprobacion());
+		this.adminPanel = new AdminPanel(modelo.getRegistrosPendientesDeAprobacion(),modelo.getUsuariosActivos(),modelo.getUsuariosBloqueados());
 		this.crearColectivoPanel = new CrearColectivoPanel();
 		//this.crearProyectoPanel = new CrearProyectoPanel();
 	
