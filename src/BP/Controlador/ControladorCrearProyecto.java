@@ -23,11 +23,11 @@ public class ControladorCrearProyecto implements ActionListener{
 		if(e.getActionCommand().equals("Cancelar")) {
 			cancelar();
 
-		/*}else if(e.getActionCommand().equals("ProyectoSocial")){
+		}else if(e.getActionCommand().equals("ProyectoSocial")){
 			proyectoSocial();
 			
 		}else if(e.getActionCommand().equals("ProyectoInfraestructuras")){
-			proyectoInfra();*/
+			proyectoInfra();
 			
 		}else {
 			frame.getPanelBienvenida().setVisible(true);
@@ -46,10 +46,15 @@ public class ControladorCrearProyecto implements ActionListener{
 	}
 	
 	public void proyectoSocial() {
-		this.panel.setSubPSocialVisible(true);
+		CrearProyectoSocialPanel pProyectoSoc = frame.getPanelCrearProyectoSocial();
+		pProyectoSoc.setVisible(true);
+		this.panel.setVisible(false);
 	}
 	
 	public void proyectoInfra() {
-		this.panel.setSubPInfraVisible(true);
+		CrearProyectoInfPanel pProyectoInf = frame.getPanelCrearProyectoInf();
+		pProyectoInf.setVisible(true);
+		this.panel.setVisible(false);
 	}
 }
+ 

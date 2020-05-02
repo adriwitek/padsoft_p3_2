@@ -38,15 +38,24 @@ public class main {
 		subC2.suscribirseColectivo(u4);
 		
 		
-		
+		 
 		
 		//VALIDAMOS LOS REGISTROS
 		app.loginAdmin("admin", "1234");
 		
 		if (app.getRegistrosPendientesDeAprobacion().size() !=5) System.out.println("Error, el numero de usuairo pendientes de aprobacion no coincide: " + app.getRegistrosPendientesDeAprobacion().size());
+
+		 
 		app.validarRegistro(u1);
 		app.validarRegistro(u2);
 		app.validarRegistro(u3);
+		if (app.getUsuariosActivos().size() !=3) System.out.println("Error, el numero de usuairo OPERATIVOS   no coincide: " + app.getUsuariosActivos().size());
+		//System.out.print(app.getUsuariosActivos());
+		u2.bloquear("bloqueoado");
+		if (app.getUsuariosBloqueados().size() !=1) System.out.println("Error, el numero de usuairo BLOQUEADOS   no coincide: " + app.getUsuariosBloqueados().size());
+		//System.out.print(app.getUsuariosBloqueados());
+		u2.desbloquear();
+
 		//app.validarRegistro(u4);
 		//app.validarRegistro(u5);
 		app.logOut();
@@ -62,11 +71,11 @@ public class main {
 		app.exit();
 		
 		app = Aplicacion.getInstancia("admin", "1234",1); //login del admin CREAMOS UNA APP
-		 if (!app.loginUser("Guillermo", "1234")) System.out.println("NOOOOOOOOOOOOOOOO, no se ha podido iniciar sesion");
+		 if (!app.loginUser("Guillermo", "1234")) System.out.println("OK, no se ha podido iniciar sesion");
 		if(!app.loadAplicacion()) System.out.println("No se ha podido cargar el backup");//CARGAMOS LOS DATOS EN INSTACIA
 
 		app = Aplicacion.getInstancia();
-		if (app.loginUser("Guillermo", "1234")) System.out.println("358SIIIIIIIIIIIIII,  se ha podido iniciar sesion");
+		if (app.loginUser("Guillermo", "1234")) System.out.println("OK,  ahora si se ha podido iniciar sesion");
 
 		
 		
@@ -169,6 +178,9 @@ public class main {
 		pSocial2.setFechaUltimoApoyo(dateAdelantada);
 		pSocial3.setFechaUltimoApoyo(dateAdelantada);
 		*/
+		
+		
+		
         app.actualizarProyectosFinanciados();
 		
    

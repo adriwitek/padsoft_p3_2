@@ -34,7 +34,7 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 	}
 
 	
-	
+	 
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -49,6 +49,7 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 			}else {
 				modelo.validarRegistro(ultimoUsuarioSeleccionado);
 				JOptionPane.showMessageDialog(frame, "Se ha validado el usuario: " + ultimoUsuarioSeleccionado.getNombre());
+				this.panel.addListaUsuariosActivos(ultimoUsuarioSeleccionado);
 				this.panel.borraDeListaUsuarios(ultimoUsuarioSeleccionado);
 				ultimoUsuarioSeleccionado= null;
 
@@ -91,9 +92,11 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 				return;
 			}
 			
+			String nombre =  ultimoUsuarioSeleccionado2.getNombre();
 			this.ultimoUsuarioSeleccionado2.bloquear(panel.getMotivoBloqueo());
-			this.panel.updateListaUsuariosActivos(this.modelo.getUsuariosActivos());
-			JOptionPane.showMessageDialog(frame, "Se ha bloqueado al usuario: " + ultimoUsuarioSeleccionado2.getNombre());
+			this.panel.addListaUsuariosBloqueados(this.ultimoUsuarioSeleccionado2);
+			this.panel.borrarListaUsuariosActivos(this.ultimoUsuarioSeleccionado2);
+			JOptionPane.showMessageDialog(frame, "Se ha bloqueado al usuario: " + nombre);
 			ultimoUsuarioSeleccionado2= null;
 			
 		}else  if(e.getActionCommand().equals("Desbloquear Usuario")) {
@@ -103,17 +106,17 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 				return;
 			}
 			
-				this.ultimoUsuarioSeleccionado2.desbloquear();
-				this.panel.updateListaUsuariosBloqueados(this.modelo.getUsuariosBloqueados());
-				JOptionPane.showMessageDialog(frame, "Se ha desbloqueado al usuario: " + ultimoUsuarioSeleccionado3.getNombre());
+				String nombre =  ultimoUsuarioSeleccionado3.getNombre();
+				this.ultimoUsuarioSeleccionado3.desbloquear();
+				this.panel.addListaUsuariosActivos(this.ultimoUsuarioSeleccionado3);
+				this.panel.borrarListaUsuariosBloqueados(this.ultimoUsuarioSeleccionado3);
+				JOptionPane.showMessageDialog(frame, "Se ha desbloqueado al usuario: " + nombre);
 				ultimoUsuarioSeleccionado3= null;
 
-			
-			
 		}
 		
 		
-		
+		 
 		 
 		
 		
@@ -173,7 +176,7 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 		}
 		
 
-	
+	 
 
 
 	@Override
@@ -183,6 +186,7 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 	}
 
 
+ 
 
 
 

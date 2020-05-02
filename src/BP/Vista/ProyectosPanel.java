@@ -20,7 +20,7 @@ public class ProyectosPanel extends JPanel {
 		this.setLayout(new BorderLayout());
 		
 		
-		JPanel subP1 = new JPanel(new GridLayout(2,2));
+			JPanel subP1 = new JPanel(new GridLayout(2,2));
 		
 		   this.goUsuario = new JButton("goUsuario");
 		   this.goColectivos = new JButton("goColectivos");
