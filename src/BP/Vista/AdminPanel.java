@@ -52,8 +52,8 @@ public class AdminPanel extends JPanel {
 		
 		
 		this.registrosPendientesAprobacion = registrosPendientesAprobacion;
-		this.usuariosActivos = registrosPendientesAprobacion;
-		this.usuariosBloqueados = registrosPendientesAprobacion;
+		this.usuariosActivos = usuariosActivos;
+		this.usuariosBloqueados = usuariosBloqueados;
 
 		
 		
