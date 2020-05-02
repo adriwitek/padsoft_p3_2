@@ -6,7 +6,6 @@ import javax.swing.*;
 
 public class UsuarioPanel extends JPanel {
 	
-	private JButton goUsuario;
 	private JButton goColectivos;
 	private JButton goProyectos;
 	
@@ -28,13 +27,12 @@ public class UsuarioPanel extends JPanel {
 		this.nombreUsuario = new JLabel("");
 		this.etiquetaUsuario = new JLabel("Usuario");
 		this.numeroNIF = new JLabel("");
-		this.goUsuario = new JButton("Usuario");
-		this.goColectivos = new JButton("Colectivos");
-		this.goProyectos = new JButton("Proyectos");
+		this.goColectivos = new JButton("goColectivos");
+		this.goProyectos = new JButton("goProyectos");
 		this.listaProyectos = new JList();
 		this.listaColectivos = new JList();
 
-		subP1.add(goUsuario);
+		
 		subP1.add(goColectivos);
 		subP1.add(goProyectos);
 		subP1.add(listaProyectos);
@@ -43,7 +41,6 @@ public class UsuarioPanel extends JPanel {
 		
 	}
 	public void setControlador(ActionListener c) {
-		goUsuario.addActionListener(c);
 		goColectivos.addActionListener(c);
 		goProyectos.addActionListener(c);
 	}

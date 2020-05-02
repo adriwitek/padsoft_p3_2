@@ -18,6 +18,7 @@ public class Controlador {
 	private ControladorUsuario controladorUsuario;
 	private ControladorProyectos controladorProyectos;
 	private ControladorColectivos controladorColectivos;
+	private ControladorAdmin controladorAdmin;
 	private ControladorCrearProyecto controladorCrearProyecto;
 	
 	public Controlador(VentanaPrincipal frame, Aplicacion modelo) {
@@ -32,6 +33,7 @@ public class Controlador {
 		this.controladorUsuario = new ControladorUsuario(frame, modelo);
 		this.controladorProyectos = new ControladorProyectos(frame, modelo);
 		this.controladorColectivos = new ControladorColectivos(frame, modelo);
+
 		this.controladorCrearProyecto = new ControladorCrearProyecto(frame, modelo);
 		
 	}
@@ -43,7 +45,7 @@ public class Controlador {
 	
 	
 	
-	// ****** GETTERS DE LOS CONTROLADORES COMPLEJOS***
+	// ****** GETTERS DE LOS CONTROLADORES ***
 
 	
 	/**
@@ -71,9 +73,6 @@ public class Controlador {
 	public ControladorBienvenida getControladorBienvenida() {
 		return controladorBienvenida;
 	}
-
-
-
 
 
 
@@ -108,6 +107,16 @@ public class Controlador {
 	public ControladorCrearProyecto getControladorCrearProyecto() {
 		return controladorCrearProyecto;
 	}
+
+
+
+	/**
+	 * @return the controladorAdmin
+	 */
+	public ControladorAdmin getControladorAdmin() {
+		return controladorAdmin;
+	}
+
 
 	public Aplicacion getModelo() {
 		return this.modelo;

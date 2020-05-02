@@ -13,6 +13,7 @@ public class ProyectosPanel extends JPanel {
 
 	private JButton goUsuario;
 	private JButton goColectivos;
+	private JButton crearProyecto;
 	
 	
 	public ProyectosPanel() {
@@ -23,8 +24,9 @@ public class ProyectosPanel extends JPanel {
 		
 		   this.goUsuario = new JButton("Usuario");
 		   this.goColectivos = new JButton("Colectivos");
+		   this.crearProyecto = new JButton("crearProyecto");
 		   
-
+		   subP1.add(crearProyecto);
 		   subP1.add(goUsuario);
 		   subP1.add(goColectivos);
 	
@@ -35,6 +37,7 @@ public class ProyectosPanel extends JPanel {
 	public void setControlador(ActionListener c) {
 	    goUsuario.addActionListener(c);
 	    goColectivos.addActionListener(c);
+	    crearProyecto.addActionListener(c);
 	    
 	}
 

@@ -21,8 +21,9 @@ public class ControladorProyectos implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 	
-		
-		if(e.getActionCommand().equals("goColectivos")) {
+		if(e.getActionCommand().equals("crearProyecto")) {
+			
+		}else if(e.getActionCommand().equals("goColectivos")) {
 			GoToColectivo();
 		
 		}else if(e.getActionCommand().equals("goUsuario")) {

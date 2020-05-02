@@ -13,9 +13,11 @@ public class main {
 	
 	public static void main(String[] args) throws ClassNotFoundException, IOException {
 		
-		
 		Aplicacion app = Aplicacion.getInstancia("admin", "1234",1); //login del admin
-		app.loadAplicacion();
+		if (!app.loginUser("Guillermo", "1234")) System.out.println("OK, no se ha podido iniciar sesion");
+
+		//app.loadAplicacion();
+		
 		
 		
 		// USUARIOS
@@ -41,7 +43,7 @@ public class main {
 		//VALIDAMOS LOS REGISTROS
 		app.loginAdmin("admin", "1234");
 		
-		if (app.getRegistrosPendientesDeAprobacion().size() !=3) System.out.println("Error, el numero de usuairo pendientes de aprobacion no coincide: " + app.getRegistrosPendientesDeAprobacion().size());
+		if (app.getRegistrosPendientesDeAprobacion().size() !=5) System.out.println("Error, el numero de usuairo pendientes de aprobacion no coincide: " + app.getRegistrosPendientesDeAprobacion().size());
 		app.validarRegistro(u1);
 		app.validarRegistro(u2);
 		app.validarRegistro(u3);
@@ -55,12 +57,20 @@ public class main {
 		
 		
 		
-		//SAVE Y LOAD
+		//SAVE Y LOAD (IMPORTANTE)
 		app.saveAplicacion();
 		app.exit();
-		if(!app.loadAplicacion()) System.out.println("No se ha podido cargar el backup");
+		
+		app = Aplicacion.getInstancia("admin", "1234",1); //login del admin CREAMOS UNA APP
+		 if (!app.loginUser("Guillermo", "1234")) System.out.println("NOOOOOOOOOOOOOOOO, no se ha podido iniciar sesion");
+		if(!app.loadAplicacion()) System.out.println("No se ha podido cargar el backup");//CARGAMOS LOS DATOS EN INSTACIA
 
-		if (!app.loginUser("Guillermo", "1234")) System.out.println("Error, no se ha podido iniciar sesion");
+		app = Aplicacion.getInstancia();
+		if (app.loginUser("Guillermo", "1234")) System.out.println("358SIIIIIIIIIIIIII,  se ha podido iniciar sesion");
+
+		
+		
+		
 		System.out.println("Usuario logueado: " + app.getUsuarioConectado());
 
 		
@@ -176,6 +186,8 @@ public class main {
         
         
 		//REPETICION SAVE Y LOAD
+		app.logOut();
+
 		app.saveAplicacion();
 		app.exit();
 		if(!app.loadAplicacion()) System.out.println("No se ha podido cargar el backup");

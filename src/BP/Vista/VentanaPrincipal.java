@@ -4,12 +4,13 @@ import javax.swing.*;
 import java.awt.*;
 
 import BP.Controlador.Controlador;
+import BP.Modelo.Aplicacion;
 
 public class VentanaPrincipal extends JFrame{
 
 	
 	private Controlador controlador;
-	
+	private Aplicacion modelo;
 	
 	
 	//Paneles
@@ -19,14 +20,15 @@ public class VentanaPrincipal extends JFrame{
 	private UsuarioPanel usuarioPanel;
 	private ProyectosPanel proyectosPanel;
 	private ColectivosPanel colectivosPanel;
+	private AdminPanel adminPanel;
 	private CrearColectivoPanel crearColectivoPanel;
 	private CrearProyectoPanel crearProyectoPanel;
 	
-	public VentanaPrincipal(String titulo) {
+	public VentanaPrincipal(Aplicacion modelo,String titulo) {
 		
 		super(titulo); //Lo mismo que  JFrame ventanaPrincipal = new JFrame("Titulo");
-	
-	
+		this.modelo = modelo;
+		
 	
 		//Container y Layout
 		Container contenedor = this.getContentPane();	
@@ -41,9 +43,11 @@ public class VentanaPrincipal extends JFrame{
 		this.usuarioPanel = new UsuarioPanel();
 		this.proyectosPanel = new ProyectosPanel();
 		this.colectivosPanel = new ColectivosPanel();
+		this.adminPanel = new AdminPanel(modelo.getRegistrosPendientesDeAprobacion());
 		this.crearColectivoPanel = new CrearColectivoPanel();
 		this.crearProyectoPanel = new CrearProyectoPanel();
 	
+		
 		//Anniadimos panelens al contenedor
 		contenedor.add(this.loginPanel);
 		contenedor.add(this.registroPanel);
@@ -51,6 +55,9 @@ public class VentanaPrincipal extends JFrame{
 		contenedor.add(this.usuarioPanel);
 		contenedor.add(this.proyectosPanel);
 		contenedor.add(this.colectivosPanel);
+		contenedor.add(this.adminPanel );
+		
+		
 		contenedor.add(this.crearColectivoPanel);
 		contenedor.add(this.crearProyectoPanel);
 		
@@ -61,6 +68,8 @@ public class VentanaPrincipal extends JFrame{
 		this.usuarioPanel.setVisible(false);
 		this.colectivosPanel.setVisible(false);
 		this.proyectosPanel.setVisible(false);
+		this.adminPanel.setVisible(false); 
+		
 		this.crearColectivoPanel.setVisible(false);
 		this.crearProyectoPanel.setVisible(false);
 		
@@ -82,12 +91,14 @@ public class VentanaPrincipal extends JFrame{
 		this.registroPanel.setControlador(controlador.getControladorRegistro());
 		this.bienvenidaPanel.setControlador(controlador.getControladorBienvenida());
 		this.usuarioPanel.setControlador(controlador.getControladorUsuario());
+
 		this.proyectosPanel.setControlador(controlador.getControladorProyectos());
 		this.colectivosPanel.setControlador(controlador.getControladorColectivos());
 		/*this.crearColectivoPanel.setControlador(controlador.getControladorCrearColectivo());*/
 		this.crearProyectoPanel.setControlador(controlador.getControladorCrearProyecto());
 
 	}
+	
 	
 	
 	public Controlador getControlador() {
@@ -99,7 +110,10 @@ public class VentanaPrincipal extends JFrame{
 	
 	
 	
-	//Getters de Paneles
+	
+	
+	
+	//  *** GETTERS DE PANELES ***
 	
 	public LoginPanel getPanelLogin() {
 		return this.loginPanel;
@@ -128,7 +142,6 @@ public class VentanaPrincipal extends JFrame{
 	}
 	
 	
-	
 	public ProyectosPanel getPanelProyectos() {
 		return this.proyectosPanel;
 	}
@@ -137,10 +150,11 @@ public class VentanaPrincipal extends JFrame{
 		return this.colectivosPanel;
 	}
 	
-	public CrearColectivoPanel getPanelCrearColectivo() {
-		return this.crearColectivoPanel;
+	public AdminPanel getPanelAdmin() {
+		return this.adminPanel;
 	}
 	
+
 	public CrearProyectoPanel getPanelCrearProyecto() {
 		return this.crearProyectoPanel;
 	}

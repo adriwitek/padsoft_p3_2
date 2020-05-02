@@ -80,6 +80,7 @@ public class Aplicacion implements java.io.Serializable {
 			e.printStackTrace();
 		}
 	
+		INSTANCE = this;
 		
 	}
 	
@@ -105,6 +106,20 @@ public class Aplicacion implements java.io.Serializable {
 	
 	
 	
+	/**
+	 * Esta funcion devuelve la instancia ACTUAL de la aplicacion
+	 * 
+	 *
+	 * @return Aplication
+	 */
+	public static Aplicacion getInstancia() {
+		
+		return INSTANCE;
+	}
+	
+	
+	
+	
 	/***** Funciones de Carga/Guardado ****/
 	
 	
@@ -119,7 +134,7 @@ public class Aplicacion implements java.io.Serializable {
 		try {
 			this.logOut();
 			ObjectOutputStream objectFile = new ObjectOutputStream(new FileOutputStream(ficheroCarga));
-			objectFile.writeObject(getInstancia(this.nombreAdmin, this.contraseñaAdmin, this.numMinApoyos));
+			objectFile.writeObject(getInstancia());
 		}catch(Exception e) {
 			
 		}
@@ -151,8 +166,8 @@ public class Aplicacion implements java.io.Serializable {
             }else {
             	INSTANCE = app;
             	//Metodos de inicio y actuliazadion de datos de la App
-    			caducarProyectosAntiguos();
-    			actualizarProyectosFinanciados();
+    			INSTANCE.caducarProyectosAntiguos();
+    			INSTANCE.actualizarProyectosFinanciados();
     			return true;
             }
 		
@@ -172,8 +187,9 @@ public class Aplicacion implements java.io.Serializable {
 	 */
 	public boolean exit() {
 		this.logOut();
+		Boolean b =  saveAplicacion();
 		INSTANCE = null;
-		return  saveAplicacion();
+		return b ;
 		
 	}
 	
@@ -260,7 +276,7 @@ public class Aplicacion implements java.io.Serializable {
 	 */
 	public HashSet<Usuario> getRegistrosPendientesDeAprobacion(){
 		
-		if(!this.modoAdmin) return null;
+		//if(!this.modoAdmin) return null;
 		
 		Usuario u;
 		HashSet<Usuario> pendientes = new HashSet<Usuario>();
@@ -327,7 +343,7 @@ public class Aplicacion implements java.io.Serializable {
 	
 	
 	
-	
+	 
 	
 	
 	
