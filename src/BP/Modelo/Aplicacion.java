@@ -339,15 +339,19 @@ public class Aplicacion implements java.io.Serializable {
 		return listado;
 	} 
 	
-		
-	
-	
-	
-	 
-	
-	
-	
-	
+public HashSet<Proyecto> getProyectosApoyables(){
+		 
+		if(!this.modoAdmin) return null;
+		HashSet<Proyecto> listado = new HashSet<Proyecto>();
+		for(Proyecto p: this.proyectos) {
+			if(p.getEstadoProyecto() == EstadoProyecto.OPERATIVO) {
+				listado.add(p);
+			}
+		}
+		//return (HashSet<Proyecto>) Collections.unmodifiableSet(listado);
+		//posteriormente hay que modificarlos, controlar la llamada a la fucnion
+		return listado;
+	} 	
 	
 	
 	

@@ -25,7 +25,7 @@ public class ControladorBienvenida implements ActionListener{
 		this.modelo=modelo;
 	}
 
-
+ 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
