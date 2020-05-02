@@ -16,6 +16,8 @@ public class ControladorCrearProyectoInf implements ActionListener {
 		this.frame= frame;
 		this.modelo=modelo;
 	}
+	
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
