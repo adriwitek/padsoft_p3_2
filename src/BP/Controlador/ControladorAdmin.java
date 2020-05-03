@@ -21,7 +21,7 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 	private Usuario  ultimoUsuarioSeleccionado;
 	private Usuario  ultimoUsuarioSeleccionado2;
 	private Usuario  ultimoUsuarioSeleccionado3;
-
+	private int idProyecto;
 
 	
 	public ControladorAdmin(VentanaPrincipal frame ,Aplicacion modelo) {
@@ -31,6 +31,7 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 		this.ultimoUsuarioSeleccionado = null;
 		this.ultimoUsuarioSeleccionado2 = null;
 		this.ultimoUsuarioSeleccionado3 = null;
+		this.idProyecto = -1;
 	}
 
 	
@@ -113,6 +114,29 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 				JOptionPane.showMessageDialog(frame, "Se ha desbloqueado al usuario: " + nombre);
 				ultimoUsuarioSeleccionado3= null;
 
+		}else if(e.getActionCommand().equals("Validar Proyecto")) {
+			
+			if(idProyecto == -1) {
+				JOptionPane.showMessageDialog(panel,"Debe seleccionar un proyecto de la lista", "Error", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
+			
+			HashSet<Proyecto> proyectosSolicitandoFinanciacion = modelo.getProyectosPendientesValidacion();
+			Proyecto pSeleccionado = null;
+			for(Proyecto p:proyectosSolicitandoFinanciacion ) {
+				if(this.idProyecto == p.getUniqueID()) pSeleccionado = p;
+			}
+			
+			
+			
+		}else if(e.getActionCommand().equals("Rechazar Proyecto")) {
+			if(idProyecto == -1) {
+				JOptionPane.showMessageDialog(panel,"Debe seleccionar un proyecto de la lista", "Error", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
+			
+			
+			
 		}
 		
 		
@@ -174,6 +198,28 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 			
 		}
 		
+	
+	
+	public  MouseAdapter getControllerTablaProyectosValidacion(){
+		
+		
+		
+		return new MouseAdapter() 
+		   {
+		      public void mouseClicked(MouseEvent e) 
+		      {
+		    	 JTable tabla = panel.getTablaProyectosValidacion();
+		         int fila = tabla.rowAtPoint(e.getPoint());
+		         int columna = tabla.columnAtPoint(e.getPoint());
+		         idProyecto=-1;
+		         if ((fila > -1) && (columna > -1)) {
+		        	 idProyecto= (int) panel.getModeloTablaProyectosValidacion().getValueAt(fila,5);
+
+		         }
+		      }
+		   };
+	} 
+	   
 
 	 
 

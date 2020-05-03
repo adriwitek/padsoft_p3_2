@@ -7,6 +7,7 @@ import java.util.HashSet;
 import javax.swing.*;
 import  javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 import BP.Controlador.ControladorAdmin;
 import BP.Modelo.Proyecto;
@@ -47,7 +48,9 @@ public class AdminPanel extends JPanel {
 	private JButton botonBloquearUsuario;
 	private JButton botonDesBloquearUsuario;
 	private JTextField campoMotivoBloqueo;
-
+	private JButton botonValidarProyecto;
+	private JButton botonRechazarValidarProyecto;
+	private JTable tabla;
 	
 	 
 	
@@ -70,7 +73,7 @@ public class AdminPanel extends JPanel {
 		this.pestanias = new JTabbedPane();
 		  
 		
-	// ***SUBPANEL1 *** - Usuarios pendientes de aprobacion
+		// ***SUBPANEL1 *** - Usuarios pendientes de aprobacion
 		
 		JPanel subP1 = new JPanel();
 		JLabel label1 = new JLabel("Solicitudes:");
@@ -120,7 +123,7 @@ public class AdminPanel extends JPanel {
 		
 		
 		
-	// ********   SUBPANEL 2 - BLOQUEO DE USUARIOS  ******
+		// ********   SUBPANEL 2 - BLOQUEO DE USUARIOS  ******
 		JPanel subP2 = new JPanel();
 		
 		
@@ -186,9 +189,9 @@ public class AdminPanel extends JPanel {
 		
 		Object[][] filas;
 		if(proyectosSolicitandoFinanciacion.size() == 0 ) {
-			filas = new Object [1][5];
+			filas = new Object [0][6];
 		}else {
-			filas = new Object [proyectosSolicitandoFinanciacion.size()][5];
+			filas = new Object [proyectosSolicitandoFinanciacion.size()][6];
 			int i=0;
 			for(Proyecto p: proyectosSolicitandoFinanciacion) {
 				filas[i][0] = p.getNombre() ;
@@ -196,6 +199,7 @@ public class AdminPanel extends JPanel {
 				filas[i][2] = new Double(p.getCoste());
 				filas[i][3] = p.getFechaCreacion();
 				filas[i][4] = p.getDescripcionCorta();
+				filas[i][5] = p.getUniqueID();
 				i++;
 			}
 		}
@@ -203,10 +207,15 @@ public class AdminPanel extends JPanel {
 		
 		
 		DefaultTableModel modeloDatos = new DefaultTableModel(filas, titulos);
-		JTable tabla = new JTable(modeloDatos);
+		this.tabla = new JTable(modeloDatos);
 		tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		JScrollPane scroll = new JScrollPane(tabla);
 		subP3.add(scroll);
+		
+		this.botonValidarProyecto = new JButton("Validar Proyecto");
+		subP3.add(botonValidarProyecto);
+		this.botonRechazarValidarProyecto = new JButton("Rechazar Proyecto");
+		subP3.add(botonRechazarValidarProyecto);
 		this.pestanias.add("Proyectos",subP3);
 
 		
@@ -229,6 +238,12 @@ public class AdminPanel extends JPanel {
 		this.botonDesBloquearUsuario.addActionListener(c);
 		this.listaUsuariosActivos.addListSelectionListener(c.getControllerUsuariosActivos());
 		this.listaUsuariosBloqueados.addListSelectionListener(c.getControllerUsuariosBloqueados());
+		
+		//del Panel3
+		botonValidarProyecto.addActionListener(c); 
+		botonRechazarValidarProyecto.addActionListener(c); 
+		this.tabla.addMouseListener(c.getControllerTablaProyectosValidacion());
+
 	}
 	
 	
@@ -304,9 +319,13 @@ public class AdminPanel extends JPanel {
 	}
 	 
 	
+	public JTable getTablaProyectosValidacion() {
+		return this.tabla;
+	}
 	
-	
-	
+	public TableModel getModeloTablaProyectosValidacion() {
+		return this.tabla.getModel();
+	}
 	
 	
 }

@@ -66,7 +66,7 @@ public abstract class Proyecto implements java.io.Serializable, GrantRequest{
 		this.coste = cost;
 		this.setFinanciacionRecibida(0);
 		this.usuariosSuscritosNotificaciones= new HashSet<Usuario>()  ;
-		this.uniqueID= Aplicacion.getInstancia(null,null,null).getNewProjectUniqueId();
+		this.uniqueID= Aplicacion.getInstancia().getNewProjectUniqueId();
 		this.idSeguimientoSistemaFinanciacion = null;
 		this.estadoProyecto = EstadoProyecto.PENDIENTEVALIDACION;
 	}
@@ -508,4 +508,8 @@ public abstract class Proyecto implements java.io.Serializable, GrantRequest{
 		return  "";
 	}
 	
+	
+	public int getUniqueID() {
+		return this.uniqueID;
+	}
 }
