@@ -35,9 +35,9 @@ public class ControladorRegistro implements ActionListener {
 		}
 			
 	}
-	
 	 
-	
+	 
+	 
 	//Funcion auxiliar
 	private void registro() {
 		// validar valores en la vista

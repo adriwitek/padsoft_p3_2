@@ -6,8 +6,10 @@ import java.util.HashSet;
 
 import javax.swing.*;
 import  javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableModel;
 
 import BP.Controlador.ControladorAdmin;
+import BP.Modelo.Proyecto;
 import BP.Modelo.Usuario;
 
 
@@ -18,6 +20,7 @@ public class AdminPanel extends JPanel {
 	private HashSet<Usuario> registrosPendientesAprobacion;
 	private HashSet<Usuario> usuariosActivos;
 	private HashSet<Usuario> usuariosBloqueados;
+	private HashSet<Proyecto> proyectosSolicitandoFinanciacion;
 	private DefaultListModel solicitudesReg ;
 	private DefaultListModel usuariosActivosModelo ;
 	private DefaultListModel usuariosBloqueadosModelo ;
@@ -48,13 +51,13 @@ public class AdminPanel extends JPanel {
 	
 	 
 	
-	public AdminPanel(HashSet<Usuario> registrosPendientesAprobacion,HashSet<Usuario> usuariosActivos,HashSet<Usuario> usuariosBloqueados) {
+	public AdminPanel(HashSet<Usuario> registrosPendientesAprobacion,HashSet<Usuario> usuariosActivos,HashSet<Usuario> usuariosBloqueados,HashSet<Proyecto> proyectosSolicitandoFinanciacion) {
 		
 		
 		this.registrosPendientesAprobacion = registrosPendientesAprobacion;
 		this.usuariosActivos = usuariosActivos;
 		this.usuariosBloqueados = usuariosBloqueados;
-
+		this.proyectosSolicitandoFinanciacion = proyectosSolicitandoFinanciacion;
 		
 		
 		
@@ -116,6 +119,7 @@ public class AdminPanel extends JPanel {
 		
 		
 		
+		
 	// ********   SUBPANEL 2 - BLOQUEO DE USUARIOS  ******
 		JPanel subP2 = new JPanel();
 		
@@ -169,24 +173,42 @@ public class AdminPanel extends JPanel {
 		
 		
 		
+		
 		// ********   SUBPANEL 3 - APROBACION PROYECTOS  ******
 		JPanel subP3 = new JPanel();
-
-		
 		JLabel label4 = new JLabel("Proyectos pendientes de aprobacion");
 		subP3.add(label4); 
 		
 		
-		
 		//TABLA
-		String[] titulos = {"Nombre Proyecto", "Financiacion solicitada", "Fecha creacion", "Descripcion breve"};
+		String[] titulos = {"Nombre Proyecto","Tipo Proyecto", "Financiacion solicitada", "Fecha creacion", "Descripcion breve"};
+		
+		
+		Object[][] filas;
+		if(proyectosSolicitandoFinanciacion.size() == 0 ) {
+			filas = new Object [1][5];
+		}else {
+			filas = new Object [proyectosSolicitandoFinanciacion.size()][5];
+			int i=0;
+			for(Proyecto p: proyectosSolicitandoFinanciacion) {
+				filas[i][0] = p.getNombre() ;
+				filas[i][1] = p.getTipoProyecto();
+				filas[i][2] = new Double(p.getCoste());
+				filas[i][3] = p.getFechaCreacion();
+				filas[i][4] = p.getDescripcionCorta();
+				i++;
+			}
+		}
 		
 		
 		
-		
-		
-		
-		
+		DefaultTableModel modeloDatos = new DefaultTableModel(filas, titulos);
+		JTable tabla = new JTable(modeloDatos);
+		tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		JScrollPane scroll = new JScrollPane(tabla);
+		subP3.add(scroll);
+		this.pestanias.add("Proyectos",subP3);
+
 		
 		
 		

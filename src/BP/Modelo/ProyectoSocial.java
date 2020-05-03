@@ -50,4 +50,9 @@ public class ProyectoSocial extends Proyecto {
 		return GrantRequest.ProjectKind.Social;
 	}
 	
+	@Override
+	public String getTipoProyecto() {
+		return new String("Social");
+	}
+	
 }

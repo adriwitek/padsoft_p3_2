@@ -389,7 +389,7 @@ public class Aplicacion implements java.io.Serializable {
 	 */
 	public HashSet<Proyecto> getProyectosSolicitandoFinanciacion(){
 		
-		if(!this.modoAdmin) return null;
+		//if(!this.modoAdmin) return null;//fix para la gui
 		HashSet<Proyecto> listado = new HashSet<Proyecto>();
 		for(Proyecto p: this.proyectos) {
 			if(p.getEstadoProyecto() == EstadoProyecto.PENDIENTEFINANCIACION) {
@@ -400,6 +400,33 @@ public class Aplicacion implements java.io.Serializable {
 		//posteriormente hay que modificarlos, controlar la llamada a la fucnion
 		return listado;
 	} 
+	
+	
+	
+	/**
+	 * Esta funcion se encarga de devolver una lista con los proyectos pendientes de validar por el admin
+	 * 
+	 * @return
+	 */
+	public HashSet<Proyecto> getProyectosPendientesValidacion(){
+		
+		//if(!this.modoAdmin) return null;//fix para la gui
+		HashSet<Proyecto> listado = new HashSet<Proyecto>();
+		for(Proyecto p: this.proyectos) {
+			if(p.getEstadoProyecto() == EstadoProyecto.PENDIENTEVALIDACION) {
+				listado.add(p);
+			}
+		}
+		//return (HashSet<Proyecto>) Collections.unmodifiableSet(listado);
+		//posteriormente hay que modificarlos, controlar la llamada a la fucnion
+		return listado;
+	} 
+	
+	
+	
+	
+	
+	
 	
 	public HashSet<Proyecto> getProyectosApoyables(Usuario user){
 		 
