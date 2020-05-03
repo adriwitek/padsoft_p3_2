@@ -401,17 +401,43 @@ public class Aplicacion implements java.io.Serializable {
 		return listado;
 	} 
 	
-		
+	public HashSet<Proyecto> getProyectosApoyables(Usuario user){
+		 
+		if(this.modoAdmin) return null;
+		HashSet<Proyecto> listado = new HashSet<Proyecto>();
+		for(Proyecto p: this.proyectos) {
+			if(p.getEstadoProyecto() == EstadoProyecto.OPERATIVO) {
+				listado.add(p);
+			}
+		}
+		if(this.getUsuarioConectado()!=null) {
+			
+		}
+		listado.removeAll(getProyectosApoyados(user));
+		//return (HashSet<Proyecto>) Collections.unmodifiableSet(listado);
+		//posteriormente hay que modificarlos, controlar la llamada a la fucnion
+		return listado;
+	} 	
 	
+	public HashSet<Proyecto> getProyectosApoyados(Usuario user){
+		HashSet<Proyecto> listado =  new HashSet<Proyecto>();
+		for(Proyecto p: this.proyectos) {
+			if(p.getUsuariosApoyantes().contains(user)) {
+				listado.add(p);
+			}
+		}
+		return listado;
+	}
 	
-	
-	 
-	
-	
-	
-	
-	
-	
+	public HashSet<Colectivo> getColectivosDisponibles(Usuario User){
+		HashSet<Colectivo> listado = new HashSet<Colectivo>();
+		for(Proponente p: this.proponentes) {
+			if( p.getClass().getSimpleName().equals("Colectivo")) {
+				listado.add((Colectivo)p);
+			}
+		}
+		return listado;
+	}
 	
 	//	*** FUNCIONES LLAMADAS POR EL USUARIO LOGUEADO ***
 	/**
@@ -421,6 +447,7 @@ public class Aplicacion implements java.io.Serializable {
 		this.modoAdmin = false;
 		this.usuarioConectado = null;
 	}
+	
 	
 	
 

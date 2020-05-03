@@ -138,8 +138,7 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 	    	   
 	    	}		    	
 	}
-
-
+	
 	
 	
 	public ListSelectionListener getControllerUsuariosActivos() {

@@ -156,7 +156,6 @@ public class main {
 		pSocial1.setFechaUltimoApoyo(dateAtrasada);
 		app.caducarProyectosAntiguos();//Importante la llamada a esta funcion, para actualizar los estados de los proyectos
 		System.out.println("AFTER: El estado de pSocial1 es: " + pSocial1.getEstadoProyecto() + " y la fecha de su ultimo apoyo es: " + pSocial1.getFechaUltimoApoyo());
-
 		
 		
 		

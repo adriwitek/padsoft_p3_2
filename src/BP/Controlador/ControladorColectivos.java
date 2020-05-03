@@ -24,7 +24,7 @@ public class ControladorColectivos implements ActionListener {
 		if(e.getActionCommand().equals("crearColectivo")){
 			CColectivo();
 			
-		}else if(e.getActionCommand().equals("goColectivos")) {
+		}else if(e.getActionCommand().equals("goProyectos")) {
 			GoToProyectos();
 		
 		}else if(e.getActionCommand().equals("goUsuario")) {

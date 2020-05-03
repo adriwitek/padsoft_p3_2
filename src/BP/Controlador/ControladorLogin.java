@@ -43,7 +43,6 @@ public class ControladorLogin implements ActionListener {
 		// validar valores en la vista
 		String nombreUsuario = panel.getNombreUsuario();
 		String password = panel.getPassword();
-		
 		if (nombreUsuario.equals("") || password.equals("") ) {
 			JOptionPane.showMessageDialog(panel,
 					"Debe introducir un nombre y una contraseña.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -55,28 +54,30 @@ public class ControladorLogin implements ActionListener {
 		// modificar modelo
 		if( !modelo.loginAdmin(nombreUsuario, password) && !modelo.loginUser(nombreUsuario, password) ) {
 			JOptionPane.showMessageDialog(panel,
-					"Las credenciales son incorrectas.Intentalo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+					"Las credenciales son incorrectas. Intentalo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
 		
-		
-
-		if(modelo.isModoAdmin()){
+		 
+	
+		// mostrar nueva vista 
+		if(modelo.isModoAdmin()) {
 			AdminPanel pAdmin = frame.getPanelAdmin();
 			pAdmin.setVisible(true);
 			this.panel.setVisible(false);
-			
-		}else {
-			// mostrar nueva vista
+		}
+		else {
 			UsuarioPanel pUsuario = frame.getPanelUsuario();
-			pUsuario.setNumeroNIF(modelo.getUsuarioConectado().getNIF());
-			pUsuario.setNombreUsuario(modelo.getUsuarioConectado().getNombre());
+			loadUserInfo(pUsuario);
 			pUsuario.setVisible(true);
 			this.panel.setVisible(false);
 		}
-		
-
 	}
-	
+	private void loadUserInfo(UsuarioPanel pUsuario) {
+		pUsuario.setNumeroNIF(modelo.getUsuarioConectado().getNIF());
+		pUsuario.setNombreUsuario(modelo.getUsuarioConectado().getNombre());
+		pUsuario.setListaProyectos(modelo.getProyectosApoyables(modelo.getUsuarioConectado()));
+		pUsuario.setListaColectivos(modelo.getColectivosDisponibles(modelo.getUsuarioConectado()));
+	}
 	
 }
