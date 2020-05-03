@@ -22,7 +22,7 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 	private Usuario  ultimoUsuarioSeleccionado2;
 	private Usuario  ultimoUsuarioSeleccionado3;
 	private int idProyecto;
-
+	private int filaTabla;
 	
 	public ControladorAdmin(VentanaPrincipal frame ,Aplicacion modelo) {
 		this.panel= frame.getPanelAdmin();
@@ -32,6 +32,7 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 		this.ultimoUsuarioSeleccionado2 = null;
 		this.ultimoUsuarioSeleccionado3 = null;
 		this.idProyecto = -1;
+		this.filaTabla = -1;
 	}
 
 	
@@ -116,10 +117,15 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 
 		}else if(e.getActionCommand().equals("Validar Proyecto")) {
 			
-			if(idProyecto == -1) {
-				JOptionPane.showMessageDialog(panel,"Debe seleccionar un proyecto de la lista", "Error", JOptionPane.ERROR_MESSAGE);
+			
+			this.filaTabla  = this.panel.getTablaProyectosValidacion().getSelectedRow();
+			if(filaTabla == -1) {
+				JOptionPane.showMessageDialog(panel,"Debe seleccionar un proyecto de la tabla", "Error", JOptionPane.ERROR_MESSAGE);
 				return;
 			}
+			idProyecto = (int) this.panel.getModeloTablaProyectosValidacion().getValueAt(filaTabla, 5);
+			
+			
 			
 			HashSet<Proyecto> proyectosSolicitandoFinanciacion = modelo.getProyectosPendientesValidacion();
 			Proyecto pSeleccionado = null;
@@ -127,27 +133,62 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 				if(this.idProyecto == p.getUniqueID()) pSeleccionado = p;
 			}
 			
+			
+			
+			
 			if(null!= pSeleccionado) {
 				pSeleccionado.validarProyecto();
-				JOptionPane.showMessageDialog(frame, "Se ha validado el proyecto " + nombre);
+				 panel.getModeloTablaProyectosValidacion().removeRow(this.filaTabla);
+				this.filaTabla = -1;
+				JOptionPane.showMessageDialog(frame, "Se ha validado el proyecto " + pSeleccionado.getNombre());
 			}else {
-				
-			}
-			
-			
-		}else if(e.getActionCommand().equals("Rechazar Proyecto")) {
-			if(idProyecto == -1) {
-				JOptionPane.showMessageDialog(panel,"Debe seleccionar un proyecto de la lista", "Error", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(panel,"Ha ocurrido un error", "Error", JOptionPane.ERROR_MESSAGE);
 				return;
 			}
 			
 			
+		}else if(e.getActionCommand().equals("Rechazar Proyecto")) {
+			
+			
+			 if(panel.getMotivoRechazoValidacionProyecto().equals("")) {
+					JOptionPane.showMessageDialog(panel,"Debe especificar un motivo de rechazo", "Error", JOptionPane.ERROR_MESSAGE);
+					return;
+				}
+			
+			
+			this.filaTabla  = this.panel.getTablaProyectosValidacion().getSelectedRow();
+			if(filaTabla == -1) {
+				JOptionPane.showMessageDialog(panel,"Debe seleccionar un proyecto de la tabla", "Error", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
+			idProyecto = (int) this.panel.getModeloTablaProyectosValidacion().getValueAt(filaTabla, 5);
+			
+			
+			
+			HashSet<Proyecto> proyectosSolicitandoFinanciacion = modelo.getProyectosPendientesValidacion();
+			Proyecto pSeleccionado = null;
+			for(Proyecto p:proyectosSolicitandoFinanciacion ) {
+				if(this.idProyecto == p.getUniqueID()) pSeleccionado = p;
+			}
+			
+			
+			
+			
+			if(null!= pSeleccionado) {
+				pSeleccionado.rechazarProyecto(panel.getMotivoRechazoValidacionProyecto());;///cambiar esta linea
+				 panel.getModeloTablaProyectosValidacion().removeRow(this.filaTabla);
+				this.filaTabla = -1;
+				JOptionPane.showMessageDialog(frame, "Se ha rechazado el proyecto " + pSeleccionado.getNombre());
+			}else {
+				JOptionPane.showMessageDialog(panel,"Ha ocurrido un error", "Error", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
 			
 		}
 		
 		
 		 
-		 
+
 		
 		
 		
@@ -205,29 +246,7 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 		}
 		
 	
-	
-	public  MouseAdapter getControllerTablaProyectosValidacion(){
-		
-		
-		
-		return new MouseAdapter() 
-		   {
-		      public void mouseClicked(MouseEvent e) 
-		      {
-		    	 JTable tabla = panel.getTablaProyectosValidacion();
-		         int fila = tabla.rowAtPoint(e.getPoint());
-		         int columna = tabla.columnAtPoint(e.getPoint());
-		         idProyecto=-1;
-		         if ((fila > -1) && (columna > -1)) {
-		        	 idProyecto= (int) panel.getModeloTablaProyectosValidacion().getValueAt(fila,5);
 
-		         }
-		      }
-		   };
-	} 
-	   
-
-	 
 
 
 	@Override

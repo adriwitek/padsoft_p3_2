@@ -51,7 +51,9 @@ public class AdminPanel extends JPanel {
 	private JButton botonValidarProyecto;
 	private JButton botonRechazarValidarProyecto;
 	private JTable tabla;
-	
+	private DefaultTableModel modeloDatos;
+	private JTextField campoMotivoRechazoValidacionProyecto;
+
 	 
 	
 	public AdminPanel(HashSet<Usuario> registrosPendientesAprobacion,HashSet<Usuario> usuariosActivos,HashSet<Usuario> usuariosBloqueados,HashSet<Proyecto> proyectosSolicitandoFinanciacion) {
@@ -184,7 +186,7 @@ public class AdminPanel extends JPanel {
 		
 		
 		//TABLA
-		String[] titulos = {"Nombre Proyecto","Tipo Proyecto", "Financiacion solicitada", "Fecha creacion", "Descripcion breve"};
+		String[] titulos = {"Nombre Proyecto","Tipo Proyecto", "Financiacion solicitada", "Fecha creacion", "Descripcion breve","ID"};
 		
 		
 		Object[][] filas;
@@ -206,18 +208,28 @@ public class AdminPanel extends JPanel {
 		
 		
 		
-		DefaultTableModel modeloDatos = new DefaultTableModel(filas, titulos);
+		this.modeloDatos = new DefaultTableModel(filas, titulos);
 		this.tabla = new JTable(modeloDatos);
 		tabla.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		tabla.setPreferredScrollableViewportSize(new Dimension(500, 100));
 		JScrollPane scroll = new JScrollPane(tabla);
 		subP3.add(scroll);
 		
+		//Validar
 		this.botonValidarProyecto = new JButton("Validar Proyecto");
 		subP3.add(botonValidarProyecto);
+		//Rechazar
+		JLabel labelRechazoProyecto = new JLabel("Motivo de Rechazo Proyecto");
+		subP3.add(labelRechazoProyecto);
+		this.campoMotivoRechazoValidacionProyecto = new JTextField(20);
+		subP3.add(campoMotivoRechazoValidacionProyecto);
 		this.botonRechazarValidarProyecto = new JButton("Rechazar Proyecto");
 		subP3.add(botonRechazarValidarProyecto);
+		
+		
+		
 		this.pestanias.add("Proyectos",subP3);
-
+		
 		
 		
 		
@@ -242,7 +254,6 @@ public class AdminPanel extends JPanel {
 		//del Panel3
 		botonValidarProyecto.addActionListener(c); 
 		botonRechazarValidarProyecto.addActionListener(c); 
-		this.tabla.addMouseListener(c.getControllerTablaProyectosValidacion());
 
 	}
 	
@@ -323,9 +334,12 @@ public class AdminPanel extends JPanel {
 		return this.tabla;
 	}
 	
-	public TableModel getModeloTablaProyectosValidacion() {
-		return this.tabla.getModel();
+	public DefaultTableModel getModeloTablaProyectosValidacion() {
+		return this.modeloDatos;
 	}
 	
+	public String getMotivoRechazoValidacionProyecto() {
+		return campoMotivoRechazoValidacionProyecto.getText();
+	}
 	
 }
