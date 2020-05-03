@@ -19,7 +19,24 @@ public class ControladorCrearColectivo implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		
+		 if(e.getActionCommand().equals("cancelar")) {
+			Cancelar();
+			
+		}else if(e.getActionCommand().equals("finalizar")) {
+			Finalizar();
+		}else {
+			frame.getPanelBienvenida().setVisible(true);
+			this.panel.setVisible(false);
+		}	
+		
+	}
+	
+	public void Cancelar() {
+		
+	}
+	
+	public void Finalizar() {
 		
 	}
 }
