@@ -45,7 +45,7 @@ public class ControladorCrearProyectoSocial implements ActionListener {
 		String Financiacion = panel.getFinanciacion();
 		Boolean Nacional = panel.getNacional();
 		Proponente p = modelo.getUsuarioConectado();
-		
+		double num;
 		
 		
 		if(Nombre.equals("") || DescripcionC.equals("") || DescripcionL.equals("") || GSocial.equals("") || Financiacion.equals("")) {
@@ -54,15 +54,34 @@ public class ControladorCrearProyectoSocial implements ActionListener {
 			return;
 		}
 		
-		
-		
-		//ProyectoSocial PS = modelo.crearProyectoSocial(p, Nombre, DescripcionL, DescripcionC, Financiacion, GSocial, Nacional);
-		
-		/*if(!PS) {
+		if(DescripcionC.length() > 50 && DescripcionL.length() > 500) {
 			JOptionPane.showMessageDialog(panel,
-					"No ha podido crear el proyecto. ", "Error", JOptionPane.ERROR_MESSAGE);
+					"Descripcion larga y descripcion corta demasiado largas (Solo 50 caracteres DescC, solo 500 caracteres DescL) ", "Error", JOptionPane.ERROR_MESSAGE);
 			return;
-		}*/
+			
+		}else if(DescripcionC.length() > 50) {
+			JOptionPane.showMessageDialog(panel,
+					"Descripcion corta demasiado larga (Solo 50 caracteres) ", "Error", JOptionPane.ERROR_MESSAGE);
+			return;
+			
+		}else if(DescripcionL.length() > 500) {
+			JOptionPane.showMessageDialog(panel,
+					"Descripcion larga demasiado extensa (Solo 500 caracteres) ", "Error", JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+		
+		try {
+			num = Double.parseDouble(Financiacion);
+
+		}catch(Exception e) {
+			JOptionPane.showMessageDialog(panel,
+					"Se ha introducido un caracter ilegal en el campo financiacion ", "Error", JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+		
+		
+		ProyectoSocial PS = modelo.crearProyectoSocial(p, Nombre, DescripcionL, DescripcionC, num, GSocial, Nacional);
+		
 		
 		JOptionPane.showMessageDialog(panel,
 				"Se ha creado el proyecto solicitado.", "OK", JOptionPane.INFORMATION_MESSAGE);
