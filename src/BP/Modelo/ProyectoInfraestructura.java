@@ -101,4 +101,10 @@ public class ProyectoInfraestructura extends Proyecto {
 	public GrantRequest.ProjectKind getProjectKind(){
 		return GrantRequest.ProjectKind.Infrastructure;
 	}
+	
+	@Override
+	public String getTipoProyecto() {
+		return new String("Infraestructura");
+	}
+	
 }

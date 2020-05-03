@@ -69,7 +69,6 @@ public class main {
 		//SAVE Y LOAD (IMPORTANTE)
 		app.saveAplicacion();
 		app.exit();
-		
 		app = Aplicacion.getInstancia("admin", "1234",1); //login del admin CREAMOS UNA APP
 		 if (!app.loginUser("Guillermo", "1234")) System.out.println("OK, no se ha podido iniciar sesion");
 		if(!app.loadAplicacion()) System.out.println("No se ha podido cargar el backup");//CARGAMOS LOS DATOS EN INSTACIA
@@ -92,6 +91,9 @@ public class main {
 		ProyectoSocial pSocial1 = app.crearProyectoSocial( u1, "Proyecto Social 1", "Descrip Laaarga", "Description corta" ,  10000.0 ,"Grupo 1",  true); //debe acpetarse la financiacion en el
 		ProyectoSocial pSocial2 = app.crearProyectoSocial( u2, "Proyecto Social 2", "Descrip Laaarga", "Description corta" ,  500.0 ,"Grupo 2",  false); //debe acpetarse la financiacion en el
 		ProyectoSocial pSocial3 = app.crearProyectoSocial( u2, "Proyecto Social 3", "Descrip Laaarga", "Description corta" ,  1000000.0 ,"Grupo 3",  true); //debe acpetarse la financiacion en el
+		ProyectoSocial pSocial4 = app.crearProyectoSocial( u2, "Proyecto Social 4", "Descrip Laaaarga", "Description corta" ,  10000.0 ,"Grupo 4",  true); //debe acpetarse la financiacion en el
+
+		
 		
 		String pathImg1 = "testImages/img1.png";
 		String pathImg2 = "testImages/img2.png";
@@ -105,6 +107,7 @@ public class main {
 
 		ProyectoInfraestructura pInfraestructura1 =  app.crearProyectoInfraestructura(u1 ,"P. Infra 1",  "Descrip Laaarga", "Description corta",  100000,pathCroquis1  , pathImg1,setDistritos1);
 		ProyectoInfraestructura pInfraestructura2 =  app.crearProyectoInfraestructura(u1 ,"P. Infra 2",  "Descrip Laaarga", "Description corta",  100000, pathCroquis2 , pathImg2,setDistritos2);
+		ProyectoInfraestructura pInfraestructura3 =  app.crearProyectoInfraestructura(u1 ,"P. Infra 3",  "Descrip Laaarga", "Description corta",  100000, pathCroquis2 , pathImg2,setDistritos2);
 
 		
 		
@@ -119,9 +122,13 @@ public class main {
 		subC2.proponerProyecto(pInfraestructura2);
 		
 		
+		//Proyectos que van a quedar pendientes de aprobacion por el admin		
+		u2.proponerProyecto(pSocial4);
+		c1.proponerProyecto(pSocial3);
+
+			
 		
-		
-		//APOYOS
+		//APOYOS Y VALIDACION
         System.out.println("-------APOYOS --------------" );
 
 		pSocial1.validarProyecto();
@@ -196,20 +203,32 @@ public class main {
 		
         
         
-		//REPETICION SAVE Y LOAD
-		app.logOut();
+        
+        
+        
+		//MAS PRUEBAS
+		Usuario u6 =app.solicitarRegistro("12384567893A", "U6", "1234");
 
+		
+		
+		
+		
+		
+		//SAVE Y LOAD (IMPORTANTE) 2
+		app.logOut();
 		app.saveAplicacion();
 		app.exit();
-		if(!app.loadAplicacion()) System.out.println("No se ha podido cargar el backup");
-		
-		
-		
+		app = Aplicacion.getInstancia("admin", "1234",1); //login del admin CREAMOS UNA APP
+		if(!app.loadAplicacion()) System.out.println("No se ha podido cargar el backup");//CARGAMOS LOS DATOS EN INSTACIA
+
+				
+				
+				
 		
 		
 		
 		//FINANCIACION
-		
+		app.exit();
 		System.out.println("FIN DE LA DEMO");
 	}
 	
