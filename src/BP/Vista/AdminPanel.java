@@ -114,11 +114,10 @@ public class AdminPanel extends JPanel {
 		
 		
 		
+		
+		
 	// ********   SUBPANEL 2 - BLOQUEO DE USUARIOS  ******
 		JPanel subP2 = new JPanel();
-		
-		
-		
 		
 		
 		//Lista1 - Usuarios Activos
@@ -143,8 +142,6 @@ public class AdminPanel extends JPanel {
 
 
 		
-		
-		
 		//Lista2 - Usuarios Bloqueados
 		JLabel label3 = new JLabel("Usuarios Bloqueados");
 		subP2.add(label3); 
@@ -163,21 +160,26 @@ public class AdminPanel extends JPanel {
 		subP2.add(botonDesBloquearUsuario);
 
 		
-	
 		this.pestanias.add("Usuarios",subP2);
 		
 		
 		
 		
+
 		
 		
 		
-		//SUBPANEL 3
+		// ********   SUBPANEL 3 - APROBACION PROYECTOS  ******
+		JPanel subP3 = new JPanel();
+
+		
+		JLabel label4 = new JLabel("Proyectos pendientes de aprobacion");
+		subP3.add(label4); 
 		
 		
 		
-		
-		
+		//TABLA
+		String[] titulos = {"Nombre Proyecto", "Financiacion solicitada", "Fecha creacion", "Descripcion breve"};
 		
 		
 		
@@ -278,5 +280,11 @@ public class AdminPanel extends JPanel {
 	public void addSolicitudRegistro(Usuario u) {
 		this.solicitudesReg.addElement(u);
 	}
+	 
+	
+	
+	
+	
+	
 	
 }
