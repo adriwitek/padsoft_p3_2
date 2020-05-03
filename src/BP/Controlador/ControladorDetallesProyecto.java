@@ -4,16 +4,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import BP.Modelo.Aplicacion;
-import BP.Vista.ColectivosPanel;
+import BP.Vista.DetallesProyectoPanel;
 import BP.Vista.UsuarioPanel;
 import BP.Vista.VentanaPrincipal;
 
 public class ControladorDetallesProyecto implements ActionListener {
-	private UsuarioPanel panel;
+	private DetallesProyectoPanel panel;
     private VentanaPrincipal frame;
     private Aplicacion modelo; 
 	public ControladorDetallesProyecto(VentanaPrincipal frame, Aplicacion modelo) {
-	        this.panel = frame.getPanelUsuario();
+	        this.panel = frame.getPanelDetallesProyecto();
 	        this.frame = frame;
 	        this.modelo = modelo;
 	    }
@@ -21,7 +21,7 @@ public class ControladorDetallesProyecto implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("Volver")) {
 			volverToUsuario();
-		}
+		}else volverToUsuario();
 		
 	}
 	private void volverToUsuario() {

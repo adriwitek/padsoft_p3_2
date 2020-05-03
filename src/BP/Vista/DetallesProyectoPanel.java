@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import BP.Controlador.ControladorDetallesProyecto;
 import BP.Modelo.Proyecto;
 
 import java.util.Date;
@@ -35,11 +36,12 @@ public class DetallesProyectoPanel extends JPanel {
 	
 	//proyectos sociales
 	private JLabel adicionalSocial;
+	private JLabel adicionalInf;
 	
 	public DetallesProyectoPanel() {
 		this.setLayout(new BorderLayout());
-		JPanel subPSocial = new JPanel(new GridLayout(2,8));
-		JPanel subPInf = new JPanel(new GridLayout(2,8));
+		subPSocial = new JPanel(new GridLayout(8,2));
+		subPInf = new JPanel(new GridLayout(8,2));
 		this.botonVolver = new JButton("Volver");
 		this.etiquetaNombre = new JLabel("Nombre:");
 		this.nombre = new JLabel("");
@@ -54,8 +56,8 @@ public class DetallesProyectoPanel extends JPanel {
 		this.etiquetaCoste = new JLabel("Financiacion:");
 		this.coste = new JLabel("");
 		this.adicionalSocial = new JLabel("");
+		this.adicionalInf = new JLabel("");
 		
-		subPSocial.add(botonVolver);
 		subPSocial.add(etiquetaNombre);
 		subPSocial.add(nombre);
 		subPSocial.add(etiquetaDesCorta);
@@ -83,8 +85,11 @@ public class DetallesProyectoPanel extends JPanel {
 		subPInf.add(fechaUlt);
 		subPInf.add(etiquetaCoste);
 		subPInf.add(coste);
+		subPInf.add(adicionalInf);
+		subPInf.add(botonVolver);
+		this.add(subPSocial);
 	}
-	public void setControlador(ActionListener c) {
+	public void setControlador(ControladorDetallesProyecto c) {
 		this.botonVolver.addActionListener(c);
 	}
 	public void setDetallesSocial(Proyecto p) {
@@ -95,8 +100,6 @@ public class DetallesProyectoPanel extends JPanel {
 		this.fechaUlt.setText(p.getFechaUltimoApoyo().toString());
 		this.coste.setText(String.valueOf(p.getCoste()));
 		this.adicionalSocial.setText(p.getExtraData());
-		this.remove(subPInf);
-		this.add(subPSocial);
 	}
 	public void setDetallesInf(Proyecto p) {
 		
@@ -106,8 +109,9 @@ public class DetallesProyectoPanel extends JPanel {
 		this.fechaCre.setText(p.getFechaCreacion().toString());
 		this.fechaUlt.setText(p.getFechaUltimoApoyo().toString());
 		this.coste.setText(String.valueOf(p.getCoste()));
-		this.remove(subPSocial);
+		this.adicionalInf.setText(p.getExtraData());
 		this.add(subPInf);
+		this.remove(subPSocial);
 	}
 
 	

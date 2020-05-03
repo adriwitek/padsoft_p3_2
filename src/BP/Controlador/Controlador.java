@@ -23,7 +23,7 @@ public class Controlador {
 	private ControladorCrearProyectoSocial controladorCrearProyectoSocial;
 	private ControladorCrearProyectoInf controladorCrearProyectoInf;
 	private ControladorCrearColectivo controladorCrearColectivo;
-	
+	private ControladorDetallesProyecto controladorDetallesProyecto;
 	public Controlador(VentanaPrincipal frame, Aplicacion modelo) {
 		this.frame = frame;
 		this.modelo = modelo;
@@ -40,8 +40,8 @@ public class Controlador {
 		this.controladorCrearProyecto = new ControladorCrearProyecto(frame, modelo);
 		this.controladorCrearProyectoSocial = new ControladorCrearProyectoSocial(frame, modelo);
 		this.controladorCrearProyectoInf = new ControladorCrearProyectoInf(frame, modelo);
-		
 		this.controladorCrearColectivo = new ControladorCrearColectivo(frame,modelo);
+		this.controladorDetallesProyecto = new ControladorDetallesProyecto(frame, modelo);
 	}
 
 	
@@ -148,4 +148,7 @@ public class Controlador {
 		return this.controladorCrearColectivo;
 	}
 	
+	public ControladorDetallesProyecto getControladorDetallesProyecto() {
+		return this.controladorDetallesProyecto;
+	}
 }

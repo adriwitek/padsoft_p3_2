@@ -106,7 +106,7 @@ public class VentanaPrincipal extends JFrame{
 		this.crearProyectoSocialPanel.setControlador(controlador.getControladorCrearProyectoSocial());
 		this.crearProyectoInfPanel.setControlador(controlador.getControladorCrearProyectoInf());
 		this.crearColectivoPanel.setControlador(controlador.getControladorCrearColectivo());
-
+		this.detallesProyectoPanel.setControlador(controlador.getControladorDetallesProyecto());
 
 
 	}
@@ -184,7 +184,7 @@ public class VentanaPrincipal extends JFrame{
 	}
 	
 
-	public DetallesProyectoPanel getDetallesProyectoPanel() {
+	public DetallesProyectoPanel getPanelDetallesProyecto() {
 		return this.detallesProyectoPanel;
 	}
 	
