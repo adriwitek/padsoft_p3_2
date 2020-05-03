@@ -127,6 +127,12 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 				if(this.idProyecto == p.getUniqueID()) pSeleccionado = p;
 			}
 			
+			if(null!= pSeleccionado) {
+				pSeleccionado.validarProyecto();
+				JOptionPane.showMessageDialog(frame, "Se ha validado el proyecto " + nombre);
+			}else {
+				
+			}
 			
 			
 		}else if(e.getActionCommand().equals("Rechazar Proyecto")) {
