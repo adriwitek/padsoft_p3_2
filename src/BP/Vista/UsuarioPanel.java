@@ -69,6 +69,7 @@ public class UsuarioPanel extends JPanel {
 		subP1.add(botonApoyarProyecto);
 		subP1.add(botonSuscribirseColectivo);
 		subP1.add(botonActualizar);
+		subP1.add(verDetallesProyecto);
 		this.add(subP1);
 		
 	}

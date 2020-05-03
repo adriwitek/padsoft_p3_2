@@ -39,15 +39,15 @@ public class ControladorCrearColectivo implements ActionListener{
 	}
 	
 	public void Finalizar() {
-		String Nombre = panel.getNombreColectivo();
-		String Descripcion = panel.getDescripcion();
+		String nombre = panel.getNombreColectivo();
+		String descripcion = panel.getDescripcion();
 		
-		if(Nombre.equals("") || Descripcion.equals("")) {
+		if(nombre.equals("") || descripcion.equals("")) {
 			JOptionPane.showMessageDialog(panel,
 					"Faltan campos obligatorios por rellenar.", "Error", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
-		
+		modelo.CrearColectivo(modelo.getUsuarioConectado(), nombre, null);
 		return;
 	}
 }

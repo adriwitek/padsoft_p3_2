@@ -46,8 +46,17 @@ public class ControladorUsuario implements ActionListener, ListSelectionListener
         	this.colectivoSeleccionado.suscribirseColectivo(modelo.getUsuarioConectado());
         	modelo.saveAplicacion();
         }else if(e.getActionCommand().equals("DetallesP")) {
-        	
-            
+        	DetallesProyectoPanel detallesP = frame.getDetallesProyectoPanel();
+        	if(this.proyectoSeleccionado != null) {
+        		if(this.proyectoSeleccionado.getTipoProyecto().equals("Infraestructura")) {
+        			detallesP.setDetallesSocial(this.proyectoSeleccionado);
+        		}else if(this.proyectoSeleccionado.getTipoProyecto().equals("Social"))
+        			detallesP.setDetallesInf(this.proyectoSeleccionado);
+        		
+        		goToDetallesProyecto();
+        	}
+        	JOptionPane.showMessageDialog(panel,"Debe seleccionar un proyecto de la lista", "Error", JOptionPane.ERROR_MESSAGE);
+			return;
         }else if(e.getActionCommand().equals("DetallesC")) {
         	
             
@@ -64,7 +73,11 @@ public class ControladorUsuario implements ActionListener, ListSelectionListener
         pColectivos.setVisible(true);
         this.panel.setVisible(false);
     }
-
+    private void goToDetallesProyecto() {
+        DetallesProyectoPanel pDetalles = frame.getDetallesProyectoPanel();
+        pDetalles.setVisible(true);
+        this.panel.setVisible(false);
+    }
     private void goToProyectos() {
         ProyectosPanel pProyectos = frame.getPanelProyectos();
         pProyectos.setVisible(true);

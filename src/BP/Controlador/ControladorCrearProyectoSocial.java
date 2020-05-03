@@ -2,6 +2,8 @@ package BP.Controlador;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.HashSet;
+
 import javax.swing.*;
 import BP.Modelo.*;
 import BP.Vista.*;
@@ -81,8 +83,6 @@ public class ControladorCrearProyectoSocial implements ActionListener {
 		
 		
 		ProyectoSocial PS = modelo.crearProyectoSocial(p, Nombre, DescripcionL, DescripcionC, num, GSocial, Nacional);
-		
-		
 		JOptionPane.showMessageDialog(panel,
 				"Se ha creado el proyecto solicitado.", "OK", JOptionPane.INFORMATION_MESSAGE);
 		return;

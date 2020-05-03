@@ -129,7 +129,7 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 			
 			if(null!= pSeleccionado) {
 				pSeleccionado.validarProyecto();
-				JOptionPane.showMessageDialog(frame, "Se ha validado el proyecto " + nombre);
+				JOptionPane.showMessageDialog(frame, "Se ha validado el proyecto " );
 			}else {
 				
 			}

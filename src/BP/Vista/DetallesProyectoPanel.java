@@ -5,7 +5,11 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class DetallesProyectoPanel extends JFrame {
+import BP.Modelo.Proyecto;
+
+import java.util.Date;
+
+public class DetallesProyectoPanel extends JPanel {
 	private JPanel subPInf;
 	private JPanel subPSocial;
 	
@@ -30,14 +34,12 @@ public class DetallesProyectoPanel extends JFrame {
 	private JLabel coste;
 	
 	//proyectos sociales
-	private JLabel etiquetagSocial;
-	private JLabel gSocial;
+	private JLabel adicionalSocial;
 	
-
-	private JLabel nacional;
 	public DetallesProyectoPanel() {
-		JPanel subPSocial = new JPanel();
-		JPanel subPInf = new JPanel();
+		this.setLayout(new BorderLayout());
+		JPanel subPSocial = new JPanel(new GridLayout(2,8));
+		JPanel subPInf = new JPanel(new GridLayout(2,8));
 		this.botonVolver = new JButton("Volver");
 		this.etiquetaNombre = new JLabel("Nombre:");
 		this.nombre = new JLabel("");
@@ -51,9 +53,7 @@ public class DetallesProyectoPanel extends JFrame {
 		this.fechaUlt = new JLabel("");
 		this.etiquetaCoste = new JLabel("Financiacion:");
 		this.coste = new JLabel("");
-		this.etiquetagSocial = new JLabel("Grupo Social:");
-		this.gSocial = new JLabel("");
-		this.nacional = new JLabel("");
+		this.adicionalSocial = new JLabel("");
 		
 		subPSocial.add(botonVolver);
 		subPSocial.add(etiquetaNombre);
@@ -68,9 +68,7 @@ public class DetallesProyectoPanel extends JFrame {
 		subPSocial.add(fechaUlt);
 		subPSocial.add(etiquetaCoste);
 		subPSocial.add(coste);
-		subPSocial.add(etiquetagSocial);
-		subPSocial.add(gSocial);
-		subPSocial.add(nacional);
+		subPSocial.add(adicionalSocial);
 		subPSocial.add(botonVolver);
 		
 		subPInf.add(etiquetaNombre);
@@ -89,4 +87,28 @@ public class DetallesProyectoPanel extends JFrame {
 	public void setControlador(ActionListener c) {
 		this.botonVolver.addActionListener(c);
 	}
+	public void setDetallesSocial(Proyecto p) {
+		this.nombre.setText(p.getNombre());
+		this.desCorta.setText(p.getDescripcionCorta());
+		this.desLarga.setText(p.getDescripcionLarga());
+		this.fechaCre.setText(p.getFechaCreacion().toString());
+		this.fechaUlt.setText(p.getFechaUltimoApoyo().toString());
+		this.coste.setText(String.valueOf(p.getCoste()));
+		this.adicionalSocial.setText(p.getExtraData());
+		this.remove(subPInf);
+		this.add(subPSocial);
+	}
+	public void setDetallesInf(Proyecto p) {
+		
+		this.nombre.setText(p.getNombre());
+		this.desCorta.setText(p.getDescripcionCorta());
+		this.desLarga.setText(p.getDescripcionLarga());
+		this.fechaCre.setText(p.getFechaCreacion().toString());
+		this.fechaUlt.setText(p.getFechaUltimoApoyo().toString());
+		this.coste.setText(String.valueOf(p.getCoste()));
+		this.remove(subPSocial);
+		this.add(subPInf);
+	}
+
+	
 }
