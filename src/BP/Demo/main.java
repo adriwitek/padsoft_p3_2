@@ -32,8 +32,8 @@ public class main {
 		
 		
 		//COLECTIVOS Y SUBCOLECTIVOS 
-		Colectivo c1 = new Colectivo(u1,"Colectivo 1",null);
-		Colectivo c2 = new Colectivo(u2,"Colectivo 2",null);
+		Colectivo c1 = app.CrearColectivo(u1,"Colectivo 1",null);
+		Colectivo c2 = app.CrearColectivo(u2,"Colectivo 2",null);
 		Colectivo subC2 = c2.crearSubcolectivo("Sucolectivo 2,hijo de colectivo 2");
 		subC2.suscribirseColectivo(u4);
 		

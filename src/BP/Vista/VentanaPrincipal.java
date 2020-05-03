@@ -25,7 +25,7 @@ public class VentanaPrincipal extends JFrame{
 	private CrearProyectoPanel crearProyectoPanel;
 	private CrearProyectoSocialPanel crearProyectoSocialPanel;
 	private CrearProyectoInfPanel crearProyectoInfPanel;
-	
+	private DetallesProyectoPanel detallesProyectoPanel;
 	public VentanaPrincipal(Aplicacion modelo,String titulo) {
 		
 		super(titulo); //Lo mismo que  JFrame ventanaPrincipal = new JFrame("Titulo");
@@ -50,7 +50,7 @@ public class VentanaPrincipal extends JFrame{
 		this.crearProyectoPanel = new CrearProyectoPanel();
 		this.crearProyectoSocialPanel = new CrearProyectoSocialPanel();
 		this.crearProyectoInfPanel = new CrearProyectoInfPanel();
-		
+		this.detallesProyectoPanel = new DetallesProyectoPanel();
 		
 		//Anniadimos panelens al contenedor
 		contenedor.add(this.loginPanel);
@@ -65,7 +65,7 @@ public class VentanaPrincipal extends JFrame{
 		contenedor.add(this.crearProyectoPanel);
 		contenedor.add(this.crearProyectoSocialPanel);
 		contenedor.add(this.crearProyectoInfPanel);
-		
+		contenedor.add(this.detallesProyectoPanel);
 		//Establecemos la visibilidad inicial de los paneles
 		this.loginPanel.setVisible(false);
 		this.registroPanel.setVisible(false);
@@ -184,5 +184,8 @@ public class VentanaPrincipal extends JFrame{
 		return this.crearColectivoPanel;
 	}
 	
+	public DetallesProyectoPanel getDetallesProyectoPanel() {
+		return this.getDetallesProyectoPanel();
+	}
 	
 }

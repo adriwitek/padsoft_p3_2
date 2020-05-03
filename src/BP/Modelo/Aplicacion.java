@@ -406,36 +406,29 @@ public class Aplicacion implements java.io.Serializable {
 		if(this.modoAdmin) return null;
 		HashSet<Proyecto> listado = new HashSet<Proyecto>();
 		for(Proyecto p: this.proyectos) {
-			if(p.getEstadoProyecto() == EstadoProyecto.OPERATIVO) {
+			if(p.getEstadoProyecto() == EstadoProyecto.OPERATIVO && !p.getUsuariosApoyantes().contains(user)) {
 				listado.add(p);
 			}
 		}
 		if(this.getUsuarioConectado()!=null) {
 			
 		}
-		listado.removeAll(getProyectosApoyados(user));
-		//return (HashSet<Proyecto>) Collections.unmodifiableSet(listado);
-		//posteriormente hay que modificarlos, controlar la llamada a la fucnion
 		return listado;
 	} 	
+
 	
-	public HashSet<Proyecto> getProyectosApoyados(Usuario user){
-		HashSet<Proyecto> listado =  new HashSet<Proyecto>();
-		for(Proyecto p: this.proyectos) {
-			if(p.getUsuariosApoyantes().contains(user)) {
-				listado.add(p);
-			}
-		}
-		return listado;
-	}
-	
-	public HashSet<Colectivo> getColectivosDisponibles(Usuario User){
+	public HashSet<Colectivo> getColectivosDisponibles(Usuario user){
 		HashSet<Colectivo> listado = new HashSet<Colectivo>();
+		Colectivo c;
 		for(Proponente p: this.proponentes) {
 			if( p.getClass().getSimpleName().equals("Colectivo")) {
-				listado.add((Colectivo)p);
+				c = (Colectivo)p;
+				if(!c.getIsUsuarioEnColectivoSubcolectivo(user)) {
+					listado.add((Colectivo)p);
+				}
 			}
 		}
+		
 		return listado;
 	}
 	
@@ -542,9 +535,18 @@ public class Aplicacion implements java.io.Serializable {
 		
 	}
 	
+	public Colectivo CrearColectivo(Usuario uRepresentante, String nombre,Colectivo colectivoPadre) {
+		Colectivo newC = new Colectivo(uRepresentante, nombre, colectivoPadre);
+		this.proponentes.add(newC);
+		return newC;
+	}
 	
-	
-	
+	public Colectivo CrearSubcolectivo(String nombre, Colectivo colectivoPadre) {
+		Colectivo newSubC = colectivoPadre.crearSubcolectivo(nombre);
+		this.proponentes.add(newSubC);
+		return newSubC;
+		
+	}
 	
 	
 	
