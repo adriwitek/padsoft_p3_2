@@ -44,13 +44,15 @@ public class ControladorUsuario implements ActionListener, ListSelectionListener
 				return;
         	}
         	this.colectivoSeleccionado.suscribirseColectivo(modelo.getUsuarioConectado());
-            
+        	modelo.saveAplicacion();
         }else if(e.getActionCommand().equals("DetallesP")) {
         	
             
         }else if(e.getActionCommand().equals("DetallesC")) {
         	
             
+        }else if(e.getActionCommand().equals("Actualizar")) {
+        	actualizar();
         }
 
 
@@ -68,8 +70,12 @@ public class ControladorUsuario implements ActionListener, ListSelectionListener
         pProyectos.setVisible(true);
         this.panel.setVisible(false);
     }
-	@Override
 
+	private void actualizar() {
+		panel.setListaProyectos(modelo.getProyectosApoyables(modelo.getUsuarioConectado()));
+		panel.setListaColectivos(modelo.getColectivosDisponibles(modelo.getUsuarioConectado()));
+	}
+	@Override
 	public void valueChanged(ListSelectionEvent ev) {
 		if(!ev.getValueIsAdjusting()) {
 

@@ -211,6 +211,9 @@ public class Colectivo extends Proponente{
 		return this.subcolectivos;
 	}
 	
+	public String toString() {
+		return this.nombre;
+	}
 
 }
 

@@ -12,7 +12,7 @@ public class ControladorLogin implements ActionListener {
 	private LoginPanel panel;
 	private VentanaPrincipal frame;
 	private Aplicacion modelo;
-
+	
 	public ControladorLogin(VentanaPrincipal frame ,Aplicacion modelo) {
 		this.panel= frame.getPanelLogin();
 		this.frame= frame;
