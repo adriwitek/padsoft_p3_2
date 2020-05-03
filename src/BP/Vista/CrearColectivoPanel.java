@@ -27,8 +27,8 @@ public class CrearColectivoPanel extends JPanel {
 		this.nombreDescripcion = new JLabel("Descripcion: ");
 		this.textNombreDescripcion = new JTextField(15);
 		
-		this.cancelar = new JButton("Cancelar");
-		this.finalizar = new JButton("Finalizar");
+		this.cancelar = new JButton("cancelar");
+		this.finalizar = new JButton("finalizar");
 		
 		
 		
@@ -45,5 +45,13 @@ public class CrearColectivoPanel extends JPanel {
 	public void setControlador(ActionListener c) {
 		cancelar.addActionListener(c);
 		finalizar.addActionListener(c);
+	}
+	
+	public String getNombreColectivo() {
+		return this.textNombreColectivo.getText();
+	}
+	
+	public String getDescripcion() {
+		return this.textNombreDescripcion.getText();
 	}
 }
