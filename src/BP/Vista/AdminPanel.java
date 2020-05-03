@@ -53,6 +53,8 @@ public class AdminPanel extends JPanel {
 	private JTable tabla;
 	private DefaultTableModel modeloDatos;
 	private JTextField campoMotivoRechazoValidacionProyecto;
+	private JButton botonCerrarSesion;
+
 
 	 
 	
@@ -226,14 +228,18 @@ public class AdminPanel extends JPanel {
 		this.botonRechazarValidarProyecto = new JButton("Rechazar Proyecto");
 		subP3.add(botonRechazarValidarProyecto);
 		
-		
-		
 		this.pestanias.add("Proyectos",subP3);
-		
-		
-		
-		
 		this.pestanias.setSelectedIndex(0);
+		
+		
+		
+		
+		
+		//Boton cerrar sesión
+		botonCerrarSesion = new JButton("Cerrar Sesion");
+		
+		
+		this.add(this.botonCerrarSesion);
 		this.add(this.pestanias);
 	}
 	
@@ -255,6 +261,9 @@ public class AdminPanel extends JPanel {
 		botonValidarProyecto.addActionListener(c); 
 		botonRechazarValidarProyecto.addActionListener(c); 
 
+		
+		//cierre sesion
+		botonCerrarSesion.addActionListener(c); 
 	}
 	
 	

@@ -184,6 +184,13 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 				return;
 			}
 			
+			
+		} else if(e.getActionCommand().equals("Cerrar Sesion")) {
+			modelo.logOut();
+			modelo.saveAplicacion();
+			JOptionPane.showMessageDialog(frame, "Hasta pronto! " );
+			frame.getPanelLogin().setVisible(true);
+			this.panel.setVisible(false);
 		}
 		
 		
