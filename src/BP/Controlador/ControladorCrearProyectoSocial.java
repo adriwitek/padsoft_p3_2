@@ -54,6 +54,8 @@ public class ControladorCrearProyectoSocial implements ActionListener {
 			return;
 		}
 		
+		
+		
 		//ProyectoSocial PS = modelo.crearProyectoSocial(p, Nombre, DescripcionL, DescripcionC, Financiacion, GSocial, Nacional);
 		
 		/*if(!PS) {
