@@ -10,7 +10,6 @@ import BP.Controlador.ControladorUsuario;
 import BP.Modelo.*;
 public class UsuarioPanel extends JPanel {
 	
-	private JButton goUsuario;
 	private JButton goColectivos;
 	private JButton goProyectos;
 	private JButton botonApoyarProyecto;
@@ -43,7 +42,7 @@ public class UsuarioPanel extends JPanel {
 		this.nombreUsuario = new JLabel("");
 		this.etiquetaUsuario = new JLabel("Usuario:");
 		this.numeroNIF = new JLabel("");
-		this.goUsuario = new JButton("Usuario");
+
 		this.goColectivos = new JButton("Colectivos");
 		this.goProyectos = new JButton("Proyectos");
 		
@@ -63,9 +62,7 @@ public class UsuarioPanel extends JPanel {
 		subP1.add(nombreUsuario);
 		subP1.add(etiquetaNIF);
 		subP1.add(numeroNIF);
-		subP1.add(goUsuario);
 		subP1.add(goColectivos);
-		subP1.add(goProyectos);
 		subP1.add(goProyectos);
 		subP1.add(scrollProyectos);
 		subP1.add(scrollColectivos);
@@ -74,12 +71,12 @@ public class UsuarioPanel extends JPanel {
 		this.add(subP1);
 		
 	}
-	public void setControlador(ControladorUsuario c) {
-		goUsuario.addActionListener(c);
+
+	public void setControlador(ActionListener c) {
 		goColectivos.addActionListener(c);
 		goProyectos.addActionListener(c);
-		this.listaProyectos.addListSelectionListener(c.getControllerProyectosApoyables());
-		this.listaColectivos.addListSelectionListener(c.getControllerColectivosDisponibles());
+		this.listaProyectos.addListSelectionListener(((ControladorUsuario) c).getControllerProyectosApoyables());
+		this.listaColectivos.addListSelectionListener(((ControladorUsuario) c).getControllerColectivosDisponibles());
 		botonApoyarProyecto.addActionListener(c);
 		verDetallesProyecto.addActionListener(c);
 		

@@ -21,12 +21,14 @@ public class ControladorProyectos implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 	
-		
-		if(e.getActionCommand().equals("goColectivos")) {
-			GoToColectivo();
+		if(e.getActionCommand().equals("crearProyecto")) {
+			cProyecto();
+			
+		}else if(e.getActionCommand().equals("goColectivos")) {
+			goToColectivo();
 		
 		}else if(e.getActionCommand().equals("goUsuario")) {
-			GoToUsuario();
+			goToUsuario();
 
 		}else {
 			frame.getPanelBienvenida().setVisible(true);
@@ -35,7 +37,7 @@ public class ControladorProyectos implements ActionListener {
 		
 	}
 
-	private void GoToColectivo() {
+	private void goToColectivo() {
 		ColectivosPanel pColectivos = frame.getPanelColectivos();
 		pColectivos.setVisible(true);
 		this.panel.setVisible(false);
@@ -43,13 +45,17 @@ public class ControladorProyectos implements ActionListener {
 	
 	
 	
-	private void GoToUsuario() {
+	private void goToUsuario() {
 		UsuarioPanel pUsuario = frame.getPanelUsuario();
 		pUsuario.setVisible(true);
 		this.panel.setVisible(false);
 	}
 	
-	
+	private void cProyecto() {
+		CrearProyectoPanel ccProyecto = frame.getPanelCrearProyecto();
+		ccProyecto.setVisible(true);
+		this.panel.setVisible(false);
+	}
 
 }
 

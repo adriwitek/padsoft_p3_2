@@ -21,10 +21,10 @@ public class ControladorColectivos implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 	
-		if(e.getActionCommand().equals("CrearColectivo")){
+		if(e.getActionCommand().equals("crearColectivo")){
 			CColectivo();
 			
-		}else if(e.getActionCommand().equals("goColectivos")) {
+		}else if(e.getActionCommand().equals("goProyectos")) {
 			GoToProyectos();
 		
 		}else if(e.getActionCommand().equals("goUsuario")) {

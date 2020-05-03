@@ -69,9 +69,10 @@ public class ControladorUsuario implements ActionListener, ListSelectionListener
         this.panel.setVisible(false);
     }
 	@Override
+
 	public void valueChanged(ListSelectionEvent ev) {
 		if(!ev.getValueIsAdjusting()) {
-			
+
 		}
 	}
 	public ListSelectionListener getControllerProyectosApoyables() {
@@ -84,8 +85,8 @@ public class ControladorUsuario implements ActionListener, ListSelectionListener
 				}
 				
 		};
-		
 	}
+
 
 	public ListSelectionListener getControllerColectivosDisponibles() {
 		return new ListSelectionListener () {

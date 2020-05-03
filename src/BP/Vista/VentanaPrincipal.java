@@ -23,6 +23,8 @@ public class VentanaPrincipal extends JFrame{
 	private AdminPanel adminPanel;
 	private CrearColectivoPanel crearColectivoPanel;
 	private CrearProyectoPanel crearProyectoPanel;
+	private CrearProyectoSocialPanel crearProyectoSocialPanel;
+	private CrearProyectoInfPanel crearProyectoInfPanel;
 	
 	public VentanaPrincipal(Aplicacion modelo,String titulo) {
 		
@@ -45,8 +47,10 @@ public class VentanaPrincipal extends JFrame{
 		this.colectivosPanel = new ColectivosPanel();
 		this.adminPanel = new AdminPanel(modelo.getRegistrosPendientesDeAprobacion(),modelo.getUsuariosActivos(),modelo.getUsuariosBloqueados());
 		this.crearColectivoPanel = new CrearColectivoPanel();
-		//this.crearProyectoPanel = new CrearProyectoPanel();
-	
+		this.crearProyectoPanel = new CrearProyectoPanel();
+		this.crearProyectoSocialPanel = new CrearProyectoSocialPanel();
+		this.crearProyectoInfPanel = new CrearProyectoInfPanel();
+		
 		
 		//Anniadimos panelens al contenedor
 		contenedor.add(this.loginPanel);
@@ -57,9 +61,10 @@ public class VentanaPrincipal extends JFrame{
 		contenedor.add(this.colectivosPanel);
 		contenedor.add(this.adminPanel );
 		
-		
 		contenedor.add(this.crearColectivoPanel);
-		//contenedor.add(this.crearProyectoPanel);
+		contenedor.add(this.crearProyectoPanel);
+		contenedor.add(this.crearProyectoSocialPanel);
+		contenedor.add(this.crearProyectoInfPanel);
 		
 		//Establecemos la visibilidad inicial de los paneles
 		this.loginPanel.setVisible(false);
@@ -71,7 +76,9 @@ public class VentanaPrincipal extends JFrame{
 		this.adminPanel.setVisible(false); 
 		
 		this.crearColectivoPanel.setVisible(false);
-		//this.crearProyectoPanel.setVisible(false);
+		this.crearProyectoPanel.setVisible(false);
+		this.crearProyectoSocialPanel.setVisible(false);
+		this.crearProyectoInfPanel.setVisible(false);
 		
 		//Visibilidad de la ventana
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -94,7 +101,14 @@ public class VentanaPrincipal extends JFrame{
 		this.adminPanel.setControlador(controlador.getControladorAdmin());
 		this.proyectosPanel.setControlador(controlador.getControladorProyectos());
 		this.colectivosPanel.setControlador(controlador.getControladorColectivos());
-		//this.crearProyectoPanel.setControlador(controlador.getControladorCrearProyecto());
+		this.crearProyectoPanel.setControlador(controlador.getControladorCrearProyecto());
+		this.crearProyectoSocialPanel.setControlador(controlador.getControladorCrearProyectoSocial());
+		this.crearProyectoInfPanel.setControlador(controlador.getControladorCrearProyectoInf());
+
+
+		this.crearColectivoPanel.setControlador(controlador.getControladorCrearColectivo());
+
+
 
 	}
 	
@@ -104,7 +118,7 @@ public class VentanaPrincipal extends JFrame{
 		return this.controlador;
 	}
 	
-	
+	 
 	
 	
 	
@@ -141,7 +155,6 @@ public class VentanaPrincipal extends JFrame{
 	}
 	
 	
-	
 	public ProyectosPanel getPanelProyectos() {
 		return this.proyectosPanel;
 	}
@@ -154,10 +167,22 @@ public class VentanaPrincipal extends JFrame{
 		return this.adminPanel;
 	}
 	
-	
-	
-	
+
 	public CrearProyectoPanel getPanelCrearProyecto() {
 		return this.crearProyectoPanel;
 	}
+	
+	public CrearProyectoSocialPanel getPanelCrearProyectoSocial() {
+		return this.crearProyectoSocialPanel;
+	}
+	
+	public CrearProyectoInfPanel getPanelCrearProyectoInf() {
+		return this.crearProyectoInfPanel;
+	}
+	
+	public CrearColectivoPanel getPanelCrearColectivo() {
+		return this.crearColectivoPanel;
+	}
+	
+	
 }

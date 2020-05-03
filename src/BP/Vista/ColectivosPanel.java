@@ -13,9 +13,9 @@ public class ColectivosPanel extends JPanel{
 		this.setLayout(new BorderLayout());
 		
 		JPanel subP1 = new JPanel(new GridLayout(3,3));
-		this.goUsuario = new JButton("Usuario");
-		this.goProyectos = new JButton("Proyectos");
-		this.crearColectivo = new JButton("CrearColectivo");
+		this.goUsuario = new JButton("goUsuario");
+		this.goProyectos = new JButton("goProyectos");
+		this.crearColectivo = new JButton("crearColectivo");
 		
 		subP1.add(goUsuario);
 		subP1.add(goProyectos);

@@ -46,10 +46,15 @@ public class ControladorCrearProyecto implements ActionListener{
 	}
 	
 	public void proyectoSocial() {
-		this.panel.setSubPSocialVisible(true);
+		CrearProyectoSocialPanel pProyectoSoc = frame.getPanelCrearProyectoSocial();
+		pProyectoSoc.setVisible(true);
+		this.panel.setVisible(false);
 	}
 	
 	public void proyectoInfra() {
-		this.panel.setSubPInfraVisible(true);
+		CrearProyectoInfPanel pProyectoInf = frame.getPanelCrearProyectoInf();
+		pProyectoInf.setVisible(true);
+		this.panel.setVisible(false);
 	}
 }
+ 
