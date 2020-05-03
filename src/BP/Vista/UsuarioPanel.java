@@ -6,6 +6,7 @@ import java.util.HashSet;
 
 import javax.swing.*;
 
+import BP.Controlador.ControladorUsuario;
 import BP.Modelo.*;
 public class UsuarioPanel extends JPanel {
 	
@@ -22,14 +23,19 @@ public class UsuarioPanel extends JPanel {
 	private JLabel etiquetaNIF;
 	private JLabel numeroNIF;
 	
-	private JList listaProyectos;
-	private JList listaColectivos;
 	private DefaultListModel proyectosM;
+	private JList listaProyectos;
+	private JScrollPane scrollProyectos;
+	
 	private DefaultListModel colectivosM; 
+	private JList listaColectivos;
+	private JScrollPane scrollColectivos;
+	
 	
 	public UsuarioPanel() {
 		this.setLayout(new BorderLayout());
 		//SubPanel Usuario
+		
 		JPanel subP1 = new JPanel(new GridLayout(5,5));
 		this.proyectosM  = new DefaultListModel ();
 		this.colectivosM  = new DefaultListModel ();
@@ -40,12 +46,19 @@ public class UsuarioPanel extends JPanel {
 		this.goUsuario = new JButton("Usuario");
 		this.goColectivos = new JButton("Colectivos");
 		this.goProyectos = new JButton("Proyectos");
+		
 		this.listaProyectos = new JList(proyectosM);
-		this.listaColectivos = new JList(colectivosM);
+		this.scrollProyectos = new JScrollPane(this.listaProyectos);
+		this.listaProyectos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		this.botonApoyarProyecto = new JButton("Apoyar");
-		this.botonSuscribirseColectivo = new JButton("Suscribirse");
 		this.verDetallesProyecto = new JButton("DetallesP");
-		this.verDetallesColectivo= new JButton("DetallesC");
+		
+		this.listaColectivos = new JList(colectivosM);
+		this.scrollColectivos = new JScrollPane(this.listaColectivos);
+		this.botonSuscribirseColectivo = new JButton("Suscribirse");
+		this.listaColectivos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		this.verDetallesColectivo = new JButton("DetallesC");
+
 		subP1.add(etiquetaUsuario);
 		subP1.add(nombreUsuario);
 		subP1.add(etiquetaNIF);
@@ -54,18 +67,23 @@ public class UsuarioPanel extends JPanel {
 		subP1.add(goColectivos);
 		subP1.add(goProyectos);
 		subP1.add(goProyectos);
-		subP1.add(listaProyectos);
-		subP1.add(listaColectivos);
+		subP1.add(scrollProyectos);
+		subP1.add(scrollColectivos);
+		subP1.add(botonApoyarProyecto);
+		subP1.add(botonSuscribirseColectivo);
 		this.add(subP1);
 		
 	}
-	public void setControlador(ActionListener c) {
+	public void setControlador(ControladorUsuario c) {
 		goUsuario.addActionListener(c);
 		goColectivos.addActionListener(c);
 		goProyectos.addActionListener(c);
+		this.listaProyectos.addListSelectionListener(c.getControllerProyectosApoyables());
+		this.listaColectivos.addListSelectionListener(c.getControllerColectivosDisponibles());
 		botonApoyarProyecto.addActionListener(c);
-		botonSuscribirseColectivo.addActionListener(c);
 		verDetallesProyecto.addActionListener(c);
+		
+		botonSuscribirseColectivo.addActionListener(c);
 		verDetallesColectivo.addActionListener(c);
 	}
 	
@@ -75,9 +93,14 @@ public class UsuarioPanel extends JPanel {
 	public void setNombreUsuario(String texto) {
 		this.nombreUsuario.setText(texto);
 	}
-	public void setListaProyectos(Aplicacion app) {
-		for(Proyecto p: app.getProyectosApoyables()) {
-			this.proyectosM.addElement(p.getNombre());
+	public void setListaProyectos(HashSet<Proyecto> proyectosAp) {
+		for(Proyecto p: proyectosAp ) {
+			this.proyectosM.addElement(p);
+		}
+	}
+	public void setListaColectivos(HashSet<Colectivo> colectivos) {
+		for(Colectivo c: colectivos ) {
+			this.proyectosM.addElement(c);
 		}
 	}
 	public DefaultListModel getListaProyectos() {

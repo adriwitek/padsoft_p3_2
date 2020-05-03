@@ -62,9 +62,9 @@ public class ControladorLogin implements ActionListener {
 	
 		// mostrar nueva vista 
 		if(modelo.isModoAdmin()) {
-			/*AdminPanel pAdmin = frame.getPanelAdmin();
+			AdminPanel pAdmin = frame.getPanelAdmin();
 			pAdmin.setVisible(true);
-			this.panel.setVisible(false);*/
+			this.panel.setVisible(false);
 		}
 		else {
 			UsuarioPanel pUsuario = frame.getPanelUsuario();
@@ -76,13 +76,8 @@ public class ControladorLogin implements ActionListener {
 	private void loadUserInfo(UsuarioPanel pUsuario) {
 		pUsuario.setNumeroNIF(modelo.getUsuarioConectado().getNIF());
 		pUsuario.setNombreUsuario(modelo.getUsuarioConectado().getNombre());
-		pUsuario.setListaProyectos(modelo);
-		
-		
-		DefaultListModel<String> listC = pUsuario.getListaColectivos();
-		/*for(Proyecto p: modelo.getProyectosApoyables()) {
-			listC.addElement(p.getNombre());
-		}*/
+		pUsuario.setListaProyectos(modelo.getProyectosApoyables(modelo.getUsuarioConectado()));
+		pUsuario.setListaColectivos(modelo.getColectivosDisponibles(modelo.getUsuarioConectado()));
 	}
 	
 }

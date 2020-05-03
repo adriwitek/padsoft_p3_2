@@ -293,6 +293,68 @@ public class Aplicacion implements java.io.Serializable {
 	}
 	
 	
+	
+	
+	
+	/**
+	 * Esta funcion devuelve un lista con los usuarios activos,necesaria para la gui
+	 * 
+	 * @return  HashSet<Usuario>
+	 */
+	public HashSet<Usuario> getUsuariosActivos(){
+		
+		//if(!this.modoAdmin) return null;
+		
+		Usuario u;
+		HashSet<Usuario> usuarios = new HashSet<Usuario>();
+		for(Proponente p: this.proponentes) {
+			if( p.getClass().getSimpleName().equals("Usuario")) {
+				u = (Usuario)p;
+				if(u.getEstado()== EstadoUsuario.OPERATIVO) {
+					usuarios.add(u);
+				}
+				
+			}
+		}
+		return usuarios;
+	}
+	
+	
+	
+	
+	
+	
+	
+	/**
+	 * Esta funcion devuelve un lista con los usuarios activos,necesaria para la gui
+	 * 
+	 * @return  HashSet<Usuario>
+	 */
+	public HashSet<Usuario> getUsuariosBloqueados(){
+		
+		//if(!this.modoAdmin) return null;
+		
+		Usuario u;
+		HashSet<Usuario> usuarios = new HashSet<Usuario>();
+		for(Proponente p: this.proponentes) {
+			if( p.getClass().getSimpleName().equals("Usuario")) {
+				u = (Usuario)p;
+				if(u.getEstado()== EstadoUsuario.BLOQUEADO) {
+					usuarios.add(u);
+				}
+				
+			}
+		}
+		return usuarios;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * Esta funcion se encarga de validar un registro
 	 * 
@@ -339,21 +401,43 @@ public class Aplicacion implements java.io.Serializable {
 		return listado;
 	} 
 	
-public HashSet<Proyecto> getProyectosApoyables(){
+	public HashSet<Proyecto> getProyectosApoyables(Usuario user){
 		 
-		if(!this.modoAdmin) return null;
+		if(this.modoAdmin) return null;
 		HashSet<Proyecto> listado = new HashSet<Proyecto>();
 		for(Proyecto p: this.proyectos) {
 			if(p.getEstadoProyecto() == EstadoProyecto.OPERATIVO) {
 				listado.add(p);
 			}
 		}
+		if(this.getUsuarioConectado()!=null) {
+			
+		}
+		listado.removeAll(getProyectosApoyados(user));
 		//return (HashSet<Proyecto>) Collections.unmodifiableSet(listado);
 		//posteriormente hay que modificarlos, controlar la llamada a la fucnion
 		return listado;
 	} 	
 	
+	public HashSet<Proyecto> getProyectosApoyados(Usuario user){
+		HashSet<Proyecto> listado =  new HashSet<Proyecto>();
+		for(Proyecto p: this.proyectos) {
+			if(p.getUsuariosApoyantes().contains(user)) {
+				listado.add(p);
+			}
+		}
+		return listado;
+	}
 	
+	public HashSet<Colectivo> getColectivosDisponibles(Usuario User){
+		HashSet<Colectivo> listado = new HashSet<Colectivo>();
+		for(Proponente p: this.proponentes) {
+			if( p.getClass().getSimpleName().equals("Colectivo")) {
+				listado.add((Colectivo)p);
+			}
+		}
+		return listado;
+	}
 	
 	//	*** FUNCIONES LLAMADAS POR EL USUARIO LOGUEADO ***
 	/**
@@ -363,6 +447,7 @@ public HashSet<Proyecto> getProyectosApoyables(){
 		this.modoAdmin = false;
 		this.usuarioConectado = null;
 	}
+	
 	
 	
 

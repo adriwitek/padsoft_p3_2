@@ -47,8 +47,8 @@ public class main {
 		app.validarRegistro(u1);
 		app.validarRegistro(u2);
 		app.validarRegistro(u3);
-		app.validarRegistro(u4);
-		app.validarRegistro(u5);
+		//app.validarRegistro(u4);
+		//app.validarRegistro(u5);
 		app.logOut();
 		app.loginUser("Guillermo", "1234");
 		System.out.println("Usuario logueado: " + app.getUsuarioConectado());
@@ -147,7 +147,6 @@ public class main {
 		pSocial1.setFechaUltimoApoyo(dateAtrasada);
 		app.caducarProyectosAntiguos();//Importante la llamada a esta funcion, para actualizar los estados de los proyectos
 		System.out.println("AFTER: El estado de pSocial1 es: " + pSocial1.getEstadoProyecto() + " y la fecha de su ultimo apoyo es: " + pSocial1.getFechaUltimoApoyo());
-
 		
 		
 		

@@ -3,30 +3,54 @@ package BP.Controlador;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
 import BP.Modelo.*;
 import BP.Vista.*;
 
-public class ControladorUsuario implements ActionListener{
+public class ControladorUsuario implements ActionListener, ListSelectionListener{
     private UsuarioPanel panel;
     private VentanaPrincipal frame;
     private Aplicacion modelo;
-    private Usuario user;
+    private Proyecto proyectoSeleccionado;
+    private Colectivo colectivoSeleccionado;
     public ControladorUsuario(VentanaPrincipal frame, Aplicacion modelo) {
         this.panel = frame.getPanelUsuario();
         this.frame = frame;
         this.modelo = modelo;
+        this.colectivoSeleccionado = null;
+        this.proyectoSeleccionado = null;
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getActionCommand().equals("goColectivos")){
+        if(e.getActionCommand().equals("Colectivos")){
             goToColectivo();
 
-        }else if(e.getActionCommand().equals("goProyectos")){
+        }else if(e.getActionCommand().equals("Proyectos")){
             goToProyectos();
 
-        }else {
-            frame.getPanelBienvenida().setVisible(true);
-            this.panel.setVisible(false);
+        }else if(e.getActionCommand().equals("Apoyar")) {
+        	if(null == proyectoSeleccionado) {
+				JOptionPane.showMessageDialog(panel,"Debe seleccionar un proyecto de la lista", "Error", JOptionPane.ERROR_MESSAGE);
+				return;
+        	}
+        	this.proyectoSeleccionado.apoyarProyecto(modelo.getUsuarioConectado());
+        	modelo.saveAplicacion();
+            
+        }else if(e.getActionCommand().equals("Suscribirse")) {
+        	if(null == colectivoSeleccionado) {
+				JOptionPane.showMessageDialog(panel,"Debe seleccionar un colectivo de la lista", "Error", JOptionPane.ERROR_MESSAGE);
+				return;
+        	}
+        	this.colectivoSeleccionado.suscribirseColectivo(modelo.getUsuarioConectado());
+            
+        }else if(e.getActionCommand().equals("DetallesP")) {
+        	
+            
+        }else if(e.getActionCommand().equals("DetallesC")) {
+        	
+            
         }
 
 
@@ -44,9 +68,37 @@ public class ControladorUsuario implements ActionListener{
         pProyectos.setVisible(true);
         this.panel.setVisible(false);
     }
+	@Override
+	public void valueChanged(ListSelectionEvent ev) {
+		if(!ev.getValueIsAdjusting()) {
+			
+		}
+	}
+	public ListSelectionListener getControllerProyectosApoyables() {
+		return new ListSelectionListener () {
+				public void valueChanged(ListSelectionEvent e) {
+					if(e.getValueIsAdjusting()==false) {
+				    	JList lista = (JList) e.getSource();
+				    	proyectoSeleccionado  = (Proyecto) lista.getSelectedValue();
+					}
+				}
+				
+		};
+		
+	}
 
-
-
+	public ListSelectionListener getControllerColectivosDisponibles() {
+		return new ListSelectionListener () {
+				public void valueChanged(ListSelectionEvent e) {
+					if(e.getValueIsAdjusting()==false) {
+				    	JList lista = (JList) e.getSource();
+				    	colectivoSeleccionado  = (Colectivo) lista.getSelectedValue();
+					}
+				}
+				
+		};
+		
+	}
 
 }
 

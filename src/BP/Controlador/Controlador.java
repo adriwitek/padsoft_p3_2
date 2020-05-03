@@ -33,7 +33,7 @@ public class Controlador {
 		this.controladorUsuario = new ControladorUsuario(frame, modelo);
 		this.controladorProyectos = new ControladorProyectos(frame, modelo);
 		this.controladorColectivos = new ControladorColectivos(frame, modelo);
-
+		this.controladorAdmin = new ControladorAdmin(frame,modelo);
 		this.controladorCrearProyecto = new ControladorCrearProyecto(frame, modelo);
 		
 	}

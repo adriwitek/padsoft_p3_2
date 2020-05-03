@@ -494,6 +494,12 @@ public abstract class Proyecto implements java.io.Serializable, GrantRequest{
 		return idSeguimientoSistemaFinanciacion;
 	}
 	
+	public String toString() {
+		return this.nombre;
+	}
 	
+	public HashSet<Usuario> getUsuariosApoyantes(){
+		return this.usuariosaApoyantes;
+	}
 	
 }
