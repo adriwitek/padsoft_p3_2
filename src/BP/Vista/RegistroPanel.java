@@ -93,5 +93,8 @@ public class RegistroPanel extends JPanel {
 		return this.campoContrasena.getText();
 	}
 	
+	public String getPassword2() {
+		return this.campoContrasena.getText();
+	}
 	
 }

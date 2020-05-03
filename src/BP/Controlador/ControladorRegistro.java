@@ -44,7 +44,7 @@ public class ControladorRegistro implements ActionListener {
 				String NIF = panel.getNombreUsuario();
 				String nombreUsuario = panel.getNombreUsuario();
 				String password1 = panel.getPassword();
-				String password2 = panel.getPassword();
+				String password2 = panel.getPassword2();
 
 				
 				if(!password1.equals(password2)) {

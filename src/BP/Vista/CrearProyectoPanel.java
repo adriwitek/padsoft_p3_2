@@ -13,8 +13,7 @@ public class CrearProyectoPanel extends JPanel{
 	
 	//Panel subP1
 	private JButton cancelar;
-	private JLabel nombreProyecto;
-	private JTextField textNombreProyecto;
+
 	private JButton PSocial;
 	private JButton PInfraestructuras;
 	
@@ -24,14 +23,11 @@ public class CrearProyectoPanel extends JPanel{
 		this.setLayout(new BorderLayout());
 		//subP1
 		this.cancelar = new JButton("Cancelar");
-		this.nombreProyecto = new JLabel("Nombre del proyecto:");
-		this.textNombreProyecto = new JTextField(30);
 		this.PSocial = new JButton("ProyectoSocial");
 		this.PInfraestructuras = new JButton("ProyectoInfraestructuras");
 		
 		subP1 = new JPanel(new GridLayout(10,10));
 		subP1.add(cancelar);
-		subP1.add(textNombreProyecto);
 		subP1.add(PSocial);
 		subP1.add(PInfraestructuras);
 		
