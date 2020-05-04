@@ -50,7 +50,7 @@ public class CrearProyectoInfPanel extends JPanel{
 
 	public CrearProyectoInfPanel() {
 		
-		this.setLayout(new GridLayout(2,8));
+		this.setLayout(new FlowLayout());
 		this.nombreProyecto = new JLabel("Nombre del proyecto:");
 		this.textNombreProyecto = new JTextField(10);
 		this.descripcionCorta = new JLabel("Descripcion Corta: ");
@@ -82,7 +82,7 @@ public class CrearProyectoInfPanel extends JPanel{
 		this.lista = new JList(distritosModelo);
 		this.scroll = new JScrollPane(this.lista);
 		
-		subPInfra = new JPanel(new GridLayout(3,3));
+		subPInfra = new JPanel(new FlowLayout());
 		subPInfra.add(nombreProyecto);
 		subPInfra.add(textNombreProyecto);
 		subPInfra.add(descripcionCorta);
@@ -182,11 +182,11 @@ public class CrearProyectoInfPanel extends JPanel{
 	
 	
 	public void setPathImagen(String s) {
-		this.textIntroduceElNombreArchivoPNG.setText(s);
+		this.textIntroduceElNombreArchivoPNG.setText("OK");
 	}
 	
 	public void setPathCroquis(String s) {
-		this.textIntroduceElNombreArchivoPNG2.setText(s);
+		this.textIntroduceElNombreArchivoPNG2.setText("OK");
 	}
 	
 }

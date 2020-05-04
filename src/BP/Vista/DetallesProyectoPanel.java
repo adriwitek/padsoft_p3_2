@@ -99,6 +99,13 @@ public class DetallesProyectoPanel extends JPanel {
 		//infra
 		subP1.add(labelDistritos);
 		subP1.add(distritos);
+
+		this.subP3 = new JPanel();
+
+		subP3.add(labelImg);
+		subP3.add(labelCroquis);
+
+
 		//social
 		subP1.add(labelNacional);
 		subP1.add(nacional);
