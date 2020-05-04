@@ -51,7 +51,7 @@ public class DetallesProyectoPanel extends JPanel {
 	private JLabel grupoSocial;
 	private JLabel labelImg;
 	private JLabel labelCroquis;
-
+	private JPanel subP3;
 	
 	public DetallesProyectoPanel() {
 		this.setLayout(new FlowLayout());
@@ -100,14 +100,18 @@ public class DetallesProyectoPanel extends JPanel {
 		//infra
 		subP1.add(labelDistritos);
 		subP1.add(distritos);
-		subP1.add(labelImg);
-		subP1.add(labelCroquis);
+		this.subP3 = new JPanel(new FlowLayout());
+		subP3.add(labelImg);
+		subP3.add(labelCroquis);
 
 		//social
 		subP1.add(labelNacional);
 		subP1.add(nacional);
 		subP1.add(labelGrupoSocial);
 		subP1.add(grupoSocial);
+		
+		
+		
 		
 		
 		
@@ -119,6 +123,7 @@ public class DetallesProyectoPanel extends JPanel {
 		
 		this.add(subP2);
 		this.add(subP1);
+		this.add(subP3);
 		
 
 		
@@ -130,8 +135,8 @@ public class DetallesProyectoPanel extends JPanel {
 		
 		subP1.remove(labelDistritos);
 		subP1.remove(distritos);
-		subP1.remove(labelImg);
-		subP1.remove(labelCroquis);
+		subP3.remove(labelImg);
+		subP3.remove(labelCroquis);
 
 		
 		
@@ -175,8 +180,8 @@ public class DetallesProyectoPanel extends JPanel {
 		
 		subP1.add(labelDistritos);
 		subP1.add(distritos);
-		subP1.add(labelImg);
-		subP1.add(labelCroquis);
+		subP3.add(labelImg);
+		subP3.add(labelCroquis);
 		
 		this.nombre.setText(p.getNombre());
 		this.desCorta.setText(p.getDescripcionCorta());
