@@ -98,7 +98,10 @@ public class ControladorLogin implements ActionListener {
         pUsuario.setNombreUsuario(modelo.getUsuarioConectado().getNombre());
         pUsuario.setListaProyectos(modelo.getProyectosApoyables(modelo.getUsuarioConectado()));
         pUsuario.setListaColectivos(modelo.getColectivosDisponibles(modelo.getUsuarioConectado()));
+        //lista panelproyecto
         frame.getPanelProyectos().setTusProyectos(modelo.getProyectosUsuario(modelo.getUsuarioConectado()));
+        frame.getPanelProyectos().setProyectosAp(modelo.getProyectosApoyadosPor(modelo.getUsuarioConectado()));
+        //lista panelcolectivos
         frame.getPanelColectivos().setListaProyectos(modelo.getProyectosApoyables(modelo.getUsuarioConectado()));
         frame.getPanelColectivos().setListaColectivos(modelo.getColectivosUsuario(modelo.getUsuarioConectado()));
         pUsuario.setModeloNotificaciones(modelo.getUsuarioConectado().getAllNotificaciones());

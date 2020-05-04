@@ -31,7 +31,5 @@ public abstract class Proponente implements java.io.Serializable {
 
 	} 
 	
-	public boolean isProponenteOf(Proyecto p) {
-		return this.proyectosPropuestos.contains(p);
-	}
+
 }

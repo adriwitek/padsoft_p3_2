@@ -21,10 +21,10 @@ public class ControladorCrearColectivo implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		
 		 if(e.getActionCommand().equals("cancelar")) {
-			Cancelar();
+			cancelar();
 			
 		}else if(e.getActionCommand().equals("finalizar")) {
-			Finalizar();
+			finalizar();
 		}else {
 			frame.getPanelBienvenida().setVisible(true);
 			this.panel.setVisible(false);
@@ -32,21 +32,22 @@ public class ControladorCrearColectivo implements ActionListener{
 		
 	}
 	
-	public void Cancelar() {
+	public void cancelar() {
 		frame.getPanelUsuario().setVisible(true);
 		this.panel.setVisible(false);
 	}
 	
-	public void Finalizar() {
+	public void finalizar() {
 		String nombre = panel.getNombreColectivo();
 		String descripcion = panel.getDescripcion();
 		
-		if(nombre.equals("") || descripcion.equals("")) {
+		if(nombre.equals("") || descripcion.equals("") || nombre == null) {
 			JOptionPane.showMessageDialog(panel,
 					"Faltan campos obligatorios por rellenar.", "Error", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
-		modelo.CrearColectivo(modelo.getUsuarioConectado(), nombre, null);
+		modelo.crearColectivo(modelo.getUsuarioConectado(), nombre, null);
+		JOptionPane.showMessageDialog(panel, "Colectivo creado");
 		return;
 	}
 }

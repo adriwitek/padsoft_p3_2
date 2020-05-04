@@ -36,7 +36,7 @@ public class ControladorProyectos implements ActionListener, ListSelectionListen
 	}
 
 	private void actualizar() {
-		panel.setTusProyectos(modelo.getProyectosUsuario(modelo.getUsuarioConectado()));
+		frame.getControlador().getControladorLogin().loadUserInfo();
 	}
 	
 	public void goToDetallesProyecto(Proyecto p) {

@@ -37,6 +37,10 @@ public class ControladorColectivos implements ActionListener, ListSelectionListe
 				actualizar();
 		}else if(e.getActionCommand().equals("Crear proyecto como representante de colectivo")) {
 				crearProyectoComoRepresentante();
+		}else if(e.getActionCommand().equals("DetallesPD")) {
+				frame.getControlador().getControladorProyectos().goToDetallesProyecto(proyectoSeleccionado);
+		}else if(e.getActionCommand().equals("DetallesPC")) {
+				frame.getControlador().getControladorProyectos().goToDetallesProyecto(proyectoSeleccionadoCol);
 		}
 		
 	}
