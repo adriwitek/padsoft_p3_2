@@ -35,7 +35,8 @@ public class ControladorProyectos implements ActionListener, ListSelectionListen
         	if(this.proyectoSeleccionado != null) {
         		
         		if(this.proyectoSeleccionado.getTipoProyecto().equals("Infraestructura")) {
-        			detallesP.setDetallesInf(this.proyectoSeleccionado);
+        			ProyectoInfraestructura pif = (ProyectoInfraestructura) this.proyectoSeleccionado;
+        			detallesP.setDetallesInf(this.proyectoSeleccionado,pif.getImgPath(),pif.getCroquisPath());
         		}else if(this.proyectoSeleccionado.getTipoProyecto().equals("Social"))
         			detallesP.setDetallesSocial(this.proyectoSeleccionado);
         		
