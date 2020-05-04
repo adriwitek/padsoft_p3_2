@@ -257,12 +257,14 @@ public class Usuario extends Proponente {
 	public HashSet<Notificacion> getAllNotificaciones(){
 		
 		HashSet<Notificacion> hash = new HashSet<Notificacion>();
-		hash.addAll(getnRechazoProyectoProponente());
-		hash.addAll( getnSuscripcionEstadoProyecto() );
+		hash.addAll(nSuscripcionEstadoProyecto);
+		hash.addAll(  nRechazoProyectoProponente );
+	
+
 		return hash;
 	}
 
-	
+
 	
 	
 	public boolean borrarNotificacion(Notificacion n) {

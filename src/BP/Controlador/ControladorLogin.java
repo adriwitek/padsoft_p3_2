@@ -2,6 +2,8 @@ package BP.Controlador;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.HashSet;
+
 import javax.swing.*;
 import BP.Modelo.*;
 import BP.Vista.*;
@@ -87,11 +89,16 @@ public class ControladorLogin implements ActionListener {
 			this.panel.setVisible(false);
 		}
 	}
+	
+	
 	private void loadUserInfo(UsuarioPanel pUsuario) {
 		pUsuario.setNumeroNIF(modelo.getUsuarioConectado().getNIF());
 		pUsuario.setNombreUsuario(modelo.getUsuarioConectado().getNombre());
 		pUsuario.setListaProyectos(modelo.getProyectosApoyables(modelo.getUsuarioConectado()));
 		pUsuario.setListaColectivos(modelo.getColectivosDisponibles(modelo.getUsuarioConectado()));
+		System.out.println(modelo.getUsuarioConectado().getAllNotificaciones());
+		pUsuario.setModeloNotificaciones(modelo.getUsuarioConectado().getAllNotificaciones());
+
 	}
 	
 }

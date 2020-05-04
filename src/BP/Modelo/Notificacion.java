@@ -7,7 +7,10 @@ package BP.Modelo;
 
 import java.util.Date;
 
-public class Notificacion {
+public class Notificacion  implements java.io.Serializable  {
+	
+	private static final long serialVersionUID = 155011;
+
 	
 	private String titulo;
 	private String descripcion;
@@ -74,5 +77,9 @@ public class Notificacion {
 	}
 
 	
+	
+	public String toString() {
+		return this.titulo;
+	}
 	
 }

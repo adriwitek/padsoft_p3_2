@@ -84,9 +84,10 @@ public class UsuarioPanel extends JPanel {
 		//Lista
 		this.modeloNotificaciones = new DefaultListModel(); 
 		this.listaNotificaciones = new JList(modeloNotificaciones);
+		this.scrollNotificaciones = new JScrollPane(this.listaNotificaciones);
 		this.listaNotificaciones.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		this.scrollNotificaciones = new JScrollPane(this.listaProyectos);
 		subP2.add(scrollNotificaciones);
+		
 		
 		JLabel label2 = new JLabel("Titulo:");
 		this.campoTituloNotificacion =	new JTextField(20);
@@ -109,9 +110,10 @@ public class UsuarioPanel extends JPanel {
 		//SUBPANEL 3 - PROYECTOS
 		
 		
+		
+		
 
-		//SUBPANEL 4 - COLECTIVOS
-
+		//SUBPANEL 4 - COLECTIVOS		
 		JPanel subP4 = new JPanel(new FlowLayout());
 
 		
@@ -142,8 +144,9 @@ public class UsuarioPanel extends JPanel {
 		subP4.add(botonSuscribirseColectivo);
 		subP4.add(botonActualizar);
 		subP4.add(verDetallesProyecto);
-		this.add(subP4);
-		
+		//this.add(subP4);
+		this.pestanias.add("Otros",subP4);
+
 		
 		
 		

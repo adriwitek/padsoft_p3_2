@@ -153,14 +153,13 @@ public class Aplicacion implements java.io.Serializable {
 	public Boolean loadAplicacion() {
 		//cargar app serializada
 		
-		
-		
-		//TODO
 		try {
 			
 	        FileInputStream fileIn= new FileInputStream(ficheroCarga);
             ObjectInputStream entrada= new ObjectInputStream(fileIn);
             Aplicacion app = (Aplicacion)entrada.readObject();
+            entrada.close();
+            fileIn.close();
             if(app == null) {
             	return false;
             }else {

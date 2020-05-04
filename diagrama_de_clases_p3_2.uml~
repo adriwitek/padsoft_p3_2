@@ -58,7 +58,7 @@
 			CodeGeneration
 		</plugin>
 </profile>
-<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Sun May 03 17:33:58 CEST 2020'>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Sun May 03 17:34:56 CEST 2020'>
   <XMI.header>    <XMI.documentation>
       <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
       <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
@@ -641,6 +641,19 @@
                   name = 'return' isSpecification = 'false' kind = 'return'>
                   <UML:Parameter.type>
                     <UML:Class xmi.idref = '-64--88-1--124--209ad9ed:1712572eebb:-8000:0000000000000CC4'/>
+                  </UML:Parameter.type>
+                </UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id = '-64--88-1-15--5430e7d6:171db2b63a9:-8000:0000000000000CDA'
+              name = 'getProyectosPendientesValidacion' visibility = 'public' isSpecification = 'false'
+              ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+              isLeaf = 'false' isAbstract = 'false'>
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id = '-64--88-1-15--5430e7d6:171db2b63a9:-8000:0000000000000CDB'
+                  name = 'return' isSpecification = 'false' kind = 'return'>
+                  <UML:Parameter.type>
+                    <UML:Class xmi.idref = '-64--88-1-15--5430e7d6:171db2b63a9:-8000:0000000000000CDC'/>
                   </UML:Parameter.type>
                 </UML:Parameter>
               </UML:BehavioralFeature.parameter>
@@ -3549,6 +3562,9 @@
             </UML:AssociationEnd>
           </UML:Association.connection>
         </UML:Association>
+        <UML:Class xmi.id = '-64--88-1-15--5430e7d6:171db2b63a9:-8000:0000000000000CDC'
+          name = 'HashSetProyectos' visibility = 'public' isSpecification = 'false'
+          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'/>
       </UML:Namespace.ownedElement>
     </UML:Model>
   </XMI.content>
@@ -3810,7 +3826,7 @@
     </group>
   </group>
   <group name="Fig1"
-       description="org.argouml.uml.diagram.static_structure.ui.FigClass[616, 8, 475, 466]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
+       description="org.argouml.uml.diagram.static_structure.ui.FigClass[616, 0, 475, 483]pathVisible=false;stereotypeView=0;operationsVisible=true;attributesVisible=true;"
        href="-87--2--72-44-2128bc0e:17057627584:-8000:0000000000000876"
        fill="1"
        fillcolor="white"
@@ -3822,9 +3838,9 @@
     
     <rectangle name="Fig1.0"
       x="616"
-      y="8"
+      y="0"
       width="475"
-      height="466"
+      height="483"
       fill="1"
       fillcolor="white"
       stroke="1"
@@ -3832,7 +3848,7 @@
     />
     <text name="Fig1.1"
       x="617"
-      y="9"
+      y="1"
       width="473"
       height="23"
       fill="0"
@@ -3847,7 +3863,7 @@
       justification="Center"
     >+ Aplicacion</text>
     <group name="Fig1.2"
-         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[617, 9, 473, 0]"
+         description="org.argouml.uml.diagram.ui.FigStereotypesGroup[617, 1, 473, 0]"
          href="-87--2--72-44-2128bc0e:17057627584:-8000:0000000000000876"
          fill="0"
          fillcolor="white"
@@ -3860,7 +3876,7 @@
       
       <rectangle name="Fig1.2.0"
         x="617"
-        y="9"
+        y="1"
         width="473"
         height="0"
         fill="0"
@@ -3871,7 +3887,7 @@
     </group>
     <rectangle name="Fig1.3"
       x="616"
-      y="32"
+      y="24"
       width="475"
       height="1"
       fill="1"
@@ -3880,7 +3896,7 @@
       strokecolor="black"
     />
     <group name="Fig1.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[617, 33, 473, 93]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[617, 25, 473, 93]"
          href="-87--2--72-44-2128bc0e:17057627584:-8000:0000000000000876"
          fill="0"
          fillcolor="white"
@@ -3892,7 +3908,7 @@
       
       <rectangle name="Fig1.4.0"
         x="617"
-        y="33"
+        y="25"
         width="473"
         height="93"
         fill="0"
@@ -3902,7 +3918,7 @@
       />
       <text name="Fig1.4.1"
         x="617"
-        y="33"
+        y="25"
         width="473"
         height="17"
         fill="0"
@@ -3918,7 +3934,7 @@
       >-nombreAdmin : String</text>
       <text name="Fig1.4.2"
         x="617"
-        y="50"
+        y="42"
         width="473"
         height="17"
         fill="0"
@@ -3934,7 +3950,7 @@
       >-contraseñaAdmin : String</text>
       <text name="Fig1.4.3"
         x="617"
-        y="67"
+        y="59"
         width="473"
         height="17"
         fill="0"
@@ -3950,7 +3966,7 @@
       >-numMinApoyos : Integer</text>
       <text name="Fig1.4.4"
         x="617"
-        y="84"
+        y="76"
         width="473"
         height="17"
         fill="0"
@@ -3966,7 +3982,7 @@
       >-lastProjectUniqueID : Integer</text>
       <text name="Fig1.4.5"
         x="617"
-        y="101"
+        y="93"
         width="473"
         height="23"
         fill="0"
@@ -3983,7 +3999,7 @@
     </group>
     <rectangle name="Fig1.5"
       x="616"
-      y="125"
+      y="117"
       width="475"
       height="1"
       fill="1"
@@ -3992,7 +4008,7 @@
       strokecolor="black"
     />
     <group name="Fig1.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[617, 126, 473, 348]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[617, 118, 473, 365]"
          href="-87--2--72-44-2128bc0e:17057627584:-8000:0000000000000876"
          fill="0"
          fillcolor="white"
@@ -4004,9 +4020,9 @@
       
       <rectangle name="Fig1.6.0"
         x="617"
-        y="126"
+        y="118"
         width="473"
-        height="348"
+        height="365"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -4014,7 +4030,7 @@
       />
       <text name="Fig1.6.1"
         x="617"
-        y="126"
+        y="118"
         width="473"
         height="17"
         fill="0"
@@ -4030,7 +4046,7 @@
       >+loginAdmin(usuario : String,contraseña : String) : Boolean</text>
       <text name="Fig1.6.2"
         x="617"
-        y="143"
+        y="135"
         width="473"
         height="17"
         fill="0"
@@ -4046,7 +4062,7 @@
       >+loginUser(usuario : String,contraseña : String) : Boolean</text>
       <text name="Fig1.6.3"
         x="617"
-        y="160"
+        y="152"
         width="473"
         height="17"
         fill="0"
@@ -4062,7 +4078,7 @@
       >+logOut()</text>
       <text name="Fig1.6.4"
         x="617"
-        y="177"
+        y="169"
         width="473"
         height="17"
         fill="0"
@@ -4078,7 +4094,7 @@
       >+solicitarRegistro(NIF : String,Nombre : String,Contraseña : String) : Usuario</text>
       <text name="Fig1.6.5"
         x="617"
-        y="194"
+        y="186"
         width="473"
         height="17"
         fill="0"
@@ -4094,7 +4110,7 @@
       >+save() : void</text>
       <text name="Fig1.6.6"
         x="617"
-        y="211"
+        y="203"
         width="473"
         height="17"
         fill="0"
@@ -4110,7 +4126,7 @@
       >+load() : void</text>
       <text name="Fig1.6.7"
         x="617"
-        y="228"
+        y="220"
         width="473"
         height="17"
         fill="0"
@@ -4126,7 +4142,7 @@
       >+addProyecto(p : Proyecto) : void</text>
       <text name="Fig1.6.8"
         x="617"
-        y="245"
+        y="237"
         width="473"
         height="17"
         fill="0"
@@ -4142,7 +4158,7 @@
       >+addUsuario(u : Usuario) : void</text>
       <text name="Fig1.6.9"
         x="617"
-        y="262"
+        y="254"
         width="473"
         height="17"
         fill="0"
@@ -4158,7 +4174,7 @@
       >+addColectivo(c : Colectivo) : void</text>
       <text name="Fig1.6.10"
         x="617"
-        y="279"
+        y="271"
         width="473"
         height="17"
         fill="0"
@@ -4174,7 +4190,7 @@
       >+validarRegistro(u : Usuario) : void</text>
       <text name="Fig1.6.11"
         x="617"
-        y="296"
+        y="288"
         width="473"
         height="17"
         fill="0"
@@ -4190,7 +4206,7 @@
       >+getListadoProyectosaValidar() : List&lt;Proyecto&gt;</text>
       <text name="Fig1.6.12"
         x="617"
-        y="313"
+        y="305"
         width="473"
         height="17"
         fill="0"
@@ -4206,7 +4222,7 @@
       >+getListadoRegistrosaValidar() : List&lt;Usuarios&gt;</text>
       <text name="Fig1.6.13"
         x="617"
-        y="330"
+        y="322"
         width="473"
         height="17"
         fill="0"
@@ -4222,7 +4238,7 @@
       >+addSolicitudFinanciacionProyecto(p : Proyecto) : Boolean</text>
       <text name="Fig1.6.14"
         x="617"
-        y="347"
+        y="339"
         width="473"
         height="17"
         fill="0"
@@ -4238,7 +4254,7 @@
       >+crearProyectoSocial(p : Proponente,parametrosConstructorPSocial) : ProyectoSocial</text>
       <text name="Fig1.6.15"
         x="617"
-        y="364"
+        y="356"
         width="473"
         height="17"
         fill="0"
@@ -4254,7 +4270,7 @@
       >+crearProyectoInfraestructura(p : Proponente,etc : String) : ProyectoInfraestructura</text>
       <text name="Fig1.6.16"
         x="617"
-        y="381"
+        y="373"
         width="473"
         height="17"
         fill="0"
@@ -4270,7 +4286,7 @@
       >+caducarProyectosAntiguos()</text>
       <text name="Fig1.6.17"
         x="617"
-        y="398"
+        y="390"
         width="473"
         height="17"
         fill="0"
@@ -4286,7 +4302,7 @@
       >+rechazarRegistro(u : Usuario,Motivo)</text>
       <text name="Fig1.6.18"
         x="617"
-        y="415"
+        y="407"
         width="473"
         height="17"
         fill="0"
@@ -4302,7 +4318,7 @@
       >+getRegistrosPendientesDeAprobacion() : HashSet&lt;Usuario&gt;</text>
       <text name="Fig1.6.19"
         x="617"
-        y="432"
+        y="424"
         width="473"
         height="17"
         fill="0"
@@ -4318,7 +4334,23 @@
       >+getProyectosSolicitandoFinanciadion() : HashSet&lt;Proyecto&gt;</text>
       <text name="Fig1.6.20"
         x="617"
-        y="449"
+        y="441"
+        width="473"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >+getDistritos() : HashSet&lt;String&gt;</text>
+      <text name="Fig1.6.21"
+        x="617"
+        y="458"
         width="473"
         height="23"
         fill="0"
@@ -4331,7 +4363,7 @@
         bold="false"
         textsize="12"
         justification="Left"
-      >+getDistritos() : HashSet&lt;String&gt;</text>
+      >+getProyectosPendientesValidacion() : HashSetProyectos</text>
     </group>
   </group>
   <group name="Fig2"
@@ -6415,7 +6447,7 @@
       strokecolor="black"
     >
       <moveto x="656"
-              y="473" />
+              y="482" />
       <lineto x="656"
               y="664" />
       <lineto x="880"
