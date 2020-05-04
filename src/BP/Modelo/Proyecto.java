@@ -104,7 +104,7 @@ public abstract class Proyecto implements java.io.Serializable, GrantRequest{
 	 * Esta funcion permite que un colectivo apoye a un proyecto haciendo que todos sus miembros tambien lo apoyen (Apoyar como colectivo),
 	 * siempre y cuando el estado del proyecto sea OPERATIVO
 	 * 
-	 * @param p
+	 * @param c
 	 */
 	public void apoyarProyectoComoColectivo(Colectivo c) {
 		if(this.estadoProyecto == EstadoProyecto.OPERATIVO) {
