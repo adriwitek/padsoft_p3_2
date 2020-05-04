@@ -79,7 +79,7 @@ public class ControladorLogin implements ActionListener {
 		// mostrar nueva vista 
 		if(modelo.isModoAdmin()) {
 			AdminPanel pAdmin = frame.getPanelAdmin();
-			pAdmin.setModeloProyectosValidacion(modelo.getProyectosSolicitandoFinanciacion() );
+			pAdmin.setModeloProyectosValidacion(modelo.getProyectosPendientesValidacion() );
 			pAdmin.setVisible(true);
 			this.panel.setVisible(false);
 		}

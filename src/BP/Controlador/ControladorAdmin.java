@@ -138,7 +138,7 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 			
 			if(null!= pSeleccionado) {
 				pSeleccionado.validarProyecto();
-				panel.getModeloTablaProyectosValidacion().removeRow(this.filaTabla);
+				panel.setModeloProyectosValidacion( modelo.getProyectosPendientesValidacion());
 				this.filaTabla = -1;
 				JOptionPane.showMessageDialog(frame, "Se ha validado el proyecto " + pSeleccionado.getNombre());
 			}else {
@@ -175,8 +175,10 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 			
 			
 			if(null!= pSeleccionado) {
-				pSeleccionado.rechazarProyecto(panel.getMotivoRechazoValidacionProyecto());;///cambiar esta linea
-				 panel.getModeloTablaProyectosValidacion().removeRow(this.filaTabla);
+				pSeleccionado.rechazarProyecto(panel.getMotivoRechazoValidacionProyecto());
+				panel.setModeloProyectosValidacion(modelo.getProyectosSolicitandoFinanciacion() );
+
+				//panel.getModeloTablaProyectosValidacion().removeRow(this.filaTabla);
 				this.filaTabla = -1;
 				JOptionPane.showMessageDialog(frame, "Se ha rechazado el proyecto " + pSeleccionado.getNombre());
 			}else {
