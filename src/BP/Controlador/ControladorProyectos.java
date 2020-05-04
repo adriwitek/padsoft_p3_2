@@ -44,21 +44,21 @@ public class ControladorProyectos implements ActionListener, ListSelectionListen
 	}
 	
 	public void goToDetallesProyecto(Proyecto p) {
-		DetallesProyectoPanel detallesP = frame.getPanelDetallesProyecto();
-    	
-    	if(p!= null) {
-    		
-    		if(p.getTipoProyecto().equals("Infraestructura")) {
-    			ProyectoInfraestructura pif = (ProyectoInfraestructura)p;
-    			detallesP.setDetallesInf(pif,pif.getImgPath(),pif.getCroquisPath());
-    		}else if(p.getTipoProyecto().equals("Social"))
-    			detallesP.setDetallesSocial(p);
-    		
-    		
-    	}else {
-    		JOptionPane.showMessageDialog(panel,"Debe seleccionar un proyecto de la lista", "Error", JOptionPane.ERROR_MESSAGE);
-    		return;
-    	}
+        DetallesProyectoPanel detallesP = frame.getPanelDetallesProyecto();
+
+        if(p!= null) {
+
+            if(p.getTipoProyecto().equals("Infraestructura")) {
+                ProyectoInfraestructura pif = (ProyectoInfraestructura)p;
+                detallesP.setDetallesInf(pif,pif.getImgPath(),pif.getCroquisPath());
+            }else if(p.getTipoProyecto().equals("Social"))
+                detallesP.setDetallesSocial(p);
+
+
+        }else {
+            JOptionPane.showMessageDialog(panel,"Debe seleccionar un proyecto de la lista", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         frame.getControlador().getControladorDetallesProyecto().setFrom("Proyectos");
         detallesP.setVisible(true);
         frame.getPanelUsuario().setVisible(false);

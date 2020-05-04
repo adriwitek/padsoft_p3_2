@@ -23,24 +23,24 @@ public class ControladorCrearProyectoSocial implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		if(e.getActionCommand().equals("atras")) {
-			Atras();
+			atras();
 			
 		}else if(e.getActionCommand().equals("finalizar")) {
-			Finalizar();
+			finalizar();
 		}else {
 			frame.getPanelBienvenida().setVisible(true);
 			this.panel.setVisible(false);
 		}		
 	}
 	
-	public void Atras(){
+	public void atras(){
 		CrearProyectoPanel cProyectos = frame.getPanelCrearProyecto();
 		cProyectos.setVisible(true);
 		this.panel.setVisible(false);
 	}
 	
 	
-	public void Finalizar() { 
+	public void finalizar() { 
 		String Nombre = panel.getNombre();
 		String DescripcionC = panel.getDescripcionC();
 		String DescripcionL = panel.getDescripcionL();
@@ -50,7 +50,7 @@ public class ControladorCrearProyectoSocial implements ActionListener {
 		Proponente p = this.proponente;
 		double num;
 		
-		
+		 
 		if(Nombre.equals("") || DescripcionC.equals("") || DescripcionL.equals("") || GSocial.equals("") || Financiacion.equals("")) {
 			JOptionPane.showMessageDialog(panel,
 					"Faltan campos obligatorios por rellenar.", "Error", JOptionPane.ERROR_MESSAGE);

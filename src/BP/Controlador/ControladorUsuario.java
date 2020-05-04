@@ -34,7 +34,6 @@ public class ControladorUsuario implements ActionListener, ListSelectionListener
 				return;
         	}
         	this.proyectoSeleccionado.apoyarProyecto(modelo.getUsuarioConectado());
-        	modelo.saveAplicacion();
             
         }else if(e.getActionCommand().equals("Suscribirse")) {
         	if(null == colectivoSeleccionado) {
@@ -42,7 +41,6 @@ public class ControladorUsuario implements ActionListener, ListSelectionListener
 				return;
         	}
         	this.colectivoSeleccionado.suscribirseColectivo(modelo.getUsuarioConectado());
-        	modelo.saveAplicacion();
         }else if(e.getActionCommand().equals("DetallesP")) {
 
         		frame.getControlador().getControladorProyectos().goToDetallesProyecto(this.proyectoSeleccionado);
