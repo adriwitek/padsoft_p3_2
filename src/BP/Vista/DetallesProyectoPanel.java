@@ -100,7 +100,8 @@ public class DetallesProyectoPanel extends JPanel {
 		//infra
 		subP1.add(labelDistritos);
 		subP1.add(distritos);
-		this.subP3 = new JPanel(new FlowLayout());
+		this.subP3 = new JPanel();
+
 		subP3.add(labelImg);
 		subP3.add(labelCroquis);
 
@@ -109,9 +110,6 @@ public class DetallesProyectoPanel extends JPanel {
 		subP1.add(nacional);
 		subP1.add(labelGrupoSocial);
 		subP1.add(grupoSocial);
-		
-		
-		
 		
 		
 		
