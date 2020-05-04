@@ -63,13 +63,19 @@ public class ControladorColectivos implements ActionListener, ListSelectionListe
 		}
 	}
 	private void crearProyectoComoRepresentante() {
+		if(colectivoSeleccionado == null) {
+			JOptionPane.showMessageDialog(panel,
+					"Seleccione un colectivo.", "Error", JOptionPane.ERROR_MESSAGE);
+			
+			return;
+		}
 		CrearProyectoPanel cPP = frame.getPanelCrearProyecto();
 		frame.getControlador().getControladorCrearProyecto().setProponente(colectivoSeleccionado);
 		cPP.setVisible(true);
 		frame.getPanelUsuario().setVisible(false);
 	}
 	public ListSelectionListener getControllerProyectosApoyables() {
-		return new ListSelectionListener () {
+		return new ListSelectionListener () {	
 				public void valueChanged(ListSelectionEvent e) {
 					if(e.getValueIsAdjusting()==false) {
 				    	JList lista = (JList) e.getSource();
@@ -83,10 +89,18 @@ public class ControladorColectivos implements ActionListener, ListSelectionListe
 	
 	public ListSelectionListener getControllerTusColectivos() {
 		return new ListSelectionListener () {
+				
 				public void valueChanged(ListSelectionEvent e) {
+					panel.setLabelProyectosCol("Proyectos de: ");
 					if(e.getValueIsAdjusting()==false) {
 				    	JList lista = (JList) e.getSource();
 				    	colectivoSeleccionado  = (Colectivo) lista.getSelectedValue();
+				    	if(colectivoSeleccionado == null) {
+				    		return;
+				    	}
+				    	if(colectivoSeleccionado.equals(lista.getSelectedValue())) {
+				    		panel.setLabelProyectosCol("Proyectos de: " + colectivoSeleccionado);
+				    	}
 				    	panel.setListaProyectosCol(modelo.getProyectosColectivo(colectivoSeleccionado));
 					}
 				}

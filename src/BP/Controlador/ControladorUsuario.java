@@ -44,22 +44,9 @@ public class ControladorUsuario implements ActionListener, ListSelectionListener
         	this.colectivoSeleccionado.suscribirseColectivo(modelo.getUsuarioConectado());
         	modelo.saveAplicacion();
         }else if(e.getActionCommand().equals("DetallesP")) {
-        	
-        	DetallesProyectoPanel detallesP = frame.getPanelDetallesProyecto();
-        	
-        	if(this.proyectoSeleccionado != null) {
-        		
-        		if(this.proyectoSeleccionado.getTipoProyecto().equals("Infraestructura")) {
-            			ProyectoInfraestructura pif = (ProyectoInfraestructura) this.proyectoSeleccionado;
-            			detallesP.setDetallesInf(this.proyectoSeleccionado,pif.getImgPath(),pif.getCroquisPath());
-        		}else if(this.proyectoSeleccionado.getTipoProyecto().equals("Social"))
-        			detallesP.setDetallesSocial(this.proyectoSeleccionado);
-        		
-        		goToDetallesProyecto();
-        	}else {
-        		JOptionPane.showMessageDialog(panel,"Debe seleccionar un proyecto de la lista", "Error", JOptionPane.ERROR_MESSAGE);
-        		return;
-        	}
+
+        		frame.getControlador().getControladorProyectos().goToDetallesProyecto(this.proyectoSeleccionado);
+
         }else if(e.getActionCommand().equals("DetallesC")) {
         	
             
@@ -91,14 +78,6 @@ public class ControladorUsuario implements ActionListener, ListSelectionListener
     	
 
 
-    }
-
-
-    private void goToDetallesProyecto() {
-        DetallesProyectoPanel pDetalles = frame.getPanelDetallesProyecto();
-        frame.getControlador().getControladorDetallesProyecto().setFrom("Usuario");
-        pDetalles.setVisible(true);
-        this.panel.setVisible(false);
     }
 
 
