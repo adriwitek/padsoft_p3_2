@@ -26,6 +26,7 @@ public class main {
 		Usuario u3 =app.solicitarRegistro("12344567893A", "Tapia", "1234");
 		Usuario u4 =app.solicitarRegistro("123424563337893A", "U4", "1234");
 		Usuario u5 =app.solicitarRegistro("12344567423893A", "U5", "1234");
+		Usuario u7 = app.solicitarRegistro("u7", "7", "7");
 		if(u1 == null ||u2 == null || u3 == null || u4 == null || u5 == null   ) System.out.println("Los u devueltos son nulos");
 		
 		
@@ -49,7 +50,9 @@ public class main {
 		app.validarRegistro(u1);
 		app.validarRegistro(u2);
 		app.validarRegistro(u3);
-		if (app.getUsuariosActivos().size() !=3) System.out.println("Error, el numero de usuairo OPERATIVOS   no coincide: " + app.getUsuariosActivos().size());
+		app.validarRegistro(u7);
+
+		if (app.getUsuariosActivos().size() !=4) System.out.println("Error, el numero de usuairo OPERATIVOS   no coincide: " + app.getUsuariosActivos().size());
 		//System.out.print(app.getUsuariosActivos());
 		u2.bloquear("bloqueoado");
 		if (app.getUsuariosBloqueados().size() !=1) System.out.println("Error, el numero de usuairo BLOQUEADOS   no coincide: " + app.getUsuariosBloqueados().size());
@@ -67,12 +70,10 @@ public class main {
 		
 		
 		//SAVE Y LOAD (IMPORTANTE)
-		app.saveAplicacion();
 		app.exit();
 		app = Aplicacion.getInstancia("admin", "1234",1); //login del admin CREAMOS UNA APP
 		 if (!app.loginUser("Guillermo", "1234")) System.out.println("OK, no se ha podido iniciar sesion");
-		if(!app.loadAplicacion()) System.out.println("No se ha podido cargar el backup");//CARGAMOS LOS DATOS EN INSTACIA
-
+		if(!app.loadAplicacion()) System.out.println("-----No se ha podido cargar el backup");//CARGAMOS LOS DATOS EN INSTACIA
 		app = Aplicacion.getInstancia();
 		if (app.loginUser("Guillermo", "1234")) System.out.println("OK,  ahora si se ha podido iniciar sesion");
 
@@ -200,35 +201,30 @@ public class main {
         if(pSocial3.getEstadoProyecto() == EstadoProyecto.FINANCIACIONRECHAZADO) System.out.println("La financiacion de pSocial2 ha sido rechazada " + pSocial3.getFinanciacionRecibida() + " del coste inicial de : " +  pSocial3.getCoste());
 
 		
-		
-        
-        
-        
-        
-        
-		//MAS PRUEBAS
-		Usuario u6 =app.solicitarRegistro("12384567893A", "U6", "1234");
+        //MAS PRUEBAS
+      	Usuario u6 =app.solicitarRegistro("12384567893A", "U6", "1234");
+      		
 
-		
-		
-		
-		
-		
-		//SAVE Y LOAD (IMPORTANTE) 2
-		app.logOut();
-		app.saveAplicacion();
-		app.exit();
-		app = Aplicacion.getInstancia("admin", "1234",1); //login del admin CREAMOS UNA APP
-		if(!app.loadAplicacion()) System.out.println("No se ha podido cargar el backup");//CARGAMOS LOS DATOS EN INSTACIA
 
-				
-				
-				
+       
+		//NOTIFICACIONES
+	
+		Notificacion not= new Notificacion("Tituloo","Esto es una descrp.");
+		u7.anniadirNotificacionDeProyecto(not);
 		
 		
 		
-		//FINANCIACION
+		
+		//SAVE Y LOAD (IMPORTANTE) 2/*
 		app.exit();
+		app = Aplicacion.getInstancia("admin", "1234",1);
+		if(!app.loadAplicacion()) System.out.println("-------------No se ha podido cargar el backup");
+
+		app.loginUser("7", "7");
+		System.out.println(app.getUsuarioConectado().getNombre());
+
+		System.out.println(app.getUsuarioConectado().getAllNotificaciones());
+		
 		System.out.println("FIN DE LA DEMO");
 	}
 	

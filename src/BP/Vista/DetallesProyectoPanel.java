@@ -11,8 +11,7 @@ import BP.Modelo.Proyecto;
 import java.util.Date;
 
 public class DetallesProyectoPanel extends JPanel {
-	private JPanel subPInf;
-	private JPanel subPSocial;
+	private JPanel subP1;
 	
 	private JButton botonVolver;
 	
@@ -40,8 +39,7 @@ public class DetallesProyectoPanel extends JPanel {
 	
 	public DetallesProyectoPanel() {
 		this.setLayout(new BorderLayout());
-		subPSocial = new JPanel(new GridLayout(8,2));
-		subPInf = new JPanel(new GridLayout(8,2));
+		subP1 = new JPanel(new GridLayout(9,2));
 		this.botonVolver = new JButton("Volver");
 		this.etiquetaNombre = new JLabel("Nombre:");
 		this.nombre = new JLabel("");
@@ -58,41 +56,30 @@ public class DetallesProyectoPanel extends JPanel {
 		this.adicionalSocial = new JLabel("");
 		this.adicionalInf = new JLabel("");
 		
-		subPSocial.add(etiquetaNombre);
-		subPSocial.add(nombre);
-		subPSocial.add(etiquetaDesCorta);
-		subPSocial.add(desCorta);
-		subPSocial.add(etiquetaDesLarga);
-		subPSocial.add(desLarga);
-		subPSocial.add(etiquetaFechaCre);
-		subPSocial.add(fechaCre);
-		subPSocial.add(etiquetaFechaUlt);
-		subPSocial.add(fechaUlt);
-		subPSocial.add(etiquetaCoste);
-		subPSocial.add(coste);
-		subPSocial.add(adicionalSocial);
-		subPSocial.add(botonVolver);
+		subP1.add(etiquetaNombre);
+		subP1.add(nombre);
+		subP1.add(etiquetaDesCorta);
+		subP1.add(desCorta);
+		subP1.add(etiquetaDesLarga);
+		subP1.add(desLarga);
+		subP1.add(etiquetaFechaCre);
+		subP1.add(fechaCre);
+		subP1.add(etiquetaFechaUlt);
+		subP1.add(fechaUlt);
+		subP1.add(etiquetaCoste);
+		subP1.add(coste);
+		subP1.add(adicionalSocial);
+		subP1.add(adicionalInf);
+		subP1.add(botonVolver);
 		
-		subPInf.add(etiquetaNombre);
-		subPInf.add(nombre);
-		subPInf.add(etiquetaDesCorta);
-		subPInf.add(desCorta);
-		subPInf.add(etiquetaDesLarga);
-		subPInf.add(desLarga);
-		subPInf.add(etiquetaFechaCre);
-		subPInf.add(fechaCre);
-		subPInf.add(etiquetaFechaUlt);
-		subPInf.add(fechaUlt);
-		subPInf.add(etiquetaCoste);
-		subPInf.add(coste);
-		subPInf.add(adicionalInf);
-		subPInf.add(botonVolver);
-		this.add(subPSocial);
+		this.add(subP1);
 	}
 	public void setControlador(ControladorDetallesProyecto c) {
 		this.botonVolver.addActionListener(c);
 	}
 	public void setDetallesSocial(Proyecto p) {
+		subP1.remove(adicionalInf);
+		subP1.add(adicionalSocial);
 		this.nombre.setText(p.getNombre());
 		this.desCorta.setText(p.getDescripcionCorta());
 		this.desLarga.setText(p.getDescripcionLarga());
@@ -102,7 +89,8 @@ public class DetallesProyectoPanel extends JPanel {
 		this.adicionalSocial.setText(p.getExtraData());
 	}
 	public void setDetallesInf(Proyecto p) {
-		
+		subP1.remove(adicionalSocial);
+		subP1.add(adicionalInf);
 		this.nombre.setText(p.getNombre());
 		this.desCorta.setText(p.getDescripcionCorta());
 		this.desLarga.setText(p.getDescripcionLarga());
@@ -110,9 +98,6 @@ public class DetallesProyectoPanel extends JPanel {
 		this.fechaUlt.setText(p.getFechaUltimoApoyo().toString());
 		this.coste.setText(String.valueOf(p.getCoste()));
 		this.adicionalInf.setText(p.getExtraData());
-		this.add(subPInf);
-		this.remove(subPSocial);
 	}
 
-	
 }

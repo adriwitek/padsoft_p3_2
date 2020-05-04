@@ -35,6 +35,7 @@ public class Colectivo extends Proponente{
 		this.colectivoPadre = colectivoPadre;
 		participantes = new HashSet<>();
 		subcolectivos = new HashSet<>();
+		this.participantes.add(uRepresentante);
 
 	}
 

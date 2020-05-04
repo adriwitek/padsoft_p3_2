@@ -5,7 +5,10 @@ import java.awt.event.*;
 import java.util.HashSet;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionListener;
 
+import BP.Controlador.ControladorCrearProyectoInf;
+import BP.Controlador.ControladorUsuario;
 import BP.Modelo.Aplicacion;
 
 public class CrearProyectoInfPanel extends JPanel{
@@ -27,7 +30,9 @@ public class CrearProyectoInfPanel extends JPanel{
 	private JButton finalizar;
 	
 	public HashSet<String> distritos;
+	private DefaultListModel distritosModelo;
 	private JList lista; 
+	private JScrollPane scroll;
 	
 	private JPanel subPInfra;
 	
@@ -53,12 +58,12 @@ public class CrearProyectoInfPanel extends JPanel{
 		
 		
 		distritos = Aplicacion.getInstancia().getDistritos();
-		DefaultListModel distritosModelo = new DefaultListModel(); 
+		distritosModelo = new DefaultListModel(); 
 		for(String d : distritos) {
 			distritosModelo.addElement(d);
 		}
 		this.lista = new JList(distritosModelo);
-		
+		this.scroll = new JScrollPane(this.lista);
 		
 		subPInfra = new JPanel(new GridLayout(3,3));
 		subPInfra.add(nombreProyecto);
@@ -77,7 +82,7 @@ public class CrearProyectoInfPanel extends JPanel{
 		subPInfra.add(lista);
 		subPInfra.add(atras);
 		subPInfra.add(finalizar);
-		
+		this.lista.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
 	
 		
@@ -85,12 +90,13 @@ public class CrearProyectoInfPanel extends JPanel{
 
 	}
 	
-	public void setControlador(ActionListener c) {
+	public void setControlador(ControladorCrearProyectoInf c) {
 
 		
 		atras.addActionListener(c);
 		finalizar.addActionListener(c);
 		infoFoto.addActionListener(c);
+		this.lista.addListSelectionListener(c);
 		
 	}
 

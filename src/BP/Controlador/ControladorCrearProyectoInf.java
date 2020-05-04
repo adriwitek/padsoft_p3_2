@@ -5,18 +5,23 @@ import java.awt.event.*;
 import java.util.HashSet;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
 import BP.Modelo.*;
 import BP.Vista.*;
 
-public class ControladorCrearProyectoInf implements ActionListener {
+public class ControladorCrearProyectoInf implements ActionListener, ListSelectionListener {
 
 	private CrearProyectoInfPanel panel;
 	private VentanaPrincipal frame;
 	private Aplicacion modelo;
+	private HashSet<String> distritos;
 	public ControladorCrearProyectoInf(VentanaPrincipal frame ,Aplicacion modelo) {
 		this.panel= frame.getPanelCrearProyectoInf();
 		this.frame= frame;
 		this.modelo=modelo;
+		
 	}
 	 
 	
@@ -25,15 +30,12 @@ public class ControladorCrearProyectoInf implements ActionListener {
 		
 		if(e.getActionCommand().equals("infoFoto")) {
 			InfoFoto();
-		}else if(e.getActionCommand().equals("atras")) {
+		}else if(e.getActionCommand().equals("Atras")) {
 			Atras();
 			
-		}else if(e.getActionCommand().equals("finalizar")) {
+		}else if(e.getActionCommand().equals("Finalizar")) {
 			Finalizar();
-		}else {
-			frame.getPanelBienvenida().setVisible(true);
-			this.panel.setVisible(false);
-		}	
+		}
 		
 	}
 	
@@ -85,10 +87,14 @@ public class ControladorCrearProyectoInf implements ActionListener {
 					"Se ha introducido un caracter ilegal en el campo financiacion ", "Error", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
+		if(distritos == null || distritos.isEmpty()) {
+			JOptionPane.showMessageDialog(panel,
+					"Seleccione al menos un distrito ", "Error", JOptionPane.ERROR_MESSAGE);
+			return;
+		}
 		
 		
-		
-		//ProyectoInfraestructura PI = modelo.crearProyectoInfraestructura( p,Nombre, DescripcionL, DescripcionC ,num ,Foto ,Foto2, distrito);
+		ProyectoInfraestructura PI = modelo.crearProyectoInfraestructura( p,Nombre, DescripcionL, DescripcionC ,num ,Foto ,Foto2, distritos);
 		
 		JOptionPane.showMessageDialog(panel,
 				"Se ha creado el proyecto solicitado.", "OK", JOptionPane.INFORMATION_MESSAGE);
@@ -100,4 +106,15 @@ public class ControladorCrearProyectoInf implements ActionListener {
 				"Introduce el nombre del archivo .png especifico de la carpeta (img). Si no se ha introducido un .png en esta carpeta itroduzcalo antes de introducir su nombre ", "OK", JOptionPane.INFORMATION_MESSAGE);
 		return;
 	}
+
+
+	@Override
+	public void valueChanged(ListSelectionEvent e) {
+		if(!e.getValueIsAdjusting()) {
+			JList lista = (JList) e.getSource();
+	    	distritos.addAll(lista.getSelectedValuesList());
+		}
+		
+	}
+	
 }

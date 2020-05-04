@@ -53,9 +53,23 @@ public class ControladorLogin implements ActionListener {
 		
 		// modificar modelo
 		if( !modelo.loginAdmin(nombreUsuario, password) && !modelo.loginUser(nombreUsuario, password) ) {
-			JOptionPane.showMessageDialog(panel,
-					"Las credenciales son incorrectas. Intentalo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
-			return;
+			Usuario u1 = null;
+            for(Usuario u : modelo.getUsuariosBloqueados()) {
+                if(u.getNIF().equals(nombreUsuario) || u.getNombre().equals(nombreUsuario)) {
+                    u1=u;
+                    break;
+                }
+            }
+
+            if(u1 !=null) {
+                JOptionPane.showMessageDialog(panel,  u1.getnBloqueoDeAdmin().getDescripcion(), u1.getnBloqueoDeAdmin().getTitulo(), JOptionPane.ERROR_MESSAGE);
+                return;
+            }else {
+                JOptionPane.showMessageDialog(panel,"Las credenciales son incorrectas. Intentalo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+			
+            
 		}
 		
 		 
@@ -74,10 +88,15 @@ public class ControladorLogin implements ActionListener {
 		}
 	}
 	private void loadUserInfo(UsuarioPanel pUsuario) {
+		
 		pUsuario.setNumeroNIF(modelo.getUsuarioConectado().getNIF());
 		pUsuario.setNombreUsuario(modelo.getUsuarioConectado().getNombre());
 		pUsuario.setListaProyectos(modelo.getProyectosApoyables(modelo.getUsuarioConectado()));
 		pUsuario.setListaColectivos(modelo.getColectivosDisponibles(modelo.getUsuarioConectado()));
+		frame.getPanelProyectos().setTusProyectos(modelo.getProyectosUsuario(modelo.getUsuarioConectado()));
+		frame.getPanelColectivos().setListaProyectos(modelo.getProyectosApoyables(modelo.getUsuarioConectado()));
+		frame.getPanelColectivos().setListaColectivos(modelo.getColectivosUsuario(modelo.getUsuarioConectado()));
+		pUsuario.setModeloNotificaciones(modelo.getUsuarioConectado().getAllNotificaciones());
 	}
 	
 }

@@ -1,5 +1,7 @@
 package BP.Modelo;
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
@@ -37,6 +39,8 @@ public class Usuario extends Proponente {
 		NIF = nif; nombre = nomb; 
 		setContraseña(contra); 
 		setEstado(EstadoUsuario.PENDIENTE);
+		nSuscripcionEstadoProyecto = new LinkedList<Notificacion>();
+		nRechazoProyectoProponente = new LinkedList<Notificacion>();
 	}
 	
 	
@@ -92,8 +96,7 @@ public class Usuario extends Proponente {
 	public Boolean rechazar(String motivo) {
 		if(getEstado() == EstadoUsuario.PENDIENTE) {
 			setEstado(EstadoUsuario.RECHAZADO);
-			this.nBloqueoDeAdmin = new Notificacion("Solicitud de Registro Rechazada","El administrador ha rechazado tu solicitud de alta en el "
-					+ "sistema debido a:" + motivo);
+			//this.nBloqueoDeAdmin = new Notificacion("Solicitud de Registro Rechazada","El administrador ha rechazado tu solicitud de alta en el "+ "sistema debido a:" + motivo);
 			return true;
 		}
 		return false;
@@ -249,4 +252,35 @@ public class Usuario extends Proponente {
 	}
 	
 	
+	
+	
+	public HashSet<Notificacion> getAllNotificaciones(){
+		
+		HashSet<Notificacion> hash = new HashSet<Notificacion>();
+		hash.addAll(nSuscripcionEstadoProyecto);
+		hash.addAll(  nRechazoProyectoProponente );
+	
+
+		return hash;
+	}
+
+
+	
+	
+	public boolean borrarNotificacion(Notificacion n) {
+		
+		if(null == n)return false;
+		
+		if(nSuscripcionEstadoProyecto.contains(n)) {
+			nSuscripcionEstadoProyecto.remove(n);
+			return true;
+		}else if(nRechazoProyectoProponente.contains(n)) {
+			nRechazoProyectoProponente.remove(n);
+			return true;
+		}else {
+			return false;
+		}		
+	}
+	
 }
+

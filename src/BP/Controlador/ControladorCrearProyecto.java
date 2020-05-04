@@ -29,9 +29,6 @@ public class ControladorCrearProyecto implements ActionListener{
 		}else if(e.getActionCommand().equals("ProyectoInfraestructuras")){
 			proyectoInfra();
 			
-		}else {
-			frame.getPanelBienvenida().setVisible(true);
-			this.panel.setVisible(false);
 		}
 		
 		
@@ -40,8 +37,7 @@ public class ControladorCrearProyecto implements ActionListener{
 	
 	
 	public void cancelar() {
-		ProyectosPanel pProyecto = frame.getPanelProyectos();
-		pProyecto.setVisible(true);
+		frame.getPanelUsuario().setVisible(true);
 		this.panel.setVisible(false);
 	}
 	
