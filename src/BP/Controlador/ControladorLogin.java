@@ -2,6 +2,8 @@ package BP.Controlador;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.HashSet;
+
 import javax.swing.*;
 import BP.Modelo.*;
 import BP.Vista.*;
@@ -77,26 +79,30 @@ public class ControladorLogin implements ActionListener {
 		// mostrar nueva vista 
 		if(modelo.isModoAdmin()) {
 			AdminPanel pAdmin = frame.getPanelAdmin();
+			pAdmin.setModeloProyectosValidacion(modelo.getProyectosPendientesValidacion() );
 			pAdmin.setVisible(true);
 			this.panel.setVisible(false);
 		}
 		else {
 			UsuarioPanel pUsuario = frame.getPanelUsuario();
-			loadUserInfo(pUsuario);
+			loadUserInfo();
 			pUsuario.setVisible(true);
 			this.panel.setVisible(false);
 		}
 	}
-	public void loadUserInfo(UsuarioPanel pUsuario) {
-		
-		pUsuario.setNumeroNIF(modelo.getUsuarioConectado().getNIF());
-		pUsuario.setNombreUsuario(modelo.getUsuarioConectado().getNombre());
-		pUsuario.setListaProyectos(modelo.getProyectosApoyables(modelo.getUsuarioConectado()));
-		pUsuario.setListaColectivos(modelo.getColectivosDisponibles(modelo.getUsuarioConectado()));
-		frame.getPanelProyectos().setTusProyectos(modelo.getProyectosUsuario(modelo.getUsuarioConectado()));
-		frame.getPanelColectivos().setListaProyectos(modelo.getProyectosApoyables(modelo.getUsuarioConectado()));
-		frame.getPanelColectivos().setListaColectivos(modelo.getColectivosUsuario(modelo.getUsuarioConectado()));
-		pUsuario.setModeloNotificaciones(modelo.getUsuarioConectado().getAllNotificaciones());
-	}
+
+	
+	public void loadUserInfo() {
+		UsuarioPanel pUsuario = frame.getPanelUsuario();
+        pUsuario.setNumeroNIF(modelo.getUsuarioConectado().getNIF());
+        pUsuario.setNombreUsuario(modelo.getUsuarioConectado().getNombre());
+        pUsuario.setListaProyectos(modelo.getProyectosApoyables(modelo.getUsuarioConectado()));
+        pUsuario.setListaColectivos(modelo.getColectivosDisponibles(modelo.getUsuarioConectado()));
+        frame.getPanelProyectos().setTusProyectos(modelo.getProyectosUsuario(modelo.getUsuarioConectado()));
+        frame.getPanelColectivos().setListaProyectos(modelo.getProyectosApoyables(modelo.getUsuarioConectado()));
+        frame.getPanelColectivos().setListaColectivos(modelo.getColectivosUsuario(modelo.getUsuarioConectado()));
+        pUsuario.setModeloNotificaciones(modelo.getUsuarioConectado().getAllNotificaciones());
+    }
+
 	
 }

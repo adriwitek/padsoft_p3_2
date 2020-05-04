@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 import BP.Controlador.ControladorAdmin;
+import BP.Modelo.Notificacion;
 import BP.Modelo.Proyecto;
 import BP.Modelo.Usuario;
 
@@ -192,9 +193,9 @@ public class AdminPanel extends JPanel {
 		
 		
 		Object[][] filas;
-		if(proyectosSolicitandoFinanciacion.size() == 0 ) {
-			filas = new Object [0][6];
-		}else {
+		/*if(proyectosSolicitandoFinanciacion.size() == 0 ) {*/
+		filas = new Object [0][6];
+		/*}else {
 			filas = new Object [proyectosSolicitandoFinanciacion.size()][6];
 			int i=0;
 			for(Proyecto p: proyectosSolicitandoFinanciacion) {
@@ -206,7 +207,7 @@ public class AdminPanel extends JPanel {
 				filas[i][5] = p.getUniqueID();
 				i++;
 			}
-		}
+		}*/
 		
 		
 		
@@ -350,5 +351,39 @@ public class AdminPanel extends JPanel {
 	public String getMotivoRechazoValidacionProyecto() {
 		return campoMotivoRechazoValidacionProyecto.getText();
 	}
+	
+	
+	public void setModeloProyectosValidacion(HashSet<Proyecto> pr) {
+		
+
+		
+		for(int j =0 ;j< modeloDatos.getRowCount();j++) {
+			modeloDatos.removeRow(j);
+			
+		}
+		
+		Object[][] filas;
+		if(pr.size() == 0 ) {
+			filas = new Object [0][6];
+		}else {
+			filas = new Object [pr.size()][6];
+			int i=0;
+			for(Proyecto p: pr) {
+				filas[i][0] = p.getNombre() ;
+				filas[i][1] = p.getTipoProyecto();
+				filas[i][2] = new Double(p.getCoste());
+				filas[i][3] = p.getFechaCreacion();
+				filas[i][4] = p.getDescripcionCorta();
+				filas[i][5] = p.getUniqueID();
+				this.modeloDatos.addRow(filas[i]);
+				i++;
+			}
+		}
+
+
+		modeloDatos.fireTableDataChanged();
+
+		//this.tabla.repaint();
+    }
 	
 }

@@ -432,7 +432,7 @@ public class Aplicacion implements java.io.Serializable {
 		if(this.modoAdmin) return null;
 		HashSet<Proyecto> listado = new HashSet<Proyecto>();
 		for(Proyecto p: this.proyectos) {
-			if(p.getEstadoProyecto() == EstadoProyecto.OPERATIVO && !p.getUsuariosApoyantes().contains(user)) {
+			if(p.getEstadoProyecto() == EstadoProyecto.OPERATIVO && !p.getUsuariosApoyantes().contains(user) ) {
 				listado.add(p);
 			}
 		}
@@ -441,7 +441,21 @@ public class Aplicacion implements java.io.Serializable {
 		}
 		return listado;
 	} 	
-
+	
+	public HashSet<Proyecto> getProyectosApoyables(Colectivo colectivo){
+		 
+		if(this.modoAdmin) return null;
+		HashSet<Proyecto> listado = new HashSet<Proyecto>();
+		for(Proyecto p: this.proyectos) {
+			if(p.getEstadoProyecto() == EstadoProyecto.OPERATIVO && !colectivo.isProponenteOf(p)) {
+				listado.add(p);
+			}
+		}
+		if(this.getUsuarioConectado()!=null) {
+			
+		}
+		return listado;
+	} 	
 	
 	public HashSet<Colectivo> getColectivosDisponibles(Usuario user){
 		HashSet<Colectivo> listado = new HashSet<Colectivo>();

@@ -9,6 +9,7 @@ package BP.Modelo;
 import java.util.HashSet;
 
 public abstract class Proponente implements java.io.Serializable {
+
 	private HashSet<Proyecto> proyectosPropuestos;
 
 	 /**
@@ -28,9 +29,9 @@ public abstract class Proponente implements java.io.Serializable {
 		
 		this.proyectosPropuestos.add(p);
 
+	} 
+	
+	public boolean isProponenteOf(Proyecto p) {
+		return this.proyectosPropuestos.contains(p);
 	}
-	
-	
-
-	
 }

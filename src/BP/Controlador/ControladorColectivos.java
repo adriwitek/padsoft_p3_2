@@ -100,7 +100,7 @@ public class ControladorColectivos implements ActionListener, ListSelectionListe
 	}
 	
 	private void actualizar() {
-		frame.getControlador().getControladorLogin().loadUserInfo(frame.getPanelUsuario());
+		frame.getControlador().getControladorLogin().loadUserInfo();
 	}
 	@Override
 	public void valueChanged(ListSelectionEvent e) {

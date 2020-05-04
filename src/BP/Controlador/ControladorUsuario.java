@@ -141,8 +141,14 @@ public class ControladorUsuario implements ActionListener, ListSelectionListener
                 if(e.getValueIsAdjusting()==false) {
                     JList lista = (JList) e.getSource();
                     notificacionSeleccionada  = (Notificacion) lista.getSelectedValue();
-                    panel.setCampoTituloNotificacion(notificacionSeleccionada.getTitulo());
-                    panel.setCampoDescripcionNotificacion(notificacionSeleccionada.getDescripcion()); 
+                    if(notificacionSeleccionada == null) {
+                   	 panel.setCampoTituloNotificacion("");
+                     panel.setCampoDescripcionNotificacion(""); 
+                    }else {
+                    	 panel.setCampoTituloNotificacion(notificacionSeleccionada.getTitulo());
+                         panel.setCampoDescripcionNotificacion(notificacionSeleccionada.getDescripcion()); 
+                    }
+                   
                 }
             }
 

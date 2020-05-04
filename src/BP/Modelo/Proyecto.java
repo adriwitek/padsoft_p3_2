@@ -57,7 +57,7 @@ public abstract class Proyecto implements java.io.Serializable, GrantRequest{
 		
 		this.proponente = p;
 		this.usuarioCreador = uCreador;
-		this.usuariosaApoyantes = new HashSet<Usuario>();
+		this.usuariosaApoyantes = new HashSet<Usuario>(); 
 		this.nombre = nombre; 
 		this.setDescripcionLarga(descrL); 
 		this.setDescripcionCorta(descC);
