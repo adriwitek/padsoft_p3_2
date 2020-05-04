@@ -361,7 +361,9 @@ public class AdminPanel extends JPanel {
 			modeloDatos.removeRow(j);
 			
 		}
-		
+		modeloDatos.fireTableDataChanged();
+
+
 		Object[][] filas;
 		if(pr.size() == 0 ) {
 			filas = new Object [0][6];
@@ -383,7 +385,7 @@ public class AdminPanel extends JPanel {
 
 		modeloDatos.fireTableDataChanged();
 
-		//this.tabla.repaint();
+		this.tabla.repaint();
     }
 	
 }

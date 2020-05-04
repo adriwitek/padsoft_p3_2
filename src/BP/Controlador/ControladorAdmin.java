@@ -9,6 +9,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableModel;
 
 import BP.Modelo.*;
 import BP.Vista.*;
@@ -127,9 +128,9 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 			
 			
 			
-			HashSet<Proyecto> proyectosSolicitandoFinanciacion = modelo.getProyectosPendientesValidacion();
+			HashSet<Proyecto> proyectosPendientesValidacion = modelo.getProyectosPendientesValidacion();
 			Proyecto pSeleccionado = null;
-			for(Proyecto p:proyectosSolicitandoFinanciacion ) {
+			for(Proyecto p:proyectosPendientesValidacion ) {
 				if(this.idProyecto == p.getUniqueID()) pSeleccionado = p;
 			}
 			
@@ -138,7 +139,9 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 			
 			if(null!= pSeleccionado) {
 				pSeleccionado.validarProyecto();
-				panel.setModeloProyectosValidacion( modelo.getProyectosPendientesValidacion());
+				proyectosPendientesValidacion.remove(pSeleccionado);
+				panel.getModeloTablaProyectosValidacion().removeRow(filaTabla);//FIX NECESARIO
+				panel.setModeloProyectosValidacion(proyectosPendientesValidacion);
 				this.filaTabla = -1;
 				JOptionPane.showMessageDialog(frame, "Se ha validado el proyecto " + pSeleccionado.getNombre());
 			}else {
@@ -165,9 +168,9 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 			
 			
 			
-			HashSet<Proyecto> proyectosSolicitandoFinanciacion = modelo.getProyectosPendientesValidacion();
+			HashSet<Proyecto> proyectosPendientesValidacion = modelo.getProyectosPendientesValidacion();
 			Proyecto pSeleccionado = null;
-			for(Proyecto p:proyectosSolicitandoFinanciacion ) {
+			for(Proyecto p:proyectosPendientesValidacion ) {
 				if(this.idProyecto == p.getUniqueID()) pSeleccionado = p;
 			}
 			
@@ -176,9 +179,8 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 			
 			if(null!= pSeleccionado) {
 				pSeleccionado.rechazarProyecto(panel.getMotivoRechazoValidacionProyecto());
+				panel.getModeloTablaProyectosValidacion().removeRow(filaTabla);//FIX NECESARIO
 				panel.setModeloProyectosValidacion(modelo.getProyectosSolicitandoFinanciacion() );
-
-				//panel.getModeloTablaProyectosValidacion().removeRow(this.filaTabla);
 				this.filaTabla = -1;
 				JOptionPane.showMessageDialog(frame, "Se ha rechazado el proyecto " + pSeleccionado.getNombre());
 			}else {
