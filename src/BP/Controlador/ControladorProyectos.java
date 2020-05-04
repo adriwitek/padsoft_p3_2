@@ -15,6 +15,7 @@ public class ControladorProyectos implements ActionListener, ListSelectionListen
 	private VentanaPrincipal frame;
 	private Aplicacion modelo;
 	private Proyecto proyectoSeleccionado;
+	private Proyecto proyectoSeleccionadoAp;
 	public ControladorProyectos(VentanaPrincipal frame ,Aplicacion modelo) {
 		this.panel= frame.getPanelProyectos();
 		this.frame= frame;
@@ -30,20 +31,7 @@ public class ControladorProyectos implements ActionListener, ListSelectionListen
 		}else if(e.getActionCommand().equals("Actualizar")){
 			actualizar();
 		}else if(e.getActionCommand().equals("Detalles")) {
-			DetallesProyectoPanel detallesP = frame.getPanelDetallesProyecto();
-        	
-        	if(this.proyectoSeleccionado != null) {
-        		
-        		if(this.proyectoSeleccionado.getTipoProyecto().equals("Infraestructura")) {
-        			detallesP.setDetallesInf(this.proyectoSeleccionado);
-        		}else if(this.proyectoSeleccionado.getTipoProyecto().equals("Social"))
-        			detallesP.setDetallesSocial(this.proyectoSeleccionado);
-        		
-        		goToDetallesProyecto();
-        	}else {
-        		JOptionPane.showMessageDialog(panel,"Debe seleccionar un proyecto de la lista", "Error", JOptionPane.ERROR_MESSAGE);
-        		return;
-        	}
+			goToDetallesProyecto(proyectoSeleccionado);
 		}
 	}
 
@@ -51,10 +39,23 @@ public class ControladorProyectos implements ActionListener, ListSelectionListen
 		panel.setTusProyectos(modelo.getProyectosUsuario(modelo.getUsuarioConectado()));
 	}
 	
-	private void goToDetallesProyecto() {
-        DetallesProyectoPanel pDetalles = frame.getPanelDetallesProyecto();
+	public void goToDetallesProyecto(Proyecto p) {
+		DetallesProyectoPanel detallesP = frame.getPanelDetallesProyecto();
+    	
+    	if(p!= null) {
+    		
+    		if(p.getTipoProyecto().equals("Infraestructura")) {
+    			detallesP.setDetallesInf(p);
+    		}else if(p.getTipoProyecto().equals("Social"))
+    			detallesP.setDetallesSocial(p);
+    		
+    		
+    	}else {
+    		JOptionPane.showMessageDialog(panel,"Debe seleccionar un proyecto de la lista", "Error", JOptionPane.ERROR_MESSAGE);
+    		return;
+    	}
         frame.getControlador().getControladorDetallesProyecto().setFrom("Proyectos");
-        pDetalles.setVisible(true);
+        detallesP.setVisible(true);
         frame.getPanelUsuario().setVisible(false);
     }
 	
@@ -67,15 +68,32 @@ public class ControladorProyectos implements ActionListener, ListSelectionListen
 
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
-		if(!e.getValueIsAdjusting()) {
-			JList lista = (JList) e.getSource();
-	    	proyectoSeleccionado  = (Proyecto) lista.getSelectedValue();
-		}
-		
 	}
 	public Proyecto getProyectoSelected() {
 		return this.proyectoSeleccionado;
 	}
 
+	public ListSelectionListener getControllerTusProyectos() {
+		return new ListSelectionListener () {
+			public void valueChanged(ListSelectionEvent e) {
+				if(e.getValueIsAdjusting()==false) {
+			    	JList lista = (JList) e.getSource();
+			    	proyectoSeleccionado  = (Proyecto) lista.getSelectedValue();
+				}
+			}
+			
+		};
+	}
+	public ListSelectionListener getControllerProyectosAp() {
+		return new ListSelectionListener () {
+			public void valueChanged(ListSelectionEvent e) {
+				if(e.getValueIsAdjusting()==false) {
+			    	JList lista = (JList) e.getSource();
+			    	proyectoSeleccionado  = (Proyecto) lista.getSelectedValue();
+				}
+			}
+			
+		};
+	}
 }
 
