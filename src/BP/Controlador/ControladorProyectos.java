@@ -31,7 +31,11 @@ public class ControladorProyectos implements ActionListener, ListSelectionListen
 		}else if(e.getActionCommand().equals("Actualizar")){
 			actualizar();
 		}else if(e.getActionCommand().equals("Detalles")) {
+
 			goToDetallesProyecto(proyectoSeleccionado);
+		}else if(e.getActionCommand().equals("Detalles.")) {
+
+			goToDetallesProyecto(proyectoSeleccionadoAp);
 		}
 	}
 
@@ -45,7 +49,8 @@ public class ControladorProyectos implements ActionListener, ListSelectionListen
     	if(p!= null) {
     		
     		if(p.getTipoProyecto().equals("Infraestructura")) {
-    			detallesP.setDetallesInf(p);
+    			ProyectoInfraestructura pif = (ProyectoInfraestructura)p;
+    			detallesP.setDetallesInf(pif,pif.getImgPath(),pif.getCroquisPath());
     		}else if(p.getTipoProyecto().equals("Social"))
     			detallesP.setDetallesSocial(p);
     		
@@ -89,7 +94,7 @@ public class ControladorProyectos implements ActionListener, ListSelectionListen
 			public void valueChanged(ListSelectionEvent e) {
 				if(e.getValueIsAdjusting()==false) {
 			    	JList lista = (JList) e.getSource();
-			    	proyectoSeleccionado  = (Proyecto) lista.getSelectedValue();
+			    	proyectoSeleccionadoAp  = (Proyecto) lista.getSelectedValue();
 				}
 			}
 			

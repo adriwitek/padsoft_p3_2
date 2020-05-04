@@ -99,4 +99,13 @@ public class ProyectoInfraestructura extends Proyecto {
 		return new String("Infraestructura");
 	}
 	
+	
+	public String getImgPath(){
+		return this.imgPath;
+	}
+	
+	public String getCroquisPath(){
+		return this.croquisPath;
+	}
+	
 }
