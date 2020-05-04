@@ -74,7 +74,7 @@ public class CrearProyectoInfPanel extends JPanel{
 		this.lista = new JList(distritosModelo);
 		this.scroll = new JScrollPane(this.lista);
 		
-		subPInfra = new JPanel(new GridLayout(2,8));
+		subPInfra = new JPanel(new FlowLayout());
 		subPInfra.add(nombreProyecto);
 		subPInfra.add(textNombreProyecto);
 		subPInfra.add(descripcionCorta);
