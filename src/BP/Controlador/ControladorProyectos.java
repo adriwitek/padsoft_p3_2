@@ -46,6 +46,9 @@ public class ControladorProyectos implements ActionListener, ListSelectionListen
 			actualizar();
 		}else if(e.getActionCommand().equals("Detalles")) {
 			goToDetallesProyecto(proyectoSeleccionado);
+		}else if(e.getActionCommand().equals("Detalles.")) {
+
+			goToDetallesProyecto(proyectoSeleccionadoAp);
 		}
 	}
 	
@@ -54,7 +57,7 @@ public class ControladorProyectos implements ActionListener, ListSelectionListen
 	 * de actualizar la informacion de los proyectos del usuario
 	 */
 	private void actualizar() {
-		panel.setTusProyectos(modelo.getProyectosUsuario(modelo.getUsuarioConectado()));
+		frame.getControlador().getControladorLogin().loadUserInfo();
 	}
 	
 
@@ -64,21 +67,21 @@ public class ControladorProyectos implements ActionListener, ListSelectionListen
 	 */
 
 	public void goToDetallesProyecto(Proyecto p) {
-		DetallesProyectoPanel detallesP = frame.getPanelDetallesProyecto();
-    	
-    	if(p!= null) {
-    		
-    		if(p.getTipoProyecto().equals("Infraestructura")) {
-    			detallesP.setDetallesInf(p);
-    		}else if(p.getTipoProyecto().equals("Social"))
-    			detallesP.setDetallesSocial(p);
-    		
-    		
-    	}else {
-    		JOptionPane.showMessageDialog(panel,"Debe seleccionar un proyecto de la lista", "Error", JOptionPane.ERROR_MESSAGE);
-    		return;
-    	}
+        DetallesProyectoPanel detallesP = frame.getPanelDetallesProyecto();
 
+        if(p!= null) {
+
+            if(p.getTipoProyecto().equals("Infraestructura")) {
+                ProyectoInfraestructura pif = (ProyectoInfraestructura)p;
+                detallesP.setDetallesInf(pif,pif.getImgPath(),pif.getCroquisPath());
+            }else if(p.getTipoProyecto().equals("Social"))
+                detallesP.setDetallesSocial(p);
+
+
+        }else {
+            JOptionPane.showMessageDialog(panel,"Debe seleccionar un proyecto de la lista", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         frame.getControlador().getControladorDetallesProyecto().setFrom("Proyectos");
         detallesP.setVisible(true);
         frame.getPanelUsuario().setVisible(false);
@@ -126,7 +129,7 @@ public class ControladorProyectos implements ActionListener, ListSelectionListen
 			public void valueChanged(ListSelectionEvent e) {
 				if(e.getValueIsAdjusting()==false) {
 			    	JList lista = (JList) e.getSource();
-			    	proyectoSeleccionado  = (Proyecto) lista.getSelectedValue();
+			    	proyectoSeleccionadoAp  = (Proyecto) lista.getSelectedValue();
 				}
 			}
 			

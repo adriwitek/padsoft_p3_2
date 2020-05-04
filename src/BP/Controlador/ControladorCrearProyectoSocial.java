@@ -37,31 +37,37 @@ public class ControladorCrearProyectoSocial implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		if(e.getActionCommand().equals("atras")) {
-			Atras();
+			atras();
 			
 		}else if(e.getActionCommand().equals("finalizar")) {
-			Finalizar();
+			finalizar();
 		}else {
 			frame.getPanelBienvenida().setVisible(true);
 			this.panel.setVisible(false);
 		}		
 	}
 	
+
 	/**
 	 * Esta funcion crea la funcionalidad del boton atras
 	 * de tal manera que la aplicacion volveria a CrearProyectoPanel
 	 */
-	public void Atras(){
+
+	public void atras(){
+
 		CrearProyectoPanel cProyectos = frame.getPanelCrearProyecto();
 		cProyectos.setVisible(true);
 		this.panel.setVisible(false);
 	}
 	
+
 	/**
 	 * Esta funcion se encarga de crear la funcionalidad del boton finalizar
 	 * de tal manera que se crearia un proyecto social en la aplicacion
 	 */
-	public void Finalizar() { 
+
+	
+	public void finalizar() { 
 		String Nombre = panel.getNombre();
 		String DescripcionC = panel.getDescripcionC();
 		String DescripcionL = panel.getDescripcionL();
@@ -71,7 +77,7 @@ public class ControladorCrearProyectoSocial implements ActionListener {
 		Proponente p = this.proponente;
 		double num;
 		
-		
+		 
 		if(Nombre.equals("") || DescripcionC.equals("") || DescripcionL.equals("") || GSocial.equals("") || Financiacion.equals("")) {
 			JOptionPane.showMessageDialog(panel,
 					"Faltan campos obligatorios por rellenar.", "Error", JOptionPane.ERROR_MESSAGE);

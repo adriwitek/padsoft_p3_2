@@ -3,6 +3,11 @@ package BP.Vista;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import BP.Controlador.ControladorDetallesProyecto;
@@ -36,24 +41,18 @@ public class DetallesProyectoPanel extends JPanel {
 	//proyectos sociales
 	private JLabel adicionalSocial;
 	private JLabel adicionalInf;
-
-	/**
-	 * Este es el constructor de DetallesProyectoPanel contiene el panel subP1 y la creacion  de los elementos-objetos
-	 */
+	
 	//Poryecto Infraestructura
 	private JLabel distritos;
-
 	private JLabel labelDistritos;
-
 	private JLabel labelNacional;
-
 	private JLabel nacional;
-
 	private JLabel labelGrupoSocial;
-
 	private JLabel grupoSocial;
+	private JLabel labelImg;
+	private JLabel labelCroquis;
+	private JPanel subP3;
 	
-
 	public DetallesProyectoPanel() {
 		this.setLayout(new FlowLayout());
 		subP1 = new JPanel(new GridLayout(11,2));
@@ -73,6 +72,9 @@ public class DetallesProyectoPanel extends JPanel {
 		//infra
 		this.labelDistritos = new JLabel("Distritos");
 		this.distritos = new JLabel("");
+		this.labelImg = new JLabel("");
+		this.labelCroquis = new JLabel("");
+		
 		//sociales
 		this.labelNacional = new JLabel("Nacional");
 		this.nacional = new JLabel("Nacional");
@@ -93,18 +95,15 @@ public class DetallesProyectoPanel extends JPanel {
 		subP1.add(fechaUlt);
 		subP1.add(etiquetaCoste);
 		subP1.add(coste);
-		//subP1.add(adicionalSocial);
-		//subP1.add(adicionalInf);
+		
 		
 		//infra
 		subP1.add(labelDistritos);
 		subP1.add(distritos);
-
-		/*this.subP3 = new JPanel();
+		this.subP3 = new JPanel();
 
 		subP3.add(labelImg);
-		subP3.add(labelCroquis);*/
-
+		subP3.add(labelCroquis);
 
 		//social
 		subP1.add(labelNacional);
@@ -122,6 +121,7 @@ public class DetallesProyectoPanel extends JPanel {
 		
 		this.add(subP2);
 		this.add(subP1);
+		this.add(subP3);
 		
 
 		
@@ -140,52 +140,73 @@ public class DetallesProyectoPanel extends JPanel {
 	 * @param p proyecto del que se quiere ver detalles
 	 */
 	public void setDetallesSocial(Proyecto p) {
-		
-		subP1.remove(labelDistritos);
-		subP1.remove(distritos);
-		
-		subP1.add(labelNacional);
-		subP1.add(nacional);
-		subP1.add(labelGrupoSocial);
-		subP1.add(grupoSocial);
-		
-		this.nombre.setText(p.getNombre());
-		this.desCorta.setText(p.getDescripcionCorta());
-		this.desLarga.setText(p.getDescripcionLarga());
-		this.fechaCre.setText(p.getFechaCreacion().toString());
-		this.fechaUlt.setText(p.getFechaUltimoApoyo().toString());
-		this.coste.setText(String.valueOf(p.getCoste()));
-		String[] parts = p.getExtraData().split("_");
-		
-		this.nacional.setText(parts[0]);
-		this.grupoSocial.setText(parts[1]);
-		
-	}
+
+        subP1.remove(labelDistritos);
+        subP1.remove(distritos);
+        subP3.remove(labelImg);
+        subP3.remove(labelCroquis);
+
+
+
+
+        subP1.add(labelNacional);
+        subP1.add(nacional);
+        subP1.add(labelGrupoSocial);
+        subP1.add(grupoSocial);
+
+        this.nombre.setText(p.getNombre());
+        this.desCorta.setText(p.getDescripcionCorta());
+        this.desLarga.setText(p.getDescripcionLarga());
+        this.fechaCre.setText(p.getFechaCreacion().toString());
+        this.fechaUlt.setText(p.getFechaUltimoApoyo().toString());
+        this.coste.setText(String.valueOf(p.getCoste()));
+        String[] parts = p.getExtraData().split("_");
+
+        this.nacional.setText(parts[0]);
+        this.grupoSocial.setText(parts[1]);
+
+    }
+
 	/**
 	 * Esta funcioncion eliminara los elemento-objetos adicionales para proyectos sociales e introducira los datos especificos en los campos
 	 * de proyecto infraestructuras
 	 * @param p proyecto del que se quiere ver detalles
 	 */
-	public void setDetallesInf(Proyecto p) {
-		
-		subP1.remove(labelNacional);
-		subP1.remove(nacional);
-		subP1.remove(labelGrupoSocial);
-		subP1.remove(grupoSocial);
-		
-		subP1.add(labelDistritos);
-		subP1.add(distritos);
+	public void setDetallesInf(Proyecto p,String imgPath,String croquisPath) {
 
-		
-		this.nombre.setText(p.getNombre());
-		this.desCorta.setText(p.getDescripcionCorta());
-		this.desLarga.setText(p.getDescripcionLarga());
-		this.fechaCre.setText(p.getFechaCreacion().toString());
-		this.fechaUlt.setText(p.getFechaUltimoApoyo().toString());
-		this.coste.setText(String.valueOf(p.getCoste()));
-		
-		
-		this.distritos.setText(p.getExtraData());
-	}
+        subP1.remove(labelNacional);
+        subP1.remove(nacional);
+        subP1.remove(labelGrupoSocial);
+        subP1.remove(grupoSocial);
+        subP3.remove(labelImg);
+        subP3.remove(labelCroquis);
+
+        try {
+            BufferedImage img;
+            img = ImageIO.read(new File(imgPath));
+            BufferedImage croquis = ImageIO.read(new File(croquisPath));
+            this.labelImg = new JLabel(new ImageIcon(img));
+            this.labelCroquis =  new JLabel(new ImageIcon(croquis));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
+        subP1.add(labelDistritos);
+        subP1.add(distritos);
+        subP3.add(labelImg);
+        subP3.add(labelCroquis);
+
+        this.nombre.setText(p.getNombre());
+        this.desCorta.setText(p.getDescripcionCorta());
+        this.desLarga.setText(p.getDescripcionLarga());
+        this.fechaCre.setText(p.getFechaCreacion().toString());
+        this.fechaUlt.setText(p.getFechaUltimoApoyo().toString());
+        this.coste.setText(String.valueOf(p.getCoste()));
+
+
+        this.distritos.setText(p.getExtraData());
+    }
 
 }

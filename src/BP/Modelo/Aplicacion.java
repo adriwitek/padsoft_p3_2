@@ -353,7 +353,6 @@ public class Aplicacion implements java.io.Serializable {
 	
 	
 	
-	
 	/**
 	 * Esta funcion se encarga de validar un registro
 	 * 
@@ -447,7 +446,7 @@ public class Aplicacion implements java.io.Serializable {
 		if(this.modoAdmin) return null;
 		HashSet<Proyecto> listado = new HashSet<Proyecto>();
 		for(Proyecto p: this.proyectos) {
-			if(p.getEstadoProyecto() == EstadoProyecto.OPERATIVO && !colectivo.isProponenteOf(p)) {
+			if(p.getEstadoProyecto() == EstadoProyecto.OPERATIVO ) {
 				listado.add(p);
 			}
 		}
@@ -575,13 +574,13 @@ public class Aplicacion implements java.io.Serializable {
 		
 	}
 	
-	public Colectivo CrearColectivo(Usuario uRepresentante, String nombre,Colectivo colectivoPadre) {
+	public Colectivo crearColectivo(Usuario uRepresentante, String nombre,Colectivo colectivoPadre) {
 		Colectivo newC = new Colectivo(uRepresentante, nombre, colectivoPadre);
 		this.proponentes.add(newC);
 		return newC;
 	}
 	
-	public Colectivo CrearSubcolectivo(String nombre, Colectivo colectivoPadre) {
+	public Colectivo crearSubcolectivo(String nombre, Colectivo colectivoPadre) {
 		Colectivo newSubC = colectivoPadre.crearSubcolectivo(nombre);
 		this.proponentes.add(newSubC);
 		return newSubC;
@@ -716,6 +715,34 @@ public class Aplicacion implements java.io.Serializable {
 			}
 		}
 	return listado;
+	}
+	/**
+	 * Devuelve los proyectos apoyados por un usuario.
+	 * @param u El usuario.
+	 * @return HashSet<Proyecto> con los proyectos.
+	 */
+	public HashSet<Proyecto> getProyectosApoyadosPor(Usuario u){
+		HashSet<Proyecto> listado = new HashSet<Proyecto>();
+		for(Proyecto p: this.proyectos) {
+			if(p.getUsuariosApoyantes().contains(u)) {
+				listado.add(p);
+			}
+		}
+		return listado;
+	}
+	/**
+	 * Devuelve los proyectos apoyados por un colectivo.
+	 * @param u El colectivo.
+	 * @return HashSet<Proyecto> con los proyectos.
+	 */
+	public HashSet<Proyecto> getProyectosApoyadosPor(Colectivo c){
+		HashSet<Proyecto> listado = new HashSet<Proyecto>();
+		for(Proyecto p: this.proyectos) {
+			if(p.getColectivosApoyantes().contains(c)) {
+				listado.add(p);
+			}
+		}
+		return listado;
 	}
 }
 

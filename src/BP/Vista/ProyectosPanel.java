@@ -23,7 +23,6 @@ public class ProyectosPanel extends JPanel {
 	@SuppressWarnings("rawtypes")
 	private JList tusProyectos;
 	private JScrollPane scrollP;
-	
 	@SuppressWarnings("rawtypes")
 	private DefaultListModel proyectosApM;
 	@SuppressWarnings("rawtypes")
@@ -112,9 +111,9 @@ public class ProyectosPanel extends JPanel {
 	 */
 
 	public void setProyectosAp(HashSet<Proyecto> proyectos) {
-		proyectosM.clear();
+		proyectosApM.clear();
 		for(Proyecto p: proyectos) {
-			proyectosM.addElement(p);
+			proyectosApM.addElement(p);
 		}
 	}
 

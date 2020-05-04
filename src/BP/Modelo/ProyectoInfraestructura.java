@@ -98,5 +98,11 @@ public class ProyectoInfraestructura extends Proyecto {
 	public String getTipoProyecto() {
 		return new String("Infraestructura");
 	}
-	
+	public String getImgPath(){
+        return this.imgPath;
+    }
+
+    public String getCroquisPath(){
+        return this.croquisPath;
+    }
 }

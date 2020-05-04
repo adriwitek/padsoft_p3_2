@@ -23,6 +23,7 @@ public abstract class Proyecto implements java.io.Serializable, GrantRequest{
 	private Proponente proponente;
 	private Usuario usuarioCreador;
 	private HashSet<Usuario> usuariosaApoyantes;
+	private HashSet<Colectivo> colectivosApoyantes;
 	
 	protected int uniqueID;
 	private String nombre;
@@ -58,6 +59,7 @@ public abstract class Proyecto implements java.io.Serializable, GrantRequest{
 		this.proponente = p;
 		this.usuarioCreador = uCreador;
 		this.usuariosaApoyantes = new HashSet<Usuario>(); 
+		this.colectivosApoyantes = new HashSet<Colectivo>();
 		this.nombre = nombre; 
 		this.setDescripcionLarga(descrL); 
 		this.setDescripcionCorta(descC);
@@ -109,8 +111,9 @@ public abstract class Proyecto implements java.io.Serializable, GrantRequest{
 			for(Usuario u : c.getParticipantes() ) {
 				this.usuariosaApoyantes.add(u);
 			}
-
+			this.colectivosApoyantes.add(c);
 		}
+		
 		Date d1 = new Date();
 		setFechaUltimoApoyo(d1);
 	}
@@ -506,6 +509,9 @@ public abstract class Proyecto implements java.io.Serializable, GrantRequest{
 	
 	public HashSet<Usuario> getUsuariosApoyantes(){
 		return this.usuariosaApoyantes;
+	}
+	public HashSet<Colectivo> getColectivosApoyantes(){
+		return this.colectivosApoyantes;
 	}
 	
 	
