@@ -33,8 +33,7 @@ public class ControladorCrearColectivo implements ActionListener{
 	}
 	
 	public void Cancelar() {
-		ColectivosPanel cColectivos = frame.getPanelColectivos();
-		cColectivos.setVisible(true);
+		frame.getPanelUsuario().setVisible(true);
 		this.panel.setVisible(false);
 	}
 	

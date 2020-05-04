@@ -82,7 +82,7 @@ public class ControladorCrearProyectoSocial implements ActionListener {
 		}
 		
 		
-		ProyectoSocial PS = modelo.crearProyectoSocial(p, Nombre, DescripcionL, DescripcionC, num, GSocial, Nacional);
+		 modelo.crearProyectoSocial(p, Nombre, DescripcionL, DescripcionC, num, GSocial, Nacional);
 		JOptionPane.showMessageDialog(panel,
 				"Se ha creado el proyecto solicitado.", "OK", JOptionPane.INFORMATION_MESSAGE);
 		return;

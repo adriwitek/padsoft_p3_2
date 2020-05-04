@@ -8,78 +8,78 @@ package BP.Modelo;
 import java.util.Date;
 
 public class Notificacion  implements java.io.Serializable  {
-	
-	private static final long serialVersionUID = 155011;
 
-	
-	private String titulo;
-	private String descripcion;
-	private Date fechaCreacion;
-	
-	 /**
-	  * Constructor, con los datos a implementar
-	  * @param titulo que asignar a la notificación
-	  * @param descripción para asignar a la notificación
-	  */
-	
-	public Notificacion(String titulo, String descripcion ) {
-		this.setTitulo(titulo);
-		this.setDescripcion(descripcion);
-		this.fechaCreacion = new Date();
-		
-	}
+    private static final long serialVersionUID = 155011;
 
-	
-	
-	/**
-	 * Esta funcion devuelve el titulo de una notificacion
-	 * 
-	 * @return the titulo
-	 */
-	public String getTitulo() {
-		return titulo;
-	}
-	
-	/**
-	 * Esta funcion introduce el titulo a un notificacion
-	 * 
-	 * @param titulo
-	 */
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-	
-	/**
-	 * Esta funcion devuelve la descripcion de una funcion
-	 * 
-	 * @return the descripcion
-	 */
-	public String getDescripcion() {
-		return descripcion;
-	}
 
-	/**
-	 * Esta funcion introduce una descripcion a una notificacion especifica
-	 * 
-	 * @param descripcion
-	 */
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
+    private String titulo;
+    private String descripcion;
+    private Date fechaCreacion;
 
-	/**
-	 * Esta funcion devuelve la fecha de creacion de la notificacion
-	 * 
-	 * @return the fechaCreacion
-	 */
-	public Date getFechaCreacion() {
-		return fechaCreacion;
-	}
+     /**
+      * Constructor, con los datos a implementar
+      * @param titulo que asignar a la notificación
+      * @param descripción para asignar a la notificación
+      */
 
-	
-	
-	public String toString() {
-		return this.titulo;
-	}
-	
+    public Notificacion(String titulo, String descripcion ) {
+        this.setTitulo(titulo);
+        this.setDescripcion(descripcion);
+        this.fechaCreacion = new Date();
+
+    }
+
+
+
+    /**
+     * Esta funcion devuelve el titulo de una notificacion
+     * 
+     * @return the titulo
+     */
+    public String getTitulo() {
+        return titulo;
+    }
+
+    /**
+     * Esta funcion introduce el titulo a un notificacion
+     * 
+     * @param titulo
+     */
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    /**
+     * Esta funcion devuelve la descripcion de una funcion
+     * 
+     * @return the descripcion
+     */
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    /**
+     * Esta funcion introduce una descripcion a una notificacion especifica
+     * 
+     * @param descripcion
+     */
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    /**
+     * Esta funcion devuelve la fecha de creacion de la notificacion
+     * 
+     * @return the fechaCreacion
+     */
+    public Date getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+
+
+    public String toString() {
+        return this.titulo;
+    }
+
 }

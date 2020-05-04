@@ -20,13 +20,13 @@ public class VentanaPrincipal extends JFrame{
 	private UsuarioPanel usuarioPanel;
 	private ProyectosPanel proyectosPanel;
 	private ColectivosPanel colectivosPanel;
+	
 	private AdminPanel adminPanel;
 	private CrearColectivoPanel crearColectivoPanel;
 	private CrearProyectoPanel crearProyectoPanel;
 	private CrearProyectoSocialPanel crearProyectoSocialPanel;
 	private CrearProyectoInfPanel crearProyectoInfPanel;
 	private DetallesProyectoPanel detallesProyectoPanel;
-	
 	public VentanaPrincipal(Aplicacion modelo,String titulo) {
 		
 		super(titulo); //Lo mismo que  JFrame ventanaPrincipal = new JFrame("Titulo");
@@ -36,24 +36,24 @@ public class VentanaPrincipal extends JFrame{
 		//Container y Layout
 		Container contenedor = this.getContentPane();	
 		contenedor.setLayout(new FlowLayout());
+		
+		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setTitle("BP: Becoming a Project");
+
 	
-	    this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-	    this.setTitle("BP: Becoming a Project");
-	    
 		//Creamos los paneles
 		this.loginPanel = new LoginPanel();
 		this.registroPanel = new RegistroPanel();
 		this.bienvenidaPanel = new BienvenidaPanel();
-		this.usuarioPanel = new UsuarioPanel();
 		this.proyectosPanel = new ProyectosPanel();
 		this.colectivosPanel = new ColectivosPanel();
+		this.usuarioPanel = new UsuarioPanel(this);
 		this.adminPanel = new AdminPanel(modelo.getRegistrosPendientesDeAprobacion(),modelo.getUsuariosActivos(),modelo.getUsuariosBloqueados(),modelo.getProyectosPendientesValidacion() );
 		this.crearColectivoPanel = new CrearColectivoPanel();
 		this.crearProyectoPanel = new CrearProyectoPanel();
 		this.crearProyectoSocialPanel = new CrearProyectoSocialPanel();
 		this.crearProyectoInfPanel = new CrearProyectoInfPanel();
 		this.detallesProyectoPanel = new DetallesProyectoPanel();
-		
 		//Anniadimos panelens al contenedor
 		contenedor.add(this.loginPanel);
 		contenedor.add(this.registroPanel);
@@ -68,6 +68,8 @@ public class VentanaPrincipal extends JFrame{
 		contenedor.add(this.crearProyectoSocialPanel);
 		contenedor.add(this.crearProyectoInfPanel);
 		contenedor.add(this.detallesProyectoPanel);
+		
+		
 		//Establecemos la visibilidad inicial de los paneles
 		this.loginPanel.setVisible(false);
 		this.registroPanel.setVisible(false);
@@ -76,7 +78,6 @@ public class VentanaPrincipal extends JFrame{
 		this.colectivosPanel.setVisible(false);
 		this.proyectosPanel.setVisible(false);
 		this.adminPanel.setVisible(false); 
-		
 		this.crearColectivoPanel.setVisible(false);
 		this.crearProyectoPanel.setVisible(false);
 		this.crearProyectoSocialPanel.setVisible(false);

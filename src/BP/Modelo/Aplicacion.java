@@ -654,7 +654,40 @@ public class Aplicacion implements java.io.Serializable {
 	public Usuario getUsuarioConectado() {
 		return this.usuarioConectado;
 	}
-
+	
+	/**
+	 * Devuelve los proyectos creados por un usuario.
+	 * @param u El usuario.
+	 * @return HashSet<Proyecto> con los proyectos.
+	 */
+	public HashSet<Proyecto> getProyectosUsuario(Usuario u){
+		HashSet<Proyecto> listado = new HashSet<Proyecto>();
+		for(Proyecto p: this.proyectos) {
+			if(p.getProponente().equals(u)) {
+				listado.add(p);
+			}
+		}
+	return listado;
+	}
+	
+	/**
+	 * Devuelve los colectivos creados por un usuario.
+	 * @param u El usuario.
+	 * @return HashSet<Colectivo> con los colectivos.
+	 */
+	public HashSet<Colectivo> getColectivosUsuario(Usuario u){
+		HashSet<Colectivo> listado = new HashSet<Colectivo>();
+		Colectivo c;
+		for(Proponente p: this.proponentes) {
+			if( p.getClass().getSimpleName().equals("Colectivo")) {
+				c = (Colectivo)p;
+				if(c.getUsuarioRepresentanteDeColectivo().equals(u)){
+					listado.add(c);
+				}
+			}
+		}
+	return listado;
+	}
 	
 }
 

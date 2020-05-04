@@ -2,8 +2,6 @@ package BP.Controlador;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.util.HashSet;
-
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -12,15 +10,12 @@ import BP.Modelo.*;
 import BP.Vista.*;
 
 public class ControladorUsuario implements ActionListener, ListSelectionListener{
-	
-	
     private UsuarioPanel panel;
     private VentanaPrincipal frame;
     private Aplicacion modelo;
     private Proyecto proyectoSeleccionado;
     private Colectivo colectivoSeleccionado;
     private Notificacion notificacionSeleccionada;
-    
     
     public ControladorUsuario(VentanaPrincipal frame, Aplicacion modelo) {
         this.panel = frame.getPanelUsuario();
@@ -30,18 +25,10 @@ public class ControladorUsuario implements ActionListener, ListSelectionListener
         this.proyectoSeleccionado = null;
         this.notificacionSeleccionada = null;
     }
-    
-    
-    
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getActionCommand().equals("Colectivos")){
-            goToColectivo();
-
-        }else if(e.getActionCommand().equals("Proyectos")){
-            goToProyectos();
-
-        }else if(e.getActionCommand().equals("Apoyar")) {
+    	
+    	if(e.getActionCommand().equals("Apoyar")) {
         	if(null == proyectoSeleccionado) {
 				JOptionPane.showMessageDialog(panel,"Debe seleccionar un proyecto de la lista", "Error", JOptionPane.ERROR_MESSAGE);
 				return;
@@ -72,69 +59,56 @@ public class ControladorUsuario implements ActionListener, ListSelectionListener
         		JOptionPane.showMessageDialog(panel,"Debe seleccionar un proyecto de la lista", "Error", JOptionPane.ERROR_MESSAGE);
         		return;
         	}
-        	
         }else if(e.getActionCommand().equals("DetallesC")) {
         	
-            //HACER
-        	
-        	
-        	
+            
         }else if(e.getActionCommand().equals("Actualizar")) {
         	actualizar();
         }else if(e.getActionCommand().equals("Cerrar Sesion")) {
-        	modelo.logOut();
-        	modelo.saveAplicacion();
-        	JOptionPane.showMessageDialog(frame, "Hasta pronto! " );
-        	frame.getPanelLogin().setVisible(true);
-        	this.panel.setVisible(false);
+            modelo.logOut();
+            modelo.saveAplicacion();
+            JOptionPane.showMessageDialog(frame, "Hasta pronto! " );
+            frame.getPanelLogin().setVisible(true);
+            this.panel.setVisible(false);
         }else if(e.getActionCommand().equals("Borrar Notificacion")) {
-        	
-        	if(this.notificacionSeleccionada == null) {
-        		JOptionPane.showMessageDialog(panel,"Debe seleccionar una notificacion de la lista", "Error", JOptionPane.ERROR_MESSAGE);
-        		return;
-        	}
-        	
-        	if(!this.modelo.getUsuarioConectado().borrarNotificacion(notificacionSeleccionada)) {
-        		JOptionPane.showMessageDialog(panel,"Ha ocurrido un error", "Error", JOptionPane.ERROR_MESSAGE);
-        		return;
-        	}else {
-				JOptionPane.showMessageDialog(panel,"La notificacion ha sido borrada", "Notificacion borrada", JOptionPane.INFORMATION_MESSAGE);
-				this.notificacionSeleccionada=null;
-				this.panel.setModeloNotificaciones(this.modelo.getUsuarioConectado().getAllNotificaciones());
-        	}
+
+            if(this.notificacionSeleccionada == null) {
+                JOptionPane.showMessageDialog(panel,"Debe seleccionar una notificacion de la lista", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            if(!this.modelo.getUsuarioConectado().borrarNotificacion(notificacionSeleccionada)) {
+                JOptionPane.showMessageDialog(panel,"Ha ocurrido un error", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }else {
+                JOptionPane.showMessageDialog(panel,"La notificacion ha sido borrada", "Notificacion borrada", JOptionPane.INFORMATION_MESSAGE);
+                this.notificacionSeleccionada=null;
+                this.panel.setModeloNotificaciones(this.modelo.getUsuarioConectado().getAllNotificaciones());
+            }
 
         }
+    	
+
 
     }
 
-    private void goToColectivo() {
-        ColectivosPanel pColectivos = frame.getPanelColectivos();
-        pColectivos.setVisible(true);
-        this.panel.setVisible(false);
-    }
+
     private void goToDetallesProyecto() {
         DetallesProyectoPanel pDetalles = frame.getPanelDetallesProyecto();
+        frame.getControlador().getControladorDetallesProyecto().setFrom("Usuario");
         pDetalles.setVisible(true);
         this.panel.setVisible(false);
     }
-    private void goToProyectos() {
-        ProyectosPanel pProyectos = frame.getPanelProyectos();
-        pProyectos.setVisible(true);
-        this.panel.setVisible(false);
-    }
+
 
 	private void actualizar() {
 		panel.setListaProyectos(modelo.getProyectosApoyables(modelo.getUsuarioConectado()));
 		panel.setListaColectivos(modelo.getColectivosDisponibles(modelo.getUsuarioConectado()));
 	}
-	
 	@Override
 	public void valueChanged(ListSelectionEvent ev) {
-		if(!ev.getValueIsAdjusting()) {
-
-		}
+		
 	}
-	
 	public ListSelectionListener getControllerProyectosApoyables() {
 		return new ListSelectionListener () {
 				public void valueChanged(ListSelectionEvent e) {
@@ -161,20 +135,19 @@ public class ControladorUsuario implements ActionListener, ListSelectionListener
 		
 	}
 	
-	
 	public ListSelectionListener getControllerNotificaciones() {
-		return new ListSelectionListener () {
-			public void valueChanged(ListSelectionEvent e) {
-				if(e.getValueIsAdjusting()==false) {
-			    	JList lista = (JList) e.getSource();
-			    	notificacionSeleccionada  = (Notificacion) lista.getSelectedValue();
-			    	panel.setCampoTituloNotificacion(notificacionSeleccionada.getTitulo());
-			    	panel.setCampoDescripcionNotificacion(notificacionSeleccionada.getDescripcion()); 
-				}
-			}
-			
-		};
-	}
+        return new ListSelectionListener () {
+            public void valueChanged(ListSelectionEvent e) {
+                if(e.getValueIsAdjusting()==false) {
+                    JList lista = (JList) e.getSource();
+                    notificacionSeleccionada  = (Notificacion) lista.getSelectedValue();
+                    panel.setCampoTituloNotificacion(notificacionSeleccionada.getTitulo());
+                    panel.setCampoDescripcionNotificacion(notificacionSeleccionada.getDescripcion()); 
+                }
+            }
+
+        };
+    }
 
 }
 

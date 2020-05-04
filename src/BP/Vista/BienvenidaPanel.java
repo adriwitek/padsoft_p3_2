@@ -14,14 +14,14 @@ public class BienvenidaPanel extends JPanel{
 	
 	public BienvenidaPanel() {
 		
-		this.setLayout(new BorderLayout());
+		this.setLayout(new FlowLayout());
 
 		
 		//Subpanel 1
 		JPanel subP1 = new JPanel(new FlowLayout());
 		this.labelBienvenida = new JLabel("¡Bienvenido a BP: Becoming a Project!");
 		subP1.add(labelBienvenida);
-		this.add(subP1,BorderLayout.NORTH);
+		this.add(subP1);
 
 		
 		//Subpanel2
@@ -30,7 +30,7 @@ public class BienvenidaPanel extends JPanel{
 		this.botonLogin = new JButton("LogIn");
 		subP2.add(botonRegistro);
 		subP2.add(botonLogin);
-		this.add(subP2,BorderLayout.CENTER);
+		this.add(subP2);
 	}
 	
 	
