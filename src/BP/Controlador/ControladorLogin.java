@@ -87,7 +87,7 @@ public class ControladorLogin implements ActionListener {
 			this.panel.setVisible(false);
 		}
 	}
-	private void loadUserInfo(UsuarioPanel pUsuario) {
+	public void loadUserInfo(UsuarioPanel pUsuario) {
 		
 		pUsuario.setNumeroNIF(modelo.getUsuarioConectado().getNIF());
 		pUsuario.setNombreUsuario(modelo.getUsuarioConectado().getNombre());

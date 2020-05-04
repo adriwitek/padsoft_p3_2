@@ -16,6 +16,7 @@ public class ControladorColectivos implements ActionListener, ListSelectionListe
 	private Aplicacion modelo;
 	private Colectivo colectivoSeleccionado;
 	private Proyecto proyectoSeleccionado;
+	private Proyecto proyectoSeleccionadoCol;
 	public ControladorColectivos(VentanaPrincipal frame ,Aplicacion modelo) {
 		this.panel= frame.getPanelColectivos();
 		this.frame= frame;
@@ -32,6 +33,10 @@ public class ControladorColectivos implements ActionListener, ListSelectionListe
 
 		}else if(e.getActionCommand().equals("Apoyar como representante de colectivo")){
 				apoyarComoRepresentate();
+		}else if(e.getActionCommand().equals("Actualizar")) {
+				actualizar();
+		}else if(e.getActionCommand().equals("Crear proyecto como representante de colectivo")) {
+				crearProyectoComoRepresentante();
 		}
 		
 	}
@@ -57,7 +62,12 @@ public class ControladorColectivos implements ActionListener, ListSelectionListe
 			return;
 		}
 	}
-
+	private void crearProyectoComoRepresentante() {
+		CrearProyectoPanel cPP = frame.getPanelCrearProyecto();
+		frame.getControlador().getControladorCrearProyecto().setProponente(colectivoSeleccionado);
+		cPP.setVisible(true);
+		frame.getPanelUsuario().setVisible(false);
+	}
 	public ListSelectionListener getControllerProyectosApoyables() {
 		return new ListSelectionListener () {
 				public void valueChanged(ListSelectionEvent e) {
@@ -77,6 +87,7 @@ public class ControladorColectivos implements ActionListener, ListSelectionListe
 					if(e.getValueIsAdjusting()==false) {
 				    	JList lista = (JList) e.getSource();
 				    	colectivoSeleccionado  = (Colectivo) lista.getSelectedValue();
+				    	panel.setListaProyectosCol(modelo.getProyectosColectivo(colectivoSeleccionado));
 					}
 				}
 				
@@ -88,9 +99,24 @@ public class ControladorColectivos implements ActionListener, ListSelectionListe
 		frame.getPanelUsuario().setVisible(false);
 	}
 	
+	private void actualizar() {
+		frame.getControlador().getControladorLogin().loadUserInfo(frame.getPanelUsuario());
+	}
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public ListSelectionListener getControllerTusProyectos() {
+		return new ListSelectionListener () {
+			public void valueChanged(ListSelectionEvent e) {
+				if(e.getValueIsAdjusting()==false) {
+			    	JList lista = (JList) e.getSource();
+			    	proyectoSeleccionadoCol  = (Proyecto) lista.getSelectedValue();
+				}
+			}
+			
+	};
 	}
 }

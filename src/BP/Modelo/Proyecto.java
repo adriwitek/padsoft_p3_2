@@ -69,6 +69,11 @@ public abstract class Proyecto implements java.io.Serializable, GrantRequest{
 		this.uniqueID= Aplicacion.getInstancia().getNewProjectUniqueId();
 		this.idSeguimientoSistemaFinanciacion = null;
 		this.estadoProyecto = EstadoProyecto.PENDIENTEVALIDACION;
+		if(p.getClass().getSimpleName().equals("Colectivo")){
+			this.apoyarProyectoComoColectivo((Colectivo)p);
+		}else {
+			this.apoyarProyecto((Usuario)p);
+		} 
 	}
 
 

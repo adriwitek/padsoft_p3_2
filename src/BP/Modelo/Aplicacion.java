@@ -689,6 +689,20 @@ public class Aplicacion implements java.io.Serializable {
 	return listado;
 	}
 	
+	/**
+	 * Devuelve los proyectos creados por un usuario.
+	 * @param u El usuario.
+	 * @return HashSet<Proyecto> con los proyectos.
+	 */
+	public HashSet<Proyecto> getProyectosColectivo(Colectivo c){
+		HashSet<Proyecto> listado = new HashSet<Proyecto>();
+		for(Proyecto p: this.proyectos) {
+			if(p.getProponente().equals(c)) {
+				listado.add(p);
+			}
+		}
+	return listado;
+	}
 }
 
 

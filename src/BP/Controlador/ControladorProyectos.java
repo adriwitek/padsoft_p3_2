@@ -60,6 +60,7 @@ public class ControladorProyectos implements ActionListener, ListSelectionListen
 	
 	private void cProyecto() {
 		CrearProyectoPanel ccProyecto = frame.getPanelCrearProyecto();
+		frame.getControlador().getControladorCrearProyecto().setProponente(modelo.getUsuarioConectado());
 		ccProyecto.setVisible(true);
 		frame.getPanelUsuario().setVisible(false);
 	}

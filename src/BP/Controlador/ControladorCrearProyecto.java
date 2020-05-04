@@ -11,7 +11,7 @@ public class ControladorCrearProyecto implements ActionListener{
 	private CrearProyectoPanel panel;
 	private VentanaPrincipal frame;
 	private Aplicacion modelo;
-	
+	private Proponente proponente;
 	public ControladorCrearProyecto(VentanaPrincipal frame ,Aplicacion modelo) {
 		this.panel= frame.getPanelCrearProyecto();
 		this.frame= frame;
@@ -43,14 +43,23 @@ public class ControladorCrearProyecto implements ActionListener{
 	
 	public void proyectoSocial() {
 		CrearProyectoSocialPanel pProyectoSoc = frame.getPanelCrearProyectoSocial();
+		frame.getControlador().getControladorCrearProyectoSocial().setProponente(proponente);
 		pProyectoSoc.setVisible(true);
 		this.panel.setVisible(false);
 	}
 	
 	public void proyectoInfra() {
 		CrearProyectoInfPanel pProyectoInf = frame.getPanelCrearProyectoInf();
+		frame.getControlador().getControladorCrearProyectoInf().setProponente(proponente);
 		pProyectoInf.setVisible(true);
 		this.panel.setVisible(false);
 	}
+	public void setProponente(Colectivo c) {
+		this.proponente = c;
+	}
+	public void setProponente(Usuario u) {
+		this.proponente = u;
+	}
+	
 }
  
