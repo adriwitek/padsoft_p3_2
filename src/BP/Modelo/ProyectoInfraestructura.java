@@ -84,15 +84,7 @@ public class ProyectoInfraestructura extends Proyecto {
 	 */
 
 	public String getExtraData() {
-		String cadena = "";
-		if(this.distritos.size() == 1) {
-			
-			cadena= "El distrito del proyecto es" + this.distritos.toString();
-		}else {
-			cadena= "Los distritos a los que pertenece el proyecto son" + this.distritos.toString();
-		}
-		
-		return cadena;
+		return  this.distritos.toString();	
 	}
 	
 	/**

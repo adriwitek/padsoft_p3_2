@@ -22,10 +22,9 @@ public class CrearProyectoInfPanel extends JPanel{
 	private JLabel financiacion;
 	private JTextField textFinanciacion;
 	private JLabel introduceElNombreArchivoPNG;
-	private JTextField textIntroduceElNombreArchivoPNG;
+	private JLabel textIntroduceElNombreArchivoPNG;
 	private JLabel introduceElNombreArchivoPNG2;
-	private JTextField textIntroduceElNombreArchivoPNG2;
-	private JButton infoFoto;
+	private JLabel textIntroduceElNombreArchivoPNG2;
 	private JButton atras;
 	private JButton finalizar;
 	
@@ -35,28 +34,38 @@ public class CrearProyectoInfPanel extends JPanel{
 	private JScrollPane scroll;
 	
 	private JPanel subPInfra;
-	
+	private JButton botonAbrirImg;
+	private JButton botonAbrirCroquis;
+
+	private JFileChooser f1;
+	private JFileChooser f2 ;
 	
 	public CrearProyectoInfPanel() {
 		
-		this.setLayout(new BorderLayout());
+		this.setLayout(new GridLayout(2,8));
 		this.nombreProyecto = new JLabel("Nombre del proyecto:");
 		this.textNombreProyecto = new JTextField(10);
-		this.descripcionCorta = new JLabel("Descripcion: ");
+		this.descripcionCorta = new JLabel("Descripcion Corta: ");
 		this.textDescripcionCorta = new JTextField(10);
-		this.descripcionLarga = new JLabel("Descripcion: ");
+		this.descripcionLarga = new JLabel("Descripcion Larga: ");
 		this.textDescripcionLarga = new JTextField(10);
 		this.financiacion = new JLabel("Financiacion necesaria: ");
 		this.textFinanciacion = new JTextField(10);
-		this.introduceElNombreArchivoPNG = new JLabel("Introduce el nombre del archivo (.png) Croquis");
-		this.textIntroduceElNombreArchivoPNG = new JTextField(10);
-		this.introduceElNombreArchivoPNG2 = new JLabel("Introduce el nombre del archivo (.png) Foto");
-		this.textIntroduceElNombreArchivoPNG2 = new JTextField(10);
-		this.infoFoto = new JButton("infoFoto");
+		
+		this.introduceElNombreArchivoPNG = new JLabel("Introduce la Imagen");
+		this.textIntroduceElNombreArchivoPNG =  new JLabel("");
+		
+		this.introduceElNombreArchivoPNG2 = new JLabel("Introduce el Croquis");
+		this.textIntroduceElNombreArchivoPNG2 = new JLabel("");
 		this.atras = new JButton("Atras");
 		this.finalizar = new JButton("Finalizar");
+		this.botonAbrirImg = new JButton("Abrir Imagen");
+	    this.botonAbrirCroquis =  new JButton("Abrir Coquis");
 		
-		
+	  
+        this.f1 = new JFileChooser();
+        this.f2 = new JFileChooser();
+	    
 		distritos = Aplicacion.getInstancia().getDistritos();
 		distritosModelo = new DefaultListModel(); 
 		for(String d : distritos) {
@@ -74,11 +83,16 @@ public class CrearProyectoInfPanel extends JPanel{
 		subPInfra.add(textDescripcionLarga);
 		subPInfra.add(financiacion);
 		subPInfra.add(textFinanciacion);
+		
+		//imagen
 		subPInfra.add(introduceElNombreArchivoPNG);
 		subPInfra.add(textIntroduceElNombreArchivoPNG);
+		subPInfra.add(this.botonAbrirImg);
+		//croquis
 		subPInfra.add(introduceElNombreArchivoPNG2);
 		subPInfra.add(textIntroduceElNombreArchivoPNG2);
-		subPInfra.add(infoFoto);
+		subPInfra.add(this.botonAbrirCroquis);
+		
 		subPInfra.add(lista);
 		subPInfra.add(atras);
 		subPInfra.add(finalizar);
@@ -95,9 +109,9 @@ public class CrearProyectoInfPanel extends JPanel{
 		
 		atras.addActionListener(c);
 		finalizar.addActionListener(c);
-		infoFoto.addActionListener(c);
 		this.lista.addListSelectionListener(c);
-		
+		this.botonAbrirImg.addActionListener(c);
+		this.botonAbrirCroquis.addActionListener(c);
 	}
 
 	public String getNombre() {
@@ -124,8 +138,22 @@ public class CrearProyectoInfPanel extends JPanel{
 		return this.textIntroduceElNombreArchivoPNG2.getText();
 	}
 	
-	/*public String getDistrito() {
-		
-	}*/
+
+	public JFileChooser getf1() {
+		return this.f1;
+	}
+	
+	public JFileChooser getf2() {
+		return this.f2;
+	}
+	
+	
+	public void setPathImagen(String s) {
+		this.textIntroduceElNombreArchivoPNG.setText(s);
+	}
+	
+	public void setPathCroquis(String s) {
+		this.textIntroduceElNombreArchivoPNG2.setText(s);
+	}
 	
 }

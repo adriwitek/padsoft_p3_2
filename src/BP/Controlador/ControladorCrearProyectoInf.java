@@ -3,7 +3,7 @@ package BP.Controlador;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.HashSet;
-
+import java.io.File;       
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -22,21 +22,37 @@ public class ControladorCrearProyectoInf implements ActionListener, ListSelectio
 		this.panel= frame.getPanelCrearProyectoInf();
 		this.frame= frame;
 		this.modelo=modelo;
-		
+		this.distritos = new HashSet<String>();
 	}
 	 
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		if(e.getActionCommand().equals("infoFoto")) {
-			InfoFoto();
-		}else if(e.getActionCommand().equals("Atras")) {
+		if(e.getActionCommand().equals("Atras")) {
 			Atras();
-			
 		}else if(e.getActionCommand().equals("Finalizar")) {
 			Finalizar();
+		}else if(e.getActionCommand().equals("Abrir Imagen")) {
+
+			JFileChooser f =this.panel.getf1();
+			int result = f.showOpenDialog(frame);
+			if (result == JFileChooser.APPROVE_OPTION) {
+			    File selectedFile = f.getSelectedFile();
+			    panel.setPathImagen(selectedFile.getAbsolutePath());
+			}
+			
+		}else if(e.getActionCommand().equals("Abrir Coquis")) {
+
+			JFileChooser f =this.panel.getf2();
+			int result = f.showOpenDialog(frame);
+			if (result == JFileChooser.APPROVE_OPTION) {
+			    File selectedFile = f.getSelectedFile();
+			    panel.setPathCroquis(selectedFile.getAbsolutePath());
+			}
+		
 		}
+		
 		
 	}
 	
@@ -112,8 +128,9 @@ public class ControladorCrearProyectoInf implements ActionListener, ListSelectio
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
 		if(!e.getValueIsAdjusting()) {
+			this.distritos.clear();
 			JList lista = (JList) e.getSource();
-	    	distritos.addAll(lista.getSelectedValuesList());
+			if(!lista.getSelectedValuesList().isEmpty()) distritos.addAll(lista.getSelectedValuesList());
 		}
 		
 	}

@@ -32,14 +32,14 @@ public class ProyectoSocial extends Proyecto {
 	 * @return cadena
 	 */
 	public String getExtraData() {
-		String cadena = "El proyecto ";
+		String cadena = "";
 		if(this.nacional) {
-			cadena += "es nacional ";
+			cadena += "Nacional";
 		}else {
-			cadena += "NO es nacional ";
+			cadena += "NO Nacional ";
 		}
 		
-		cadena += "El grupo social del proyecto es :" + this.grupoSocial;
+		cadena += " _ " + this.grupoSocial;
 		return cadena;
 	}
 	
