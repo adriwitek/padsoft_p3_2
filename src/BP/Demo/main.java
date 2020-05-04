@@ -16,7 +16,6 @@ public class main {
 		Aplicacion app = Aplicacion.getInstancia("admin", "1234",1); //login del admin
 		if (!app.loginUser("Guillermo", "1234")) System.out.println("OK, no se ha podido iniciar sesion");
 
-		//app.loadAplicacion();
 		
 		
 		
@@ -26,7 +25,7 @@ public class main {
 		Usuario u3 =app.solicitarRegistro("12344567893A", "Tapia", "1234");
 		Usuario u4 =app.solicitarRegistro("123424563337893A", "U4", "1234");
 		Usuario u5 =app.solicitarRegistro("12344567423893A", "U5", "1234");
-		Usuario u7 = app.solicitarRegistro("u7", "7", "7");
+		Usuario u7 = app.solicitarRegistro("u7", "u7", "u7");
 		if(u1 == null ||u2 == null || u3 == null || u4 == null || u5 == null   ) System.out.println("Los u devueltos son nulos");
 		
 		
@@ -51,6 +50,13 @@ public class main {
 		app.validarRegistro(u2);
 		app.validarRegistro(u3);
 		app.validarRegistro(u7);
+		   
+		//NOTIFICACIONES
+		Notificacion not= new Notificacion("TitulooNotificacion","Esto es una descrp.DeNotificacion");
+		u7.anniadirNotificacionDeProyecto(not);
+		System.out.println("Las notificaciones del U7 son: " + u7.getAllNotificaciones().size() + " :  " 
+				+ u7.getAllNotificaciones());
+
 
 		if (app.getUsuariosActivos().size() !=4) System.out.println("Error, el numero de usuairo OPERATIVOS   no coincide: " + app.getUsuariosActivos().size());
 		//System.out.print(app.getUsuariosActivos());
@@ -206,12 +212,7 @@ public class main {
       		
 
 
-       
-		//NOTIFICACIONES
-	
-		Notificacion not= new Notificacion("Tituloo","Esto es una descrp.");
-		u7.anniadirNotificacionDeProyecto(not);
-		
+    
 		
 		
 		
@@ -219,10 +220,9 @@ public class main {
 		app.exit();
 		app = Aplicacion.getInstancia("admin", "1234",1);
 		if(!app.loadAplicacion()) System.out.println("-------------No se ha podido cargar el backup");
-
-		app.loginUser("7", "7");
-		System.out.println(app.getUsuarioConectado().getNombre());
-
+		app = app.getInstancia();
+		
+		if (!app.loginUser("u7", "u7")) System.out.println("ERROR, no se ha podido iniciar sesion");
 		System.out.println(app.getUsuarioConectado().getAllNotificaciones());
 		
 		System.out.println("FIN DE LA DEMO");
