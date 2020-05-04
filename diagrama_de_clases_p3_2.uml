@@ -58,7 +58,7 @@
 			CodeGeneration
 		</plugin>
 </profile>
-<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Sun May 03 17:34:56 CEST 2020'>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Mon May 04 07:49:27 CEST 2020'>
   <XMI.header>    <XMI.documentation>
       <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
       <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
@@ -196,6 +196,38 @@
                   name = 'motivo' isSpecification = 'false' kind = 'in'>
                   <UML:Parameter.type>
                     <UML:DataType href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:000000000000087E'/>
+                  </UML:Parameter.type>
+                </UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id = '-64--88-1-15--5430e7d6:171db2b63a9:-8000:0000000000000CDD'
+              name = 'borrarNotificacion' visibility = 'public' isSpecification = 'false'
+              ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+              isLeaf = 'false' isAbstract = 'false'>
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id = '-64--88-1-15--5430e7d6:171db2b63a9:-8000:0000000000000CDE'
+                  name = 'return' isSpecification = 'false' kind = 'return'>
+                  <UML:Parameter.type>
+                    <UML:Enumeration href = 'http://argouml.org/profiles/uml14/default-uml14.xmi#-84-17--56-5-43645a83:11466542d86:-8000:0000000000000880'/>
+                  </UML:Parameter.type>
+                </UML:Parameter>
+                <UML:Parameter xmi.id = '-64--88-1-15--5430e7d6:171db2b63a9:-8000:0000000000000CDF'
+                  name = 'n' isSpecification = 'false' kind = 'in'>
+                  <UML:Parameter.type>
+                    <UML:Class xmi.idref = '-87--2--72-44-2128bc0e:17057627584:-8000:00000000000008A9'/>
+                  </UML:Parameter.type>
+                </UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <UML:Operation xmi.id = '-64--88-1-15--5430e7d6:171db2b63a9:-8000:0000000000000CE0'
+              name = 'getAllNotificaciones' visibility = 'public' isSpecification = 'false'
+              ownerScope = 'instance' isQuery = 'false' concurrency = 'sequential' isRoot = 'false'
+              isLeaf = 'false' isAbstract = 'false'>
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id = '-64--88-1-15--5430e7d6:171db2b63a9:-8000:0000000000000CE1'
+                  name = 'return' isSpecification = 'false' kind = 'return'>
+                  <UML:Parameter.type>
+                    <UML:Class xmi.idref = '-64--88-1-15--5430e7d6:171db2b63a9:-8000:0000000000000CE2'/>
                   </UML:Parameter.type>
                 </UML:Parameter>
               </UML:BehavioralFeature.parameter>
@@ -3565,6 +3597,9 @@
         <UML:Class xmi.id = '-64--88-1-15--5430e7d6:171db2b63a9:-8000:0000000000000CDC'
           name = 'HashSetProyectos' visibility = 'public' isSpecification = 'false'
           isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'/>
+        <UML:Class xmi.id = '-64--88-1-15--5430e7d6:171db2b63a9:-8000:0000000000000CE2'
+          name = 'HashSet&lt;Notificacion&gt;' visibility = 'public' isSpecification = 'false'
+          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'/>
       </UML:Namespace.ownedElement>
     </UML:Model>
   </XMI.content>
@@ -3643,7 +3678,7 @@
       strokecolor="black"
     />
     <group name="Fig0.4"
-         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[881, 553, 270, 102]"
+         description="org.argouml.uml.diagram.ui.FigAttributesCompartment[881, 553, 270, 85]"
          href="-87--2--72-44-2128bc0e:17057627584:-8000:000000000000086C"
          fill="0"
          fillcolor="white"
@@ -3657,7 +3692,7 @@
         x="881"
         y="553"
         width="270"
-        height="102"
+        height="85"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3730,7 +3765,7 @@
     </group>
     <rectangle name="Fig0.5"
       x="880"
-      y="655"
+      y="638"
       width="272"
       height="1"
       fill="1"
@@ -3739,7 +3774,7 @@
       strokecolor="black"
     />
     <group name="Fig0.6"
-         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[881, 656, 270, 102]"
+         description="org.argouml.uml.diagram.ui.FigOperationsCompartment[881, 639, 270, 119]"
          href="-87--2--72-44-2128bc0e:17057627584:-8000:000000000000086C"
          fill="0"
          fillcolor="white"
@@ -3751,9 +3786,9 @@
       
       <rectangle name="Fig0.6.0"
         x="881"
-        y="656"
+        y="639"
         width="270"
-        height="102"
+        height="119"
         fill="0"
         fillcolor="white"
         stroke="0"
@@ -3761,7 +3796,7 @@
       />
       <text name="Fig0.6.1"
         x="881"
-        y="656"
+        y="639"
         width="270"
         height="17"
         fill="0"
@@ -3777,7 +3812,7 @@
       >+bloquear(motivo : String) : void</text>
       <text name="Fig0.6.2"
         x="881"
-        y="673"
+        y="656"
         width="270"
         height="17"
         fill="0"
@@ -3793,7 +3828,7 @@
       >+desbloquear() : void</text>
       <text name="Fig0.6.3"
         x="881"
-        y="690"
+        y="673"
         width="270"
         height="17"
         fill="0"
@@ -3809,7 +3844,39 @@
       >+aprobar() : Boolean</text>
       <text name="Fig0.6.4"
         x="881"
+        y="690"
+        width="270"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >+rechazar(motivo : String) : Boolean</text>
+      <text name="Fig0.6.5"
+        x="881"
         y="707"
+        width="270"
+        height="17"
+        fill="0"
+        fillcolor="white"
+        stroke="0"
+        strokecolor="black"
+        textcolor="black"
+        font="Dialog"
+        italic="false"
+        bold="false"
+        textsize="12"
+        justification="Left"
+      >+borrarNotificacion(n : Notificacion) : Boolean</text>
+      <text name="Fig0.6.6"
+        x="881"
+        y="724"
         width="270"
         height="23"
         fill="0"
@@ -3822,7 +3889,7 @@
         bold="false"
         textsize="12"
         justification="Left"
-      >+rechazar(motivo : String) : Boolean</text>
+      >+getAllNotificaciones() : HashSet&lt;Notificacion&gt;</text>
     </group>
   </group>
   <group name="Fig1"
