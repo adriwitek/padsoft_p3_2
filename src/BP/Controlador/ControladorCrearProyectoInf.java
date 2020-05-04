@@ -17,7 +17,15 @@ public class ControladorCrearProyectoInf implements ActionListener, ListSelectio
 	private VentanaPrincipal frame;
 	private Aplicacion modelo;
 	private HashSet<String> distritos;
+
+	/**
+	 * Este es el constructo de ControladorCrearProyectoInf
+	 * @param frame ventana de la aplicacion
+	 * @param modelo aplicacion que hemos desarrollado
+	 */
+
 	private Proponente proponente;
+
 	public ControladorCrearProyectoInf(VentanaPrincipal frame ,Aplicacion modelo) {
 		this.panel= frame.getPanelCrearProyectoInf();
 		this.frame= frame;
@@ -25,7 +33,11 @@ public class ControladorCrearProyectoInf implements ActionListener, ListSelectio
 		this.distritos = new HashSet<String>();
 	}
 	 
-	
+	/**
+	 * Esta funcion se encargara de que al interactuar con el programa(dar a un boton, escribir en un texto, seleccionar un valor de una list, etc)
+	 * se realice la accion correspondiente.
+	 * @param e es el actionEvent
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
@@ -56,12 +68,20 @@ public class ControladorCrearProyectoInf implements ActionListener, ListSelectio
 		
 	}
 	
+	/** 
+	 * Esta funcion crea la funcionalidad para el boton atras
+	 * de tal manera que la aplicacion se iria al panel CrearProyectoPanel
+	 */
 	public void Atras(){
 		CrearProyectoPanel cProyectos = frame.getPanelCrearProyecto();
 		cProyectos.setVisible(true);
 		this.panel.setVisible(false);
 	}
 	
+	/**
+	 * Esta funcion crea la funcionalidad para el boton finalizar
+	 * de tal manera que se crearia un proyecto de infraestructura
+	 */
 	public void Finalizar() { 
 		String Nombre = panel.getNombre();
 		String DescripcionC = panel.getDescripcionC();
@@ -118,13 +138,19 @@ public class ControladorCrearProyectoInf implements ActionListener, ListSelectio
 		return;
 	}
 	
+	/**
+	 * Esta funcion crea la funcionalidad para el boton de InfoFoto
+	 * muestra unas directrices para introducir una foto en un proyecto
+	 */
 	public void InfoFoto() {
 		JOptionPane.showMessageDialog(panel,
 				"Introduce el nombre del archivo .png especifico de la carpeta (img). Si no se ha introducido un .png en esta carpeta itroduzcalo antes de introducir su nombre ", "OK", JOptionPane.INFORMATION_MESSAGE);
 		return;
 	}
 
-
+	/**
+	 * Esta funcion se encarga de añadir a los distritos lista.getSelectedValuesList()
+	 */
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
 		if(!e.getValueIsAdjusting()) {

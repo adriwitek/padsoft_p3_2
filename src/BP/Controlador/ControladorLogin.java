@@ -15,6 +15,11 @@ public class ControladorLogin implements ActionListener {
 	private VentanaPrincipal frame;
 	private Aplicacion modelo;
 	
+	/**
+	 * Este es el controlador de ControladorLogin
+	 * @param frame
+	 * @param modelo
+	 */
 	public ControladorLogin(VentanaPrincipal frame ,Aplicacion modelo) {
 		this.panel= frame.getPanelLogin();
 		this.frame= frame;
@@ -22,8 +27,11 @@ public class ControladorLogin implements ActionListener {
 	}
 	
 	
-	
-	
+	/**
+	 * Esta funcion se encargara de que al interactuar con el programa(dar a un boton, escribir en un texto, seleccionar un valor de una list, etc)
+	 * se realice la accion correspondiente.
+	 * @param e es el actionEvent
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 	
@@ -39,7 +47,10 @@ public class ControladorLogin implements ActionListener {
 	}
 	
 	
-	
+	/**
+	 * Esta funcion se encarga de crear la funcionalidad del botom login
+	 * de tal manera que la aplicacionse iria al panel de usuario si los valores de nombre y contraseña son los correctos
+	 */
 	private void login() {
 		
 		// validar valores en la vista
@@ -92,6 +103,10 @@ public class ControladorLogin implements ActionListener {
 	}
 
 	
+	/**
+	 * Esta funcion se encarga de cargar toda la informacion de un usuario especificado
+	 * @param pUsuario usuario del que se va a cargar la informacion
+	 */
 	public void loadUserInfo() {
 		UsuarioPanel pUsuario = frame.getPanelUsuario();
         pUsuario.setNumeroNIF(modelo.getUsuarioConectado().getNIF());

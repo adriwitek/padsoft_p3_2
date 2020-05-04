@@ -15,7 +15,11 @@ public class ControladorRegistro implements ActionListener {
 	private VentanaPrincipal frame;
 	private Aplicacion modelo;
 	
-
+	/**
+	 * Este es el constructor de ControladorRegistro
+	 * @param frame ventana de la aplicacion
+	 * @param modelo aplicacion que hemos desarrollado
+	 */
 	public ControladorRegistro(VentanaPrincipal frame ,Aplicacion modelo) {
 		this.panel= frame.getPanelRegistro();
 		this.frame= frame;
@@ -23,7 +27,11 @@ public class ControladorRegistro implements ActionListener {
 	}
 	
 	
- 
+	/**
+	 * Esta funcion se encargara de que al interactuar con el programa(dar a un boton, escribir en un texto, seleccionar un valor de una list, etc)
+	 * se realice la accion correspondiente.
+	 * @param e es el actionEvent
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
@@ -37,7 +45,10 @@ public class ControladorRegistro implements ActionListener {
 	}
 	 
 	 
-	 
+	 /**
+	  * Esta funcion creara la funcionalidad necesaria para que al dar al boton de registro
+	  * se envie una solicitud de registro al administrador
+	  */
 	//Funcion auxiliar
 	private void registro() {
 		// validar valores en la vista

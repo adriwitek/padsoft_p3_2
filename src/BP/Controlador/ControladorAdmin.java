@@ -25,6 +25,11 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 	private int idProyecto;
 	private int filaTabla;
 	
+	/**
+	 * Este es el constructor de ControladorAdmin
+	 * @param frame ventana de la aplicacion
+	 * @param modelo la aplicacion creada
+	 */
 	public ControladorAdmin(VentanaPrincipal frame ,Aplicacion modelo) {
 		this.panel= frame.getPanelAdmin();
 		this.frame= frame;
@@ -38,7 +43,11 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 
 	
 	 
-	
+	/**
+	 * Esta funcion se encargara de que al interactuar con el programa(dar a un boton, escribir en un texto, seleccionar un valor de una list, etc)
+	 * se realice la accion correspondiente.
+	 * @param e 
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
@@ -205,7 +214,9 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 		
 	}
 	
-	
+	/**
+	 * Esta funcion se va a encargar de cambiar un valor dependiendo de si (ultimoUsuarioSeleccionado == null) o (ultimoUsuarioSeleccionado != null)
+	 */
 	@Override
 	public void valueChanged(ListSelectionEvent ev) {
 	
@@ -222,7 +233,10 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 	}
 	
 	
-	
+	/**
+	 * Esta funcionse encarga de devolver un ListSelectionListener de los usuarios activos
+	 * @return the new ListSelectionListener
+	 */
 	public ListSelectionListener getControllerUsuariosActivos() {
 		return new ListSelectionListener () {
 				public void valueChanged(ListSelectionEvent e) {
@@ -239,7 +253,10 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 		
 	}
 	
-	
+	/**
+	 * Esta funcionse encarga de devolver un ListSelectionListener de los usuarios bloquados
+	 * @return the new ListSelectionListener
+	 */
 	public ListSelectionListener getControllerUsuariosBloqueados() {
 			return new ListSelectionListener () {
 					public void valueChanged(ListSelectionEvent e) {
@@ -259,7 +276,9 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 	
 
 
-
+	/**
+	 * 
+	 */
 	@Override
 	public void stateChanged(ChangeEvent e) {
 		//pestanias

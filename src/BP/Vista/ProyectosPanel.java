@@ -32,6 +32,10 @@ public class ProyectosPanel extends JPanel {
 	private JButton informePopularidad;
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
+	/**
+	 * Este es el constuctor de ProyectosPanel, contiene el panel subP1, ademass cuenta con la creacion e introduccion de 
+	 * los objetos-elementos en el panel subP1
+	 */
 	public ProyectosPanel() {
 		this.setLayout(new BorderLayout());
 
@@ -70,6 +74,15 @@ public class ProyectosPanel extends JPanel {
 
 	}
 
+	
+	/**
+	 * Esta es la funcion setControlador, se encarga de permitir que algunos de los objetos que hemos introducido en el panel
+	 * tengan una funcionalidad(es para objetos como botones, listas, etc)
+	 * @param c es el controlador especifico en el que se encuentra la funcionalidad para los distintos elementos que se encuentran en esta funcion
+	 */
+
+
+
 	public void setControlador(ControladorProyectos c) {
 		botonActualizar.addActionListener(c);
 		crearProyecto.addActionListener(c);
@@ -79,19 +92,47 @@ public class ProyectosPanel extends JPanel {
 		detallesAp.addActionListener(c);
 	}
 
+	
+	/**
+	 * Introduce un nombre en en la JLabel nombre
+	 * @param nombre es el nombre especificado que se pretende introducir
+	 */
+	public void setNombre(JLabel nombre) {
+	    this.nombre = nombre;
+	}
+
+	/**
+	 * Introduce un nombre en en la JLabel nombre
+	 * @param nIF NIF que se pretende introducir
+	 */
+	public void setNIF(JLabel nIF) {
+	    this.nIF = nIF;
+	}
+	/**
+	 * Esta funcion se encarga de introducir un HashSet<Proyecto>en la lista de tus proyectos
+	 * @param proyectos
+	 */
+
 	public void setTusProyectos(HashSet<Proyecto> proyectos) {
 		proyectosM.clear();
 		for(Proyecto p: proyectos) {
 			proyectosM.addElement(p);
 		}
 	}
+
+	/**
+	 * Esta funcion devuelve un subpanel
+	 * @return the subP1 unico subpanel de este panel
+	 */
+
 	public void setProyectosAp(HashSet<Proyecto> proyectos) {
 		proyectosM.clear();
 		for(Proyecto p: proyectos) {
 			proyectosM.addElement(p);
 		}
 	}
-	public JPanel getSubPanel() {
+
+	public JPanel getSubPanel(){
 		return this.subP1;
 	}
 }

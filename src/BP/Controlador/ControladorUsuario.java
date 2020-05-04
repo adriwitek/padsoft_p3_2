@@ -17,6 +17,11 @@ public class ControladorUsuario implements ActionListener, ListSelectionListener
     private Colectivo colectivoSeleccionado;
     private Notificacion notificacionSeleccionada;
     
+    /**
+     * Este es el constructor de ControladorUsuario
+     * @param frame ventana de la aplicacion
+     * @param modelo aplicacion que hemos desarrollado
+     */
     public ControladorUsuario(VentanaPrincipal frame, Aplicacion modelo) {
         this.panel = frame.getPanelUsuario();
         this.frame = frame;
@@ -25,6 +30,12 @@ public class ControladorUsuario implements ActionListener, ListSelectionListener
         this.proyectoSeleccionado = null;
         this.notificacionSeleccionada = null;
     }
+    
+	/**
+	 * Esta funcion se encargara de que al interactuar con el programa(dar a un boton, escribir en un texto, seleccionar un valor de una list, etc)
+	 * se realice la accion correspondiente.
+	 * @param e es el actionEvent
+	 */
     @Override
     public void actionPerformed(ActionEvent e) {
     	
@@ -81,10 +92,30 @@ public class ControladorUsuario implements ActionListener, ListSelectionListener
     }
 
 
+    
+    /**
+     * Esta funcion se encargara de la funcionalidad del boton de detalles proyecto
+     * nos mandara al panel DetallesProyectoPanel
+     */
+    private void goToDetallesProyecto() {
+        DetallesProyectoPanel pDetalles = frame.getPanelDetallesProyecto();
+        frame.getControlador().getControladorDetallesProyecto().setFrom("Usuario");
+        pDetalles.setVisible(true);
+        this.panel.setVisible(false);
+    }
+
+    /**
+     * Esta funcion se encargara de crear la funcionalidad para el boton actualizar
+     * haciendo que al pulsarlo el contenido de las listas se actualice
+     */
+
 	private void actualizar() {
 		panel.setListaProyectos(modelo.getProyectosApoyables(modelo.getUsuarioConectado()));
 		panel.setListaColectivos(modelo.getColectivosDisponibles(modelo.getUsuarioConectado()));
 	}
+	/**
+	 * Esta funcion se encaraga de cambiar el valor de proyectoSeleccionado
+	 */
 	@Override
 	public void valueChanged(ListSelectionEvent ev) {
 		

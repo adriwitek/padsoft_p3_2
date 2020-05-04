@@ -13,12 +13,26 @@ public class ControladorCrearProyectoSocial implements ActionListener {
 	private CrearProyectoSocialPanel panel;
 	private VentanaPrincipal frame;
 	private Aplicacion modelo;
+
+	
+	/**
+	 * Este es el constructor de ControladorCrearProyectoSocial
+	 * @param frame ventana de la aplicacion
+	 * @param modelo aplicacion que hemos desarrollado
+	 */
+
 	private Proponente proponente;
+
 	public ControladorCrearProyectoSocial(VentanaPrincipal frame ,Aplicacion modelo) {
 		this.panel= frame.getPanelCrearProyectoSocial();
 		this.frame= frame;
 		this.modelo=modelo;
 	}
+	/**
+	 * Esta funcion se encargara de que al interactuar con el programa(dar a un boton, escribir en un texto, seleccionar un valor de una list, etc)
+	 * se realice la accion correspondiente.
+	 * @param e es el actionEvent
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
@@ -33,13 +47,20 @@ public class ControladorCrearProyectoSocial implements ActionListener {
 		}		
 	}
 	
+	/**
+	 * Esta funcion crea la funcionalidad del boton atras
+	 * de tal manera que la aplicacion volveria a CrearProyectoPanel
+	 */
 	public void Atras(){
 		CrearProyectoPanel cProyectos = frame.getPanelCrearProyecto();
 		cProyectos.setVisible(true);
 		this.panel.setVisible(false);
 	}
 	
-	
+	/**
+	 * Esta funcion se encarga de crear la funcionalidad del boton finalizar
+	 * de tal manera que se crearia un proyecto social en la aplicacion
+	 */
 	public void Finalizar() { 
 		String Nombre = panel.getNombre();
 		String DescripcionC = panel.getDescripcionC();

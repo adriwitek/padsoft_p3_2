@@ -34,12 +34,20 @@ public class CrearProyectoInfPanel extends JPanel{
 	private JScrollPane scroll;
 	
 	private JPanel subPInfra;
+
+	
+	/**
+	 * Este es el constructor de CrearProyectoInfPanel, contiene subP1, ademas contiene toda la creacion e introduccion de elmentos-objetos
+	 * en el panel subP1
+	 */
+
 	private JButton botonAbrirImg;
 	private JButton botonAbrirCroquis;
 
 	private JFileChooser f1;
 	private JFileChooser f2 ;
 	
+
 	public CrearProyectoInfPanel() {
 		
 		this.setLayout(new GridLayout(2,8));
@@ -103,7 +111,11 @@ public class CrearProyectoInfPanel extends JPanel{
 		this.add(subPInfra);
 
 	}
-	
+	/**
+	 * Esta es la funcion setControlador, se encarga de permitir que algunos de los objetos que hemos introducido en el panel
+	 * tengan una funcionalidad(es para objetos como botones, listas, etc)
+	 * @param c controlador especifico en el que se encuentra la funcionalidad de los objetos de este panel
+	 */
 	public void setControlador(ControladorCrearProyectoInf c) {
 
 		
@@ -114,26 +126,47 @@ public class CrearProyectoInfPanel extends JPanel{
 		this.botonAbrirCroquis.addActionListener(c);
 	}
 
+	/**
+	 * Esta funcion devuelve el nombre del proyecto que se quiere crear
+	 * @return the string textNombreProyecto nombre del proyecto
+	 */
 	public String getNombre() {
 		return this.textNombreProyecto.getText();
 	}
 	
+	/**
+	 * Esta funcion devuelve la descripcion corta del proyecto que se quiere crear
+	 * @return the string textDescripcionCorta descripcion corta proyecto
+	 */
 	public String getDescripcionC() {
 		return this.textDescripcionCorta.getText();
 	}
-
+	
+	/**
+	 * Esta funcion devuelve la descripcion larga del proyecto que se quiere crear
+	 * @return the string textDescripcionLarga descripcion larga proyecto
+	 */
 	public String getDescripcionL() {
 		return this.textDescripcionLarga.getText();
 	}
-	
+	/**
+	 * Esta funcion devuelve la financiacion que el usuario ha indicado en la creacion del proyecto
+	 * @return the String textFinanciacion financiacion proyecto
+	 */
 	public String getFinanciacion() {
 		return this.textFinanciacion.getText();
 	}
-	
+	/**
+	 * Esta funcion devuelve el nombre del archivo .png (foto) indicado en el proyecto
+	 * @return the string textIntroduceElNombreArchivoPNG nombre completo foto
+	 */
 	public String getNombreArchivoPNG() {
 		return this.textIntroduceElNombreArchivoPNG.getText();
 	}
-	
+	/**
+	 *  Esta funcion devuelve el nombre del archivo .png (foto) indicado en el proyecto
+	 * @return the string textIntroduceElNombreArchivoPNG2 nombre completo foto
+	 */
 	public String getNombreArchivoPNG2() {
 		return this.textIntroduceElNombreArchivoPNG2.getText();
 	}

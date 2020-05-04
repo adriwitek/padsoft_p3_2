@@ -19,7 +19,10 @@ public class CrearProyectoPanel extends JPanel{
     private JButton PInfraestructuras;
 
     private JPanel subP1;
-
+    /**
+     * Este es el constructor de CrearProyectoPanel, contiene el panel subP1, ademas contiene la creacion e introduccion de todos los 
+     * elementos-objetos en el panel subP1
+     */
     public CrearProyectoPanel() {
         this.setLayout(new BorderLayout());
         //subP1
@@ -36,7 +39,11 @@ public class CrearProyectoPanel extends JPanel{
         this.add(subP1);
 
     }
-
+    /**
+     * Esta es la funcion setControlador, se encarga de permitir que algunos de los objetos que hemos introducido en el panel
+	 * tengan una funcionalidad(es para objetos como botones, listas, etc)
+     * @param c es el campo actionListener que nos permitira utilizar la funcionalidad correcta del controlador que le corresponda a este panel
+     */
     public void setControlador(ActionListener c) {
         cancelar.addActionListener(c);
         PSocial.addActionListener(c);

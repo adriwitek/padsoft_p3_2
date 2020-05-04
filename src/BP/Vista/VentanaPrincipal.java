@@ -27,6 +27,13 @@ public class VentanaPrincipal extends JFrame{
 	private CrearProyectoSocialPanel crearProyectoSocialPanel;
 	private CrearProyectoInfPanel crearProyectoInfPanel;
 	private DetallesProyectoPanel detallesProyectoPanel;
+	
+	/**
+	 * Este es el constructor de VentanaPrincipal, contiene el contenedor de paneles, ademas de lacreacion e introduccion 
+	 * de todos los paneles de nuestro proyecto en este contenedor
+	 * @param modelo es la aplicacion que hemos creado
+	 * @param titulo un string del titulo
+	 */
 	public VentanaPrincipal(Aplicacion modelo,String titulo) {
 		
 		super(titulo); //Lo mismo que  JFrame ventanaPrincipal = new JFrame("Titulo");
@@ -94,6 +101,11 @@ public class VentanaPrincipal extends JFrame{
 	
 	
 	//METODO EN EL QUE SE ASIGNAN TODOS LOS CONTROLADORES DE LOS PANELES
+	
+	/**
+	 * Esta es la funcion setControlador padre, asigna el geter especifico a cada controlador
+	 * @param controlador es el controlador 
+	 */
 	public void setControlador(Controlador controlador) {
 		this.controlador = controlador;
 		
@@ -114,7 +126,10 @@ public class VentanaPrincipal extends JFrame{
 	}
 	
 	
-	
+	/**
+	 * Esta funcion nos devuelve el controlador
+	 * @return the controlador controlador que se quiere devolver
+	 */
 	public Controlador getControlador() {
 		return this.controlador;
 	}
@@ -128,14 +143,20 @@ public class VentanaPrincipal extends JFrame{
 	
 	
 	//  *** GETTERS DE PANELES ***
-	
+	/**
+	 * Esta funcion devuelve el panel de login
+	 * @return the loginPanel panel que se quiere devolver
+	 */
 	public LoginPanel getPanelLogin() {
 		return this.loginPanel;
 	}
 
 
 
-
+	/**
+	 * Esta funcion devuelve el panel de usuario
+	 * @return the usuarioPanel panel que se quiere devolver
+	 */
 	public UsuarioPanel getPanelUsuario() {
 		// TODO Auto-generated method stub
 		return this.usuarioPanel;
@@ -143,49 +164,79 @@ public class VentanaPrincipal extends JFrame{
 
 
 
-
+	/**
+	 * Esta funcion devuelve el panel de registro
+	 * @return the registroPanel panel que se quiere devolver
+	 */
 	public RegistroPanel getPanelRegistro() {
 		return this.registroPanel;
 	}
 
 
 
-
+	/**
+	 * Esta funcion devuelve el panel de bienvenida
+	 * @return the bienvenidaPanel panel que se quiere devolver
+	 */
 	public BienvenidaPanel getPanelBienvenida() {
 		return this.bienvenidaPanel;
 	}
 	
-	
+	/**
+	 * Esta funcion devuelve el panel de proyectos
+	 * @return the proyectosPanel panel que se quiere devolver
+	 */
 	public ProyectosPanel getPanelProyectos() {
 		return this.proyectosPanel;
 	}
-	
+	/**
+	 * Esta funcion devuelve el panel de colectivos
+	 * @return the colectivosPanel panel que se quiere devolver
+	 */
 	public ColectivosPanel getPanelColectivos() {
 		return this.colectivosPanel;
 	}
-	
+	/**
+	 * Esta funcion devuelve el panel de admin
+	 * @return the adminPanel panel que se quiere devolver
+	 */
 	public AdminPanel getPanelAdmin() {
 		return this.adminPanel;
 	}
 	
-
+	/**
+	 * Esta funcion devuelve el panel de crear proyecto
+	 * @return the crearProyectoPanel panel que se quiere devolver
+	 */
 	public CrearProyectoPanel getPanelCrearProyecto() {
 		return this.crearProyectoPanel;
 	}
-	
+	/**
+	 * Esta funcion devuelve el panel de crear proyecto social
+	 * @return the crearProyectoSocialPanel panel que se quiere devolver
+	 */
 	public CrearProyectoSocialPanel getPanelCrearProyectoSocial() {
 		return this.crearProyectoSocialPanel;
 	}
-	
+	/**
+	 * Esta funcion devuelve el panel de crear proyecto inf
+	 * @return the crearProyectoInfPanel panel que se quiere devolver
+	 */
 	public CrearProyectoInfPanel getPanelCrearProyectoInf() {
 		return this.crearProyectoInfPanel;
 	}
-	
+	/**
+	 * Esta funcion devuelve el panel de crear colectivo
+	 * @return the crearColectivoPanel panel que se quiere devolver
+	 */
 	public CrearColectivoPanel getPanelCrearColectivo() {
 		return this.crearColectivoPanel;
 	}
 	
-
+	/**
+	 * Esta funcion devuelve el panel de DetallesProyecto
+	 * @return the detallesProyectoPanel panel que se quiere devolver
+	 */
 	public DetallesProyectoPanel getPanelDetallesProyecto() {
 		return this.detallesProyectoPanel;
 	}

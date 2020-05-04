@@ -33,6 +33,10 @@ public class ColectivosPanel extends JPanel{
 	private JList listaProyectosCol;
 	private JScrollPane scrollProyectosCol;
 	
+	/**
+	 * Este es el constructor de ColectivoPanel, aqui se encuentra el panel correspondiente, ademas esta la creacion y introduccion 
+	 * de los objetos en el panel correspondiente
+	 */
 	public ColectivosPanel() {
 		this.setLayout(new BorderLayout());
 		
@@ -83,7 +87,11 @@ public class ColectivosPanel extends JPanel{
 		subP1.add(scrollProyectosCol);
 		this.add(subP1);
 	}
-	
+	/**
+	 * Esta es la funcion setControlador, se encarga de permitir que algunos de los objetos que hemos introducido en el panel
+	 * tengan una funcionalidad(es para objetos como botones, listas, etc)
+	 * @param c es el controlador de colectivos, se le llama para especificar en que controlador esta la funcionalidad de los objetos
+	 */
 	public void setControlador(ControladorColectivos c) {
 
 		crearColectivo.addActionListener(c);
@@ -96,17 +104,28 @@ public class ColectivosPanel extends JPanel{
 		this.detallesP.addActionListener(c);
 		this.detallesPC.addActionListener(c);
 	}
+	
+	/**
+	 * Esta funcion nos devuelve el panel de colectivos
+	 * @return the subP1 es el panel de colectivos
+	 */
 	public JPanel getSubPanel() {
 		return this.subP1;
 	}
-	
+	/**
+	 * Esta funcion introducira una lista de proyectos en el panel de colectivo
+	 * @param proyectosAp
+	 */
 	public void setListaProyectos(HashSet<Proyecto> proyectosAp) {
 		proyectosM.clear();
 		for(Proyecto p: proyectosAp ) {
 			this.proyectosM.addElement(p);
 		}
 	}
-	
+	/**
+	 * Esta funcion introducira una lista de colectivos en el panel de colectivos
+	 * @param colectivos lista de colectivos que se pretende introducir 
+	 */
 	public void setListaColectivos(HashSet<Colectivo> colectivos) {
 		colectivosM.clear();
 		for(Colectivo c: colectivos ) {

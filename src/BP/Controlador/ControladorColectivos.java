@@ -16,13 +16,27 @@ public class ControladorColectivos implements ActionListener, ListSelectionListe
 	private Aplicacion modelo;
 	private Colectivo colectivoSeleccionado;
 	private Proyecto proyectoSeleccionado;
+
+	
+	/**
+	 * Este es el constructor de ControladorColectivos
+	 * @param frame ventana de la aplicacion
+	 * @param modelo aplicacion que hemos desarrollado
+	 */
+
 	private Proyecto proyectoSeleccionadoCol;
+
 	public ControladorColectivos(VentanaPrincipal frame ,Aplicacion modelo) {
 		this.panel= frame.getPanelColectivos();
 		this.frame= frame;
 		this.modelo=modelo;
 	}
 	
+	/**
+	 * Esta funcion se encargara de que al interactuar con el programa(dar a un boton, escribir en un texto, seleccionar un valor de una list, etc)
+	 * se realice la accion correspondiente.
+	 * @param e es el actionEvent
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 	
@@ -40,6 +54,11 @@ public class ControladorColectivos implements ActionListener, ListSelectionListe
 		}
 		
 	}
+	
+	/**
+	 * Esta funcion se encargara de desarrollar la funcionalidad del boton "Apoyar como representante de colectivo"
+	 * de tal manera que al pulsarlo el proyecto pase a ser un proyecto apollado
+	 */
 	private void apoyarComoRepresentate() {
 		if(colectivoSeleccionado == null) {
 			JOptionPane.showMessageDialog(panel,
@@ -62,6 +81,13 @@ public class ControladorColectivos implements ActionListener, ListSelectionListe
 			return;
 		}
 	}
+
+
+	/**
+	 * Esta funcion devueve una lista de los proyectos que pueden ser apoyados por un colectivo
+	 * @return the new ListSelectionListener
+	 */
+
 	private void crearProyectoComoRepresentante() {
 		if(colectivoSeleccionado == null) {
 			JOptionPane.showMessageDialog(panel,
@@ -74,6 +100,7 @@ public class ControladorColectivos implements ActionListener, ListSelectionListe
 		cPP.setVisible(true);
 		frame.getPanelUsuario().setVisible(false);
 	}
+
 	public ListSelectionListener getControllerProyectosApoyables() {
 		return new ListSelectionListener () {	
 				public void valueChanged(ListSelectionEvent e) {
@@ -86,7 +113,10 @@ public class ControladorColectivos implements ActionListener, ListSelectionListe
 		};
 	}
 
-	
+	/**
+	 * Esta funcion devueve una lista de los proyectos que has creado
+	 * @return the new ListSelectionListener
+	 */
 	public ListSelectionListener getControllerTusColectivos() {
 		return new ListSelectionListener () {
 				
@@ -108,14 +138,25 @@ public class ControladorColectivos implements ActionListener, ListSelectionListe
 		};
 		
 	}
+	
+	/**
+	 * Esta funcion creara la funcionalidad para el boton de "crear colectivo"
+	 * mandandonos a el panel getPanelCrearColectivo
+	 */
 	private void CColectivo() {
 		frame.getPanelCrearColectivo().setVisible(true);
 		frame.getPanelUsuario().setVisible(false);
 	}
+
+	/**
+	 * 
+	 */
+
 	
 	private void actualizar() {
 		frame.getControlador().getControladorLogin().loadUserInfo();
 	}
+
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
 		// TODO Auto-generated method stub

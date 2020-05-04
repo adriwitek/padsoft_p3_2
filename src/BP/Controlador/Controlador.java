@@ -24,6 +24,12 @@ public class Controlador {
 	private ControladorCrearProyectoInf controladorCrearProyectoInf;
 	private ControladorCrearColectivo controladorCrearColectivo;
 	private ControladorDetallesProyecto controladorDetallesProyecto;
+	
+	/**
+	 * Este es el constructoe de controlador, en el se encuentra la creacion de todos los controladores que contempla la aplicacion
+	 * @param frame es la unica ventana de nuestro proyecto (VentanaPrincipal)
+	 * @param modelo es la a plicacion que hemos realizado
+	 */
 	public Controlador(VentanaPrincipal frame, Aplicacion modelo) {
 		this.frame = frame;
 		this.modelo = modelo;
@@ -55,7 +61,8 @@ public class Controlador {
 
 	
 	/**
-	 * @return the controladorLogin
+	 * esta funcion devuelve  controladorLogin
+	 * @return the controladorLogin controlador a devolver
 	 */
 	public ControladorLogin getControladorLogin() {
 		return controladorLogin;
@@ -64,7 +71,8 @@ public class Controlador {
 
 
 	/**
-	 * @return the controladorRegistro
+	 * Esta funcion devuelve controladorRegistro
+	 * @return the controladorRegistro controlador a devolver
 	 */
 	public ControladorRegistro getControladorRegistro() {
 		return controladorRegistro;
@@ -74,7 +82,8 @@ public class Controlador {
 
 
 	/**
-	 * @return the controladorBienvenida
+	 * Esta funcion devuelve controladorBienvenida
+	 * @return the controladorBienvenida controlador a devolver
 	 */
 	public ControladorBienvenida getControladorBienvenida() {
 		return controladorBienvenida;
@@ -84,7 +93,8 @@ public class Controlador {
 
 
 	/**
-	 * @return the controladorUsuario
+	 * Esta funcion devuelve controladorUsuario
+	 * @return the controladorUsuario controlador a devolver
 	 */
 	public ControladorUsuario getControladorUsuario() {
 		// TODO Auto-generated method stub
@@ -93,14 +103,16 @@ public class Controlador {
 	
 	
 	/**
-	 * @return the controladorProyectos
+	 * esta funcion devuelve controladorProyectos
+	 * @return the controladorProyectos controlador a devolver
 	 */
 	public ControladorProyectos getControladorProyectos() {
 		return controladorProyectos;
 	}
 	
 	/**
-	 * @return the controladorColectivos
+	 * Esta funcion devuelve controladorColectivos
+	 * @return the controladorColectivos controlador a devolver
 	 */
 	public ControladorColectivos getControladorColectivos() {
 		return controladorColectivos;
@@ -108,7 +120,8 @@ public class Controlador {
 	
 	
 	/**
-	 * @return the controladorCrearProyecto
+	 * Esta funcion devuelve controladorCrearProyecto
+	 * @return the controladorCrearProyecto controlador a devolver
 	 */
 	public ControladorCrearProyecto getControladorCrearProyecto() {
 		return controladorCrearProyecto;
@@ -116,7 +129,8 @@ public class Controlador {
 	
 	
 	/**
-	 * @return the controladorCrearProyectoSocial
+	 * Esta funcion devuelve controladorCrearProyectoSocial
+	 * @return the controladorCrearProyectoSocial controlador a devolver
 	 */
 	public ControladorCrearProyectoSocial getControladorCrearProyectoSocial() {
 		return controladorCrearProyectoSocial;
@@ -124,7 +138,8 @@ public class Controlador {
 	
 	
 	/**
-	 * @return the controladorCrearProyectoInf
+	 * Esta funcion devuelve controladorCrearProyectoInf
+	 * @return the controladorCrearProyectoInf controlador a devolver
 	 */
 	public ControladorCrearProyectoInf getControladorCrearProyectoInf() {
 		return controladorCrearProyectoInf;
@@ -133,21 +148,31 @@ public class Controlador {
 
 
 	/**
-	 * @return the controladorAdmin
+	 * Esta funcion devuelve controladorAdmin
+	 * @return the controladorAdmin controlador a devolver
 	 */
 	public ControladorAdmin getControladorAdmin() {
 		return controladorAdmin;
 	}
 
-
+	/**
+	 * Esta funcion devuleve la aplicacion (modelo)
+	 * @return the modelo 
+	 */
 	public Aplicacion getModelo() {
 		return this.modelo;
 	}
-	
+	/**
+	 * Esta funcion devuelve controladorCrearColectivo
+	 * @return the controladorCrearColectivo controlador a devolver
+	 */
 	public ControladorCrearColectivo getControladorCrearColectivo() {
 		return this.controladorCrearColectivo;
 	}
-	
+	/**
+	 * Esta funcion devuelve controladorDetallesProyecto
+	 * @return the controladorDetallesProyecto controlador a devolver
+	 */
 	public ControladorDetallesProyecto getControladorDetallesProyecto() {
 		return this.controladorDetallesProyecto;
 	}

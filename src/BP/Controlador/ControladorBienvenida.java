@@ -18,14 +18,22 @@ public class ControladorBienvenida implements ActionListener{
 	private VentanaPrincipal frame;
 	private Aplicacion modelo;
 	
-	
+	/**
+	 * Este es el constructo de ControladorBienvenida
+	 * @param frame ventana de la aplicacion
+	 * @param modelo la apllicacion creada
+	 */
 	public ControladorBienvenida(VentanaPrincipal frame ,Aplicacion modelo) {
 		this.panel= frame.getPanelBienvenida();
 		this.frame= frame;
 		this.modelo=modelo;
 	}
 
- 
+	/**
+	 * Esta funcion se encargara de que al interactuar con el programa(dar a un boton, escribir en un texto, seleccionar un valor de una list, etc)
+	 * se realice la accion correspondiente.
+	 * @param e es el actionEvent
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 

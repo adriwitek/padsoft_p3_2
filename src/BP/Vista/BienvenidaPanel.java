@@ -12,6 +12,10 @@ public class BienvenidaPanel extends JPanel{
 	private JButton botonLogin;
 	private JButton botonRegistro;
 	
+	/**
+	 * Este es el controlador de BienvenidaPanel, contiene lod panel de BienvenidaPanel, ademas contiene la creacion e introduccion de los objetos
+	 * de BienvenidaPanel en su correspondiente subpanel (subP1 y subP2)
+	 */
 	public BienvenidaPanel() {
 		
 		this.setLayout(new FlowLayout());
@@ -36,6 +40,11 @@ public class BienvenidaPanel extends JPanel{
 	
 	
 	//Metodos para el controlador
+	/**
+	 * Esta es la funcion setControlador, se encarga de permitir que algunos de los objetos que hemos introducido en los subpaneles
+	 * tengan una funcionalidad(es para objetos como botones, listas, etc)
+	 * @param c llama a la fncion actionListener correspondiente para este panel
+	 */
 	public void setControlador(ActionListener c) {
 		botonLogin.addActionListener(c);
 		botonRegistro.addActionListener(c);

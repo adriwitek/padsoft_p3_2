@@ -40,6 +40,13 @@ public class UsuarioPanel extends JPanel {
 	private JButton botonBorrarNotificacion;
 	private JButton botonCerrarSesion;
 
+	
+	/**
+	 * Este es el constructor de UsuarioPanel, en el se encuentran los subpaneles subP1 y subP2, ademas de la 
+	 * creacion e introduccion de los elementos-objetos en ssu respectivo subpanel 
+	 * @param frame
+	 */
+
 	public UsuarioPanel(VentanaPrincipal frame) {
 		this.frame = frame;
 		this.setLayout(new FlowLayout());
@@ -123,7 +130,11 @@ public class UsuarioPanel extends JPanel {
 		this.pestanias.add("Notificaciones",subP2);
 
 	}
-
+	/**
+	 * Esta es la funcion setControlador, se encarga de permitir que algunos de los objetos que hemos introducido en el panel
+	 * tengan una funcionalidad(es para objetos como botones, listas, etc)
+	 * @param c es el controlador especifico donde se encuentra la funcionalidad de los objetos que se encuentran dentro de esta funcion
+	 */
 	public void setControlador(ControladorUsuario c) {
 
 		this.listaProyectos.addListSelectionListener(c.getControllerProyectosApoyables());
@@ -138,36 +149,78 @@ public class UsuarioPanel extends JPanel {
 		this.botonCerrarSesion.addActionListener(c);
 	}
 
+	
+	/**
+	 * Esta funcion introducira un numero nif al usuario
+	 * @param texto es el nif que queremos introducir
+	 */
 	public void setNumeroNIF(String texto) {
 		this.numeroNIF.setText(texto);
 	}
+	
+	/**
+	 * Esta funcion introducira el nombre de usuario a un usuario
+	 * @param texto el el nombre de usuario que se pretende introducir
+	 */
 	public void setNombreUsuario(String texto) {
 		this.nombreUsuario.setText(texto);
 	}
+	
+	/**
+	 * Esta funcion introducira un HashSet<Proyecto> en la lista de proyectos 
+	 * @param proyectosAp HashSet<Proyecto> lista de preoyectos a introducir
+	 */
 	public void setListaProyectos(HashSet<Proyecto> proyectosAp) {
 		proyectosM.clear();
 		for(Proyecto p: proyectosAp ) {
 			this.proyectosM.addElement(p);
 		}
 	}
+	/**
+	 * Esta funcion introducira un HashSet<Colectivo> en la lista de colectivos 
+	 * @param colectivos HashSet<Colectivo> lista de colectivos a introducir
+	 */
 	public void setListaColectivos(HashSet<Colectivo> colectivos) {
 		colectivosM.clear();
 		for(Colectivo c: colectivos ) {
 			this.colectivosM.addElement(c);
 		}
 	}
+	
+	/**
+	 * Esta funcion devuelve la lista de proyectos
+	 * @return the proyectosM
+	 */
 	public DefaultListModel getListaProyectos() {
 		return this.proyectosM;
 	}
+	/**
+	 * Esta funcion devuelve la lista de colectivos
+	 * @return the colectivosM
+	 */
 	public DefaultListModel getListaColectivos() {
 		return this.colectivosM;
 	}
+	
+	/**
+	 * Esta funcion devuelve  un string el proyecto seleccionado
+	 * @return the string listaProyectos proyecto seleccionado
+	 */
 	public String getSelectedProject() {
 		return (String)this.listaProyectos.getSelectedValue();
 	}
+	/**
+	 * Esta funcion devuelve las pestañas del panel
+	 * @return the pestanias pestanias del panel
+	 */
 	public JTabbedPane getPestanias() {
 		return this.pestanias;
 	}
+	
+	/**
+	 * Esta funcion introduce un HashSet<Notificacion> de notificaciones 
+	 * @param notificaciones HashSet de notificaciones
+	 */
 	public void setModeloNotificaciones(HashSet<Notificacion> notificaciones) {
 		modeloNotificaciones.clear();
 		for(Notificacion n: notificaciones  ) {
@@ -177,11 +230,24 @@ public class UsuarioPanel extends JPanel {
 	}
 
 
-	public void setCampoTituloNotificacion(String t) {
-		this.campoTituloNotificacion.setText(t);
-	}
+	/**
+	 * Esta funcion introduce un string en el campo campoTituloNotificacion
+	 * @param t es el string que se quiere introducir
+	 */
+    public void setCampoTituloNotificacion(String t) {
+        this.campoTituloNotificacion.setText(t);
+    }
+    /**
+     * Esta funcion introduce un string en el campo campoDescripcionNotificacion
+     * @param t es el string que se quiere introducir
+     */
+    public void setCampoDescripcionNotificacion(String t) {
+        this.campoDescripcionNotificacion.setText(t);
+    }
 
-	public void setCampoDescripcionNotificacion(String t) {
-		this.campoDescripcionNotificacion.setText(t);
-	}
+
+
+
+
+
 }

@@ -58,7 +58,15 @@ public class AdminPanel extends JPanel {
 
 
 	 
-	
+	/**
+	 * Este es el controlador de AdminPanel, contiene todos los subpaneles de AdminPanel, ademas de la creacion y la introduccion todos los objetos 
+	 * en sus respectivos paneles (botones, layouts, etc)
+	 * 
+	 * @param registrosPendientesAprobacion
+	 * @param usuariosActivos
+	 * @param usuariosBloqueados
+	 * @param proyectosSolicitandoFinanciacion
+	 */
 	public AdminPanel(HashSet<Usuario> registrosPendientesAprobacion,HashSet<Usuario> usuariosActivos,HashSet<Usuario> usuariosBloqueados,HashSet<Proyecto> proyectosSolicitandoFinanciacion) {
 		
 		
@@ -245,7 +253,11 @@ public class AdminPanel extends JPanel {
 	}
 	
 	
-	
+	/**
+	 * Esta es la funcion setControlador, se encarga de permitir que algunos de los objetos que hemos introducido en los subpaneles
+	 * tengan una funcionalidad(es para objetos como botones, listas, etc)
+	 * @param c llama al controlador del administrador, para así poder vincular los objetos con su funcionalidad especificada en este controlador.
+	 */
 	public void setControlador(ControladorAdmin c) {
 		//Del panel1
 		this.listaSolicitudesReg.addListSelectionListener(c);
@@ -271,6 +283,11 @@ public class AdminPanel extends JPanel {
 	
 	
 	//Metodo para el controlador del panel
+	/**
+	 * Esta funcion se encargara de actualizar los credenciales de registro de una persona que ha solicitado un registro
+	 * @param nombre el nombre del posible usuario
+	 * @param nif el NIF del posible usuario
+	 */
 	public void updateSolicitudRegitroSeleccionada(String nombre,String nif) {
 		this.campoUsuario.setText(nombre);
 		this.campoNIF.setText(nif);
@@ -280,74 +297,122 @@ public class AdminPanel extends JPanel {
 	
 	
 	//metodo para el controlador
+	/**
+	 * Esta funcion permite al administrador eliminar un usuario de la lista de usuarios
+	 * @param u es el usuario que el administrador pretende eliminar
+	 */
 	public void borraDeListaUsuarios(Usuario u) {
 		this.solicitudesReg.removeElement(u);
 	}
 	
-	
+	/**
+	 * Esta funcion se encaragara de mostrarnos un string con el motivo de rechazo a un usuario
+	 * 
+	 * @return the contenido de campoMotivoRechazo
+	 */
 	public String getMotivoRechazo() {
 		return this.campoMotivoRechazo.getText();
 	}
 	
-	
+	/**
+	 * Permite que el boton de campoMotivo de bloqueo se desbloquee o bloquee
+	 * @param b un boolean que nos dira si queremos que el setEnabled este a true o a false (Para bloquear o desbloquear el boton)
+	 */
 	public void setVisibilidadCampoMotivoBloqueo(Boolean b) {
 		//this.campoMotivoBloqueo.setVisible(b);
 		this.campoMotivoBloqueo.setEnabled(b);
 
 	}
 	
-	
+	/**
+	 * Permite que el boton de botonBloquearUsuario de bloqueo se desbloquee o bloquee
+	 * @param b un boolean que nos dira si queremos que el setEnabled este a true o a false (Para bloquear o desbloquear el boton)
+	 */
 	public void setVisibilidadBotonBloquearUsuario(Boolean b) {
 		//this.botonBloquearUsuario.setVisible(b);
 		this.botonBloquearUsuario.setEnabled(b);
 		if(!b) this.listaUsuariosActivos.clearSelection();
 
 	}
-	
+	/**
+	 * Permite que en el boton para desbloquear a un usuario se active o se desactive su funcionamiento
+	 * @param b un boolean que nos dira si queremos que el setEnabled este a true o a false (Para bloquear o desbloquear el boton)
+	 */
 	public void setVisibilidadBotonDesBloquearUsuario(Boolean b) {
 		//this.botonDesBloquearUsuario.setVisible(b);
 		this.botonDesBloquearUsuario.setEnabled(b);
 		if(!b) this.listaUsuariosBloqueados.clearSelection();
 	}
 	
-	
+	/**
+	 * Esta funcion nos muestra la razon  por la que se ha bloqueado a un usuario
+	 * @return the String campoMotivoBloqueo
+	 */
 	public String getMotivoBloqueo() {
 		return this.campoMotivoBloqueo.getText();
 	}
 
 
 
-	
+	/**
+	 * Esta funcion añade un usuario a la lista de usuarios activos
+	 * 
+	 * @param u usuario que se quere introducir en la lista de usuarios activos
+	 */
 	public void addListaUsuariosActivos(Usuario u) {
 		this.usuariosActivosModelo.addElement(u);
 	}
 	
+	/**
+	 * Esta funcion añade un usuario a la lista de usuarios bloqueados
+	 * @param u usuario que se quere introducir en la lista de usuarios bloqueados
+	 */
 	public void addListaUsuariosBloqueados(Usuario u) {
 		usuariosBloqueadosModelo.addElement(u);
 	}
 	
-	
+	/**
+	 * Esta funcion permite eliminar a un usuario seleccionado de la lista de usuarios activos
+	 * @param u usuario que se quiere eliminar de la lista de usuarios activos
+	 */
 	public void borrarListaUsuariosActivos(Usuario u) {
 		this.usuariosActivosModelo.removeElement(u);
 	}
-	
+	/**
+	 * Esta funcion permite eliminar a un usuario seleccionado de la lista de usuarios bloqueados
+	 * @param u usuario que se quiere eliminar de la lista de usuarios bloqueados
+	 */
 	public void borrarListaUsuariosBloqueados(Usuario u) {
 		this.usuariosBloqueadosModelo.removeElement(u);
 	}
 	
+	/**
+	 * Esta funcion crea una solicitud de registro para un usuario especificado
+	 * @param u usuario del que se va ha realizar la solicitud de regisro
+	 */
 	public void addSolicitudRegistro(Usuario u) {
 		this.solicitudesReg.addElement(u);
 	}
 	 
-	
+	/**
+	 * Esta funcion devuelve una tabla con todos los proyectos pendientes de validacion
+	 * @return the tabla del panel en el que se encuentra
+	 */
 	public JTable getTablaProyectosValidacion() {
 		return this.tabla;
 	}
 	
+	/**
+	 * Esta funcion devuelve una DefaultTableModel con todos los proyectos pendientes de validacion
+	 * @return the modeloDatos
+	 */
 	public DefaultTableModel getModeloTablaProyectosValidacion() {
 		return this.modeloDatos;
 	}
-	
+	/**
+	 * Esta funcion devuelve el motivo por el cual se ha rechazado la validacion de un proyecto
+	 * @return the String campoMotivoRechazoValidacionProyecto
+	 */
 	public String getMotivoRechazoValidacionProyecto() {
 		return campoMotivoRechazoValidacionProyecto.getText();
 	}

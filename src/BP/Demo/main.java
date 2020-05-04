@@ -220,10 +220,18 @@ public class main {
 		app.exit();
 		app = Aplicacion.getInstancia("admin", "1234",1);
 		if(!app.loadAplicacion()) System.out.println("-------------No se ha podido cargar el backup");
+
+
+		app.loginUser("7", "7");
+		//System.out.println(app.getUsuarioConectado().getNombre());
+
+		//System.out.println(app.getUsuarioConectado().getAllNotificaciones());
+
 		app = app.getInstancia();
 		
 		if (!app.loginUser("u7", "u7")) System.out.println("ERROR, no se ha podido iniciar sesion");
 		System.out.println(app.getUsuarioConectado().getAllNotificaciones());
+
 		
 		System.out.println("FIN DE LA DEMO");
 	}

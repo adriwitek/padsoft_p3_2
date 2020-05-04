@@ -16,7 +16,10 @@ public class CrearColectivoPanel extends JPanel {
 	//paneles
 	private JPanel subP1;
 	
-	
+	/**
+	 * Este es el controlador de CrearColectivoPanel, el el se encuentra el panel subP1, ademas nos encontraremos la creacion e introduccion de todos los 
+	 * objetos en este panel (botones, listas, labels, etc)
+	 */
 	public CrearColectivoPanel() {
 		this.setLayout(new BorderLayout());
 		subP1 = new JPanel(new GridLayout(10,10));
@@ -42,15 +45,26 @@ public class CrearColectivoPanel extends JPanel {
 		this.add(subP1);
 	}
 	
+	/**
+	 * Esta es la funcion setControlador, se encarga de permitir que algunos de los objetos que hemos introducido en el panel
+	 * tengan una funcionalidad(es para objetos como botones, listas, etc)
+	 * @param c llama al action listener especifico que contiene la funcionalidad de los objetos de esta funcion
+	 */
 	public void setControlador(ActionListener c) {
 		cancelar.addActionListener(c);
 		finalizar.addActionListener(c);
 	}
-	
+	/**
+	 * Esta funcion nos muestra el nombre del colectivo
+	 * @return the String textNombreColectivo nombre del colectivo
+	 */
 	public String getNombreColectivo() {
 		return this.textNombreColectivo.getText();
 	}
-	
+	/**
+	 * Esta funcion nos devuelve en un string la descripcion de un colectivo
+	 * @return the String textNombreDescripcion descripcion de colectivo
+	 */
 	public String getDescripcion() {
 		return this.textNombreDescripcion.getText();
 	}
