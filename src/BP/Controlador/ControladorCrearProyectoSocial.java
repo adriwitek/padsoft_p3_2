@@ -13,6 +13,7 @@ public class ControladorCrearProyectoSocial implements ActionListener {
 	private CrearProyectoSocialPanel panel;
 	private VentanaPrincipal frame;
 	private Aplicacion modelo;
+	private Proponente proponente;
 	public ControladorCrearProyectoSocial(VentanaPrincipal frame ,Aplicacion modelo) {
 		this.panel= frame.getPanelCrearProyectoSocial();
 		this.frame= frame;
@@ -46,7 +47,7 @@ public class ControladorCrearProyectoSocial implements ActionListener {
 		String GSocial = panel.getGrupoSocial();
 		String Financiacion = panel.getFinanciacion();
 		Boolean Nacional = panel.getNacional();
-		Proponente p = modelo.getUsuarioConectado();
+		Proponente p = this.proponente;
 		double num;
 		
 		
@@ -86,5 +87,8 @@ public class ControladorCrearProyectoSocial implements ActionListener {
 		JOptionPane.showMessageDialog(panel,
 				"Se ha creado el proyecto solicitado.", "OK", JOptionPane.INFORMATION_MESSAGE);
 		return;
+	}
+	public void setProponente(Proponente p) {
+		this.proponente = p;
 	}
 }

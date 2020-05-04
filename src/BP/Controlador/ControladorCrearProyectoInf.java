@@ -17,6 +17,7 @@ public class ControladorCrearProyectoInf implements ActionListener, ListSelectio
 	private VentanaPrincipal frame;
 	private Aplicacion modelo;
 	private HashSet<String> distritos;
+	private Proponente proponente;
 	public ControladorCrearProyectoInf(VentanaPrincipal frame ,Aplicacion modelo) {
 		this.panel= frame.getPanelCrearProyectoInf();
 		this.frame= frame;
@@ -52,7 +53,7 @@ public class ControladorCrearProyectoInf implements ActionListener, ListSelectio
 		String Financiacion = panel.getFinanciacion();
 		String Foto = panel.getNombreArchivoPNG();
 		String Foto2 = panel.getNombreArchivoPNG2();
-		Proponente p = modelo.getUsuarioConectado();
+		Proponente p = this.proponente;
 		//HashSet<String> distrito = panel.getDistrito;
 		double num;
 		
@@ -114,6 +115,12 @@ public class ControladorCrearProyectoInf implements ActionListener, ListSelectio
 			JList lista = (JList) e.getSource();
 	    	distritos.addAll(lista.getSelectedValuesList());
 		}
+		
+	}
+
+
+	public void setProponente(Proponente proponente) {
+		this.proponente = proponente;
 		
 	}
 	

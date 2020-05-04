@@ -85,15 +85,15 @@ public class ControladorLogin implements ActionListener {
 		}
 		else {
 			UsuarioPanel pUsuario = frame.getPanelUsuario();
-			loadUserInfo(pUsuario);
+			loadUserInfo();
 			pUsuario.setVisible(true);
 			this.panel.setVisible(false);
 		}
 	}
-	
-	
-	private void loadUserInfo(UsuarioPanel pUsuario) {
 
+	
+	public void loadUserInfo() {
+		UsuarioPanel pUsuario = frame.getPanelUsuario();
         pUsuario.setNumeroNIF(modelo.getUsuarioConectado().getNIF());
         pUsuario.setNombreUsuario(modelo.getUsuarioConectado().getNombre());
         pUsuario.setListaProyectos(modelo.getProyectosApoyables(modelo.getUsuarioConectado()));
@@ -103,5 +103,6 @@ public class ControladorLogin implements ActionListener {
         frame.getPanelColectivos().setListaColectivos(modelo.getColectivosUsuario(modelo.getUsuarioConectado()));
         pUsuario.setModeloNotificaciones(modelo.getUsuarioConectado().getAllNotificaciones());
     }
+
 	
 }

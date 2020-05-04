@@ -7,6 +7,7 @@ import java.util.HashSet;
 import javax.swing.*;
 
 import BP.Modelo.Aplicacion;
+import BP.Modelo.Colectivo;
 
 
 public class CrearProyectoPanel extends JPanel{
@@ -41,10 +42,6 @@ public class CrearProyectoPanel extends JPanel{
         PSocial.addActionListener(c);
         PInfraestructuras.addActionListener(c);
 
-
     }
-
-
-
-
 }
+

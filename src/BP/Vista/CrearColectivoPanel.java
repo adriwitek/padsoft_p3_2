@@ -5,7 +5,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class CrearColectivoPanel extends JPanel {
-
+	
 	private JLabel nombreColectivo;
 	private JTextField textNombreColectivo;
 	private JLabel nombreDescripcion;
