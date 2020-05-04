@@ -208,8 +208,13 @@ public class main {
         
 		//MAS PRUEBAS
 		Usuario u6 =app.solicitarRegistro("12384567893A", "U6", "1234");
-
 		
+		
+		//NOTIFICACIONES
+		Usuario u7 = app.solicitarRegistro("asd", "as", "as");
+		app.validarRegistro(u7);
+		Notificacion not= new Notificacion("Tituloo","Esto es una descrp.");
+		u1.anniadirNotificacionDeProyecto(not);
 		
 		
 		
@@ -222,12 +227,7 @@ public class main {
 		if(!app.loadAplicacion()) System.out.println("No se ha podido cargar el backup");//CARGAMOS LOS DATOS EN INSTACIA
 
 				
-				
-				
-		
-		
-		
-		//FINANCIACION
+
 		app.exit();
 		System.out.println("FIN DE LA DEMO");
 	}
