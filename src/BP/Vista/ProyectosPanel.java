@@ -93,21 +93,7 @@ public class ProyectosPanel extends JPanel {
 	}
 
 	
-	/**
-	 * Introduce un nombre en en la JLabel nombre
-	 * @param nombre es el nombre especificado que se pretende introducir
-	 */
-	public void setNombre(JLabel nombre) {
-	    this.nombre = nombre;
-	}
 
-	/**
-	 * Introduce un nombre en en la JLabel nombre
-	 * @param nIF NIF que se pretende introducir
-	 */
-	public void setNIF(JLabel nIF) {
-	    this.nIF = nIF;
-	}
 	/**
 	 * Esta funcion se encarga de introducir un HashSet<Proyecto>en la lista de tus proyectos
 	 * @param proyectos

@@ -100,10 +100,10 @@ public class DetallesProyectoPanel extends JPanel {
 		subP1.add(labelDistritos);
 		subP1.add(distritos);
 
-		this.subP3 = new JPanel();
+		/*this.subP3 = new JPanel();
 
 		subP3.add(labelImg);
-		subP3.add(labelCroquis);
+		subP3.add(labelCroquis);*/
 
 
 		//social
