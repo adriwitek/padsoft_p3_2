@@ -212,7 +212,7 @@ public class main {
 		Notificacion not= new Notificacion("Tituloo","Esto es una descrp.");
 		u7.anniadirNotificacionDeProyecto(not);
 		
-		System.out.println(u7.getAllNotificaciones());
+		
 		
 		
 		//SAVE Y LOAD (IMPORTANTE) 2/*
@@ -220,8 +220,10 @@ public class main {
 		app = Aplicacion.getInstancia("admin", "1234",1);
 		if(!app.loadAplicacion()) System.out.println("-------------No se ha podido cargar el backup");
 
+		app.loginUser("7", "7");
+		System.out.println(app.getUsuarioConectado().getNombre());
 
-
+		System.out.println(app.getUsuarioConectado().getAllNotificaciones());
 		
 		System.out.println("FIN DE LA DEMO");
 	}
