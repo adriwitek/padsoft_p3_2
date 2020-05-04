@@ -53,9 +53,23 @@ public class ControladorLogin implements ActionListener {
 		
 		// modificar modelo
 		if( !modelo.loginAdmin(nombreUsuario, password) && !modelo.loginUser(nombreUsuario, password) ) {
-			JOptionPane.showMessageDialog(panel,
-					"Las credenciales son incorrectas. Intentalo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
-			return;
+			
+			Usuario u1 = null;
+			for(Usuario u : modelo.getUsuariosBloqueados()) {
+				if(u.getNIF().equals(nombreUsuario) || u.getNombre().equals(nombreUsuario)) {
+					u1=u;
+					break;
+				}
+			}
+			
+			if(u1 !=null) {
+				JOptionPane.showMessageDialog(panel,  u1.getnBloqueoDeAdmin().getDescripcion(), u1.getnBloqueoDeAdmin().getTitulo(), JOptionPane.ERROR_MESSAGE);
+				return;
+			}else {
+				JOptionPane.showMessageDialog(panel,"Las credenciales son incorrectas. Intentalo de nuevo", "Error", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
+			
 		}
 		
 		 

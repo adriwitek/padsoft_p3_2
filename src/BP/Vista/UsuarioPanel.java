@@ -33,10 +33,10 @@ public class UsuarioPanel extends JPanel {
 	
 	
 	public UsuarioPanel() {
-		this.setLayout(new BorderLayout());
+		this.setLayout(new FlowLayout());
 		//SubPanel Usuario
 		
-		JPanel subP1 = new JPanel(new GridLayout(5,5));
+		JPanel subP1 = new JPanel(new FlowLayout());
 		this.proyectosM  = new DefaultListModel ();
 		this.colectivosM  = new DefaultListModel ();
 		this.etiquetaNIF = new JLabel("NIF:");

@@ -92,8 +92,7 @@ public class Usuario extends Proponente {
 	public Boolean rechazar(String motivo) {
 		if(getEstado() == EstadoUsuario.PENDIENTE) {
 			setEstado(EstadoUsuario.RECHAZADO);
-			this.nBloqueoDeAdmin = new Notificacion("Solicitud de Registro Rechazada","El administrador ha rechazado tu solicitud de alta en el "
-					+ "sistema debido a:" + motivo);
+			//this.nBloqueoDeAdmin = new Notificacion("Solicitud de Registro Rechazada","El administrador ha rechazado tu solicitud de alta en el "+ "sistema debido a:" + motivo);
 			return true;
 		}
 		return false;

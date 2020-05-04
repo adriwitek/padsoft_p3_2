@@ -24,6 +24,11 @@ public class Controlador {
 	private ControladorCrearProyectoInf controladorCrearProyectoInf;
 	private ControladorCrearColectivo controladorCrearColectivo;
 	private ControladorDetallesProyecto controladorDetallesProyecto;
+	
+	
+	
+	
+	
 	public Controlador(VentanaPrincipal frame, Aplicacion modelo) {
 		this.frame = frame;
 		this.modelo = modelo;

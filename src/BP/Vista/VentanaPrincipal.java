@@ -37,8 +37,9 @@ public class VentanaPrincipal extends JFrame{
 		Container contenedor = this.getContentPane();	
 		contenedor.setLayout(new FlowLayout());
 	
-
-	
+	    this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+	    this.setTitle("BP: Becoming a Project");
+	    
 		//Creamos los paneles
 		this.loginPanel = new LoginPanel();
 		this.registroPanel = new RegistroPanel();
