@@ -15,7 +15,11 @@ import BP.Modelo.Proyecto;
 import BP.Modelo.Usuario;
 
 
-
+/** 
+* 
+* @author Adián Rubio adrian.rubiop@estudiante.uam.es, Guillermo Solla guillermo.solla@estudiante.uam.es 
+* y Diego Tapia diego.tapias@estudiante.uam.es
+*/
 public class AdminPanel extends JPanel {
 	
 
@@ -62,10 +66,10 @@ public class AdminPanel extends JPanel {
 	 * Este es el controlador de AdminPanel, contiene todos los subpaneles de AdminPanel, ademas de la creacion y la introduccion todos los objetos 
 	 * en sus respectivos paneles (botones, layouts, etc)
 	 * 
-	 * @param registrosPendientesAprobacion
-	 * @param usuariosActivos
-	 * @param usuariosBloqueados
-	 * @param proyectosSolicitandoFinanciacion
+	 * @param registrosPendientesAprobacion los registros pendientes
+	 * @param usuariosActivos los usuarios activos
+	 * @param usuariosBloqueados los usuarios bloqueados
+	 * @param proyectosSolicitandoFinanciacion proyectos solicitando financiacion
 	 */
 	public AdminPanel(HashSet<Usuario> registrosPendientesAprobacion,HashSet<Usuario> usuariosActivos,HashSet<Usuario> usuariosBloqueados,HashSet<Proyecto> proyectosSolicitandoFinanciacion) {
 		

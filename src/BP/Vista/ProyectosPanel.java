@@ -8,7 +8,11 @@ import javax.swing.*;
 
 import BP.Controlador.ControladorProyectos;
 import BP.Modelo.Proyecto;
-
+/** 
+* 
+* @author Adián Rubio adrian.rubiop@estudiante.uam.es, Guillermo Solla guillermo.solla@estudiante.uam.es 
+* y Diego Tapia diego.tapias@estudiante.uam.es
+*/
 public class ProyectosPanel extends JPanel {
 	private JPanel subP1;
 
@@ -101,10 +105,9 @@ public class ProyectosPanel extends JPanel {
 	
 
 	/**
-	 * Esta funcion se encarga de introducir un HashSet<Proyecto>en la lista de tus proyectos
-	 * @param proyectos
+	 * Esta funcion se encarga de introducir un HashSet en la lista de tus proyectos
+	 * @param proyectos proyectos
 	 */
-
 	public void setTusProyectos(HashSet<Proyecto> proyectos) {
 		proyectosM.clear();
 		for(Proyecto p: proyectos) {
@@ -112,11 +115,10 @@ public class ProyectosPanel extends JPanel {
 		}
 	}
 
-	/**
-	 * Esta funcion devuelve un subpanel
-	 * @return the subP1 unico subpanel de este panel
-	 */
-
+/**
+ * Esta funcion devueve un subpanel
+ * @param proyectos proyectos
+ */
 	public void setProyectosAp(HashSet<Proyecto> proyectos) {
 		proyectosApM.clear();
 		for(Proyecto p: proyectos) {

@@ -8,7 +8,11 @@ import javax.swing.*;
 import BP.Modelo.*;
 import BP.Vista.*;
 
-
+/** 
+* 
+* @author Adián Rubio adrian.rubiop@estudiante.uam.es, Guillermo Solla guillermo.solla@estudiante.uam.es 
+* y Diego Tapia diego.tapias@estudiante.uam.es
+*/
 public class ControladorLogin implements ActionListener {
 
 	private LoginPanel panel;
@@ -17,8 +21,8 @@ public class ControladorLogin implements ActionListener {
 	
 	/**
 	 * Este es el controlador de ControladorLogin
-	 * @param frame
-	 * @param modelo
+	 * @param frame ventana principal
+	 * @param modelo aplicacion creada
 	 */
 	public ControladorLogin(VentanaPrincipal frame ,Aplicacion modelo) {
 		this.panel= frame.getPanelLogin();
@@ -105,7 +109,7 @@ public class ControladorLogin implements ActionListener {
 	
 	/**
 	 * Esta funcion se encarga de cargar toda la informacion de un usuario especificado
-	 * @param pUsuario usuario del que se va a cargar la informacion
+	 * 
 	 */
 	public void loadUserInfo() {
 		UsuarioPanel pUsuario = frame.getPanelUsuario();

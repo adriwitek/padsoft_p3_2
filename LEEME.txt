@@ -1,0 +1,105 @@
+BP: Becoming a Project
+
+
+
+
+
+******************************************************************************************************
+										INFORMACION GENERAL
+********************************************************************************************************
+
+CLASE PRINCIPAL CON GUI: BP.MAIN 				     ---> hace una carga del Backup original.
+Demo de aplicacion por consola: BP.Demo.main 		 ---> genera un nuevo backup:applicationBackup en la carpeta principal
+BACKUP: /copiaBackup/applicationBackup				 --->debe copiarse a la carpeta raiz para porabarlo y ejecutar BP.Main
+
+LOGIN:
+	ADMIN: admin ,1234
+	Usurio normal: Guillermo, 1234
+
+
+	
+	
+	
+	
+	
+	
+El poyecto esta estructurado de la siguiente Manera:
+
+
+******************************************************************************************************
+										ESTRUCTURA DE PROYECTO
+********************************************************************************************************
+-Modelo: BP.Modelo 
+	La funcionalidad descrita en el diagrama de clases y entregada en la P3. Con arreglos en la funcionalidad.
+
+-Vista: BP.Vista
+	En este paquete se encuentran todos los subpaneles en diferentes ficheros. El fichero VentanaPrincipal.java es el fichero
+	que hereda de JFrame y sobre el que se hacen visible o invisibles los paneles. Esta clase instancia TODOS los paneles y tiene getters de ellos,para centralizar
+	la vista en un unico fichero. Desde aqui se instancian y se settean todos los controladores de los JPanels.
+	
+-Controlador: BP.Controllador
+	De manera similar a la vista, esta todo centralizado en el fichero Controlador.java.  Practicamente por cada panel de la vista, hay un .java en el paquete controlador
+	que le corresponde. 
+	
+	
+	
+BP.Main Instancia un modelo(Aplicacion)(y hace el load del backup),instancia la vista(VentanaPrincipal) y instancia el controlador(Controlador), al que le pasa de argumentos el modelo y la vista. Finalmente sette el controlador de la vista, 
+para conectar la funcionalidad.
+	
+	
+******************************************************************************************************
+										DETALLES DE CONTENIDO DEL BACKUP
+********************************************************************************************************	
+	
+	
+	La demo crea un backup con varios usuario hay varios datos.
+	
+	
+	Inicialmente la aplicacion dispone de 3 proyectos validados: 2 de tipo infraestructura y 1 de tipo social. Nada mas loguerase como un usuario normal
+	
+	U7: login(u7,u7)
+		este usurio se crea con una notificacion con la que se puede interacturar
+		
+	Guillermo: login(Guillermo,1234)
+		este usuario es igual que el anterior solo que no dispone de ninguna notificacion pendiente de lectura.
+		
+	
+	
+	
+	Dentro de la demo se han añadido algunas lineas de codigo con respecto a la practica a anterior. Se crean notificaciones, se bloquean usuarios, se hace load y save varias veces,se proponenen proyectos,
+	se comprueba que la financiacion se recibe si corresponde o no, etc.
+	
+	
+	
+	
+	
+	
+******************************************************************************************************
+										FUNCIONALIDAD
+********************************************************************************************************	
+	
+
+	
+GENERAL------
+Siempre que se cierre sesion se guarga lo hecho la apliacion.
+	
+	
+LOGIN USUARIO NORMAL------	
+	Si el usuario no esta bloqueado por el admin se encontrara 4 pestañas;
+	
+	
+	USURIO: muestra info del user y los proyectos disponibles en la app. Puede ver una lista con los proyectos que aun no ha apoyado. Puede ver sus detalles. Ademas puede ver un listado de colectivos de la app y apoyarlos.
+	COLECTIVO: Incluye toda la funcionalidad relacionada con colectivos: apoyar proyectos como colectivos, crear colectivos. 
+	PROYECTOS: se muestra la lista de proyectos creados por el usuarioy otra de los que esta apoyando.
+	NOTIFICACIONES: VEr notificaciones pendientes
+	
+	
+LOGIN COMO ADMIN--------
+	3 pestañas:
+	
+		REGISTROS: Ver las solicitudes de usuarios que se queieren registrar
+		USUARIOS: listado de usuarios a bloquaer/desbloquear
+		PROYECTOS: proyecto screados pendientes de la validadcion del admin para que estos puedan formar parte de la aplicacion
+		
+REGISTRO-----
+	Formulario a rellenar con la solicitud de registro

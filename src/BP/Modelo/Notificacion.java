@@ -19,9 +19,8 @@ public class Notificacion  implements java.io.Serializable  {
      /**
       * Constructor, con los datos a implementar
       * @param titulo que asignar a la notificación
-      * @param descripción para asignar a la notificación
+      * @param descripcion para asignar a la notificación
       */
-
     public Notificacion(String titulo, String descripcion ) {
         this.setTitulo(titulo);
         this.setDescripcion(descripcion);
@@ -43,7 +42,7 @@ public class Notificacion  implements java.io.Serializable  {
     /**
      * Esta funcion introduce el titulo a un notificacion
      * 
-     * @param titulo
+     * @param titulo titulo
      */
     public void setTitulo(String titulo) {
         this.titulo = titulo;
@@ -61,7 +60,7 @@ public class Notificacion  implements java.io.Serializable  {
     /**
      * Esta funcion introduce una descripcion a una notificacion especifica
      * 
-     * @param descripcion
+     * @param descripcion descripcion a introducir
      */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;

@@ -9,7 +9,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-
+/** 
+* 
+* @author Adián Rubio adrian.rubiop@estudiante.uam.es, Guillermo Solla guillermo.solla@estudiante.uam.es 
+* y Diego Tapia diego.tapias@estudiante.uam.es
+*/
 public class RegistroPanel extends JPanel {
 
 	

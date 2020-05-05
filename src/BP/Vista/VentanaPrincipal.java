@@ -5,7 +5,11 @@ import java.awt.*;
 
 import BP.Controlador.Controlador;
 import BP.Modelo.Aplicacion;
-
+/** 
+* 
+* @author Adián Rubio adrian.rubiop@estudiante.uam.es, Guillermo Solla guillermo.solla@estudiante.uam.es 
+* y Diego Tapia diego.tapias@estudiante.uam.es
+*/
 public class VentanaPrincipal extends JFrame{
 
 	

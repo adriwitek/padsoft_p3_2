@@ -8,7 +8,11 @@ import BP.Vista.DetallesProyectoPanel;
 import BP.Vista.ProyectosPanel;
 import BP.Vista.UsuarioPanel;
 import BP.Vista.VentanaPrincipal;
-
+/** 
+* 
+* @author Adián Rubio adrian.rubiop@estudiante.uam.es, Guillermo Solla guillermo.solla@estudiante.uam.es 
+* y Diego Tapia diego.tapias@estudiante.uam.es
+*/
 public class ControladorDetallesProyecto implements ActionListener {
 	private DetallesProyectoPanel panel;
 	private String from;

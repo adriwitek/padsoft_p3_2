@@ -43,7 +43,7 @@ public class main {
 		//VALIDAMOS LOS REGISTROS
 		app.loginAdmin("admin", "1234");
 		
-		if (app.getRegistrosPendientesDeAprobacion().size() !=5) System.out.println("Error, el numero de usuairo pendientes de aprobacion no coincide: " + app.getRegistrosPendientesDeAprobacion().size());
+		if (app.getRegistrosPendientesDeAprobacion().size() !=6) System.out.println("Error, el numero de usuairo pendientes de aprobacion no coincide: " + app.getRegistrosPendientesDeAprobacion().size());
 
 		 
 		app.validarRegistro(u1);

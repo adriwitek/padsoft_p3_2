@@ -64,8 +64,8 @@ public class ProyectoInfraestructura extends Proyecto {
 	/**
 	 * Esta funcion introduce en la lista de distritos (en los que actura el proyecto) un nuevo distrito
 	 * 
-	 * @param d
-	 * @return
+	 * @param d distrito a añadir
+	 * @return the true or false
 	 */
 	
 	public Boolean addDistrito(String d) {
