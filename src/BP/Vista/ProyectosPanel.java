@@ -33,7 +33,8 @@ public class ProyectosPanel extends JPanel {
 	private JList proyectosAp;
 	private JScrollPane scrollAp;
 	private JButton informePopularidad;
-
+	
+	private JButton pedirFinanciacion;
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	/**
 	 * Este es el constuctor de ProyectosPanel, contiene el panel subP1, ademass cuenta con la creacion e introduccion de 
@@ -45,10 +46,12 @@ public class ProyectosPanel extends JPanel {
 
 		subP1 = new JPanel(new GridLayout(3,2));
 		//tus proyectos
+		this.informePopularidad = new JButton("Pedir informe de popularidad");
+		this.pedirFinanciacion = new JButton("Pedir Financiacion");
 		this.botonActualizar = new JButton("Actualizar");
 		this.crearProyecto = new JButton("crearProyecto");
 		this.detallesP = new JButton("Detalles");
-		JPanel pListaTusProyectos = new JPanel(new GridLayout(3,1));
+		JPanel pListaTusProyectos = new JPanel(new GridLayout(5,1));
 		this.proyectosM = new DefaultListModel();
 		this.tusProyectos = new JList(proyectosM);
 		this.scrollP = new JScrollPane(this.tusProyectos);
@@ -57,6 +60,8 @@ public class ProyectosPanel extends JPanel {
 		pListaTusProyectos.add(labelProyectos);
 		pListaTusProyectos.add(detallesP);
 		pListaTusProyectos.add(crearProyecto);
+		pListaTusProyectos.add(pedirFinanciacion);
+		pListaTusProyectos.add(informePopularidad);
 		this.scrollP.setRowHeaderView(pListaTusProyectos);
 		
 		//proyectos que apoyas
@@ -93,6 +98,8 @@ public class ProyectosPanel extends JPanel {
 		proyectosAp.addListSelectionListener(c.getControllerProyectosAp());
 		detallesP.addActionListener(c);
 		detallesAp.addActionListener(c);
+		pedirFinanciacion.addActionListener(c);
+		informePopularidad.addActionListener(c);
 	}
 
 	

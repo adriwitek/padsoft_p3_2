@@ -51,8 +51,11 @@ public class ControladorProyectos implements ActionListener, ListSelectionListen
 		}else if(e.getActionCommand().equals("Detalles")) {
 			goToDetallesProyecto(proyectoSeleccionado);
 		}else if(e.getActionCommand().equals("Detalles.")) {
-
 			goToDetallesProyecto(proyectoSeleccionadoAp);
+		}else if(e.getActionCommand().equals("Pedir Financiacion")) {
+			pedirFinanciacion(proyectoSeleccionado);
+		}else if(e.getActionCommand().equals("Pedir informe de popularidad")) {
+			pedirInformePopularidad(proyectoSeleccionado);
 		}
 	}
 	
@@ -63,8 +66,38 @@ public class ControladorProyectos implements ActionListener, ListSelectionListen
 	private void actualizar() {
 		frame.getControlador().getControladorLogin().loadUserInfo();
 	}
-	
-
+	/**
+	 * Esta funcion se encarga de generar un informe de popularidad de un proyecto.
+	 * @param p el proyecto
+	 */
+	public void pedirInformePopularidad(Proyecto p) {
+		if(p == null) {
+			JOptionPane.showMessageDialog(panel,"Debe seleccionar un proyecto de la lista", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+		}
+			String informe = p.obtenerInformePopularidad(modelo.getUsuarioConectado());
+			JOptionPane.showMessageDialog(panel,informe, "POPULARIDAD", JOptionPane.INFORMATION_MESSAGE);
+            return;
+	}
+	/**
+	 * Esta funcion solicita la financiacion de un proyecto al sistema de financiacion externo
+	 * @param p el proyecto
+	 */
+	public void pedirFinanciacion(Proyecto p) {
+		if(p == null) {
+			JOptionPane.showMessageDialog(panel,"Debe seleccionar un proyecto de la lista", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+		}else if(!p.getEstadoProyecto().equals(EstadoProyecto.OPERATIVO)) {
+			JOptionPane.showMessageDialog(panel,"El proyecto seleccionado no se encuentra en estado operativo", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+		}
+		if(!p.solicitarFinanciacion()) {
+			JOptionPane.showMessageDialog(panel,"El proyecto seleccionado no cuenta con los apoyos necesarios para ser financiado", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+		}else if(p.getEstadoProyecto().equals(EstadoProyecto.PENDIENTEFINANCIACION)){
+			JOptionPane.showMessageDialog(panel,"El proyecto seleccionado se encuentra pendiente de financiacion","Enhorabuena",JOptionPane.INFORMATION_MESSAGE);
+		}
+	}
 	/**
 	 * Esta funcion se encargara de crear la funcionalidad del boton detalles
 	 * nos mandara al panel DetallesProyectoPanel
