@@ -93,7 +93,6 @@ public class ControladorUsuario implements ActionListener, ListSelectionListener
 
     }
 
-
     
     /**
      * Esta funcion se encargara de la funcionalidad del boton de detalles proyecto
