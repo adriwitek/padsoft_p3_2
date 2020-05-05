@@ -26,6 +26,7 @@ public class Notificacion  implements java.io.Serializable  {
         this.setDescripcion(descripcion);
         this.fechaCreacion = new Date();
 
+        
     }
 
 
