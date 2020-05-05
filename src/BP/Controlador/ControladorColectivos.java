@@ -9,6 +9,11 @@ import javax.swing.event.ListSelectionListener;
 import BP.Modelo.*;
 import BP.Vista.*;
 
+/** 
+* 
+* @author Adián Rubio adrian.rubiop@estudiante.uam.es, Guillermo Solla guillermo.solla@estudiante.uam.es 
+* y Diego Tapia diego.tapias@estudiante.uam.es
+*/
 public class ControladorColectivos implements ActionListener, ListSelectionListener {
 
 	private ColectivosPanel panel;

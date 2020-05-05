@@ -7,7 +7,11 @@ import java.util.HashSet;
 import javax.swing.*;
 import BP.Modelo.*;
 import BP.Vista.*;
-
+/** 
+* 
+* @author Adián Rubio adrian.rubiop@estudiante.uam.es, Guillermo Solla guillermo.solla@estudiante.uam.es 
+* y Diego Tapia diego.tapias@estudiante.uam.es
+*/
 public class ControladorCrearProyectoSocial implements ActionListener {
 
 	private CrearProyectoSocialPanel panel;

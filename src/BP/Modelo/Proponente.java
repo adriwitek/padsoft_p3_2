@@ -23,7 +23,7 @@ public abstract class Proponente implements java.io.Serializable {
 	/**
 	 * Esta funcion permite a un proponente proponer un proyecto
 	 * 
-	 * @param p
+	 * @param p proyecto
 	 */
 	public void proponerProyecto(Proyecto p) {
 		

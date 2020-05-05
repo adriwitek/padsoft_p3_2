@@ -89,10 +89,10 @@ public class Aplicacion implements java.io.Serializable {
 	/**
 	 * Esta funcion devuelve la instancia de la aplicacion
 	 * 
-	 * @param userAdmin
-	 * @param passwordAdmin
-	 * @param numMinApoyos
-	 * @return
+	 * @param userAdmin	admin
+	 * @param passwordAdmin pass
+	 * @param numMinApoyos apoyos minimos
+	 * @return the INSTANCE
 	 */
 	public static Aplicacion getInstancia(String userAdmin, String passwordAdmin,Integer numMinApoyos) {
 		if (INSTANCE == null) {
@@ -128,7 +128,7 @@ public class Aplicacion implements java.io.Serializable {
 	/**
 	 * Esta funcion se encarga de hacer save en la aplicacion, devolvera true en caso correcto
 	 * 
-	 * @return
+	 * @return the true or false
 	 */
 	public boolean saveAplicacion() {
 		try {
@@ -148,7 +148,7 @@ public class Aplicacion implements java.io.Serializable {
 	/**
 	 * Esta funcion se encarga de cargar una aplicacion
 	 * 
-	 * @return
+	 * @return the true or false
 	 */
 	public Boolean loadAplicacion() {
 		//cargar app serializada
@@ -182,7 +182,7 @@ public class Aplicacion implements java.io.Serializable {
 	/**
 	 * Esta funcion cierra la aplicacion no sin antes hacer save de esta
 	 * 
-	 * @return
+	 * @return the b
 	 */
 	public boolean exit() {
 		this.logOut();
@@ -255,9 +255,9 @@ public class Aplicacion implements java.io.Serializable {
 	/**
 	 * Esta funcion se encarga de logear a un administrador
 	 * 
-	 * @param user
-	 * @param password
-	 * @return
+	 * @param user user
+	 * @param password pass
+	 * @return the true or false
 	 */
 	public boolean loginAdmin(String user, String password) {
 		//Inicio sesion administrador
@@ -271,7 +271,7 @@ public class Aplicacion implements java.io.Serializable {
 	/**
 	 * Esta funcion devuelve un lista con los registros pendientes de aprobacion
 	 * 
-	 * @return
+	 * @return the pendientes
 	 */
 	public HashSet<Usuario> getRegistrosPendientesDeAprobacion(){
 		
@@ -298,7 +298,7 @@ public class Aplicacion implements java.io.Serializable {
 	/**
 	 * Esta funcion devuelve un lista con los usuarios activos,necesaria para la gui
 	 * 
-	 * @return  HashSet<Usuario>
+	 * @return  the HashSet usuario
 	 */
 	public HashSet<Usuario> getUsuariosActivos(){
 		
@@ -327,7 +327,7 @@ public class Aplicacion implements java.io.Serializable {
 	/**
 	 * Esta funcion devuelve un lista con los usuarios activos,necesaria para la gui
 	 * 
-	 * @return  HashSet<Usuario>
+	 * @return  the HashSet usuarios
 	 */
 	public HashSet<Usuario> getUsuariosBloqueados(){
 		
@@ -356,8 +356,8 @@ public class Aplicacion implements java.io.Serializable {
 	/**
 	 * Esta funcion se encarga de validar un registro
 	 * 
-	 * @param u
-	 * @return
+	 * @param u usuario
+	 * @return the true or false
 	 */
 	public Boolean validarRegistro(Usuario u) {
 		if(!this.modoAdmin) return false ;
@@ -369,9 +369,9 @@ public class Aplicacion implements java.io.Serializable {
 	/**
 	 * Esta funcion se encarga de rechazar un registro
 	 * 
-	 * @param u
-	 * @param motivo
-	 * @return
+	 * @param u usuario
+	 * @param motivo motivo
+	 * @return the true or false
 	 */
 	public Boolean rechazarRegistro(Usuario u,String motivo) {
 		if(!this.modoAdmin) return false;
@@ -383,7 +383,7 @@ public class Aplicacion implements java.io.Serializable {
 	/**
 	 * Esta funcion se encarga de devolver una lista con los proyectos que han solicitado financiacion
 	 * 
-	 * @return
+	 * @return the listado
 	 */
 	public HashSet<Proyecto> getProyectosSolicitandoFinanciacion(){
 		
@@ -404,7 +404,7 @@ public class Aplicacion implements java.io.Serializable {
 	/**
 	 * Esta funcion se encarga de devolver una lista con los proyectos pendientes de validar por el admin
 	 * 
-	 * @return
+	 * @return listado
 	 */
 	public HashSet<Proyecto> getProyectosPendientesValidacion(){
 		
@@ -487,9 +487,9 @@ public class Aplicacion implements java.io.Serializable {
 	/**
 	 * Esta funcion se encarga de iniciar sesion a un usuario 
 	 * 
-	 * @param nombre
-	 * @param contraseña
-	 * @return
+	 * @param nombre name
+	 * @param contraseña password
+	 * @return the true or false
 	 */
 	public boolean loginUser(String nombre, String contraseña) {
 		Usuario  aux;
@@ -512,14 +512,14 @@ public class Aplicacion implements java.io.Serializable {
 	/**
 	 * Esta funcion se encarga de crear un proyecto social dentro de la aplicacion
 	 * 
-	 * @param p
-	 * @param nombre
-	 * @param descrL
-	 * @param descC
-	 * @param cost
-	 * @param gSocial
-	 * @param nac
-	 * @return
+	 * @param p proyecto
+	 * @param nombre name
+	 * @param descrL descripcion larga
+	 * @param descC descripcion corta
+	 * @param cost coste 
+	 * @param gSocial grupo social
+	 * @param nac nacional
+	 * @return the proyecto
 	 */
 	public ProyectoSocial crearProyectoSocial(Proponente p,String nombre, String descrL, String descC , double cost ,String gSocial, Boolean nac){
 		
@@ -545,15 +545,15 @@ public class Aplicacion implements java.io.Serializable {
 	/**
 	 * Esta funcion se encarga de crear un proyecto social dentro de la aplicacion
 	 * 
-	 * @param p
-	 * @param nombre
-	 * @param descrL
-	 * @param descC
-	 * @param cost
-	 * @param croquis
-	 * @param imagen
-	 * @param distritos
-	 * @return
+	 * @param p proyecto
+	 * @param nombre nombre proyecto
+	 * @param descrL descripcion larga
+	 * @param descC descripcion corta
+	 * @param cost coste
+	 * @param croquis croquis
+	 * @param imagen imagen
+	 * @param distritos los distritos de proyecto
+	 * @return the proyecto
 	 */
 	public ProyectoInfraestructura crearProyectoInfraestructura(Proponente p,String nombre, String descrL, String descC , double cost,String croquis ,String imagen,HashSet<String> distritos){
 		ProyectoInfraestructura proyecto;
@@ -599,10 +599,10 @@ public class Aplicacion implements java.io.Serializable {
 	/** 
 	 * Esta funcion se encarga de solicitar el registro de un nuevo usuario en la aplicacion
 	 * 
-	 * @param nif
-	 * @param nombre
-	 * @param contraseña
-	 * @return
+	 * @param nif nif
+	 * @param nombre nombre usuario
+	 * @param contraseña password
+	 * @return the newUser
 	 */
 	public Usuario solicitarRegistro(String nif, String nombre, String contraseña) {
 		
@@ -625,7 +625,7 @@ public class Aplicacion implements java.io.Serializable {
 	/**
 	 * Esta funcion se encarga de devolver la id de un proyecto
 	 * 
-	 * @return
+	 * @return the lastProjectUniqueID +1
 	 */
 	public  int getNewProjectUniqueId() {
 		return  lastProjectUniqueID +1;
@@ -634,7 +634,7 @@ public class Aplicacion implements java.io.Serializable {
 	/**
 	 * Esta funcions e encarga de activar el modo admin
 	 * 
-	 * @return
+	 * @return the modoAdmin
 	 */
 	public Boolean isModoAdmin() {
 		return this.modoAdmin;
@@ -643,7 +643,7 @@ public class Aplicacion implements java.io.Serializable {
 	/**
 	 * Esta funcion se encarga de devolver el numero minimo de apoyos necesarios en un proyecto
 	 * 
-	 * @return
+	 * @return the numMinApoyos
 	 */
 	public Integer getNumeroMinimimoApoyos() {
 		return numMinApoyos;
@@ -652,7 +652,7 @@ public class Aplicacion implements java.io.Serializable {
 	/**
 	 * Esta funcion se encarga de devolver los distritos que contiene la aplicacion
 	 * 
-	 * @return
+	 * @return the getDistritos
 	 */
 	public HashSet<String> getDistritos(){
 		//return (HashSet<String>) Collections.unmodifiableSet(this.distritosPermitidos);
@@ -662,7 +662,7 @@ public class Aplicacion implements java.io.Serializable {
 	/**
 	 * Esta funcion se encarga de devolver si un usuario esta conectado
 	 * 
-	 * @return
+	 * @return the usuarioConectado
 	 */
 	public Usuario getUsuarioConectado() {
 		return this.usuarioConectado;
@@ -671,7 +671,7 @@ public class Aplicacion implements java.io.Serializable {
 	/**
 	 * Devuelve los proyectos creados por un usuario.
 	 * @param u El usuario.
-	 * @return HashSet<Proyecto> con los proyectos.
+	 * @return the HashSet con los proyectos.
 	 */
 	public HashSet<Proyecto> getProyectosUsuario(Usuario u){
 		HashSet<Proyecto> listado = new HashSet<Proyecto>();
@@ -686,7 +686,7 @@ public class Aplicacion implements java.io.Serializable {
 	/**
 	 * Devuelve los colectivos creados por un usuario.
 	 * @param u El usuario.
-	 * @return HashSet<Colectivo> con los colectivos.
+	 * @return the HashSet con los colectivos.
 	 */
 	public HashSet<Colectivo> getColectivosUsuario(Usuario u){
 		HashSet<Colectivo> listado = new HashSet<Colectivo>();
@@ -704,8 +704,8 @@ public class Aplicacion implements java.io.Serializable {
 	
 	/**
 	 * Devuelve los proyectos creados por un usuario.
-	 * @param u El usuario.
-	 * @return HashSet<Proyecto> con los proyectos.
+	 * @param c colectivo.
+	 * @return listado con los proyectos.
 	 */
 	public HashSet<Proyecto> getProyectosColectivo(Colectivo c){
 		HashSet<Proyecto> listado = new HashSet<Proyecto>();
@@ -719,7 +719,7 @@ public class Aplicacion implements java.io.Serializable {
 	/**
 	 * Devuelve los proyectos apoyados por un usuario.
 	 * @param u El usuario.
-	 * @return HashSet<Proyecto> con los proyectos.
+	 * @return HashSet con los proyectos.
 	 */
 	public HashSet<Proyecto> getProyectosApoyadosPor(Usuario u){
 		HashSet<Proyecto> listado = new HashSet<Proyecto>();
@@ -732,8 +732,8 @@ public class Aplicacion implements java.io.Serializable {
 	}
 	/**
 	 * Devuelve los proyectos apoyados por un colectivo.
-	 * @param u El colectivo.
-	 * @return HashSet<Proyecto> con los proyectos.
+	 * @param c Colectivo
+	 * @return listado  con los proyectos.
 	 */
 	public HashSet<Proyecto> getProyectosApoyadosPor(Colectivo c){
 		HashSet<Proyecto> listado = new HashSet<Proyecto>();

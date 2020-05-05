@@ -50,7 +50,7 @@ public class Colectivo extends Proponente{
 	/**
 	 * Esta funcion se encargara de crear un subcolectivo para el colectivo especificado
 	 * 
-	 * @param nombre
+	 * @param nombre string nombre
 	 * 
 	 * @return the c
 	 */
@@ -65,8 +65,8 @@ public class Colectivo extends Proponente{
 	 * Esta funcion nos dira si un usuario especificado se encuentra en un colectivo o un subcolectivo de este
 	 * devolviendo true si contiene el usuario y false en el caso contrario
 	 * 
-	 * @param u
-	 * @return 
+	 * @param u usuario
+	 * @return the true or false
 	 */
 	public Boolean getIsUsuarioEnColectivoSubcolectivo(Usuario u) {
 		
@@ -84,7 +84,7 @@ public class Colectivo extends Proponente{
 	 * Esta funcion se encargara de eliminar a un usuario especificado de un colectivo o de un subcolectivo del colectivo,
 	 * para ello la funcion comprueba que inicialmete este usuario se encuentre en un colectivo o subcolectivo
 	 * 
-	 * @param u
+	 * @param u usuario
 	 */
 	public void eliminarUsuarioDeColectivoSubcolectivos(Usuario u) {
 		if(getIsUsuarioEnColectivoSubcolectivo( u)) {
@@ -106,8 +106,8 @@ public class Colectivo extends Proponente{
 	 * Esta funcion se encargara de unir a un usuario al colectivo especificado,
 	 * si el usuario ya pertenece al colectivo la funcion devolvera false, en caso contrario devolvera true
 	 * 
-	 * @param u
-	 * @return 
+	 * @param u usuario
+	 * @return the true or false
 	 */
 	public Boolean suscribirseColectivo(Usuario u) {
 		
@@ -124,7 +124,7 @@ public class Colectivo extends Proponente{
 	/**
 	 * Esta funcion se encargara de devolver la afinidad entre dos colectivos
 	 * 
-	 * @param c
+	 * @param c colectivo
 	 * @return the afinidad
 	 */
 	public double obtenerAfinidad(Colectivo c) {
@@ -205,7 +205,7 @@ public class Colectivo extends Proponente{
 	/**
 	 * Esta funcion devuelve la lista de subcolectivos de un colectivo especifico
 	 * 
-	 * @return
+	 * @return the nombre or subcolectivos
 	 */
 	public HashSet<Colectivo> getSubcolectivos() {
 		//return (HashSet<Colectivo>) Collections.unmodifiableSet(this.subcolectivos);

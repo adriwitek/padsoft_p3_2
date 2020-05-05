@@ -8,7 +8,11 @@ import javax.swing.event.ListSelectionListener;
 
 import BP.Modelo.*;
 import BP.Vista.*;
-
+/** 
+* 
+* @author Adián Rubio adrian.rubiop@estudiante.uam.es, Guillermo Solla guillermo.solla@estudiante.uam.es 
+* y Diego Tapia diego.tapias@estudiante.uam.es
+*/
 public class ControladorProyectos implements ActionListener, ListSelectionListener {
 
 	private ProyectosPanel panel;
@@ -64,6 +68,7 @@ public class ControladorProyectos implements ActionListener, ListSelectionListen
 	/**
 	 * Esta funcion se encargara de crear la funcionalidad del boton detalles
 	 * nos mandara al panel DetallesProyectoPanel
+	 * @param p Proyecto
 	 */
 
 	public void goToDetallesProyecto(Proyecto p) {

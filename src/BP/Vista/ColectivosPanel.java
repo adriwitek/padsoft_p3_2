@@ -10,7 +10,11 @@ import BP.Controlador.ControladorColectivos;
 import BP.Controlador.ControladorUsuario;
 import BP.Modelo.Colectivo;
 import BP.Modelo.Proyecto;
-
+/** 
+* 
+* @author Adián Rubio adrian.rubiop@estudiante.uam.es, Guillermo Solla guillermo.solla@estudiante.uam.es 
+* y Diego Tapia diego.tapias@estudiante.uam.es
+*/
 public class ColectivosPanel extends JPanel{
 	private JPanel subP1;
 	private JButton crearColectivo;
@@ -114,7 +118,7 @@ public class ColectivosPanel extends JPanel{
 	}
 	/**
 	 * Esta funcion introducira una lista de proyectos en el panel de colectivo
-	 * @param proyectosAp
+	 * @param proyectosAp proyectoap
 	 */
 	public void setListaProyectos(HashSet<Proyecto> proyectosAp) {
 		proyectosM.clear();

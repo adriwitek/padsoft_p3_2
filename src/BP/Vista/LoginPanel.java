@@ -3,7 +3,11 @@ package BP.Vista;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-
+/** 
+* 
+* @author Adián Rubio adrian.rubiop@estudiante.uam.es, Guillermo Solla guillermo.solla@estudiante.uam.es 
+* y Diego Tapia diego.tapias@estudiante.uam.es
+*/
 public class LoginPanel extends JPanel {
 
 	private JLabel etiquetaUsuario;

@@ -9,7 +9,11 @@ import javax.swing.*;
 import BP.Modelo.Aplicacion;
 import BP.Modelo.Colectivo;
 
-
+/** 
+* 
+* @author Adián Rubio adrian.rubiop@estudiante.uam.es, Guillermo Solla guillermo.solla@estudiante.uam.es 
+* y Diego Tapia diego.tapias@estudiante.uam.es
+*/
 public class CrearProyectoPanel extends JPanel{
 
     //Panel subP1

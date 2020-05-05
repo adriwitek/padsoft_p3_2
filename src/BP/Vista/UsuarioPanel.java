@@ -1,6 +1,11 @@
 package BP.Vista;
 
 import java.awt.*;
+/** 
+* 
+* @author Adián Rubio adrian.rubiop@estudiante.uam.es, Guillermo Solla guillermo.solla@estudiante.uam.es 
+* y Diego Tapia diego.tapias@estudiante.uam.es
+*/
 import java.awt.event.*;
 import java.util.HashSet;
 
@@ -44,7 +49,7 @@ public class UsuarioPanel extends JPanel {
 	/**
 	 * Este es el constructor de UsuarioPanel, en el se encuentran los subpaneles subP1 y subP2, ademas de la 
 	 * creacion e introduccion de los elementos-objetos en ssu respectivo subpanel 
-	 * @param frame
+	 * @param frame ventana aplicacion
 	 */
 
 	public UsuarioPanel(VentanaPrincipal frame) {
@@ -167,8 +172,8 @@ public class UsuarioPanel extends JPanel {
 	}
 	
 	/**
-	 * Esta funcion introducira un HashSet<Proyecto> en la lista de proyectos 
-	 * @param proyectosAp HashSet<Proyecto> lista de preoyectos a introducir
+	 * Esta funcion introducira un HashSet en la lista de proyectos 
+	 * @param proyectosAp HashSet lista de preoyectos a introducir
 	 */
 	public void setListaProyectos(HashSet<Proyecto> proyectosAp) {
 		proyectosM.clear();
@@ -177,8 +182,8 @@ public class UsuarioPanel extends JPanel {
 		}
 	}
 	/**
-	 * Esta funcion introducira un HashSet<Colectivo> en la lista de colectivos 
-	 * @param colectivos HashSet<Colectivo> lista de colectivos a introducir
+	 * Esta funcion introducira un HashSet en la lista de colectivos 
+	 * @param colectivos HashSet lista de colectivos a introducir
 	 */
 	public void setListaColectivos(HashSet<Colectivo> colectivos) {
 		colectivosM.clear();
@@ -218,7 +223,7 @@ public class UsuarioPanel extends JPanel {
 	}
 	
 	/**
-	 * Esta funcion introduce un HashSet<Notificacion> de notificaciones 
+	 * Esta funcion introduce un HashSet de notificaciones 
 	 * @param notificaciones HashSet de notificaciones
 	 */
 	public void setModeloNotificaciones(HashSet<Notificacion> notificaciones) {

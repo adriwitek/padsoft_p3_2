@@ -87,7 +87,7 @@ public abstract class Proyecto implements java.io.Serializable, GrantRequest{
 	/**
 	 * Esta funcion permite que un usuario apoye a un proyecto especifico, siempre y cuando el proyecto este en estado OPERATIVO
 	 * 
-	 * @param u
+	 * @param u usuario
 	 */
 	public void apoyarProyecto(Usuario u ) {
 		if(this.estadoProyecto == EstadoProyecto.OPERATIVO) {
@@ -104,7 +104,7 @@ public abstract class Proyecto implements java.io.Serializable, GrantRequest{
 	 * Esta funcion permite que un colectivo apoye a un proyecto haciendo que todos sus miembros tambien lo apoyen (Apoyar como colectivo),
 	 * siempre y cuando el estado del proyecto sea OPERATIVO
 	 * 
-	 * @param c
+	 * @param c colectivo
 	 */
 	public void apoyarProyectoComoColectivo(Colectivo c) {
 		if(this.estadoProyecto == EstadoProyecto.OPERATIVO) {
@@ -149,8 +149,8 @@ public abstract class Proyecto implements java.io.Serializable, GrantRequest{
 	/**
 	 * Esta funcion devuele el informe de popularidad, es decir, el numero de apoyos validos de un proyecto
 	 * 
-	 * @param u
-	 * @return
+	 * @param u usuaario
+	 * @return the string
 	 */
 	public String obtenerInformePopularidad(Usuario u) {
 		return "numero de apoyos: " + getNumeroApoyosActualesValidos();
@@ -165,7 +165,7 @@ public abstract class Proyecto implements java.io.Serializable, GrantRequest{
 	/**
 	 * Esta funcion permite que un usuario se suscriba a las notificaciones de un proyecto
 	 * 
-	 * @param u
+	 * @param u usuario
 	 */
 	public void suscribirseANotificacionesDeProyecto(Usuario u) {
 		this.usuariosSuscritosNotificaciones.add(u);
@@ -181,7 +181,7 @@ public abstract class Proyecto implements java.io.Serializable, GrantRequest{
 	/**
 	 * Si la api ha financiado el proyecto,llamar a este metodo desde App
 	 * 
-	 * @return
+	 * @return the true or false
 	 */
 	public Boolean solicitarFinanciacion() {
 		int contadorIntentosMaximos = 4;
@@ -213,7 +213,7 @@ public abstract class Proyecto implements java.io.Serializable, GrantRequest{
 	/**
 	 * Esta funcion permite financiar un proyecto a una cantidad especifica de dinero
 	 * 
-	 * @param dinero
+	 * @param dinero dinero
 	 */
 	public void financiarProyecto(double dinero) {
 		
@@ -245,7 +245,7 @@ public abstract class Proyecto implements java.io.Serializable, GrantRequest{
 	/**
 	 * Esta funcion rechaza un proyecto que ha sido propuesto, dejando el proyecto en estado FINANCIACIONRECHAZADO
 	 * 
-	 * @param motivo
+	 * @param motivo motivo de rechazo
 	 * 
 	 */
 	public void rechazarProyecto(String motivo) {

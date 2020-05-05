@@ -14,7 +14,11 @@ import BP.Controlador.ControladorDetallesProyecto;
 import BP.Modelo.Proyecto;
 
 import java.util.Date;
-
+/** 
+* 
+* @author Adián Rubio adrian.rubiop@estudiante.uam.es, Guillermo Solla guillermo.solla@estudiante.uam.es 
+* y Diego Tapia diego.tapias@estudiante.uam.es
+*/
 public class DetallesProyectoPanel extends JPanel {
 	private JPanel subP1;
 	
@@ -168,9 +172,10 @@ public class DetallesProyectoPanel extends JPanel {
     }
 
 	/**
-	 * Esta funcioncion eliminara los elemento-objetos adicionales para proyectos sociales e introducira los datos especificos en los campos
-	 * de proyecto infraestructuras
-	 * @param p proyecto del que se quiere ver detalles
+	 * Esta funcion introduce detalles inraestructuras
+	 * @param p proyecto
+	 * @param imgPath foto 
+	 * @param croquisPath foto
 	 */
 	public void setDetallesInf(Proyecto p,String imgPath,String croquisPath) {
 

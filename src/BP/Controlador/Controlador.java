@@ -3,7 +3,11 @@ package BP.Controlador;
 import BP.Modelo.*;
 import BP.Vista.*;
 import java.awt.event.*;
-
+/** 
+* 
+* @author Adián Rubio adrian.rubiop@estudiante.uam.es, Guillermo Solla guillermo.solla@estudiante.uam.es 
+* y Diego Tapia diego.tapias@estudiante.uam.es
+*/
 public class Controlador {
 
 	

@@ -13,7 +13,11 @@ import javax.swing.table.DefaultTableModel;
 
 import BP.Modelo.*;
 import BP.Vista.*;
-
+/** 
+* 
+* @author Adián Rubio adrian.rubiop@estudiante.uam.es, Guillermo Solla guillermo.solla@estudiante.uam.es 
+* y Diego Tapia diego.tapias@estudiante.uam.es
+*/
 public class ControladorAdmin  implements ListSelectionListener , ActionListener,ChangeListener { 
 
 	private AdminPanel panel;
@@ -46,7 +50,7 @@ public class ControladorAdmin  implements ListSelectionListener , ActionListener
 	/**
 	 * Esta funcion se encargara de que al interactuar con el programa(dar a un boton, escribir en un texto, seleccionar un valor de una list, etc)
 	 * se realice la accion correspondiente.
-	 * @param e 
+	 * @param e actionEvent
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
