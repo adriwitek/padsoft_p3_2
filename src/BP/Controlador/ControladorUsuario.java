@@ -72,6 +72,7 @@ public class ControladorUsuario implements ActionListener, ListSelectionListener
             this.panel.setVisible(false);
         }else if(e.getActionCommand().equals("Borrar Notificacion")) {
 
+        	
             if(this.notificacionSeleccionada == null) {
                 JOptionPane.showMessageDialog(panel,"Debe seleccionar una notificacion de la lista", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
