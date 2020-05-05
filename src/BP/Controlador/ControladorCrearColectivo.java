@@ -73,7 +73,7 @@ public class ControladorCrearColectivo implements ActionListener{
 					"Faltan campos obligatorios por rellenar.", "Error", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
-		modelo.crearColectivo(modelo.getUsuarioConectado(), nombre, null);
+		modelo.crearColectivo(modelo.getUsuarioConectado(), nombre,descripcion, null);
 		JOptionPane.showMessageDialog(panel, "Colectivo creado");
 		return;
 	}

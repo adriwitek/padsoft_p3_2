@@ -25,13 +25,13 @@ public class ColectivoTest {
         usuario1 = new Usuario("5555", "Paco", "paco123");
         usuario2 = new Usuario("4444", "Pepe", "pepe2000");
         usuario3 = new Usuario("6666", "Solla", "solla2000");
-		colectivo1 = new Colectivo(usuario1,"nombre",null);
-        colectivoAux = new Colectivo(usuario1,"nombreAux",null);
+		colectivo1 = new Colectivo(usuario1,"nombre","ola",null);
+        colectivoAux = new Colectivo(usuario1,"nombreAux","ola",null);
     }
 	
 	@Test
 	public void crearSubcolectivoTest() {
-		Colectivo colectivo2 = colectivo1.crearSubcolectivo("name");
+		Colectivo colectivo2 = colectivo1.crearSubcolectivo("name","ola");
 		
 		
 		assertNotEquals("Error al crear subcolectivo", colectivo2 , null);

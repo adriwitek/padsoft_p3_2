@@ -64,10 +64,24 @@ public class ControladorColectivos implements ActionListener, ListSelectionListe
 				frame.getControlador().getControladorProyectos().pedirFinanciacion(proyectoSeleccionadoCol);
 		}else if(e.getActionCommand().equals("Pedir informe de popularidad")) {
 				frame.getControlador().getControladorProyectos().pedirInformePopularidad(proyectoSeleccionadoCol);
+		}else if(e.getActionCommand().equals("DetallesC")) {
+				mostrarDetalles(colectivoSeleccionado);
 		}
 		
 	}
-	
+	/**
+	 * Muestra la descripcion de un colectivo
+	 * @param c el colectivo
+	 */
+	public void mostrarDetalles(Colectivo c) {
+		if(c == null) {
+			JOptionPane.showMessageDialog(panel,
+					"Seleccione un colectivo.", "Error", JOptionPane.ERROR_MESSAGE);
+			
+			return;
+		}
+		JOptionPane.showMessageDialog(panel, c.getDescripcion(), c.getNombre(), JOptionPane.INFORMATION_MESSAGE);
+	}
 	/**
 	 * Esta funcion se encargara de desarrollar la funcionalidad del boton "Apoyar como representante de colectivo"
 	 * de tal manera que al pulsarlo el proyecto pase a ser un proyecto apollado

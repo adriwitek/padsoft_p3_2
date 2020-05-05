@@ -61,8 +61,7 @@ public class ControladorUsuario implements ActionListener, ListSelectionListener
         		frame.getControlador().getControladorProyectos().goToDetallesProyecto(this.proyectoSeleccionado);
 
         }else if(e.getActionCommand().equals("DetallesC")) {
-        	
-            
+        	frame.getControlador().getControladorColectivos().mostrarDetalles(colectivoSeleccionado);
         }else if(e.getActionCommand().equals("Actualizar")) {
         	actualizar();
         }else if(e.getActionCommand().equals("Cerrar Sesion")) {

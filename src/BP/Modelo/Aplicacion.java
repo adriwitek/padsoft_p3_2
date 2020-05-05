@@ -574,14 +574,14 @@ public class Aplicacion implements java.io.Serializable {
 		
 	}
 	
-	public Colectivo crearColectivo(Usuario uRepresentante, String nombre,Colectivo colectivoPadre) {
-		Colectivo newC = new Colectivo(uRepresentante, nombre, colectivoPadre);
+	public Colectivo crearColectivo(Usuario uRepresentante, String nombre, String descripcion,Colectivo colectivoPadre) {
+		Colectivo newC = new Colectivo(uRepresentante, nombre, descripcion, colectivoPadre);
 		this.proponentes.add(newC);
 		return newC;
 	}
 	
-	public Colectivo crearSubcolectivo(String nombre, Colectivo colectivoPadre) {
-		Colectivo newSubC = colectivoPadre.crearSubcolectivo(nombre);
+	public Colectivo crearSubcolectivo(String nombre,String descripcion, Colectivo colectivoPadre) {
+		Colectivo newSubC = colectivoPadre.crearSubcolectivo(nombre, descripcion);
 		this.proponentes.add(newSubC);
 		return newSubC;
 		

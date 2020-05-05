@@ -23,6 +23,7 @@ public class UsuarioPanel extends JPanel {
 	private JButton verDetallesColectivo;
 	private JButton botonActualizar;
 	private JLabel labelListaProyectos;
+	private JLabel labelListaColectivos;
 	private JLabel etiquetaUsuario;
 	private JLabel nombreUsuario;
 	private JLabel etiquetaNIF;
@@ -67,17 +68,22 @@ public class UsuarioPanel extends JPanel {
 		this.nombreUsuario = new JLabel("");
 		this.etiquetaUsuario = new JLabel("Usuario:");
 		this.numeroNIF = new JLabel("");
-
+		
 		this.botonActualizar = new JButton("Actualizar");
 		this.listaProyectos = new JList(proyectosM);
 		this.scrollProyectos = new JScrollPane(this.listaProyectos);
-
+		//configurar lista colectivos
+		this.labelListaColectivos = new JLabel("Colectivos Disponibles");
+		JPanel panelListaColectivos = new JPanel(new GridLayout(3,1));
 		this.listaColectivos = new JList(colectivosM);
 		this.scrollColectivos = new JScrollPane(this.listaColectivos);
 		this.botonSuscribirseColectivo = new JButton("Suscribirse");
 		this.listaColectivos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		this.verDetallesColectivo = new JButton("DetallesC");
-
+		panelListaColectivos.add(labelListaColectivos);
+		panelListaColectivos.add(botonSuscribirseColectivo);
+		panelListaColectivos.add(verDetallesColectivo);
+		this.scrollColectivos.setRowHeaderView(panelListaColectivos);
 		subP1.add(etiquetaUsuario);
 		subP1.add(nombreUsuario);
 		subP1.add(etiquetaNIF);
@@ -85,7 +91,6 @@ public class UsuarioPanel extends JPanel {
 
 		subP1.add(scrollProyectos);
 		subP1.add(scrollColectivos);
-		subP1.add(botonSuscribirseColectivo);
 		subP1.add(botonActualizar);
 		this.add(subP1);
 		this.pestanias.add("Usuario",subP1);
@@ -131,7 +136,6 @@ public class UsuarioPanel extends JPanel {
 		subP2.add(label3);
 		subP2.add(campoDescripcionNotificacion);
 		subP2.add(botonBorrarNotificacion);
-
 		this.pestanias.add("Notificaciones",subP2);
 
 	}
@@ -152,6 +156,7 @@ public class UsuarioPanel extends JPanel {
 		this.botonBorrarNotificacion.addActionListener(c);
 		this.listaNotificaciones.addListSelectionListener(c.getControllerNotificaciones());
 		this.botonCerrarSesion.addActionListener(c);
+		this.verDetallesColectivo.addActionListener(c);
 	}
 
 	

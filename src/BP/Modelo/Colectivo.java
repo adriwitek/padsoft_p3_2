@@ -17,7 +17,7 @@ public class Colectivo extends Proponente{
 	private Colectivo colectivoPadre;
 	private HashSet<Usuario> participantes;
 	private HashSet<Colectivo> subcolectivos;
-	
+	private String descripcion;
 	 /**
 	  * Constructor, con los datos a implementar
 	  * @param nombre que asignar al colectivo 
@@ -25,12 +25,13 @@ public class Colectivo extends Proponente{
 	  * @param colectivoPadre para asignar al colectivo del que es subcolectivo (en el caso de serlo)
 	  */
 	
-	public Colectivo(Usuario uRepresentante, String nombre,Colectivo colectivoPadre) {
+	public Colectivo(Usuario uRepresentante, String nombre,String descripcion,Colectivo colectivoPadre) {
 		if(nombre.isEmpty()|| Objects.isNull(uRepresentante)  ||  Objects.isNull(nombre) ) {
 				throw new IllegalArgumentException("Debes de introducir los datos validos");
 			}
 		
 		this.nombre = nombre;
+		this.descripcion = descripcion;
 		usuarioRepresentanteDeColectivo = uRepresentante;
 		this.colectivoPadre = colectivoPadre;
 		participantes = new HashSet<>();
@@ -54,9 +55,9 @@ public class Colectivo extends Proponente{
 	 * 
 	 * @return the c
 	 */
-	public Colectivo crearSubcolectivo(String nombre) {
+	public Colectivo crearSubcolectivo(String nombre, String descripcion) {
 		
-		Colectivo c = new Colectivo(this.usuarioRepresentanteDeColectivo, nombre,this);		
+		Colectivo c = new Colectivo(this.usuarioRepresentanteDeColectivo, nombre, descripcion,this);		
 		this.subcolectivos.add(c);
 		return c;
 	}
@@ -166,6 +167,14 @@ public class Colectivo extends Proponente{
 	 */
 	public String getNombre() {
 		return nombre;
+	}
+	/**
+	 * Esta funcion devuelve la descripcion del colectivo
+	 * 
+	 * @return la descripcion
+	 */
+	public String getDescripcion() {
+		return descripcion;
 	}
 
 	/**
