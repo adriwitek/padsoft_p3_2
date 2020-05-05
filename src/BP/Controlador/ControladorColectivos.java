@@ -55,6 +55,10 @@ public class ControladorColectivos implements ActionListener, ListSelectionListe
 				frame.getControlador().getControladorProyectos().goToDetallesProyecto(proyectoSeleccionado);
 		}else if(e.getActionCommand().equals("DetallesPC")) {
 				frame.getControlador().getControladorProyectos().goToDetallesProyecto(proyectoSeleccionadoCol);
+		}else if(e.getActionCommand().equals("Pedir Financiacion")) {
+				frame.getControlador().getControladorProyectos().pedirFinanciacion(proyectoSeleccionadoCol);
+		}else if(e.getActionCommand().equals("Pedir informe de popularidad")) {
+				frame.getControlador().getControladorProyectos().pedirInformePopularidad(proyectoSeleccionadoCol);
 		}
 		
 	}

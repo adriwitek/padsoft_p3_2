@@ -32,14 +32,15 @@ public class ColectivosPanel extends JPanel{
 	private DefaultListModel proyectosCol; 
 	private JList listaProyectosCol;
 	private JScrollPane scrollProyectosCol;
-	
+	private JButton pedirFinanciacion;
+	private JButton informePopularidad;
 	/**
 	 * Este es el constructor de ColectivoPanel, aqui se encuentra el panel correspondiente, ademas esta la creacion y introduccion 
 	 * de los objetos en el panel correspondiente
 	 */
 	public ColectivosPanel() {
 		this.setLayout(new BorderLayout());
-		
+		this.informePopularidad = new JButton("Pedir informe de popularidad");
 		subP1 = new JPanel(new GridLayout(4,3));
 		this.labelProyectos = new JLabel("Proyectos disponibles");
 		this.labelColectivos = new JLabel("Tus colectivos");
@@ -69,7 +70,8 @@ public class ColectivosPanel extends JPanel{
 		this.scrollColectivos.setRowHeaderView(pListaCol);
 		
 		//lista de tus proyectos como representante
-		JPanel pListaProCol = new JPanel(new GridLayout(3 ,1));
+		this.pedirFinanciacion = new JButton("Pedir Financiacion");
+		JPanel pListaProCol = new JPanel(new GridLayout(5 ,1));
 		this.detallesPC = new JButton("DetallesPC");
 		this.labelProyectosCol = new JLabel("Proyectos de: ");
 		this.proyectosCol = new DefaultListModel();
@@ -77,8 +79,10 @@ public class ColectivosPanel extends JPanel{
 		this.scrollProyectosCol = new JScrollPane(this.listaProyectosCol);
 		this.botonActualizar = new JButton("Actualizar");
 		pListaProCol.add(labelProyectosCol);
+		pListaProCol.add(pedirFinanciacion);
 		pListaProCol.add(botonCrearProColec);
 		pListaProCol.add(detallesPC);
+		pListaProCol.add(informePopularidad);
 		this.scrollProyectosCol.setRowHeaderView(pListaProCol);
 		
 		subP1.add(botonActualizar);
@@ -103,6 +107,8 @@ public class ColectivosPanel extends JPanel{
 		this.botonCrearProColec.addActionListener(c);
 		this.detallesP.addActionListener(c);
 		this.detallesPC.addActionListener(c);
+		pedirFinanciacion.addActionListener(c);
+		informePopularidad.addActionListener(c);
 	}
 	
 	/**
