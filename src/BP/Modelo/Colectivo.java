@@ -22,9 +22,9 @@ public class Colectivo extends Proponente{
 	  * Constructor, con los datos a implementar
 	  * @param nombre que asignar al colectivo 
 	  * @param uRepresentante para asignar al usuario que ha creado el colectivo
+	  * @param descripcion descripcion
 	  * @param colectivoPadre para asignar al colectivo del que es subcolectivo (en el caso de serlo)
 	  */
-	
 	public Colectivo(Usuario uRepresentante, String nombre,String descripcion,Colectivo colectivoPadre) {
 		if(nombre.isEmpty()|| Objects.isNull(uRepresentante)  ||  Objects.isNull(nombre) ) {
 				throw new IllegalArgumentException("Debes de introducir los datos validos");
@@ -52,7 +52,7 @@ public class Colectivo extends Proponente{
 	 * Esta funcion se encargara de crear un subcolectivo para el colectivo especificado
 	 * 
 	 * @param nombre string nombre
-	 * 
+	 * @param descripcion descripcion
 	 * @return the c
 	 */
 	public Colectivo crearSubcolectivo(String nombre, String descripcion) {
